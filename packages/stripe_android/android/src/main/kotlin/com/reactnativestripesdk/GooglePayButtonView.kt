@@ -4,8 +4,8 @@ import android.annotation.SuppressLint
 import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
-import com.facebook.react.uimanager.PixelUtil
-import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.PixelUtilStripe
+import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.google.android.gms.wallet.button.ButtonConstants.ButtonTheme
 import com.google.android.gms.wallet.button.ButtonConstants.ButtonType
 import com.google.android.gms.wallet.button.ButtonOptions
@@ -13,7 +13,7 @@ import com.google.android.gms.wallet.button.PayButton
 import com.stripe.android.GooglePayJsonFactory
 import org.json.JSONArray
 
-class GooglePayButtonView(private val context: ThemedReactContext) : FrameLayout(context) {
+class GooglePayButtonView(private val context: ThemedReactContextStripe) : FrameLayout(context) {
   private var type: Int? = null
   private var appearance: Int? = null
   private var borderRadius: Int = 4 // Matches the default on iOS's ApplePayButton
@@ -62,7 +62,7 @@ class GooglePayButtonView(private val context: ThemedReactContext) : FrameLayout
       options.setButtonTheme(it)
     }
 
-    options.setCornerRadius(PixelUtil.toPixelFromDIP(this.borderRadius.toDouble()).toInt())
+    options.setCornerRadius(PixelUtilStripe.toPixelFromDIP(this.borderRadius.toDouble()).toInt())
 
     return options.build()
   }

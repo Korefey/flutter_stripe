@@ -1,5 +1,5 @@
 package com.facebook.react.uimanager.events
 
-interface EventDispatcher {
+interface EventDispatcherStripe {
     fun dispatchEvent(event: Event<*>)
 }

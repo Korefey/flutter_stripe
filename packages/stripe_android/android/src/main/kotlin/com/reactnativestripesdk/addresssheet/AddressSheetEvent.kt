@@ -2,7 +2,7 @@ package com.reactnativestripesdk.addresssheet
 
 import com.facebook.react.bridge.WritableMapStripe
 import com.facebook.react.uimanager.events.Event
-import com.facebook.react.uimanager.events.RCTEventEmitter
+import com.facebook.react.uimanager.events.RCTEventEmitterStripe
 
 internal class AddressSheetEvent constructor(viewTag: Int, private val eventType: EventType, private val eventMap: WritableMapStripe?) : Event<AddressSheetEvent>(viewTag) {
   enum class EventType {
@@ -10,7 +10,7 @@ internal class AddressSheetEvent constructor(viewTag: Int, private val eventType
     OnError
   }
 
-  override fun dispatch(rctEventEmitter: RCTEventEmitter) {
+  override fun dispatch(rctEventEmitter: RCTEventEmitterStripe) {
     rctEventEmitter.receiveEvent(viewTag, eventName, eventMap)
   }
 

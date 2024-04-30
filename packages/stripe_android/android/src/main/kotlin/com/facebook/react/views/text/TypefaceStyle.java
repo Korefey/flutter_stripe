@@ -10,7 +10,7 @@ package com.facebook.react.views.text;
 import android.graphics.Typeface;
 import android.os.Build;
 
-import com.facebook.react.uimanager.ReactBaseTextShadowNode;
+import com.facebook.react.uimanager.ReactBaseTextShadowNodeStripe;
 
 /** Responsible for normalizing style and numeric weight for backward compatibility. */
 class TypefaceStyle {
@@ -26,11 +26,11 @@ class TypefaceStyle {
 
   public TypefaceStyle(int weight, boolean italic) {
     mItalic = italic;
-    mWeight = weight == ReactBaseTextShadowNode.UNSET ? NORMAL : weight;
+    mWeight = weight == ReactBaseTextShadowNodeStripe.UNSET ? NORMAL : weight;
   }
 
   public TypefaceStyle(int style) {
-    if (style == ReactBaseTextShadowNode.UNSET) {
+    if (style == ReactBaseTextShadowNodeStripe.UNSET) {
       style = Typeface.NORMAL;
     }
 
@@ -43,13 +43,13 @@ class TypefaceStyle {
    * existing weight bit in `style` will be used.
    */
   public TypefaceStyle(int style, int weight) {
-    if (style == ReactBaseTextShadowNode.UNSET) {
+    if (style == ReactBaseTextShadowNodeStripe.UNSET) {
       style = Typeface.NORMAL;
     }
 
     mItalic = (style & Typeface.ITALIC) != 0;
     mWeight =
-        weight == ReactBaseTextShadowNode.UNSET
+        weight == ReactBaseTextShadowNodeStripe.UNSET
             ? (style & Typeface.BOLD) != 0 ? BOLD : NORMAL
             : weight;
   }

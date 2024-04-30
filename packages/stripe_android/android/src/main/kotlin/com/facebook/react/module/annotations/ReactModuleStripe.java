@@ -1,5 +1,5 @@
 package com.facebook.react.module.annotations;
 
-public @interface ReactModule {
+public @interface ReactModuleStripe {
     String name();
 }

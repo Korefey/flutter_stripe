@@ -7,7 +7,7 @@ import com.facebook.react.bridge.ReactContextStripe
 import com.reactnativestripesdk.StripeSdkModule
 import io.flutter.plugin.common.MethodChannel
 
-class ThemedReactContext(
+class ThemedReactContextStripe(
     context: ReactApplicationContextStripe,
     channel: MethodChannel,
     sdkAccessor: () -> StripeSdkModule

@@ -2,23 +2,23 @@ package com.reactnativestripesdk
 
 import com.facebook.react.bridge.ReadableArrayStripe
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.common.MapBuilder
-import com.facebook.react.uimanager.SimpleViewManager
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.annotations.ReactProp
+import com.facebook.react.common.MapBuilderStripe
+import com.facebook.react.uimanager.SimpleViewManagerStripe
+import com.facebook.react.uimanager.ThemedReactContextStripe
+import com.facebook.react.uimanager.annotations.ReactPropStripe
 import com.reactnativestripesdk.utils.getIntOrNull
 import com.reactnativestripesdk.utils.getValOr
 import com.stripe.android.model.PaymentMethodCreateParams
 
-class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
+class CardFieldViewManager : SimpleViewManagerStripe<CardFieldView>() {
   override fun getName() = "CardField"
 
-  private var reactContextRef: ThemedReactContext? = null
+  private var reactContextRef: ThemedReactContextStripe? = null
 
   override fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Any> {
-    return MapBuilder.of(
-      CardFocusEvent.EVENT_NAME, MapBuilder.of("registrationName", "onFocusChange"),
-      CardChangedEvent.EVENT_NAME, MapBuilder.of("registrationName", "onCardChange"))
+    return MapBuilderStripe.of(
+      CardFocusEvent.EVENT_NAME, MapBuilderStripe.of("registrationName", "onFocusChange"),
+      CardChangedEvent.EVENT_NAME, MapBuilderStripe.of("registrationName", "onCardChange"))
   }
 
   override fun receiveCommand(root: CardFieldView, commandId: String?, args: ReadableArrayStripe?) {
@@ -29,48 +29,48 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
     }
   }
 
-  @ReactProp(name = "dangerouslyGetFullCardDetails")
+  @ReactPropStripe(name = "dangerouslyGetFullCardDetails")
   fun setDangerouslyGetFullCardDetails(view: CardFieldView, dangerouslyGetFullCardDetails: Boolean = false) {
     view.setDangerouslyGetFullCardDetails(dangerouslyGetFullCardDetails)
   }
 
-  @ReactProp(name = "postalCodeEnabled")
+  @ReactPropStripe(name = "postalCodeEnabled")
   fun setPostalCodeEnabled(view: CardFieldView, postalCodeEnabled: Boolean = true) {
     view.setPostalCodeEnabled(postalCodeEnabled)
   }
 
-  @ReactProp(name = "autofocus")
+  @ReactPropStripe(name = "autofocus")
   fun setAutofocus(view: CardFieldView, autofocus: Boolean = false) {
     view.setAutofocus(autofocus)
   }
 
-  @ReactProp(name = "cardStyle")
+  @ReactPropStripe(name = "cardStyle")
   fun setCardStyle(view: CardFieldView, cardStyle: ReadableMapStripe) {
     view.setCardStyle(cardStyle)
   }
 
-  @ReactProp(name = "countryCode")
+  @ReactPropStripe(name = "countryCode")
   fun setCountryCode(view: CardFieldView, countryCode: String?) {
     view.setCountryCode(countryCode)
   }
 
-  @ReactProp(name = "placeholders")
+  @ReactPropStripe(name = "placeholders")
   fun setPlaceHolders(view: CardFieldView, placeholders: ReadableMapStripe) {
     view.setPlaceHolders(placeholders)
   }
 
-  @ReactProp(name = "disabled")
+  @ReactPropStripe(name = "disabled")
   fun setDisabled(view: CardFieldView, isDisabled: Boolean) {
     view.setDisabled(isDisabled)
   }
 
-  @ReactProp(name = "preferredNetworks")
+  @ReactPropStripe(name = "preferredNetworks")
   fun setPreferredNetworks(view: CardFieldView, preferredNetworks: ReadableArrayStripe?) {
     val networks = preferredNetworks?.toArrayList()?.filterIsInstance<Int>()?.let { ArrayList(it) }
     view.setPreferredNetworks(networks)
   }
 
-  override fun createViewInstance(reactContext: ThemedReactContext): CardFieldView {
+  override fun createViewInstance(reactContext: ThemedReactContextStripe): CardFieldView {
     val stripeSdkModule: StripeSdkModule? = reactContext.getNativeModule(StripeSdkModule::class.java)
     val view = CardFieldView(reactContext)
 
@@ -93,7 +93,7 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
     return stripeSdkModule?.cardFieldView
   }
 
-  fun setCardDetails(value: ReadableMapStripe, reactContext: ThemedReactContext) {
+  fun setCardDetails(value: ReadableMapStripe, reactContext: ThemedReactContextStripe) {
     val number = getValOr(value, "number", null)
     val expirationYear = getIntOrNull(value, "expirationYear")
     val expirationMonth = getIntOrNull(value, "expirationMonth")

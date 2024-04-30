@@ -9,7 +9,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.annotation.NonNull
 import com.facebook.react.bridge.ReadableArrayStripe
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.reactnativestripesdk.*
 import com.reactnativestripesdk.utils.getIntOrNull
 import com.reactnativestripesdk.utils.getValOr
@@ -31,7 +31,7 @@ class StripeSdkCardFormPlatformView(
 ) : PlatformView, MethodChannel.MethodCallHandler {
 
     private val cardView: CardFormView = cardFormViewManager.getCardViewInstance() ?: let {
-        return@let cardFormViewManager.createViewInstance(ThemedReactContext(sdkAccessor().reactContext, channel, sdkAccessor))
+        return@let cardFormViewManager.createViewInstance(ThemedReactContextStripe(sdkAccessor().reactContext, channel, sdkAccessor))
     }
 
     init {

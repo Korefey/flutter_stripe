@@ -7,9 +7,9 @@ import com.facebook.react.bridge.ArgumentsStripe
 import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.bridge.WritableMapStripe
 import com.facebook.react.bridge.WritableNativeMapStripe
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.UIManagerModule
-import com.facebook.react.uimanager.events.EventDispatcher
+import com.facebook.react.uimanager.ThemedReactContextStripe
+import com.facebook.react.uimanager.UIManagerModuleStripe
+import com.facebook.react.uimanager.events.EventDispatcherStripe
 import com.reactnativestripesdk.buildPaymentSheetAppearance
 import com.reactnativestripesdk.utils.ErrorType
 import com.reactnativestripesdk.utils.PaymentSheetAppearanceException
@@ -20,8 +20,8 @@ import com.stripe.android.paymentsheet.addresselement.AddressDetails
 import com.stripe.android.paymentsheet.addresselement.AddressLauncher
 import com.stripe.android.paymentsheet.addresselement.AddressLauncherResult
 
-class AddressSheetView(private val context: ThemedReactContext) : FrameLayout(context) {
-  private var eventDispatcher: EventDispatcher? = context.getNativeModule(UIManagerModule::class.java)?.eventDispatcher
+class AddressSheetView(private val context: ThemedReactContextStripe) : FrameLayout(context) {
+  private var eventDispatcher: EventDispatcherStripe? = context.getNativeModule(UIManagerModuleStripe::class.java)?.eventDispatcher
   private var isVisible = false
   private var appearanceParams: ReadableMapStripe? = null
   private var defaultAddress: AddressDetails? = null

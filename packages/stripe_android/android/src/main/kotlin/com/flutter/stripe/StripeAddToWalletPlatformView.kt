@@ -3,7 +3,7 @@ package com.flutter.stripe
 import android.content.Context
 import android.view.View
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.reactnativestripesdk.StripeSdkModule
 import com.reactnativestripesdk.pushprovisioning.AddToWalletButtonManager
 import com.reactnativestripesdk.pushprovisioning.AddToWalletButtonView
@@ -25,7 +25,7 @@ class StripeAddToWalletPlatformView(
     init {
 
         nativeView = viewManager.createViewInstance(
-            ThemedReactContext(
+            ThemedReactContextStripe(
                 sdkAccessor().reactContext,
                 channel,
                 sdkAccessor

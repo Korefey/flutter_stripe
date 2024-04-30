@@ -6,8 +6,8 @@ import android.os.Parcelable
 import android.util.Log
 import androidx.fragment.app.FragmentActivity
 import com.facebook.react.bridge.*
-import com.facebook.react.module.annotations.ReactModule
-import com.facebook.react.modules.core.DeviceEventManagerModule
+import com.facebook.react.module.annotations.ReactModuleStripe
+import com.facebook.react.modules.core.DeviceEventManagerModuleStripe
 import com.flutter.stripe.activityResultRegistry
 import com.flutter.stripe.invoke
 import com.reactnativestripesdk.addresssheet.AddressLauncherFragment
@@ -27,7 +27,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 
-@ReactModule(name = StripeSdkModule.NAME)
+@ReactModuleStripe(name = StripeSdkModule.NAME)
 class StripeSdkModule(val reactContext: ReactApplicationContextStripe) : ReactContextBaseJavaModuleStripe(reactContext) {
   override fun getName(): String {
     return "StripeSdk"
@@ -955,7 +955,7 @@ class StripeSdkModule(val reactContext: ReactApplicationContextStripe) : ReactCo
 
   internal fun sendEvent(reactContext: ReactContextStripe, eventName: String, params: WritableMapStripe) {
     reactContext
-      .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter::class.java)
+      .getJSModule(DeviceEventManagerModuleStripe.RCTDeviceEventEmitter::class.java)
       .emit(eventName, params)
   }
 

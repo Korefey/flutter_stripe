@@ -5,8 +5,8 @@ import androidx.annotation.NonNull
 import com.facebook.react.bridge.PromiseStripe
 import com.facebook.react.bridge.ReactApplicationContextStripe
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.uimanager.DisplayMetricsHolder
-import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.DisplayMetricsHolderStripe
+import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.google.android.material.internal.ThemeEnforcement
 import com.reactnativestripesdk.*
 import com.reactnativestripesdk.pushprovisioning.AddToWalletButtonManager
@@ -50,7 +50,7 @@ class StripeAndroidPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     }
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        DisplayMetricsHolder.initDisplayMetricsIfNotInitialized(flutterPluginBinding.applicationContext)
+        DisplayMetricsHolderStripe.initDisplayMetricsIfNotInitialized(flutterPluginBinding.applicationContext)
 
         channel = MethodChannel(flutterPluginBinding.binaryMessenger, "flutter.stripe/payments", JSONMethodCodec.INSTANCE)
         channel.setMethodCallHandler(this)
@@ -146,7 +146,7 @@ If you continue to have trouble, follow this discussion to get some support http
             "dangerouslyUpdateCardDetails" -> {
                 stripeSdkCardViewManager.setCardDetails(
                     value = call.requiredArgument("params"),
-                    reactContext = ThemedReactContext(stripeSdk.reactContext, channel) { stripeSdk }
+                    reactContext = ThemedReactContextStripe(stripeSdk.reactContext, channel) { stripeSdk }
                 )
                 result.success(null)
             }

@@ -6,7 +6,7 @@ import android.view.inputmethod.InputMethodManager
 import androidx.annotation.NonNull
 import com.facebook.react.bridge.ReadableArrayStripe
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.reactnativestripesdk.*
 import com.reactnativestripesdk.utils.getIntOrNull
 import com.reactnativestripesdk.utils.getValOr
@@ -25,7 +25,7 @@ class StripeSdkCardPlatformView(
         sdkAccessor: () -> StripeSdkModule
 ) : PlatformView, MethodChannel.MethodCallHandler {
 
-    private val themedContext = ThemedReactContext(sdkAccessor().reactContext, channel, sdkAccessor)
+    private val themedContext = ThemedReactContextStripe(sdkAccessor().reactContext, channel, sdkAccessor)
     private val cardView: CardFieldView = stripeSdkCardViewManager.getCardViewInstance() ?: let {
         return@let stripeSdkCardViewManager.createViewInstance(themedContext)
     }

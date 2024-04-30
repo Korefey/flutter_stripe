@@ -2,20 +2,20 @@ package com.reactnativestripesdk
 
 import com.facebook.react.bridge.ReadableArrayStripe
 import com.facebook.react.bridge.ReadableMap
-import com.facebook.react.common.MapBuilder
-import com.facebook.react.uimanager.SimpleViewManager
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.annotations.ReactProp
+import com.facebook.react.common.MapBuilderStripe
+import com.facebook.react.uimanager.SimpleViewManagerStripe
+import com.facebook.react.uimanager.ThemedReactContextStripe
+import com.facebook.react.uimanager.annotations.ReactPropStripe
 
-class CardFormViewManager : SimpleViewManager<CardFormView>() {
+class CardFormViewManager : SimpleViewManagerStripe<CardFormView>() {
   override fun getName() = "CardForm"
 
-  private var reactContextRef: ThemedReactContext? = null
+  private var reactContextRef: ThemedReactContextStripe? = null
 
   override fun getExportedCustomDirectEventTypeConstants(): MutableMap<String, Any> {
-    return MapBuilder.of(
-      CardFocusEvent.EVENT_NAME, MapBuilder.of("registrationName", "onFocusChange"),
-      CardFormCompleteEvent.EVENT_NAME, MapBuilder.of("registrationName", "onFormComplete"))
+    return MapBuilderStripe.of(
+      CardFocusEvent.EVENT_NAME, MapBuilderStripe.of("registrationName", "onFocusChange"),
+      CardFormCompleteEvent.EVENT_NAME, MapBuilderStripe.of("registrationName", "onFormComplete"))
   }
 
   override fun receiveCommand(root: CardFormView, commandId: String?, args: ReadableArrayStripe?) {
@@ -26,48 +26,48 @@ class CardFormViewManager : SimpleViewManager<CardFormView>() {
     }
   }
 
-  @ReactProp(name = "dangerouslyGetFullCardDetails")
+  @ReactPropStripe(name = "dangerouslyGetFullCardDetails")
   fun setDangerouslyGetFullCardDetails(view: CardFormView, dangerouslyGetFullCardDetails: Boolean = false) {
     view.setDangerouslyGetFullCardDetails(dangerouslyGetFullCardDetails)
   }
 
-  @ReactProp(name = "postalCodeEnabled")
+  @ReactPropStripe(name = "postalCodeEnabled")
   fun setPostalCodeEnabled(view: CardFormView, postalCodeEnabled: Boolean = false) {
     view.setPostalCodeEnabled(postalCodeEnabled)
   }
 
-   @ReactProp(name = "placeholders")
+   @ReactPropStripe(name = "placeholders")
    fun setPlaceHolders(view: CardFormView, placeholders: ReadableMap) {
      view.setPlaceHolders(placeholders)
    }
 
-  @ReactProp(name = "autofocus")
+  @ReactPropStripe(name = "autofocus")
   fun setAutofocus(view: CardFormView, autofocus: Boolean = false) {
     view.setAutofocus(autofocus)
   }
 
-  @ReactProp(name = "cardStyle")
+  @ReactPropStripe(name = "cardStyle")
   fun setCardStyle(view: CardFormView, cardStyle: ReadableMap) {
     view.setCardStyle(cardStyle)
   }
 
-  @ReactProp(name = "defaultValues")
+  @ReactPropStripe(name = "defaultValues")
   fun setDefaultValues(view: CardFormView, defaults: ReadableMap) {
     view.setDefaultValues(defaults)
   }
 
-  @ReactProp(name = "disabled")
+  @ReactPropStripe(name = "disabled")
   fun setDisabled(view: CardFormView, isDisabled: Boolean) {
     view.setDisabled(isDisabled)
   }
 
-  @ReactProp(name = "preferredNetworks")
+  @ReactPropStripe(name = "preferredNetworks")
   fun setPreferredNetworks(view: CardFormView, preferredNetworks: ReadableArrayStripe?) {
     val networks = preferredNetworks?.toArrayList()?.filterIsInstance<Int>()?.let { ArrayList(it) }
     view.setPreferredNetworks(networks)
   }
 
-  override fun createViewInstance(reactContext: ThemedReactContext): CardFormView {
+  override fun createViewInstance(reactContext: ThemedReactContextStripe): CardFormView {
     val stripeSdkModule: StripeSdkModule? = reactContext.getNativeModule(StripeSdkModule::class.java)
     val view = CardFormView(reactContext)
 

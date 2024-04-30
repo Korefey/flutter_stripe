@@ -9,7 +9,7 @@ import com.facebook.react.bridge.ReadableArrayStripe;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class SimpleViewManager<T extends View> {
+public abstract class SimpleViewManagerStripe<T extends View> {
 
     public abstract String getName();
 
@@ -17,7 +17,7 @@ public abstract class SimpleViewManager<T extends View> {
         return new HashMap<>();
     }
 
-    public abstract T createViewInstance(ThemedReactContext reactContext);
+    public abstract T createViewInstance(ThemedReactContextStripe reactContext);
 
     public void onDropViewInstance(@NonNull T view) {};
 

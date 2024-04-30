@@ -19,7 +19,7 @@ import com.facebook.react.bridge.WritableNativeMapStripe;
  * Holds an instance of the current DisplayMetrics so we don't have to thread it through all the
  * classes that need it.
  */
-public class DisplayMetricsHolder {
+public class DisplayMetricsHolderStripe {
 
   private static @Nullable DisplayMetrics sWindowDisplayMetrics;
   private static @Nullable DisplayMetrics sScreenDisplayMetrics;
@@ -29,7 +29,7 @@ public class DisplayMetricsHolder {
   }
 
   public static void initDisplayMetricsIfNotInitialized(Context context) {
-    if (DisplayMetricsHolder.getScreenDisplayMetrics() != null) {
+    if (DisplayMetricsHolderStripe.getScreenDisplayMetrics() != null) {
       return;
     }
     initDisplayMetrics(context);
@@ -37,7 +37,7 @@ public class DisplayMetricsHolder {
 
   public static void initDisplayMetrics(Context context) {
     DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-    DisplayMetricsHolder.setWindowDisplayMetrics(displayMetrics);
+    DisplayMetricsHolderStripe.setWindowDisplayMetrics(displayMetrics);
 
     DisplayMetrics screenDisplayMetrics = new DisplayMetrics();
     screenDisplayMetrics.setTo(displayMetrics);
@@ -50,7 +50,7 @@ public class DisplayMetricsHolder {
     // See:
     // http://developer.android.com/reference/android/view/Display.html#getRealMetrics(android.util.DisplayMetrics)
     display.getRealMetrics(screenDisplayMetrics);
-    DisplayMetricsHolder.setScreenDisplayMetrics(screenDisplayMetrics);
+    DisplayMetricsHolderStripe.setScreenDisplayMetrics(screenDisplayMetrics);
   }
 
   /** Returns the metrics of the window associated to the Context used to initialize ReactNative */

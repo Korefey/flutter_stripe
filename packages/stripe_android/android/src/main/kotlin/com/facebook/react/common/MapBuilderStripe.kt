@@ -1,6 +1,6 @@
 package com.facebook.react.common
 
-class MapBuilder {
+class MapBuilderStripe {
 
     companion object {
         fun of(key: String, map: MutableMap<String, Any>): MutableMap<String, Any> {

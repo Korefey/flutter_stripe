@@ -11,10 +11,10 @@ import android.util.Log
 import android.widget.FrameLayout
 import androidx.core.os.LocaleListCompat
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.uimanager.PixelUtil
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.UIManagerModule
-import com.facebook.react.uimanager.events.EventDispatcher
+import com.facebook.react.uimanager.PixelUtilStripe
+import com.facebook.react.uimanager.ThemedReactContextStripe
+import com.facebook.react.uimanager.UIManagerModuleStripe
+import com.facebook.react.uimanager.events.EventDispatcherStripe
 import com.facebook.react.views.text.ReactTypefaceUtils
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
@@ -32,13 +32,13 @@ import com.stripe.android.view.CardValidCallback
 import com.stripe.android.view.StripeEditText
 import java.lang.Exception
 
-class CardFieldView(context: ThemedReactContext) : FrameLayout(context) {
+class CardFieldView(context: ThemedReactContextStripe) : FrameLayout(context) {
   internal var mCardWidget: CardInputWidget = CardInputWidget(context)
   private val cardInputWidgetBinding = StripeCardInputWidgetBinding.bind(mCardWidget)
   val cardDetails: MutableMap<String, Any?> = mutableMapOf("brand" to "", "last4" to "", "expiryMonth" to null, "expiryYear" to null, "postalCode" to "", "validNumber" to "Unknown", "validCVC" to "Unknown", "validExpiryDate" to "Unknown")
   var cardParams: PaymentMethodCreateParams.Card? = null
   var cardAddress: Address? = null
-  private var mEventDispatcher: EventDispatcher? = context.getNativeModule(UIManagerModule::class.java)?.eventDispatcher
+  private var mEventDispatcher: EventDispatcherStripe? = context.getNativeModule(UIManagerModuleStripe::class.java)?.eventDispatcher
   private var dangerouslyGetFullCardDetails: Boolean = false
   private var currentFocusedField: String? = null
   private var isCardValid = false
@@ -148,14 +148,14 @@ class CardFieldView(context: ThemedReactContext) : FrameLayout(context) {
     mCardWidget.background = MaterialShapeDrawable(
       ShapeAppearanceModel()
         .toBuilder()
-        .setAllCorners(CornerFamily.ROUNDED, PixelUtil.toPixelFromDIP(borderRadius.toDouble()))
+        .setAllCorners(CornerFamily.ROUNDED, PixelUtilStripe.toPixelFromDIP(borderRadius.toDouble()))
         .build()
     ).also { shape ->
       shape.strokeWidth = 0.0f
       shape.strokeColor = ColorStateList.valueOf(Color.parseColor("#000000"))
       shape.fillColor = ColorStateList.valueOf(Color.parseColor("#FFFFFF"))
       borderWidth?.let {
-        shape.strokeWidth = PixelUtil.toPixelFromDIP(it.toDouble())
+        shape.strokeWidth = PixelUtilStripe.toPixelFromDIP(it.toDouble())
       }
       borderColor?.let {
         shape.strokeColor = ColorStateList.valueOf(Color.parseColor(it))

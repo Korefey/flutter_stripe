@@ -8,7 +8,7 @@ public abstract class Event<T> {
 
     public final int viewTag;
 
-    public abstract void dispatch(RCTEventEmitter rctEventEmitter);
+    public abstract void dispatch(RCTEventEmitterStripe rctEventEmitter);
 
     public abstract String getEventName();
 }

@@ -3,7 +3,7 @@ package com.flutter.stripe
 import android.content.Context
 import android.view.View
 import com.facebook.react.bridge.ReadableMapStripe
-import com.facebook.react.uimanager.ThemedReactContext
+import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.reactnativestripesdk.AuBECSDebitFormView
 import com.reactnativestripesdk.AuBECSDebitFormViewManager
 import com.reactnativestripesdk.StripeSdkModule
@@ -25,7 +25,7 @@ class StripeAubecsDebitPlatformView(
     init {
 
         aubecsView = aubecsFormViewManager.createViewInstance(
-            ThemedReactContext(
+            ThemedReactContextStripe(
                 sdkAccessor().reactContext,
                 channel,
                 sdkAccessor

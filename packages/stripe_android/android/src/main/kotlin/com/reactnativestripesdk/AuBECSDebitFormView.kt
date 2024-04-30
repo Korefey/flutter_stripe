@@ -4,9 +4,9 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.widget.FrameLayout
 import com.facebook.react.bridge.ReadableMap
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.UIManagerModule
-import com.facebook.react.uimanager.events.EventDispatcher
+import com.facebook.react.uimanager.ThemedReactContextStripe
+import com.facebook.react.uimanager.UIManagerModuleStripe
+import com.facebook.react.uimanager.events.EventDispatcherStripe
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
@@ -17,9 +17,9 @@ import com.stripe.android.model.PaymentMethodCreateParams
 import com.stripe.android.view.BecsDebitWidget
 import com.stripe.android.view.StripeEditText
 
-class AuBECSDebitFormView(private val context: ThemedReactContext) : FrameLayout(context) {
+class AuBECSDebitFormView(private val context: ThemedReactContextStripe) : FrameLayout(context) {
   private lateinit var becsDebitWidget: BecsDebitWidget
-  private var mEventDispatcher: EventDispatcher? = context.getNativeModule(UIManagerModule::class.java)?.eventDispatcher
+  private var mEventDispatcher: EventDispatcherStripe? = context.getNativeModule(UIManagerModuleStripe::class.java)?.eventDispatcher
   private var formStyle: ReadableMap? = null
 
   fun setCompanyName(name: String?) {

@@ -15,19 +15,19 @@ import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.bridge.WritableMapStripe
-import com.facebook.react.uimanager.ThemedReactContext
-import com.facebook.react.uimanager.UIManagerModule
-import com.facebook.react.uimanager.events.EventDispatcher
+import com.facebook.react.uimanager.ThemedReactContextStripe
+import com.facebook.react.uimanager.UIManagerModuleStripe
+import com.facebook.react.uimanager.events.EventDispatcherStripe
 import com.reactnativestripesdk.utils.createError
 
 
-class AddToWalletButtonView(private val context: ThemedReactContext, private val requestManager: RequestManager) : AppCompatImageView(context) {
+class AddToWalletButtonView(private val context: ThemedReactContextStripe, private val requestManager: RequestManager) : AppCompatImageView(context) {
   private var cardDetails: ReadableMapStripe? = null
   private var ephemeralKey: String? = null
   private var sourceMap: ReadableMapStripe? = null
   private var token: ReadableMapStripe? = null
 
-  private var eventDispatcher: EventDispatcher? = context.getNativeModule(UIManagerModule::class.java)?.eventDispatcher
+  private var eventDispatcher: EventDispatcherStripe? = context.getNativeModule(UIManagerModuleStripe::class.java)?.eventDispatcher
   private var loadedSource: Any? = null
   private var heightOverride: Int = 0
   private var widthOverride: Int = 0

@@ -4,7 +4,7 @@ import com.facebook.react.bridge.WritableMapStripe;
 
 import io.flutter.plugin.common.MethodChannel;
 
-public class DeviceEventManagerModule {
+public class DeviceEventManagerModuleStripe {
     public static class RCTDeviceEventEmitter {
 
         private final MethodChannel channel;

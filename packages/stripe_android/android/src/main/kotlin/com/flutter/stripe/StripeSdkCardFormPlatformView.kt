@@ -1,12 +1,14 @@
 package com.flutter.stripe
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.annotation.NonNull
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableArrayStripe
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.uimanager.ThemedReactContext
 import com.reactnativestripesdk.*
 import com.reactnativestripesdk.utils.getIntOrNull
@@ -18,6 +20,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.platform.PlatformView
 
 
+@SuppressLint("RestrictedApi")
 class StripeSdkCardFormPlatformView(
         private val context: Context,
         private val channel: MethodChannel,
@@ -34,10 +37,10 @@ class StripeSdkCardFormPlatformView(
     init {
         channel.setMethodCallHandler(this)
         if (creationParams?.containsKey("cardStyle") == true) {
-            cardFormViewManager.setCardStyle(cardView, ReadableMap(creationParams["cardStyle"] as Map<String, Any>))
+            cardFormViewManager.setCardStyle(cardView, ReadableMapStripe(creationParams["cardStyle"] as Map<String, Any>))
         }
         if (creationParams?.containsKey("defaultValues") == true) {
-            cardFormViewManager.setDefaultValues(cardView, ReadableMap(creationParams["defaultValues"] as Map<String, Any>))
+            cardFormViewManager.setDefaultValues(cardView, ReadableMapStripe(creationParams["defaultValues"] as Map<String, Any>))
         }
         if (creationParams?.containsKey("postalCodeEnabled") == true) {
             cardFormViewManager.setPostalCodeEnabled(cardView, creationParams["postalCodeEnabled"] as Boolean)
@@ -51,8 +54,11 @@ class StripeSdkCardFormPlatformView(
         if (creationParams?.containsKey("disabled") == true) {
             cardFormViewManager.setDisabled(cardView, creationParams["disabled"] as Boolean)
         }
+        if (creationParams?.containsKey("preferredNetworks") == true) {
+            cardFormViewManager.setPreferredNetworks(cardView, ReadableArrayStripe(creationParams["preferredNetworks"] as List<Any>))
+        }
         if (creationParams?.containsKey("cardDetails") == true) {
-            val value = ReadableMap(creationParams["cardDetails"] as Map<String, Any>)
+            val value = ReadableMapStripe(creationParams["cardDetails"] as Map<String, Any>)
 
             val binding = StripeCardFormViewBinding.bind(cardView.cardForm)
             val number = getValOr(value, "number", null)
@@ -85,27 +91,27 @@ class StripeSdkCardFormPlatformView(
 
         when (call.method) {
             "onStyleChanged" -> {
-                val arguments = ReadableMap(call.arguments as Map<String, Any>)
-                cardFormViewManager.setCardStyle(cardView, arguments.getMap("cardStyle") as  ReadableMap)
+                val arguments = ReadableMapStripe(call.arguments as Map<String, Any>)
+                cardFormViewManager.setCardStyle(cardView, arguments.getMap("cardStyle") as  ReadableMapStripe)
                 result.success(null)
             }
             "onPostalCodeEnabledChanged" -> {
-                val arguments = ReadableMap(call.arguments as Map<String, Any>)
+                val arguments = ReadableMapStripe(call.arguments as Map<String, Any>)
                 cardFormViewManager.setPostalCodeEnabled(cardView, arguments.getBoolean("postalCodeEnabled"))
                 result.success(null)
             }
             "dangerouslyGetFullCardDetails" -> {
-                val arguments = ReadableMap(call.arguments as Map<String, Any>)
+                val arguments = ReadableMapStripe(call.arguments as Map<String, Any>)
                 cardFormViewManager.setDangerouslyGetFullCardDetails(cardView, arguments.getBoolean("dangerouslyGetFullCardDetails"))
                 result.success(null)
             }
             "autofocus" -> {
-                val arguments = ReadableMap(call.arguments as Map<String, Any>)
+                val arguments = ReadableMapStripe(call.arguments as Map<String, Any>)
                 cardFormViewManager.setAutofocus(cardView, arguments.getBoolean("autofocus"))
                 result.success(null)
             }
             "disabled" -> {
-                val arguments = ReadableMap(call.arguments as Map<String, Any>)
+                val arguments = ReadableMapStripe(call.arguments as Map<String, Any>)
                 cardFormViewManager.setDisabled(cardView, arguments.getBoolean("disabled"))
                 result.success(null)
             }

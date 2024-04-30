@@ -1,6 +1,6 @@
 package com.facebook.react.bridge;
 
-public enum ReadableType {
+public enum ReadableTypeStripe {
   Null,
   Boolean,
   Number,

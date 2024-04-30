@@ -2,7 +2,7 @@ package com.reactnativestripesdk.pushprovisioning
 
 import android.content.Context
 import com.bumptech.glide.Glide
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
@@ -34,22 +34,22 @@ class AddToWalletButtonManager(applicationContext: Context) : SimpleViewManager<
   }
 
   @ReactProp(name = "androidAssetSource")
-  fun source(view: AddToWalletButtonView, source: ReadableMap) {
+  fun source(view: AddToWalletButtonView, source: ReadableMapStripe) {
     view.setSourceMap(source)
   }
 
   @ReactProp(name = "cardDetails")
-  fun cardDetails(view: AddToWalletButtonView, cardDetails: ReadableMap) {
+  fun cardDetails(view: AddToWalletButtonView, cardDetails: ReadableMapStripe) {
     view.setCardDetails(cardDetails)
   }
 
   @ReactProp(name = "ephemeralKey")
-  fun ephemeralKey(view: AddToWalletButtonView, ephemeralKey: ReadableMap) {
+  fun ephemeralKey(view: AddToWalletButtonView, ephemeralKey: ReadableMapStripe) {
     view.setEphemeralKey(ephemeralKey)
   }
 
   @ReactProp(name = "token")
-  fun token(view: AddToWalletButtonView, token: ReadableMap?) {
+  fun token(view: AddToWalletButtonView, token: ReadableMapStripe?) {
     view.setToken(token)
   }
 }

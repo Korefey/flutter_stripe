@@ -1,6 +1,6 @@
 package com.reactnativestripesdk
 
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
@@ -20,7 +20,7 @@ class AuBECSDebitFormViewManager : SimpleViewManager<AuBECSDebitFormView>() {
   }
 
   @ReactProp(name = "formStyle")
-  fun setFormStyle(view: AuBECSDebitFormView, style: ReadableMap) {
+  fun setFormStyle(view: AuBECSDebitFormView, style: ReadableMapStripe) {
     view.setFormStyle(style)
   }
 

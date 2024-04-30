@@ -11,7 +11,7 @@ package com.facebook.react.bridge;
  * Interface that represent javascript callback function which can be passed to the native module as
  * a method parameter.
  */
-public interface Callback {
+public interface CallbackStripe {
 
   /**
    * Schedule javascript function execution represented by this {@link Callback} instance

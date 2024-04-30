@@ -1,6 +1,6 @@
 package com.reactnativestripesdk
 
-import com.facebook.react.bridge.ReadableArray
+import com.facebook.react.bridge.ReadableArrayStripe
 import com.facebook.react.bridge.ReadableMap
 import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.SimpleViewManager
@@ -18,7 +18,7 @@ class CardFormViewManager : SimpleViewManager<CardFormView>() {
       CardFormCompleteEvent.EVENT_NAME, MapBuilder.of("registrationName", "onFormComplete"))
   }
 
-  override fun receiveCommand(root: CardFormView, commandId: String?, args: ReadableArray?) {
+  override fun receiveCommand(root: CardFormView, commandId: String?, args: ReadableArrayStripe?) {
     when (commandId) {
       "focus" -> root.requestFocusFromJS()
       "blur" -> root.requestBlurFromJS()
@@ -59,6 +59,12 @@ class CardFormViewManager : SimpleViewManager<CardFormView>() {
   @ReactProp(name = "disabled")
   fun setDisabled(view: CardFormView, isDisabled: Boolean) {
     view.setDisabled(isDisabled)
+  }
+
+  @ReactProp(name = "preferredNetworks")
+  fun setPreferredNetworks(view: CardFormView, preferredNetworks: ReadableArrayStripe?) {
+    val networks = preferredNetworks?.toArrayList()?.filterIsInstance<Int>()?.let { ArrayList(it) }
+    view.setPreferredNetworks(networks)
   }
 
   override fun createViewInstance(reactContext: ThemedReactContext): CardFormView {

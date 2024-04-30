@@ -8,12 +8,12 @@ import io.flutter.plugin.common.MethodChannel;
 /**
  * Created by FFuF, Jonas Bark on 2019-10-02.
  */
-public class Promise {
+public class PromiseStripe {
 
     final MethodChannel.Result methodResult;
     private final Handler mainHandler;
 
-    public Promise(MethodChannel.Result result) {
+    public PromiseStripe(MethodChannel.Result result) {
         this.methodResult = result;
         mainHandler = new Handler(Looper.getMainLooper());
     }

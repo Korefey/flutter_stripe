@@ -8,13 +8,13 @@ import java.util.ArrayList;
 /**
  * Created by FFuF, Jonas Bark on 2019-10-02.
  */
-public class WritableArray extends ReadableArray {
+public class WritableArrayStripe extends ReadableArrayStripe {
 
-    public WritableArray(JSONArray array) {
+    public WritableArrayStripe(JSONArray array) {
         super(array);
     }
 
-    public WritableArray() {
+    public WritableArrayStripe() {
         super(new JSONArray());
     }
 
@@ -22,7 +22,7 @@ public class WritableArray extends ReadableArray {
         add(value);
     }
 
-    public void pushMap(@NotNull WritableNativeMap map) {
+    public void pushMap(@NotNull WritableNativeMapStripe map) {
         add(map);
     }
 }

@@ -11,7 +11,7 @@ import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableArrayStripe;
 import com.facebook.react.uimanager.ReactBaseTextShadowNode;
 
 import java.util.ArrayList;
@@ -59,7 +59,7 @@ public class ReactTypefaceUtils {
     return ReactBaseTextShadowNode.UNSET;
   }
 
-  public static @Nullable String parseFontVariant(@Nullable ReadableArray fontVariantArray) {
+  public static @Nullable String parseFontVariant(@Nullable ReadableArrayStripe fontVariantArray) {
     if (fontVariantArray == null || fontVariantArray.size() == 0) {
       return null;
     }

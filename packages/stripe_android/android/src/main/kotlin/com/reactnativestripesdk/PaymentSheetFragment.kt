@@ -29,8 +29,8 @@ import java.io.ByteArrayOutputStream
 import kotlin.Exception
 
 class PaymentSheetFragment(
-  private val context: ReactApplicationContext,
-  private val initPromise: Promise
+  private val context: ReactApplicationContextStripe,
+  private val initPromise: PromiseStripe
 ) : Fragment() {
   private var paymentSheet: PaymentSheet? = null
   private var flowController: PaymentSheet.FlowController? = null
@@ -90,7 +90,7 @@ class PaymentSheetFragment(
       val result = paymentOption?.let {
         val bitmap = getBitmapFromVectorDrawable(context, it.drawableResourceId)
         val imageString = getBase64FromBitmap(bitmap)
-        val option: WritableMap = WritableNativeMap()
+        val option: WritableMapStripe = WritableNativeMapStripe()
         option.putString("label", it.label)
         option.putString("image", imageString)
         createResult("paymentOption", option)
@@ -118,7 +118,7 @@ class PaymentSheetFragment(
             resolvePaymentResult(createError(PaymentSheetErrorType.Failed.toString(), paymentResult.error))
           }
           is PaymentSheetResult.Completed -> {
-            resolvePaymentResult(WritableNativeMap())
+            resolvePaymentResult(WritableNativeMapStripe())
             // Remove the fragment now, we can be sure it won't be needed again if an intent is successful
             removeFragment(context)
             paymentSheet = null
@@ -136,7 +136,7 @@ class PaymentSheetFragment(
           displayMessage = "An unexpected error occurred"
           )
       }
-      val params = Arguments.createMap().apply {
+      val params = ArgumentsStripe.createMap().apply {
         putMap("paymentMethod", mapFromPaymentMethod(paymentMethod))
         putBoolean("shouldSavePaymentMethod", shouldSavePaymentMethod)
       }
@@ -194,7 +194,8 @@ class PaymentSheetFragment(
       appearance = appearance,
       shippingDetails = shippingDetails,
       primaryButtonLabel = primaryButtonLabel,
-      billingDetailsCollectionConfiguration = billingDetailsConfig
+      billingDetailsCollectionConfiguration = billingDetailsConfig,
+      preferredNetworks = mapToPreferredNetworks(arguments?.getIntegerArrayList("preferredNetworks"))
     )
 
     if (arguments?.getBoolean("customFlow") == true) {
@@ -226,7 +227,7 @@ class PaymentSheetFragment(
           callback = paymentResultCallback
         )
       }
-      initPromise.resolve(WritableNativeMap())
+      initPromise.resolve(WritableNativeMapStripe())
     }
   }
 
@@ -296,12 +297,12 @@ class PaymentSheetFragment(
       val result = flowController?.getPaymentOption()?.let {
         val bitmap = getBitmapFromVectorDrawable(context, it.drawableResourceId)
         val imageString = getBase64FromBitmap(bitmap)
-        val option: WritableMap = WritableNativeMap()
+        val option: WritableMapStripe = WritableNativeMapStripe()
         option.putString("label", it.label)
         option.putString("image", imageString)
         createResult("paymentOption", option)
       } ?: run {
-        WritableNativeMap()
+        WritableNativeMapStripe()
       }
       initPromise.resolve(result)
     }
@@ -330,7 +331,7 @@ class PaymentSheetFragment(
     }
   }
 
-  private fun resolvePaymentResult(map: WritableMap) {
+  private fun resolvePaymentResult(map: WritableMapStripe) {
     confirmPromise?.let {
       it.resolve(map)
       confirmPromise = null
@@ -342,7 +343,18 @@ class PaymentSheetFragment(
   companion object {
     internal const val TAG = "payment_sheet_launch_fragment"
 
-    internal fun createMissingInitError(): WritableMap {
+    private val mapIntToButtonType = mapOf(
+      1 to PaymentSheet.GooglePayConfiguration.ButtonType.Buy,
+      6 to PaymentSheet.GooglePayConfiguration.ButtonType.Book,
+      5 to PaymentSheet.GooglePayConfiguration.ButtonType.Checkout,
+      4 to PaymentSheet.GooglePayConfiguration.ButtonType.Donate,
+      11 to PaymentSheet.GooglePayConfiguration.ButtonType.Order,
+      1000 to PaymentSheet.GooglePayConfiguration.ButtonType.Pay,
+      7 to PaymentSheet.GooglePayConfiguration.ButtonType.Subscribe,
+      1001 to PaymentSheet.GooglePayConfiguration.ButtonType.Plain,
+    )
+
+    internal fun createMissingInitError(): WritableMapStripe {
       return createError(PaymentSheetErrorType.Failed.toString(), "No payment sheet has been initialized yet. You must call `initPaymentSheet` before `presentPaymentSheet`.")
     }
 
@@ -356,13 +368,16 @@ class PaymentSheetFragment(
       val testEnv = params.getBoolean("testEnv")
       val amount = params.getString("amount")?.toLongOrNull()
       val label = params.getString("label")
+      val buttonType = mapIntToButtonType.get(params.getInt("buttonType")) ?: PaymentSheet.GooglePayConfiguration.ButtonType.Pay
+
 
       return PaymentSheet.GooglePayConfiguration(
         environment = if (testEnv) PaymentSheet.GooglePayConfiguration.Environment.Test else PaymentSheet.GooglePayConfiguration.Environment.Production,
         countryCode = countryCode,
         currencyCode = currencyCode,
         amount = amount,
-        label = label
+        label = label,
+        buttonType = buttonType
       )
     }
 

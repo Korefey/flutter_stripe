@@ -12,7 +12,7 @@ part of 'payment_sheet.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SetupPaymentSheetParameters _$SetupPaymentSheetParametersFromJson(
     Map<String, dynamic> json) {
@@ -101,6 +101,11 @@ mixin _$SetupPaymentSheetParameters {
   String? get removeSavedPaymentMethodMessage =>
       throw _privateConstructorUsedError;
 
+  /// The list of preferred networks that should be used to process payments made with a co-branded card.
+  /// This value will only be used if your user hasn't selected a network themselves.
+  @JsonKey(toJson: _cardBrandListToJson)
+  List<CardBrand>? get preferredNetworks => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SetupPaymentSheetParametersCopyWith<SetupPaymentSheetParameters>
@@ -133,7 +138,9 @@ abstract class $SetupPaymentSheetParametersCopyWith<$Res> {
       String? returnURL,
       BillingDetailsCollectionConfiguration?
           billingDetailsCollectionConfiguration,
-      String? removeSavedPaymentMethodMessage});
+      String? removeSavedPaymentMethodMessage,
+      @JsonKey(toJson: _cardBrandListToJson)
+      List<CardBrand>? preferredNetworks});
 
   $IntentConfigurationCopyWith<$Res>? get intentConfiguration;
   $PaymentSheetApplePayCopyWith<$Res>? get applePay;
@@ -175,6 +182,7 @@ class _$SetupPaymentSheetParametersCopyWithImpl<$Res,
     Object? returnURL = freezed,
     Object? billingDetailsCollectionConfiguration = freezed,
     Object? removeSavedPaymentMethodMessage = freezed,
+    Object? preferredNetworks = freezed,
   }) {
     return _then(_value.copyWith(
       customFlow: null == customFlow
@@ -247,6 +255,10 @@ class _$SetupPaymentSheetParametersCopyWithImpl<$Res,
           ? _value.removeSavedPaymentMethodMessage
           : removeSavedPaymentMethodMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      preferredNetworks: freezed == preferredNetworks
+          ? _value.preferredNetworks
+          : preferredNetworks // ignore: cast_nullable_to_non_nullable
+              as List<CardBrand>?,
     ) as $Val);
   }
 
@@ -353,7 +365,9 @@ abstract class _$$SetupParametersImplCopyWith<$Res>
       String? returnURL,
       BillingDetailsCollectionConfiguration?
           billingDetailsCollectionConfiguration,
-      String? removeSavedPaymentMethodMessage});
+      String? removeSavedPaymentMethodMessage,
+      @JsonKey(toJson: _cardBrandListToJson)
+      List<CardBrand>? preferredNetworks});
 
   @override
   $IntentConfigurationCopyWith<$Res>? get intentConfiguration;
@@ -398,6 +412,7 @@ class __$$SetupParametersImplCopyWithImpl<$Res>
     Object? returnURL = freezed,
     Object? billingDetailsCollectionConfiguration = freezed,
     Object? removeSavedPaymentMethodMessage = freezed,
+    Object? preferredNetworks = freezed,
   }) {
     return _then(_$SetupParametersImpl(
       customFlow: null == customFlow
@@ -470,6 +485,10 @@ class __$$SetupParametersImplCopyWithImpl<$Res>
           ? _value.removeSavedPaymentMethodMessage
           : removeSavedPaymentMethodMessage // ignore: cast_nullable_to_non_nullable
               as String?,
+      preferredNetworks: freezed == preferredNetworks
+          ? _value._preferredNetworks
+          : preferredNetworks // ignore: cast_nullable_to_non_nullable
+              as List<CardBrand>?,
     ));
   }
 }
@@ -495,7 +514,10 @@ class _$SetupParametersImpl implements _SetupParameters {
       @JsonKey(name: 'defaultBillingDetails') this.billingDetails,
       this.returnURL,
       this.billingDetailsCollectionConfiguration,
-      this.removeSavedPaymentMethodMessage});
+      this.removeSavedPaymentMethodMessage,
+      @JsonKey(toJson: _cardBrandListToJson)
+      final List<CardBrand>? preferredNetworks})
+      : _preferredNetworks = preferredNetworks;
 
   factory _$SetupParametersImpl.fromJson(Map<String, dynamic> json) =>
       _$$SetupParametersImplFromJson(json);
@@ -596,13 +618,30 @@ class _$SetupParametersImpl implements _SetupParameters {
   @override
   final String? removeSavedPaymentMethodMessage;
 
+  /// The list of preferred networks that should be used to process payments made with a co-branded card.
+  /// This value will only be used if your user hasn't selected a network themselves.
+  final List<CardBrand>? _preferredNetworks;
+
+  /// The list of preferred networks that should be used to process payments made with a co-branded card.
+  /// This value will only be used if your user hasn't selected a network themselves.
   @override
-  String toString() {
-    return 'SetupPaymentSheetParameters(customFlow: $customFlow, customerId: $customerId, primaryButtonLabel: $primaryButtonLabel, customerEphemeralKeySecret: $customerEphemeralKeySecret, paymentIntentClientSecret: $paymentIntentClientSecret, setupIntentClientSecret: $setupIntentClientSecret, intentConfiguration: $intentConfiguration, merchantDisplayName: $merchantDisplayName, applePay: $applePay, style: $style, googlePay: $googlePay, allowsDelayedPaymentMethods: $allowsDelayedPaymentMethods, appearance: $appearance, billingDetails: $billingDetails, returnURL: $returnURL, billingDetailsCollectionConfiguration: $billingDetailsCollectionConfiguration, removeSavedPaymentMethodMessage: $removeSavedPaymentMethodMessage)';
+  @JsonKey(toJson: _cardBrandListToJson)
+  List<CardBrand>? get preferredNetworks {
+    final value = _preferredNetworks;
+    if (value == null) return null;
+    if (_preferredNetworks is EqualUnmodifiableListView)
+      return _preferredNetworks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  bool operator ==(dynamic other) {
+  String toString() {
+    return 'SetupPaymentSheetParameters(customFlow: $customFlow, customerId: $customerId, primaryButtonLabel: $primaryButtonLabel, customerEphemeralKeySecret: $customerEphemeralKeySecret, paymentIntentClientSecret: $paymentIntentClientSecret, setupIntentClientSecret: $setupIntentClientSecret, intentConfiguration: $intentConfiguration, merchantDisplayName: $merchantDisplayName, applePay: $applePay, style: $style, googlePay: $googlePay, allowsDelayedPaymentMethods: $allowsDelayedPaymentMethods, appearance: $appearance, billingDetails: $billingDetails, returnURL: $returnURL, billingDetailsCollectionConfiguration: $billingDetailsCollectionConfiguration, removeSavedPaymentMethodMessage: $removeSavedPaymentMethodMessage, preferredNetworks: $preferredNetworks)';
+  }
+
+  @override
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SetupParametersImpl &&
@@ -643,7 +682,9 @@ class _$SetupParametersImpl implements _SetupParameters {
                     billingDetailsCollectionConfiguration) &&
             (identical(other.removeSavedPaymentMethodMessage, removeSavedPaymentMethodMessage) ||
                 other.removeSavedPaymentMethodMessage ==
-                    removeSavedPaymentMethodMessage));
+                    removeSavedPaymentMethodMessage) &&
+            const DeepCollectionEquality()
+                .equals(other._preferredNetworks, _preferredNetworks));
   }
 
   @JsonKey(ignore: true)
@@ -666,7 +707,8 @@ class _$SetupParametersImpl implements _SetupParameters {
       billingDetails,
       returnURL,
       billingDetailsCollectionConfiguration,
-      removeSavedPaymentMethodMessage);
+      removeSavedPaymentMethodMessage,
+      const DeepCollectionEquality().hash(_preferredNetworks));
 
   @JsonKey(ignore: true)
   @override
@@ -703,7 +745,9 @@ abstract class _SetupParameters implements SetupPaymentSheetParameters {
       final String? returnURL,
       final BillingDetailsCollectionConfiguration?
           billingDetailsCollectionConfiguration,
-      final String? removeSavedPaymentMethodMessage}) = _$SetupParametersImpl;
+      final String? removeSavedPaymentMethodMessage,
+      @JsonKey(toJson: _cardBrandListToJson)
+      final List<CardBrand>? preferredNetworks}) = _$SetupParametersImpl;
 
   factory _SetupParameters.fromJson(Map<String, dynamic> json) =
       _$SetupParametersImpl.fromJson;
@@ -802,6 +846,12 @@ abstract class _SetupParameters implements SetupPaymentSheetParameters {
 
   ///  Optional configuration to display a custom message when a saved payment method is removed. iOS only.
   String? get removeSavedPaymentMethodMessage;
+  @override
+
+  /// The list of preferred networks that should be used to process payments made with a co-branded card.
+  /// This value will only be used if your user hasn't selected a network themselves.
+  @JsonKey(toJson: _cardBrandListToJson)
+  List<CardBrand>? get preferredNetworks;
   @override
   @JsonKey(ignore: true)
   _$$SetupParametersImplCopyWith<_$SetupParametersImpl> get copyWith =>
@@ -988,7 +1038,7 @@ class _$IntentConfigurationImpl implements _IntentConfiguration {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IntentConfigurationImpl &&
@@ -1208,7 +1258,7 @@ class _$IntentModeImpl implements _IntentMode {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IntentModeImpl &&
@@ -1494,7 +1544,7 @@ class _$PaymentSheetApplePayImpl implements _PaymentSheetApplePay {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetApplePayImpl &&
@@ -1600,6 +1650,9 @@ mixin _$PaymentSheetGooglePay {
   /// An optional amount to display for setup intents. Google Pay may or may not display this amount depending on its own internal logic. Defaults to 0 if none is provided.
   String? get amount => throw _privateConstructorUsedError;
 
+  /// The Google Pay button type to use. Set to "Pay" by default.
+  PlatformButtonType? get buttonType => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PaymentSheetGooglePayCopyWith<PaymentSheetGooglePay> get copyWith =>
@@ -1617,7 +1670,8 @@ abstract class $PaymentSheetGooglePayCopyWith<$Res> {
       String? currencyCode,
       bool testEnv,
       String? label,
-      String? amount});
+      String? amount,
+      PlatformButtonType? buttonType});
 }
 
 /// @nodoc
@@ -1639,6 +1693,7 @@ class _$PaymentSheetGooglePayCopyWithImpl<$Res,
     Object? testEnv = null,
     Object? label = freezed,
     Object? amount = freezed,
+    Object? buttonType = freezed,
   }) {
     return _then(_value.copyWith(
       merchantCountryCode: null == merchantCountryCode
@@ -1661,6 +1716,10 @@ class _$PaymentSheetGooglePayCopyWithImpl<$Res,
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String?,
+      buttonType: freezed == buttonType
+          ? _value.buttonType
+          : buttonType // ignore: cast_nullable_to_non_nullable
+              as PlatformButtonType?,
     ) as $Val);
   }
 }
@@ -1679,7 +1738,8 @@ abstract class _$$PaymentSheetGooglePayImplCopyWith<$Res>
       String? currencyCode,
       bool testEnv,
       String? label,
-      String? amount});
+      String? amount,
+      PlatformButtonType? buttonType});
 }
 
 /// @nodoc
@@ -1699,6 +1759,7 @@ class __$$PaymentSheetGooglePayImplCopyWithImpl<$Res>
     Object? testEnv = null,
     Object? label = freezed,
     Object? amount = freezed,
+    Object? buttonType = freezed,
   }) {
     return _then(_$PaymentSheetGooglePayImpl(
       merchantCountryCode: null == merchantCountryCode
@@ -1721,6 +1782,10 @@ class __$$PaymentSheetGooglePayImplCopyWithImpl<$Res>
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
               as String?,
+      buttonType: freezed == buttonType
+          ? _value.buttonType
+          : buttonType // ignore: cast_nullable_to_non_nullable
+              as PlatformButtonType?,
     ));
   }
 }
@@ -1734,7 +1799,8 @@ class _$PaymentSheetGooglePayImpl implements _PaymentSheetGooglePay {
       this.currencyCode,
       this.testEnv = false,
       this.label,
-      this.amount});
+      this.amount,
+      this.buttonType});
 
   factory _$PaymentSheetGooglePayImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaymentSheetGooglePayImplFromJson(json);
@@ -1760,13 +1826,17 @@ class _$PaymentSheetGooglePayImpl implements _PaymentSheetGooglePay {
   @override
   final String? amount;
 
+  /// The Google Pay button type to use. Set to "Pay" by default.
+  @override
+  final PlatformButtonType? buttonType;
+
   @override
   String toString() {
-    return 'PaymentSheetGooglePay(merchantCountryCode: $merchantCountryCode, currencyCode: $currencyCode, testEnv: $testEnv, label: $label, amount: $amount)';
+    return 'PaymentSheetGooglePay(merchantCountryCode: $merchantCountryCode, currencyCode: $currencyCode, testEnv: $testEnv, label: $label, amount: $amount, buttonType: $buttonType)';
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetGooglePayImpl &&
@@ -1776,13 +1846,15 @@ class _$PaymentSheetGooglePayImpl implements _PaymentSheetGooglePay {
                 other.currencyCode == currencyCode) &&
             (identical(other.testEnv, testEnv) || other.testEnv == testEnv) &&
             (identical(other.label, label) || other.label == label) &&
-            (identical(other.amount, amount) || other.amount == amount));
+            (identical(other.amount, amount) || other.amount == amount) &&
+            (identical(other.buttonType, buttonType) ||
+                other.buttonType == buttonType));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, merchantCountryCode, currencyCode, testEnv, label, amount);
+  int get hashCode => Object.hash(runtimeType, merchantCountryCode,
+      currencyCode, testEnv, label, amount, buttonType);
 
   @JsonKey(ignore: true)
   @override
@@ -1805,7 +1877,8 @@ abstract class _PaymentSheetGooglePay implements PaymentSheetGooglePay {
       final String? currencyCode,
       final bool testEnv,
       final String? label,
-      final String? amount}) = _$PaymentSheetGooglePayImpl;
+      final String? amount,
+      final PlatformButtonType? buttonType}) = _$PaymentSheetGooglePayImpl;
 
   factory _PaymentSheetGooglePay.fromJson(Map<String, dynamic> json) =
       _$PaymentSheetGooglePayImpl.fromJson;
@@ -1830,6 +1903,10 @@ abstract class _PaymentSheetGooglePay implements PaymentSheetGooglePay {
 
   /// An optional amount to display for setup intents. Google Pay may or may not display this amount depending on its own internal logic. Defaults to 0 if none is provided.
   String? get amount;
+  @override
+
+  /// The Google Pay button type to use. Set to "Pay" by default.
+  PlatformButtonType? get buttonType;
   @override
   @JsonKey(ignore: true)
   _$$PaymentSheetGooglePayImplCopyWith<_$PaymentSheetGooglePayImpl>
@@ -2032,7 +2109,7 @@ class _$PaymentSheetAppearanceImpl implements _PaymentSheetAppearance {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetAppearanceImpl &&
@@ -2462,7 +2539,7 @@ class _$PaymentSheetAppearanceColorsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetAppearanceColorsImpl &&
@@ -2772,7 +2849,7 @@ class _$PaymentSheetShapeImpl implements _PaymentSheetShape {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetShapeImpl &&
@@ -3000,7 +3077,7 @@ class _$PaymentSheetShadowParamsImpl implements _PaymentSheetShadowParams {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetShadowParamsImpl &&
@@ -3179,7 +3256,7 @@ class _$PaymentSheetShadowOffsetImpl implements _PaymentSheetShadowOffset {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetShadowOffsetImpl &&
@@ -3394,7 +3471,7 @@ class _$PaymentSheetPrimaryButtonAppearanceImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetPrimaryButtonAppearanceImpl &&
@@ -3615,7 +3692,7 @@ class _$PaymentSheetPrimaryButtonShapeImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetPrimaryButtonShapeImpl &&
@@ -3841,7 +3918,7 @@ class _$PaymentSheetPrimaryButtonThemeImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetPrimaryButtonThemeImpl &&
@@ -4060,7 +4137,7 @@ class _$PaymentSheetPrimaryButtonThemeColorsImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetPrimaryButtonThemeColorsImpl &&
@@ -4261,7 +4338,7 @@ class _$PresentParametersImpl implements _PresentParameters {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PresentParametersImpl &&
@@ -4431,7 +4508,7 @@ class _$PaymentSheetPresentOptionsImpl implements _PaymentSheetPresentOptions {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetPresentOptionsImpl &&
@@ -4600,7 +4677,7 @@ class _$PaymentSheetPaymentOptionImpl implements _PaymentSheetPaymentOption {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PaymentSheetPaymentOptionImpl &&
@@ -4862,7 +4939,7 @@ class _$BillingDetailsCollectionConfigurationImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BillingDetailsCollectionConfigurationImpl &&

@@ -1,7 +1,7 @@
 package com.reactnativestripesdk.addresssheet
 
-import com.facebook.react.bridge.ReadableArray
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableArrayStripe
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
@@ -22,27 +22,27 @@ class AddressSheetViewManager : SimpleViewManager<AddressSheetView>() {
   }
 
   @ReactProp(name = "appearance")
-  fun setAppearance(view: AddressSheetView, appearance: ReadableMap) {
+  fun setAppearance(view: AddressSheetView, appearance: ReadableMapStripe) {
     view.setAppearance(appearance)
   }
 
   @ReactProp(name = "defaultValues")
-  fun setDefaultValues(view: AddressSheetView, defaults: ReadableMap) {
+  fun setDefaultValues(view: AddressSheetView, defaults: ReadableMapStripe) {
     view.setDefaultValues(defaults)
   }
 
   @ReactProp(name = "additionalFields")
-  fun setAdditionalFields(view: AddressSheetView, fields: ReadableMap) {
+  fun setAdditionalFields(view: AddressSheetView, fields: ReadableMapStripe) {
     view.setAdditionalFields(fields)
   }
 
   @ReactProp(name = "allowedCountries")
-  fun setAllowedCountries(view: AddressSheetView, countries: ReadableArray) {
+  fun setAllowedCountries(view: AddressSheetView, countries: ReadableArrayStripe) {
     view.setAllowedCountries(countries.toArrayList().filterIsInstance<String>())
   }
 
   @ReactProp(name = "autocompleteCountries")
-  fun setAutocompleteCountries(view: AddressSheetView, countries: ReadableArray) {
+  fun setAutocompleteCountries(view: AddressSheetView, countries: ReadableArrayStripe) {
     view.setAutocompleteCountries(countries.toArrayList().filterIsInstance<String>())
   }
 

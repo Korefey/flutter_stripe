@@ -1,6 +1,6 @@
 package com.facebook.react.modules.core;
 
-import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.WritableMapStripe;
 
 import io.flutter.plugin.common.MethodChannel;
 
@@ -13,7 +13,7 @@ public class DeviceEventManagerModule {
             this.channel = channel;
         }
 
-        public void emit(String eventName, WritableMap params) {
+        public void emit(String eventName, WritableMapStripe params) {
             channel.invokeMethod(eventName, params);
         }
     }

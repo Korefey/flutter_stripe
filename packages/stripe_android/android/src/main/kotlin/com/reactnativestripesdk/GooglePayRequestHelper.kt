@@ -3,9 +3,9 @@ package com.reactnativestripesdk
 import android.app.Activity
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
-import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.ReadableMap
-import com.facebook.react.bridge.WritableNativeMap
+import com.facebook.react.bridge.PromiseStripe
+import com.facebook.react.bridge.ReadableMapStripe
+import com.facebook.react.bridge.WritableNativeMapStripe
 import com.google.android.gms.tasks.Task
 import com.google.android.gms.wallet.*
 import com.reactnativestripesdk.utils.*
@@ -100,7 +100,7 @@ class GooglePayRequestHelper {
       )
     }
 
-    internal fun handleGooglePaymentMethodResult(resultCode: Int, data: Intent?, stripe: Stripe, forToken: Boolean, promise: Promise) {
+    internal fun handleGooglePaymentMethodResult(resultCode: Int, data: Intent?, stripe: Stripe, forToken: Boolean, promise: PromiseStripe) {
       when (resultCode) {
         Activity.RESULT_OK -> {
           data?.let { intent ->
@@ -124,9 +124,9 @@ class GooglePayRequestHelper {
       }
     }
 
-    private fun resolveWithPaymentMethod(paymentData: PaymentData, stripe: Stripe, promise: Promise) {
+    private fun resolveWithPaymentMethod(paymentData: PaymentData, stripe: Stripe, promise: PromiseStripe) {
       val paymentInformation = JSONObject(paymentData.toJson())
-      val promiseResult = WritableNativeMap()
+      val promiseResult = WritableNativeMapStripe()
       stripe.createPaymentMethod(
         PaymentMethodCreateParams.createFromGooglePay(paymentInformation),
         callback = object : ApiResultCallback<PaymentMethod> {
@@ -150,7 +150,7 @@ class GooglePayRequestHelper {
     private fun resolveWithToken(paymentData: PaymentData, promise: Promise) {
       val paymentInformation = JSONObject(paymentData.toJson())
       val googlePayResult = GooglePayResult.fromJson(paymentInformation)
-      val promiseResult = WritableNativeMap()
+      val promiseResult = WritableNativeMapStripe()
       googlePayResult.token?.let {
         promiseResult.putMap("token", mapFromToken(it))
         if (googlePayResult.shippingInformation != null) {

@@ -7,18 +7,25 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by FFuF, Jonas Bark on 2019-10-02.
  */
-public class ReadableArray extends ArrayList<Object> {
+public class ReadableArrayStripe extends ArrayList<Object> {
 
 
     private JSONArray array;
 
-    public ReadableArray(JSONArray array) {
+    public ReadableArrayStripe(JSONArray array) {
         this.array = array;
     }
+
+    public ReadableArrayStripe(@NotNull List<Object> array) {
+        this.array = new JSONArray();
+        array.addAll(array);
+    }
+
 
     public String getString(int index) {
         try {

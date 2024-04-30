@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.WritableNativeMap
+import com.facebook.react.bridge.WritableNativeMapStripe
 import com.reactnativestripesdk.utils.GooglePayErrorType
 import com.reactnativestripesdk.utils.createError
 import com.reactnativestripesdk.utils.createResult
@@ -95,7 +95,7 @@ class GooglePayFragment(private val initPromise: Promise) : Fragment() {
 
   private fun onGooglePayReady(isReady: Boolean) {
     if (isReady) {
-      initPromise.resolve(WritableNativeMap())
+      initPromise.resolve(WritableNativeMapStripe())
     } else {
       initPromise.resolve(
         createError(
@@ -152,7 +152,7 @@ class GooglePayFragment(private val initPromise: Promise) : Fragment() {
   private fun onGooglePayResult(result: GooglePayLauncher.Result) {
     when (result) {
       GooglePayLauncher.Result.Completed -> {
-        presentPromise?.resolve(WritableNativeMap())
+        presentPromise?.resolve(WritableNativeMapStripe())
       }
       GooglePayLauncher.Result.Canceled -> {
         presentPromise?.resolve(createError(GooglePayErrorType.Canceled.toString(), "Google Pay has been canceled"))

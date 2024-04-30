@@ -11,13 +11,13 @@ import java.util.Map;
 import io.flutter.embedding.android.FlutterFragmentActivity;
 import io.flutter.plugin.common.PluginRegistry;
 
-public class ReactContextBaseJavaModule implements PluginRegistry.ActivityResultListener {
+public class ReactContextBaseJavaModuleStripe implements PluginRegistry.ActivityResultListener {
     protected final Activity activity;
-    protected final ReactApplicationContext context;
+    protected final ReactApplicationContextStripe context;
 
-    private final ArrayList<ActivityEventListener> eventListeners = new ArrayList<>();
+    private final ArrayList<ActivityEventListenerStripe> eventListeners = new ArrayList<>();
 
-    protected ReactContextBaseJavaModule(ReactApplicationContext context) {
+    protected ReactContextBaseJavaModuleStripe(ReactApplicationContextStripe context) {
         this.activity = context.getActivity();
         this.context = context;
         if (!(activity instanceof FlutterFragmentActivity)) {
@@ -25,7 +25,7 @@ public class ReactContextBaseJavaModule implements PluginRegistry.ActivityResult
         }
     }
 
-    protected ReactApplicationContext getReactApplicationContext() {
+    protected ReactApplicationContextStripe getReactApplicationContext() {
         return this.context;
     }
 
@@ -43,7 +43,7 @@ public class ReactContextBaseJavaModule implements PluginRegistry.ActivityResult
 
     @Override
     public boolean onActivityResult(int requestCode, int resultCode, Intent data) {
-        for (ActivityEventListener eventListener : eventListeners) {
+        for (ActivityEventListenerStripe eventListener : eventListeners) {
             eventListener.onActivityResult(activity, requestCode, resultCode, data);
         }
         return false;

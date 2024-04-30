@@ -1,6 +1,6 @@
 package com.facebook.react.bridge;
 
-public interface ReadableMapKeySetIterator {
+public interface ReadableMapKeySetIteratorStripe {
 
   boolean hasNextKey();
 

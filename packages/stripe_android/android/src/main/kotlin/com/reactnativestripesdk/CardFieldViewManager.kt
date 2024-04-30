@@ -1,7 +1,7 @@
 package com.reactnativestripesdk
 
-import com.facebook.react.bridge.ReadableArray
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableArrayStripe
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.common.MapBuilder
 import com.facebook.react.uimanager.SimpleViewManager
 import com.facebook.react.uimanager.ThemedReactContext
@@ -21,7 +21,7 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
       CardChangedEvent.EVENT_NAME, MapBuilder.of("registrationName", "onCardChange"))
   }
 
-  override fun receiveCommand(root: CardFieldView, commandId: String?, args: ReadableArray?) {
+  override fun receiveCommand(root: CardFieldView, commandId: String?, args: ReadableArrayStripe?) {
     when (commandId) {
       "focus" -> root.requestFocusFromJS()
       "blur" -> root.requestBlurFromJS()
@@ -45,7 +45,7 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
   }
 
   @ReactProp(name = "cardStyle")
-  fun setCardStyle(view: CardFieldView, cardStyle: ReadableMap) {
+  fun setCardStyle(view: CardFieldView, cardStyle: ReadableMapStripe) {
     view.setCardStyle(cardStyle)
   }
 
@@ -55,13 +55,19 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
   }
 
   @ReactProp(name = "placeholders")
-  fun setPlaceHolders(view: CardFieldView, placeholders: ReadableMap) {
+  fun setPlaceHolders(view: CardFieldView, placeholders: ReadableMapStripe) {
     view.setPlaceHolders(placeholders)
   }
 
   @ReactProp(name = "disabled")
   fun setDisabled(view: CardFieldView, isDisabled: Boolean) {
     view.setDisabled(isDisabled)
+  }
+
+  @ReactProp(name = "preferredNetworks")
+  fun setPreferredNetworks(view: CardFieldView, preferredNetworks: ReadableArrayStripe?) {
+    val networks = preferredNetworks?.toArrayList()?.filterIsInstance<Int>()?.let { ArrayList(it) }
+    view.setPreferredNetworks(networks)
   }
 
   override fun createViewInstance(reactContext: ThemedReactContext): CardFieldView {
@@ -87,7 +93,7 @@ class CardFieldViewManager : SimpleViewManager<CardFieldView>() {
     return stripeSdkModule?.cardFieldView
   }
 
-  fun setCardDetails(value: ReadableMap, reactContext: ThemedReactContext) {
+  fun setCardDetails(value: ReadableMapStripe, reactContext: ThemedReactContext) {
     val number = getValOr(value, "number", null)
     val expirationYear = getIntOrNull(value, "expirationYear")
     val expirationMonth = getIntOrNull(value, "expirationMonth")

@@ -2,9 +2,9 @@ package com.flutter.stripe
 
 import android.annotation.SuppressLint
 import androidx.annotation.NonNull
-import com.facebook.react.bridge.Promise
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.PromiseStripe
+import com.facebook.react.bridge.ReactApplicationContextStripe
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.uimanager.DisplayMetricsHolder
 import com.facebook.react.uimanager.ThemedReactContext
 import com.google.android.material.internal.ThemeEnforcement
@@ -86,28 +86,28 @@ If you continue to have trouble, follow this discussion to get some support http
         when (call.method) {
             "initialise" -> {
                 stripeSdk.initialise(
-                    params = ReadableMap(call.arguments as JSONObject),
-                    promise = Promise(result),
+                    params = ReadableMapStripe(call.arguments as JSONObject),
+                    promise = PromiseStripe(result),
                 )
             }
             "createPaymentMethod" -> stripeSdk.createPaymentMethod(
                 data = call.requiredArgument("data"),
                 options = call.requiredArgument("options"),
-                promise = Promise(result)
+                promise = PromiseStripe(result)
             )
             "createTokenForCVCUpdate" -> stripeSdk.createTokenForCVCUpdate(
                 cvc = call.requiredArgument("cvc"),
-                promise = Promise(result)
+                promise = PromiseStripe(result)
             )
             "confirmSetupIntent" -> stripeSdk.confirmSetupIntent(
                 setupIntentClientSecret = call.requiredArgument("setupIntentClientSecret"),
                 params = call.requiredArgument("params"),
                 options = call.requiredArgument("options"),
-                promise = Promise(result)
+                promise = PromiseStripe(result)
             )
             "handleNextAction" -> stripeSdk.handleNextAction(
                 paymentIntentClientSecret = call.requiredArgument("paymentIntentClientSecret"),
-                promise = Promise(result)
+                promise = PromiseStripe(result)
             )
             "handleNextActionForSetup" -> stripeSdk.handleNextActionForSetup(
                 setupIntentClientSecret = call.requiredArgument("setupIntentClientSecret"),
@@ -282,7 +282,7 @@ If you continue to have trouble, follow this discussion to get some support http
                     "Your theme isn't set to use Theme.AppCompat or Theme.MaterialComponents."
             }
             else -> {
-                val context = ReactApplicationContext(binding, channel) { stripeSdk }
+                val context = ReactApplicationContextStripe(binding, channel) { stripeSdk }
                 stripeSdk = StripeSdkModule(context)
             }
         }
@@ -302,15 +302,15 @@ private inline fun <reified T> MethodCall.optionalArgument(key: String): T? {
     val value = argument<T>(key)
     if (value == JSONObject.NULL)
         return null
-    if (T::class.java == ReadableMap::class.java) {
-        return ReadableMap(argument<JSONObject>(key) ?: JSONObject()) as T
+    if (T::class.java == ReadableMapStripe::class.java) {
+        return ReadableMapStripe(argument<JSONObject>(key) ?: JSONObject()) as T
     }
     return value
 }
 
 private inline fun <reified T> MethodCall.requiredArgument(key: String): T {
-    if (T::class.java == ReadableMap::class.java) {
-        return ReadableMap(argument<JSONObject>(key) ?: error("Required parameter $key not set")) as T
+    if (T::class.java == ReadableMapStripe::class.java) {
+        return ReadableMapStripe(argument<JSONObject>(key) ?: error("Required parameter $key not set")) as T
     }
     return argument<T>(key) ?: error("Required parameter $key not set")
 }

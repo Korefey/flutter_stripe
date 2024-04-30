@@ -26,7 +26,7 @@ class GooglePayLauncherFragment : Fragment() {
   private lateinit var currencyCode: String
   private var amount: Int? = null
   private var label: String? = null
-  private lateinit var callback: (result: GooglePayLauncher.Result?, error: WritableMap?) -> Unit
+  private lateinit var callback: (result: GooglePayLauncher.Result?, error: WritableMapStripe?) -> Unit
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View {
@@ -44,7 +44,7 @@ class GooglePayLauncherFragment : Fragment() {
     )
   }
 
-  fun presentGooglePaySheet(clientSecret: String, mode: Mode, googlePayParams: ReadableMap, context: ReactApplicationContext, callback: (GooglePayLauncher.Result?, error: WritableMap?) -> Unit) {
+  fun presentGooglePaySheet(clientSecret: String, mode: Mode, googlePayParams: ReadableMap, context: ReactApplicationContextStripe, callback: (GooglePayLauncher.Result?, error: WritableMapStripe?) -> Unit) {
     this.clientSecret = clientSecret
     this.mode = mode
     this.callback = callback

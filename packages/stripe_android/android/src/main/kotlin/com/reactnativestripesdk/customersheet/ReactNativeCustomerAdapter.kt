@@ -1,10 +1,10 @@
 package com.reactnativestripesdk.customersheet
 
 import android.util.Log
-import com.facebook.react.bridge.Arguments
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReadableMap
-import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.ArgumentsStripe
+import com.facebook.react.bridge.ReactApplicationContextStripe
+import com.facebook.react.bridge.ReadableMapStripe
+import com.facebook.react.bridge.WritableMapStripe
 import com.reactnativestripesdk.StripeSdkModule
 import com.stripe.android.customersheet.CustomerAdapter
 import com.stripe.android.customersheet.ExperimentalCustomerSheetApi
@@ -13,7 +13,7 @@ import kotlinx.coroutines.CompletableDeferred
 
 @OptIn(ExperimentalCustomerSheetApi::class)
 class ReactNativeCustomerAdapter (
-  private val context: ReactApplicationContext,
+  private val context: ReactApplicationContextStripe,
   private val adapter: CustomerAdapter,
   private val overridesFetchPaymentMethods: Boolean,
   private val overridesAttachPaymentMethod: Boolean,
@@ -33,7 +33,7 @@ class ReactNativeCustomerAdapter (
     if (overridesFetchPaymentMethods) {
       CompletableDeferred<List<PaymentMethod>>().also {
         fetchPaymentMethodsCallback = it
-        emitEvent("onCustomerAdapterFetchPaymentMethodsCallback", Arguments.createMap())
+        emitEvent("onCustomerAdapterFetchPaymentMethodsCallback", ArgumentsStripe.createMap())
         val resultFromJavascript = it.await()
         return CustomerAdapter.Result.success(resultFromJavascript)
       }
@@ -46,7 +46,7 @@ class ReactNativeCustomerAdapter (
     if (overridesAttachPaymentMethod) {
       CompletableDeferred<PaymentMethod>().also {
         attachPaymentMethodCallback = it
-        val params = Arguments.createMap().also {
+        val params = ArgumentsStripe.createMap().also {
           it.putString("paymentMethodId", paymentMethodId)
         }
         emitEvent("onCustomerAdapterAttachPaymentMethodCallback", params)
@@ -62,7 +62,7 @@ class ReactNativeCustomerAdapter (
     if (overridesDetachPaymentMethod) {
       CompletableDeferred<PaymentMethod>().also {
         detachPaymentMethodCallback = it
-        val params = Arguments.createMap().also {
+        val params = ArgumentsStripe.createMap().also {
           it.putString("paymentMethodId", paymentMethodId)
         }
         emitEvent("onCustomerAdapterDetachPaymentMethodCallback", params)
@@ -78,7 +78,7 @@ class ReactNativeCustomerAdapter (
     if (overridesSetSelectedPaymentOption) {
       CompletableDeferred<Unit>().also {
         setSelectedPaymentOptionCallback = it
-        val params = Arguments.createMap().also {
+        val params = ArgumentsStripe.createMap().also {
           it.putString("paymentOption", paymentOption?.id)
         }
         emitEvent("onCustomerAdapterSetSelectedPaymentOptionCallback", params)
@@ -94,7 +94,7 @@ class ReactNativeCustomerAdapter (
     if (overridesFetchSelectedPaymentOption) {
       CompletableDeferred<String?>().also {
         fetchSelectedPaymentOptionCallback = it
-        emitEvent("onCustomerAdapterFetchSelectedPaymentOptionCallback", Arguments.createMap())
+        emitEvent("onCustomerAdapterFetchSelectedPaymentOptionCallback", ArgumentsStripe.createMap())
         val resultFromJavascript = it.await()
         return CustomerAdapter.Result.success(
           if (resultFromJavascript != null) {
@@ -113,7 +113,7 @@ class ReactNativeCustomerAdapter (
     if (overridesSetupIntentClientSecretForCustomerAttach) {
       CompletableDeferred<String>().also {
         setupIntentClientSecretForCustomerAttachCallback = it
-        emitEvent("onCustomerAdapterSetupIntentClientSecretForCustomerAttachCallback", Arguments.createMap())
+        emitEvent("onCustomerAdapterSetupIntentClientSecretForCustomerAttachCallback", ArgumentsStripe.createMap())
         val resultFromJavascript = it.await()
         return CustomerAdapter.Result.success(resultFromJavascript)
       }
@@ -122,7 +122,7 @@ class ReactNativeCustomerAdapter (
     return adapter.setupIntentClientSecretForCustomerAttach()
   }
 
-  private fun emitEvent(eventName: String, params: WritableMap) {
+  private fun emitEvent(eventName: String, params: WritableMapStripe) {
     val stripeSdkModule: StripeSdkModule? = context.getNativeModule(StripeSdkModule::class.java)
     if (stripeSdkModule == null || stripeSdkModule.eventListenerCount == 0) {
       Log.e(

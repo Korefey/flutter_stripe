@@ -32,9 +32,9 @@ import kotlinx.coroutines.launch
 class CustomerSheetFragment : Fragment() {
   private var customerSheet: CustomerSheet? = null
   internal var customerAdapter: ReactNativeCustomerAdapter? = null
-  internal var context: ReactApplicationContext? = null
-  internal var initPromise: Promise? = null
-  private var presentPromise: Promise? = null
+  internal var context: ReactApplicationContextStripe? = null
+  internal var initPromise: PromiseStripe? = null
+  private var presentPromise: PromiseStripe? = null
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -84,11 +84,11 @@ class CustomerSheetFragment : Fragment() {
       return
     }
 
-    val configuration = CustomerSheet.Configuration.builder()
+    val configuration = CustomerSheet.Configuration.builder(merchantDisplayName ?: "")
       .appearance(appearance)
       .googlePayEnabled(googlePayEnabled)
-      .merchantDisplayName(merchantDisplayName)
       .headerTextForSelectionScreen(headerTextForSelectionScreen)
+      .preferredNetworks(mapToPreferredNetworks(arguments?.getIntegerArrayList("preferredNetworks")))
 
     billingDetailsBundle?.let {
       configuration.defaultBillingDetails(createDefaultBillingDetails(billingDetailsBundle))
@@ -110,7 +110,7 @@ class CustomerSheetFragment : Fragment() {
       callback = ::handleResult
     )
 
-    initPromise.resolve(WritableNativeMap())
+    initPromise.resolve(WritableNativeMapStripe())
   }
 
   private fun handleResult(result: CustomerSheetResult) {
@@ -119,7 +119,7 @@ class CustomerSheetFragment : Fragment() {
       return
     }
 
-    var promiseResult = Arguments.createMap()
+    var promiseResult = ArgumentsStripe.createMap()
     when (result) {
       is CustomerSheetResult.Failed -> {
         presentPromise.resolve(createError(ErrorType.Failed.toString(), result.exception))
@@ -129,7 +129,7 @@ class CustomerSheetFragment : Fragment() {
       }
       is CustomerSheetResult.Canceled -> {
         promiseResult = createPaymentOptionResult(result.selection)
-        promiseResult.putMap("error", Arguments.createMap().also { it.putString("code", ErrorType.Canceled.toString()) })
+        promiseResult.putMap("error", ArgumentsStripe.createMap().also { it.putString("code", ErrorType.Canceled.toString()) })
       }
     }
     presentPromise.resolve(promiseResult)
@@ -193,7 +193,7 @@ class CustomerSheetFragment : Fragment() {
           promise.resolve(createMissingInitError())
           return@launch
         }
-        var promiseResult = Arguments.createMap()
+        var promiseResult = ArgumentsStripe.createMap()
         when (result) {
           is CustomerSheetResult.Failed -> {
             promise.resolve(createError(ErrorType.Failed.toString(), result.exception))
@@ -203,7 +203,7 @@ class CustomerSheetFragment : Fragment() {
           }
           is CustomerSheetResult.Canceled -> {
             promiseResult = createPaymentOptionResult(result.selection)
-            promiseResult.putMap("error", Arguments.createMap().also { it.putString("code", ErrorType.Canceled.toString()) })
+            promiseResult.putMap("error", ArgumentsStripe.createMap().also { it.putString("code", ErrorType.Canceled.toString()) })
           }
         }
         promise.resolve(promiseResult)
@@ -216,7 +216,7 @@ class CustomerSheetFragment : Fragment() {
   companion object {
     internal const val TAG = "customer_sheet_launch_fragment"
 
-    internal fun createMissingInitError(): WritableMap {
+    internal fun createMissingInitError(): WritableMapStripe {
       return createError(ErrorType.Failed.toString(), "No customer sheet has been initialized yet.")
     }
 
@@ -247,7 +247,7 @@ class CustomerSheetFragment : Fragment() {
     }
 
     internal fun createCustomerAdapter(
-      context: ReactApplicationContext,
+      context: ReactApplicationContextStripe,
       customerId: String,
       customerEphemeralKeySecret: String,
       setupIntentClientSecret: String?,
@@ -291,8 +291,8 @@ class CustomerSheetFragment : Fragment() {
       )
     }
 
-    internal fun createPaymentOptionResult(selection: PaymentOptionSelection?): WritableMap {
-      var paymentOptionResult = Arguments.createMap()
+    internal fun createPaymentOptionResult(selection: PaymentOptionSelection?): WritableMapStripe {
+      var paymentOptionResult = ArgumentsStripe.createMap()
 
       when (selection) {
         is PaymentOptionSelection.GooglePay -> {
@@ -313,9 +313,9 @@ class CustomerSheetFragment : Fragment() {
       return paymentOptionResult
     }
 
-    private fun buildResult(label: String, drawable: Drawable, paymentMethod: PaymentMethod?): WritableMap {
-      val result = Arguments.createMap()
-      val paymentOption = Arguments.createMap().also {
+    private fun buildResult(label: String, drawable: Drawable, paymentMethod: PaymentMethod?): WritableMapStripe {
+      val result = ArgumentsStripe.createMap()
+      val paymentOption = ArgumentsStripe.createMap().also {
         it.putString("label", label)
         it.putString("image", getBase64FromBitmap(getBitmapFromDrawable(drawable)))
       }

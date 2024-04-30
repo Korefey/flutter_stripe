@@ -1,9 +1,9 @@
 package com.reactnativestripesdk.pushprovisioning
-import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.WritableMapStripe
 import com.facebook.react.uimanager.events.Event
 import com.facebook.react.uimanager.events.RCTEventEmitter
 
-internal class AddToWalletCompleteEvent constructor(viewTag: Int, private val error: WritableMap?) : Event<AddToWalletCompleteEvent>(viewTag) {
+internal class AddToWalletCompleteEvent constructor(viewTag: Int, private val error: WritableMapStripe?) : Event<AddToWalletCompleteEvent>(viewTag) {
   override fun getEventName(): String {
     return EVENT_NAME
   }
@@ -12,7 +12,7 @@ internal class AddToWalletCompleteEvent constructor(viewTag: Int, private val er
     rctEventEmitter.receiveEvent(viewTag, eventName, serializeEventData())
   }
 
-  private fun serializeEventData(): WritableMap? {
+  private fun serializeEventData(): WritableMapStripe? {
     return error
   }
 

@@ -6,7 +6,7 @@ import com.flutter.stripe.StripeAndroidPlugin
 import io.flutter.plugin.common.PluginRegistry.ActivityResultListener
 import java.lang.ref.WeakReference
 
-open class BaseActivityEventListener : ActivityEventListener, ActivityResultListener {
+open class BaseActivityEventListenerStripe : ActivityEventListenerStripe, ActivityResultListener {
 
     lateinit var activity: WeakReference<Activity>
 

@@ -1,6 +1,6 @@
 package com.reactnativestripesdk
-import com.facebook.react.bridge.Arguments
-import com.facebook.react.bridge.WritableMap
+import com.facebook.react.bridge.ArgumentsStripe
+import com.facebook.react.bridge.WritableMapStripe
 import com.facebook.react.uimanager.events.Event
 import com.facebook.react.uimanager.events.RCTEventEmitter
 
@@ -13,8 +13,8 @@ internal class FormCompleteEvent constructor(viewTag: Int, private val formDetai
     rctEventEmitter.receiveEvent(viewTag, eventName, serializeEventData())
   }
 
-  private fun serializeEventData(): WritableMap {
-    val eventData = Arguments.createMap()
+  private fun serializeEventData(): WritableMapStripe {
+    val eventData = ArgumentsStripe.createMap()
     eventData.putString("accountNumber", formDetails["accountNumber"].toString())
     eventData.putString("bsbNumber", formDetails["bsbNumber"].toString())
     eventData.putString("email", formDetails["email"].toString())

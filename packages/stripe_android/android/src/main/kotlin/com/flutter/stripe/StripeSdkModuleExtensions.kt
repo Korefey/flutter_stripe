@@ -2,7 +2,7 @@ package com.flutter.stripe
 
 import android.content.Intent
 import androidx.fragment.app.FragmentActivity
-import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.PromiseStripe
 import com.reactnativestripesdk.StripeSdkModule
 import com.reactnativestripesdk.utils.createMissingActivityError
 

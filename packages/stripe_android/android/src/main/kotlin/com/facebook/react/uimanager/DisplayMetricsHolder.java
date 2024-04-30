@@ -12,8 +12,8 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import androidx.annotation.Nullable;
-import com.facebook.react.bridge.WritableMap;
-import com.facebook.react.bridge.WritableNativeMap;
+import com.facebook.react.bridge.WritableMapStripe;
+import com.facebook.react.bridge.WritableNativeMapStripe;
 
 /**
  * Holds an instance of the current DisplayMetrics so we don't have to thread it through all the
@@ -67,8 +67,8 @@ public class DisplayMetricsHolder {
     return sScreenDisplayMetrics;
   }
 
-  public static WritableMap getDisplayMetricsWritableMap(double fontScale) {
-    final WritableNativeMap result = new WritableNativeMap();
+  public static WritableMapStripe getDisplayMetricsWritableMap(double fontScale) {
+    final WritableNativeMapStripe result = new WritableNativeMapStripe();
     result.putMap(
         "windowPhysicalPixels", getPhysicalPixelsWritableMap(sWindowDisplayMetrics, fontScale));
     result.putMap(
@@ -76,9 +76,9 @@ public class DisplayMetricsHolder {
     return result;
   }
 
-  private static WritableMap getPhysicalPixelsWritableMap(
+  private static WritableMapStripe getPhysicalPixelsWritableMap(
       DisplayMetrics displayMetrics, double fontScale) {
-    final WritableNativeMap result = new WritableNativeMap();
+    final WritableNativeMapStripe result = new WritableNativeMapStripe();
     result.putInt("width", displayMetrics.widthPixels);
     result.putInt("height", displayMetrics.heightPixels);
     result.putDouble("scale", displayMetrics.density);

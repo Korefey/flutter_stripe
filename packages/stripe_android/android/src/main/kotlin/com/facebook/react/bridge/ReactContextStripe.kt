@@ -7,13 +7,13 @@ import com.facebook.react.uimanager.UIManagerModule
 import com.reactnativestripesdk.StripeSdkModule
 import io.flutter.plugin.common.MethodChannel
 
-open class ReactContext(
+open class ReactContextStripe(
     val currentActivity: FragmentActivity,
     private val channel: MethodChannel,
     private val sdkAccessor: () -> StripeSdkModule
 ): ContextWrapper(currentActivity) {
 
-    val reactApplicationContext: ReactApplicationContext by lazy {
+    val reactApplicationContext: ReactApplicationContextStripe by lazy {
         sdkAccessor().reactApplicationContext
     }
 

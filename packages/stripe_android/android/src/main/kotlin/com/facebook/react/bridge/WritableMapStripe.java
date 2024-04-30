@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by FFuF, Jonas Bark on 2019-10-02.
  */
-public class WritableMap extends HashMap<String, Object> implements Map<String, Object> {
+public class WritableMapStripe extends HashMap<String, Object> implements Map<String, Object> {
 
     public void putString(String key, String value) {
         this.put(key, value);
@@ -19,7 +19,7 @@ public class WritableMap extends HashMap<String, Object> implements Map<String, 
         put(key, value);
     }
 
-    public void putMap(String key, WritableMap map) {
+    public void putMap(String key, WritableMapStripe map) {
         put(key, map);
     }
 
@@ -31,7 +31,7 @@ public class WritableMap extends HashMap<String, Object> implements Map<String, 
         put(key, value);
     }
 
-    public void putArray(String key, WritableArray value) {
+    public void putArray(String key, WritableArrayStripe value) {
         put(key, value);
     }
 

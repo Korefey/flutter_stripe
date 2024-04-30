@@ -17,14 +17,14 @@ import java.util.Map;
 /**
  * Created by FFuF, Jonas Bark on 2019-10-02.
  */
-public class ReadableMap extends WritableMap {
+public class ReadableMapStripe extends WritableMapStripe {
 
     private JSONObject map;
 
-    public ReadableMap(JSONObject map) {
+    public ReadableMapStripe(JSONObject map) {
         this.map = map;
     }
-    public ReadableMap(Map<String, Object> map) {
+    public ReadableMapStripe(Map<String, Object> map) {
         this.map = new JSONObject(map);
     }
 
@@ -49,9 +49,9 @@ public class ReadableMap extends WritableMap {
         return map.getInt(key);
     }
 
-    public @Nullable ReadableMap getMap(String key) {
+    public @Nullable ReadableMapStripe getMap(String key) {
         if (map.optJSONObject(key) != null && map.optJSONObject(key) != JSONObject.NULL) {
-            return new ReadableMap(map.optJSONObject(key));
+            return new ReadableMapStripe(map.optJSONObject(key));
         } else {
             return null;
         }
@@ -62,9 +62,9 @@ public class ReadableMap extends WritableMap {
     }
 
     @NotNull
-    public ReadableMapKeySetIterator keySetIterator() {
+    public ReadableMapKeySetIteratorStripe keySetIterator() {
         final Iterator<String> keyIterator = map.keys();
-        return new ReadableMapKeySetIterator() {
+        return new ReadableMapKeySetIteratorStripe() {
             @Override
             public boolean hasNextKey() {
                 return keyIterator.hasNext();
@@ -78,24 +78,24 @@ public class ReadableMap extends WritableMap {
     }
 
     @NotNull
-    public ReadableType getType(String key) {
+    public ReadableTypeStripe getType(String key) {
         try {
             final Object value = map.get(key);
             if (value instanceof Boolean) {
-                return ReadableType.Boolean;
+                return ReadableTypeStripe.Boolean;
             } else if (value instanceof Iterable) {
-                return ReadableType.Array;
+                return ReadableTypeStripe.Array;
             } else if (value instanceof Number) {
-                return ReadableType.Number;
+                return ReadableTypeStripe.Number;
             } else if (value instanceof Map || (value instanceof  JSONObject)) {
-                return ReadableType.Map;
+                return ReadableTypeStripe.Map;
             } else if (value instanceof String) {
-                return ReadableType.String;
+                return ReadableTypeStripe.String;
             } else {
-                return ReadableType.Null;
+                return ReadableTypeStripe.Null;
             }
         } catch (JSONException e) {
-            return ReadableType.Null;
+            return ReadableTypeStripe.Null;
         }
     }
 
@@ -104,9 +104,9 @@ public class ReadableMap extends WritableMap {
     }
 
     @Nullable
-    public ReadableArray getArray(@NotNull String key) {
+    public ReadableArrayStripe getArray(@NotNull String key) {
         if (map.optJSONArray(key) != null && map.optJSONArray(key) != JSONObject.NULL) {
-            return new ReadableArray(map.optJSONArray(key));
+            return new ReadableArrayStripe(map.optJSONArray(key));
         } else {
             return null;
         }

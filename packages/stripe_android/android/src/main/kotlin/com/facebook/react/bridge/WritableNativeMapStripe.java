@@ -8,17 +8,17 @@ import java.util.Map;
 /**
  * Created by FFuF, Jonas Bark on 2019-10-02.
  */
-public class WritableNativeMap extends ReadableMap {
+public class WritableNativeMapStripe extends ReadableMapStripe {
 
-    public WritableNativeMap(JSONObject map) {
+    public WritableNativeMapStripe(JSONObject map) {
         super(map);
     }
 
-    public WritableNativeMap(Map<String, Object> map) {
+    public WritableNativeMapStripe(Map<String, Object> map) {
         super(map);
     }
 
-    public WritableNativeMap() {
+    public WritableNativeMapStripe() {
         super(new HashMap<>());
     }
 }

@@ -4,7 +4,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-import com.facebook.react.bridge.ReadableArray;
+import com.facebook.react.bridge.ReadableArrayStripe;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public abstract class SimpleViewManager<T extends View> {
 
     public void onDropViewInstance(@NonNull T view) {};
 
-    public void receiveCommand(T root, String commandId, ReadableArray args) {}
+    public void receiveCommand(T root, String commandId, ReadableArrayStripe args) {}
 
     public void onAfterUpdateTransaction(@NonNull T view) {}
 }

@@ -2,7 +2,7 @@ package com.flutter.stripe
 
 import android.content.Context
 import android.view.View
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.uimanager.ThemedReactContext
 import com.reactnativestripesdk.StripeSdkModule
 import com.reactnativestripesdk.pushprovisioning.AddToWalletButtonManager
@@ -37,14 +37,14 @@ class StripeAddToWalletPlatformView(
         if (creationParams?.containsKey("androidAssetSource") == true) {
             viewManager.source(
                 nativeView,
-                ReadableMap(creationParams["androidAssetSource"] as Map<String, Any>)
+                ReadableMapStripe(creationParams["androidAssetSource"] as Map<String, Any>)
             )
         }
 
         if (creationParams?.containsKey("cardDetails") == true) {
             viewManager.cardDetails(
                 nativeView,
-                ReadableMap(creationParams["cardDetails"] as Map<String, Any>)
+                ReadableMapStripe(creationParams["cardDetails"] as Map<String, Any>)
             )
         }
 

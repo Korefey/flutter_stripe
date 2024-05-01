@@ -28,7 +28,6 @@ apply plugin: 'kotlin-android'
 
 android {
     namespace 'com.flutter.stripe'
-    compileSdkVersion 32
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

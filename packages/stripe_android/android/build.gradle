@@ -1,9 +1,10 @@
+
 group 'com.flutter.stripe'
 version '1.0-SNAPSHOT'
 
 buildscript {
     ext.kotlin_version = '1.8.0'
-    ext.stripe_version = '20.41.1'
+    ext.stripe_version = '20.37.+'
 
     repositories {
         google()
@@ -46,24 +47,22 @@ android {
         minSdkVersion 21
         consumerProguardFiles 'proguard-rules.txt'
     }
-    ndkVersion '26.3.11579264'
-    buildToolsVersion '34.0.0'
 }
 
 dependencies {
-    implementation 'com.github.bumptech.glide:glide:4.16.0'
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
 
-    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
     implementation "com.stripe:stripe-android:$stripe_version"
     implementation "com.stripe:financial-connections:$stripe_version"
-    implementation 'com.google.android.material:material:1.11.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.6.0'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
 
     // play-services-wallet is already included in stripe-android
-    compileOnly 'com.google.android.gms:play-services-wallet:19.3.0'
+    compileOnly "com.google.android.gms:play-services-wallet:19.2.0"
 
     // Users need to declare this dependency on their own, otherwise all methods are a no-op
-    compileOnly 'com.stripe:stripe-android-issuing-push-provisioning:1.2.2'
+    compileOnly 'com.stripe:stripe-android-issuing-push-provisioning:1.1.0'
 }

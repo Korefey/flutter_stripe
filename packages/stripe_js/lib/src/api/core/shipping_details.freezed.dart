@@ -114,12 +114,12 @@ class _$ShippingDetailsCopyWithImpl<$Res, $Val extends ShippingDetails>
 }
 
 /// @nodoc
-abstract class _$$PaymentElementChangeEventImplCopyWith<$Res>
+abstract class _$$_PaymentElementChangeEventCopyWith<$Res>
     implements $ShippingDetailsCopyWith<$Res> {
-  factory _$$PaymentElementChangeEventImplCopyWith(
-          _$PaymentElementChangeEventImpl value,
-          $Res Function(_$PaymentElementChangeEventImpl) then) =
-      __$$PaymentElementChangeEventImplCopyWithImpl<$Res>;
+  factory _$$_PaymentElementChangeEventCopyWith(
+          _$_PaymentElementChangeEvent value,
+          $Res Function(_$_PaymentElementChangeEvent) then) =
+      __$$_PaymentElementChangeEventCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -134,12 +134,12 @@ abstract class _$$PaymentElementChangeEventImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentElementChangeEventImplCopyWithImpl<$Res>
-    extends _$ShippingDetailsCopyWithImpl<$Res, _$PaymentElementChangeEventImpl>
-    implements _$$PaymentElementChangeEventImplCopyWith<$Res> {
-  __$$PaymentElementChangeEventImplCopyWithImpl(
-      _$PaymentElementChangeEventImpl _value,
-      $Res Function(_$PaymentElementChangeEventImpl) _then)
+class __$$_PaymentElementChangeEventCopyWithImpl<$Res>
+    extends _$ShippingDetailsCopyWithImpl<$Res, _$_PaymentElementChangeEvent>
+    implements _$$_PaymentElementChangeEventCopyWith<$Res> {
+  __$$_PaymentElementChangeEventCopyWithImpl(
+      _$_PaymentElementChangeEvent _value,
+      $Res Function(_$_PaymentElementChangeEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -151,7 +151,7 @@ class __$$PaymentElementChangeEventImplCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? trackingNumber = freezed,
   }) {
-    return _then(_$PaymentElementChangeEventImpl(
+    return _then(_$_PaymentElementChangeEvent(
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -178,16 +178,16 @@ class __$$PaymentElementChangeEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentElementChangeEventImpl implements _PaymentElementChangeEvent {
-  const _$PaymentElementChangeEventImpl(
+class _$_PaymentElementChangeEvent implements _PaymentElementChangeEvent {
+  const _$_PaymentElementChangeEvent(
       {this.address = const ShippingDetailsAddress(),
       this.carrier,
       this.name,
       this.phone,
       @JsonKey(name: 'tracking_number') this.trackingNumber});
 
-  factory _$PaymentElementChangeEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentElementChangeEventImplFromJson(json);
+  factory _$_PaymentElementChangeEvent.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentElementChangeEventFromJson(json);
 
   /// Shipping address.
   @override
@@ -223,7 +223,7 @@ class _$PaymentElementChangeEventImpl implements _PaymentElementChangeEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentElementChangeEventImpl &&
+            other is _$_PaymentElementChangeEvent &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.carrier, carrier) || other.carrier == carrier) &&
             (identical(other.name, name) || other.name == name) &&
@@ -240,13 +240,13 @@ class _$PaymentElementChangeEventImpl implements _PaymentElementChangeEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentElementChangeEventImplCopyWith<_$PaymentElementChangeEventImpl>
-      get copyWith => __$$PaymentElementChangeEventImplCopyWithImpl<
-          _$PaymentElementChangeEventImpl>(this, _$identity);
+  _$$_PaymentElementChangeEventCopyWith<_$_PaymentElementChangeEvent>
+      get copyWith => __$$_PaymentElementChangeEventCopyWithImpl<
+          _$_PaymentElementChangeEvent>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentElementChangeEventImplToJson(
+    return _$$_PaymentElementChangeEventToJson(
       this,
     );
   }
@@ -259,10 +259,10 @@ abstract class _PaymentElementChangeEvent implements ShippingDetails {
           final String? name,
           final String? phone,
           @JsonKey(name: 'tracking_number') final String? trackingNumber}) =
-      _$PaymentElementChangeEventImpl;
+      _$_PaymentElementChangeEvent;
 
   factory _PaymentElementChangeEvent.fromJson(Map<String, dynamic> json) =
-      _$PaymentElementChangeEventImpl.fromJson;
+      _$_PaymentElementChangeEvent.fromJson;
 
   @override
 
@@ -290,7 +290,7 @@ abstract class _PaymentElementChangeEvent implements ShippingDetails {
   String? get trackingNumber;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentElementChangeEventImplCopyWith<_$PaymentElementChangeEventImpl>
+  _$$_PaymentElementChangeEventCopyWith<_$_PaymentElementChangeEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -392,12 +392,12 @@ class _$ShippingDetailsAddressCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentElementBillingDetailsAddressImplCopyWith<$Res>
+abstract class _$$_PaymentElementBillingDetailsAddressCopyWith<$Res>
     implements $ShippingDetailsAddressCopyWith<$Res> {
-  factory _$$PaymentElementBillingDetailsAddressImplCopyWith(
-          _$PaymentElementBillingDetailsAddressImpl value,
-          $Res Function(_$PaymentElementBillingDetailsAddressImpl) then) =
-      __$$PaymentElementBillingDetailsAddressImplCopyWithImpl<$Res>;
+  factory _$$_PaymentElementBillingDetailsAddressCopyWith(
+          _$_PaymentElementBillingDetailsAddress value,
+          $Res Function(_$_PaymentElementBillingDetailsAddress) then) =
+      __$$_PaymentElementBillingDetailsAddressCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -410,13 +410,13 @@ abstract class _$$PaymentElementBillingDetailsAddressImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentElementBillingDetailsAddressImplCopyWithImpl<$Res>
+class __$$_PaymentElementBillingDetailsAddressCopyWithImpl<$Res>
     extends _$ShippingDetailsAddressCopyWithImpl<$Res,
-        _$PaymentElementBillingDetailsAddressImpl>
-    implements _$$PaymentElementBillingDetailsAddressImplCopyWith<$Res> {
-  __$$PaymentElementBillingDetailsAddressImplCopyWithImpl(
-      _$PaymentElementBillingDetailsAddressImpl _value,
-      $Res Function(_$PaymentElementBillingDetailsAddressImpl) _then)
+        _$_PaymentElementBillingDetailsAddress>
+    implements _$$_PaymentElementBillingDetailsAddressCopyWith<$Res> {
+  __$$_PaymentElementBillingDetailsAddressCopyWithImpl(
+      _$_PaymentElementBillingDetailsAddress _value,
+      $Res Function(_$_PaymentElementBillingDetailsAddress) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -429,7 +429,7 @@ class __$$PaymentElementBillingDetailsAddressImplCopyWithImpl<$Res>
     Object? country = freezed,
     Object? postalCode = freezed,
   }) {
-    return _then(_$PaymentElementBillingDetailsAddressImpl(
+    return _then(_$_PaymentElementBillingDetailsAddress(
       line1: freezed == line1
           ? _value.line1
           : line1 // ignore: cast_nullable_to_non_nullable
@@ -460,9 +460,9 @@ class __$$PaymentElementBillingDetailsAddressImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentElementBillingDetailsAddressImpl
+class _$_PaymentElementBillingDetailsAddress
     implements _PaymentElementBillingDetailsAddress {
-  const _$PaymentElementBillingDetailsAddressImpl(
+  const _$_PaymentElementBillingDetailsAddress(
       {this.line1,
       this.line2,
       this.city,
@@ -470,9 +470,9 @@ class _$PaymentElementBillingDetailsAddressImpl
       this.country,
       @JsonKey(name: 'postal_code') this.postalCode});
 
-  factory _$PaymentElementBillingDetailsAddressImpl.fromJson(
+  factory _$_PaymentElementBillingDetailsAddress.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentElementBillingDetailsAddressImplFromJson(json);
+      _$$_PaymentElementBillingDetailsAddressFromJson(json);
 
   /// Address line 1 (e.g., street, PO Box, or company name).
   @override
@@ -508,7 +508,7 @@ class _$PaymentElementBillingDetailsAddressImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentElementBillingDetailsAddressImpl &&
+            other is _$_PaymentElementBillingDetailsAddress &&
             (identical(other.line1, line1) || other.line1 == line1) &&
             (identical(other.line2, line2) || other.line2 == line2) &&
             (identical(other.city, city) || other.city == city) &&
@@ -526,14 +526,14 @@ class _$PaymentElementBillingDetailsAddressImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentElementBillingDetailsAddressImplCopyWith<
-          _$PaymentElementBillingDetailsAddressImpl>
-      get copyWith => __$$PaymentElementBillingDetailsAddressImplCopyWithImpl<
-          _$PaymentElementBillingDetailsAddressImpl>(this, _$identity);
+  _$$_PaymentElementBillingDetailsAddressCopyWith<
+          _$_PaymentElementBillingDetailsAddress>
+      get copyWith => __$$_PaymentElementBillingDetailsAddressCopyWithImpl<
+          _$_PaymentElementBillingDetailsAddress>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentElementBillingDetailsAddressImplToJson(
+    return _$$_PaymentElementBillingDetailsAddressToJson(
       this,
     );
   }
@@ -548,11 +548,11 @@ abstract class _PaymentElementBillingDetailsAddress
           final String? state,
           final String? country,
           @JsonKey(name: 'postal_code') final String? postalCode}) =
-      _$PaymentElementBillingDetailsAddressImpl;
+      _$_PaymentElementBillingDetailsAddress;
 
   factory _PaymentElementBillingDetailsAddress.fromJson(
           Map<String, dynamic> json) =
-      _$PaymentElementBillingDetailsAddressImpl.fromJson;
+      _$_PaymentElementBillingDetailsAddress.fromJson;
 
   @override
 
@@ -581,7 +581,7 @@ abstract class _PaymentElementBillingDetailsAddress
   String? get postalCode;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentElementBillingDetailsAddressImplCopyWith<
-          _$PaymentElementBillingDetailsAddressImpl>
+  _$$_PaymentElementBillingDetailsAddressCopyWith<
+          _$_PaymentElementBillingDetailsAddress>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -12,7 +12,7 @@ part of 'confirm_sepa_debit_payment_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ConfirmSepaDebitPaymentData _$ConfirmSepaDebitPaymentDataFromJson(
     Map<String, dynamic> json) {
@@ -103,12 +103,12 @@ class _$ConfirmSepaDebitPaymentDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConfirmSepaDebitPaymentDataImplCopyWith<$Res>
+abstract class _$$_ConfirmSepaDebitPaymentDataCopyWith<$Res>
     implements $ConfirmSepaDebitPaymentDataCopyWith<$Res> {
-  factory _$$ConfirmSepaDebitPaymentDataImplCopyWith(
-          _$ConfirmSepaDebitPaymentDataImpl value,
-          $Res Function(_$ConfirmSepaDebitPaymentDataImpl) then) =
-      __$$ConfirmSepaDebitPaymentDataImplCopyWithImpl<$Res>;
+  factory _$$_ConfirmSepaDebitPaymentDataCopyWith(
+          _$_ConfirmSepaDebitPaymentData value,
+          $Res Function(_$_ConfirmSepaDebitPaymentData) then) =
+      __$$_ConfirmSepaDebitPaymentDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -121,13 +121,13 @@ abstract class _$$ConfirmSepaDebitPaymentDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConfirmSepaDebitPaymentDataImplCopyWithImpl<$Res>
+class __$$_ConfirmSepaDebitPaymentDataCopyWithImpl<$Res>
     extends _$ConfirmSepaDebitPaymentDataCopyWithImpl<$Res,
-        _$ConfirmSepaDebitPaymentDataImpl>
-    implements _$$ConfirmSepaDebitPaymentDataImplCopyWith<$Res> {
-  __$$ConfirmSepaDebitPaymentDataImplCopyWithImpl(
-      _$ConfirmSepaDebitPaymentDataImpl _value,
-      $Res Function(_$ConfirmSepaDebitPaymentDataImpl) _then)
+        _$_ConfirmSepaDebitPaymentData>
+    implements _$$_ConfirmSepaDebitPaymentDataCopyWith<$Res> {
+  __$$_ConfirmSepaDebitPaymentDataCopyWithImpl(
+      _$_ConfirmSepaDebitPaymentData _value,
+      $Res Function(_$_ConfirmSepaDebitPaymentData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -136,7 +136,7 @@ class __$$ConfirmSepaDebitPaymentDataImplCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? setupFutureUsage = freezed,
   }) {
-    return _then(_$ConfirmSepaDebitPaymentDataImpl(
+    return _then(_$_ConfirmSepaDebitPaymentData(
       paymentMethod: freezed == paymentMethod
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
@@ -151,15 +151,13 @@ class __$$ConfirmSepaDebitPaymentDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmSepaDebitPaymentDataImpl
-    implements _ConfirmSepaDebitPaymentData {
-  const _$ConfirmSepaDebitPaymentDataImpl(
+class _$_ConfirmSepaDebitPaymentData implements _ConfirmSepaDebitPaymentData {
+  const _$_ConfirmSepaDebitPaymentData(
       {@paymentMethodDetailJsonKey this.paymentMethod,
       @JsonKey(name: "setup_future_usage") this.setupFutureUsage});
 
-  factory _$ConfirmSepaDebitPaymentDataImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ConfirmSepaDebitPaymentDataImplFromJson(json);
+  factory _$_ConfirmSepaDebitPaymentData.fromJson(Map<String, dynamic> json) =>
+      _$$_ConfirmSepaDebitPaymentDataFromJson(json);
 
   /// Either the id of an existing PaymentMethod, or an object containing
   /// data to create a PaymentMethod with.
@@ -183,10 +181,10 @@ class _$ConfirmSepaDebitPaymentDataImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmSepaDebitPaymentDataImpl &&
+            other is _$_ConfirmSepaDebitPaymentData &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
             (identical(other.setupFutureUsage, setupFutureUsage) ||
@@ -200,13 +198,13 @@ class _$ConfirmSepaDebitPaymentDataImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmSepaDebitPaymentDataImplCopyWith<_$ConfirmSepaDebitPaymentDataImpl>
-      get copyWith => __$$ConfirmSepaDebitPaymentDataImplCopyWithImpl<
-          _$ConfirmSepaDebitPaymentDataImpl>(this, _$identity);
+  _$$_ConfirmSepaDebitPaymentDataCopyWith<_$_ConfirmSepaDebitPaymentData>
+      get copyWith => __$$_ConfirmSepaDebitPaymentDataCopyWithImpl<
+          _$_ConfirmSepaDebitPaymentData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmSepaDebitPaymentDataImplToJson(
+    return _$$_ConfirmSepaDebitPaymentDataToJson(
       this,
     );
   }
@@ -219,10 +217,10 @@ abstract class _ConfirmSepaDebitPaymentData
           final SepaDebitPaymentMethodDetails? paymentMethod,
           @JsonKey(name: "setup_future_usage")
           final PaymentIntentSetupFutureUsage? setupFutureUsage}) =
-      _$ConfirmSepaDebitPaymentDataImpl;
+      _$_ConfirmSepaDebitPaymentData;
 
   factory _ConfirmSepaDebitPaymentData.fromJson(Map<String, dynamic> json) =
-      _$ConfirmSepaDebitPaymentDataImpl.fromJson;
+      _$_ConfirmSepaDebitPaymentData.fromJson;
 
   @override
 
@@ -242,7 +240,7 @@ abstract class _ConfirmSepaDebitPaymentData
   PaymentIntentSetupFutureUsage? get setupFutureUsage;
   @override
   @JsonKey(ignore: true)
-  _$$ConfirmSepaDebitPaymentDataImplCopyWith<_$ConfirmSepaDebitPaymentDataImpl>
+  _$$_ConfirmSepaDebitPaymentDataCopyWith<_$_ConfirmSepaDebitPaymentData>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -361,23 +359,23 @@ class _$SepaDebitPaymentMethodDetailsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$IdSepaDebitPaymentMethodDetailsImplCopyWith<$Res> {
-  factory _$$IdSepaDebitPaymentMethodDetailsImplCopyWith(
-          _$IdSepaDebitPaymentMethodDetailsImpl value,
-          $Res Function(_$IdSepaDebitPaymentMethodDetailsImpl) then) =
-      __$$IdSepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>;
+abstract class _$$_IdSepaDebitPaymentMethodDetailsCopyWith<$Res> {
+  factory _$$_IdSepaDebitPaymentMethodDetailsCopyWith(
+          _$_IdSepaDebitPaymentMethodDetails value,
+          $Res Function(_$_IdSepaDebitPaymentMethodDetails) then) =
+      __$$_IdSepaDebitPaymentMethodDetailsCopyWithImpl<$Res>;
   @useResult
   $Res call({String id});
 }
 
 /// @nodoc
-class __$$IdSepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>
+class __$$_IdSepaDebitPaymentMethodDetailsCopyWithImpl<$Res>
     extends _$SepaDebitPaymentMethodDetailsCopyWithImpl<$Res,
-        _$IdSepaDebitPaymentMethodDetailsImpl>
-    implements _$$IdSepaDebitPaymentMethodDetailsImplCopyWith<$Res> {
-  __$$IdSepaDebitPaymentMethodDetailsImplCopyWithImpl(
-      _$IdSepaDebitPaymentMethodDetailsImpl _value,
-      $Res Function(_$IdSepaDebitPaymentMethodDetailsImpl) _then)
+        _$_IdSepaDebitPaymentMethodDetails>
+    implements _$$_IdSepaDebitPaymentMethodDetailsCopyWith<$Res> {
+  __$$_IdSepaDebitPaymentMethodDetailsCopyWithImpl(
+      _$_IdSepaDebitPaymentMethodDetails _value,
+      $Res Function(_$_IdSepaDebitPaymentMethodDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -385,7 +383,7 @@ class __$$IdSepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
   }) {
-    return _then(_$IdSepaDebitPaymentMethodDetailsImpl(
+    return _then(_$_IdSepaDebitPaymentMethodDetails(
       null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -396,14 +394,14 @@ class __$$IdSepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$IdSepaDebitPaymentMethodDetailsImpl
+class _$_IdSepaDebitPaymentMethodDetails
     implements _IdSepaDebitPaymentMethodDetails {
-  const _$IdSepaDebitPaymentMethodDetailsImpl(this.id, {final String? $type})
+  const _$_IdSepaDebitPaymentMethodDetails(this.id, {final String? $type})
       : $type = $type ?? 'sepa_debit';
 
-  factory _$IdSepaDebitPaymentMethodDetailsImpl.fromJson(
+  factory _$_IdSepaDebitPaymentMethodDetails.fromJson(
           Map<String, dynamic> json) =>
-      _$$IdSepaDebitPaymentMethodDetailsImplFromJson(json);
+      _$$_IdSepaDebitPaymentMethodDetailsFromJson(json);
 
   @override
   final String id;
@@ -417,10 +415,10 @@ class _$IdSepaDebitPaymentMethodDetailsImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IdSepaDebitPaymentMethodDetailsImpl &&
+            other is _$_IdSepaDebitPaymentMethodDetails &&
             (identical(other.id, id) || other.id == id));
   }
 
@@ -431,10 +429,10 @@ class _$IdSepaDebitPaymentMethodDetailsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IdSepaDebitPaymentMethodDetailsImplCopyWith<
-          _$IdSepaDebitPaymentMethodDetailsImpl>
-      get copyWith => __$$IdSepaDebitPaymentMethodDetailsImplCopyWithImpl<
-          _$IdSepaDebitPaymentMethodDetailsImpl>(this, _$identity);
+  _$$_IdSepaDebitPaymentMethodDetailsCopyWith<
+          _$_IdSepaDebitPaymentMethodDetails>
+      get copyWith => __$$_IdSepaDebitPaymentMethodDetailsCopyWithImpl<
+          _$_IdSepaDebitPaymentMethodDetails>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -531,7 +529,7 @@ class _$IdSepaDebitPaymentMethodDetailsImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$IdSepaDebitPaymentMethodDetailsImplToJson(
+    return _$$_IdSepaDebitPaymentMethodDetailsToJson(
       this,
     );
   }
@@ -540,24 +538,24 @@ class _$IdSepaDebitPaymentMethodDetailsImpl
 abstract class _IdSepaDebitPaymentMethodDetails
     implements SepaDebitPaymentMethodDetails, IdPaymentMethodDetails {
   const factory _IdSepaDebitPaymentMethodDetails(final String id) =
-      _$IdSepaDebitPaymentMethodDetailsImpl;
+      _$_IdSepaDebitPaymentMethodDetails;
 
   factory _IdSepaDebitPaymentMethodDetails.fromJson(Map<String, dynamic> json) =
-      _$IdSepaDebitPaymentMethodDetailsImpl.fromJson;
+      _$_IdSepaDebitPaymentMethodDetails.fromJson;
 
   String get id;
   @JsonKey(ignore: true)
-  _$$IdSepaDebitPaymentMethodDetailsImplCopyWith<
-          _$IdSepaDebitPaymentMethodDetailsImpl>
+  _$$_IdSepaDebitPaymentMethodDetailsCopyWith<
+          _$_IdSepaDebitPaymentMethodDetails>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SepaDebitPaymentMethodDetailsImplCopyWith<$Res> {
-  factory _$$SepaDebitPaymentMethodDetailsImplCopyWith(
-          _$SepaDebitPaymentMethodDetailsImpl value,
-          $Res Function(_$SepaDebitPaymentMethodDetailsImpl) then) =
-      __$$SepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>;
+abstract class _$$_SepaDebitPaymentMethodDetailsCopyWith<$Res> {
+  factory _$$_SepaDebitPaymentMethodDetailsCopyWith(
+          _$_SepaDebitPaymentMethodDetails value,
+          $Res Function(_$_SepaDebitPaymentMethodDetails) then) =
+      __$$_SepaDebitPaymentMethodDetailsCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {@JsonKey(name: "sepa_debit") @ElementConverter() Element sepaDebit,
@@ -567,13 +565,13 @@ abstract class _$$SepaDebitPaymentMethodDetailsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>
+class __$$_SepaDebitPaymentMethodDetailsCopyWithImpl<$Res>
     extends _$SepaDebitPaymentMethodDetailsCopyWithImpl<$Res,
-        _$SepaDebitPaymentMethodDetailsImpl>
-    implements _$$SepaDebitPaymentMethodDetailsImplCopyWith<$Res> {
-  __$$SepaDebitPaymentMethodDetailsImplCopyWithImpl(
-      _$SepaDebitPaymentMethodDetailsImpl _value,
-      $Res Function(_$SepaDebitPaymentMethodDetailsImpl) _then)
+        _$_SepaDebitPaymentMethodDetails>
+    implements _$$_SepaDebitPaymentMethodDetailsCopyWith<$Res> {
+  __$$_SepaDebitPaymentMethodDetailsCopyWithImpl(
+      _$_SepaDebitPaymentMethodDetails _value,
+      $Res Function(_$_SepaDebitPaymentMethodDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -582,7 +580,7 @@ class __$$SepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>
     Object? sepaDebit = null,
     Object? billingDetails = freezed,
   }) {
-    return _then(_$SepaDebitPaymentMethodDetailsImpl(
+    return _then(_$_SepaDebitPaymentMethodDetails(
       sepaDebit: null == sepaDebit
           ? _value.sepaDebit
           : sepaDebit // ignore: cast_nullable_to_non_nullable
@@ -609,17 +607,17 @@ class __$$SepaDebitPaymentMethodDetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SepaDebitPaymentMethodDetailsImpl
+class _$_SepaDebitPaymentMethodDetails
     implements _SepaDebitPaymentMethodDetails {
-  const _$SepaDebitPaymentMethodDetailsImpl(
+  const _$_SepaDebitPaymentMethodDetails(
       {@JsonKey(name: "sepa_debit") @ElementConverter() required this.sepaDebit,
       @JsonKey(name: "billing_details") this.billingDetails,
       final String? $type})
       : $type = $type ?? 'sepa_debit';
 
-  factory _$SepaDebitPaymentMethodDetailsImpl.fromJson(
+  factory _$_SepaDebitPaymentMethodDetails.fromJson(
           Map<String, dynamic> json) =>
-      _$$SepaDebitPaymentMethodDetailsImplFromJson(json);
+      _$$_SepaDebitPaymentMethodDetailsFromJson(json);
 
   /// Uses the provided card or cardNumber Element for confirmation.
   @override
@@ -641,10 +639,10 @@ class _$SepaDebitPaymentMethodDetailsImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SepaDebitPaymentMethodDetailsImpl &&
+            other is _$_SepaDebitPaymentMethodDetails &&
             (identical(other.sepaDebit, sepaDebit) ||
                 other.sepaDebit == sepaDebit) &&
             (identical(other.billingDetails, billingDetails) ||
@@ -658,10 +656,9 @@ class _$SepaDebitPaymentMethodDetailsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SepaDebitPaymentMethodDetailsImplCopyWith<
-          _$SepaDebitPaymentMethodDetailsImpl>
-      get copyWith => __$$SepaDebitPaymentMethodDetailsImplCopyWithImpl<
-          _$SepaDebitPaymentMethodDetailsImpl>(this, _$identity);
+  _$$_SepaDebitPaymentMethodDetailsCopyWith<_$_SepaDebitPaymentMethodDetails>
+      get copyWith => __$$_SepaDebitPaymentMethodDetailsCopyWithImpl<
+          _$_SepaDebitPaymentMethodDetails>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -758,7 +755,7 @@ class _$SepaDebitPaymentMethodDetailsImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SepaDebitPaymentMethodDetailsImplToJson(
+    return _$$_SepaDebitPaymentMethodDetailsToJson(
       this,
     );
   }
@@ -772,10 +769,10 @@ abstract class _SepaDebitPaymentMethodDetails
           required final Element sepaDebit,
           @JsonKey(name: "billing_details")
           final SepaBillingDetails? billingDetails}) =
-      _$SepaDebitPaymentMethodDetailsImpl;
+      _$_SepaDebitPaymentMethodDetails;
 
   factory _SepaDebitPaymentMethodDetails.fromJson(Map<String, dynamic> json) =
-      _$SepaDebitPaymentMethodDetailsImpl.fromJson;
+      _$_SepaDebitPaymentMethodDetails.fromJson;
 
   /// Uses the provided card or cardNumber Element for confirmation.
   @JsonKey(name: "sepa_debit")
@@ -786,17 +783,16 @@ abstract class _SepaDebitPaymentMethodDetails
   @JsonKey(name: "billing_details")
   SepaBillingDetails? get billingDetails;
   @JsonKey(ignore: true)
-  _$$SepaDebitPaymentMethodDetailsImplCopyWith<
-          _$SepaDebitPaymentMethodDetailsImpl>
+  _$$_SepaDebitPaymentMethodDetailsCopyWith<_$_SepaDebitPaymentMethodDetails>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWith<$Res> {
-  factory _$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWith(
-          _$SepaDebitPaymentMethodDetailsWithIbanImpl value,
-          $Res Function(_$SepaDebitPaymentMethodDetailsWithIbanImpl) then) =
-      __$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWithImpl<$Res>;
+abstract class _$$_SepaDebitPaymentMethodDetailsWithIbanCopyWith<$Res> {
+  factory _$$_SepaDebitPaymentMethodDetailsWithIbanCopyWith(
+          _$_SepaDebitPaymentMethodDetailsWithIban value,
+          $Res Function(_$_SepaDebitPaymentMethodDetailsWithIban) then) =
+      __$$_SepaDebitPaymentMethodDetailsWithIbanCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {@JsonKey(name: "sepa_debit") SepaDebitIbanData sepaDebit,
@@ -807,13 +803,13 @@ abstract class _$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWithImpl<$Res>
+class __$$_SepaDebitPaymentMethodDetailsWithIbanCopyWithImpl<$Res>
     extends _$SepaDebitPaymentMethodDetailsCopyWithImpl<$Res,
-        _$SepaDebitPaymentMethodDetailsWithIbanImpl>
-    implements _$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWith<$Res> {
-  __$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWithImpl(
-      _$SepaDebitPaymentMethodDetailsWithIbanImpl _value,
-      $Res Function(_$SepaDebitPaymentMethodDetailsWithIbanImpl) _then)
+        _$_SepaDebitPaymentMethodDetailsWithIban>
+    implements _$$_SepaDebitPaymentMethodDetailsWithIbanCopyWith<$Res> {
+  __$$_SepaDebitPaymentMethodDetailsWithIbanCopyWithImpl(
+      _$_SepaDebitPaymentMethodDetailsWithIban _value,
+      $Res Function(_$_SepaDebitPaymentMethodDetailsWithIban) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -822,7 +818,7 @@ class __$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWithImpl<$Res>
     Object? sepaDebit = null,
     Object? billingDetails = freezed,
   }) {
-    return _then(_$SepaDebitPaymentMethodDetailsWithIbanImpl(
+    return _then(_$_SepaDebitPaymentMethodDetailsWithIban(
       sepaDebit: null == sepaDebit
           ? _value.sepaDebit
           : sepaDebit // ignore: cast_nullable_to_non_nullable
@@ -857,17 +853,17 @@ class __$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SepaDebitPaymentMethodDetailsWithIbanImpl
+class _$_SepaDebitPaymentMethodDetailsWithIban
     implements _SepaDebitPaymentMethodDetailsWithIban {
-  const _$SepaDebitPaymentMethodDetailsWithIbanImpl(
+  const _$_SepaDebitPaymentMethodDetailsWithIban(
       {@JsonKey(name: "sepa_debit") required this.sepaDebit,
       @JsonKey(name: "billing_details") this.billingDetails,
       final String? $type})
       : $type = $type ?? 'sepa_debit';
 
-  factory _$SepaDebitPaymentMethodDetailsWithIbanImpl.fromJson(
+  factory _$_SepaDebitPaymentMethodDetailsWithIban.fromJson(
           Map<String, dynamic> json) =>
-      _$$SepaDebitPaymentMethodDetailsWithIbanImplFromJson(json);
+      _$$_SepaDebitPaymentMethodDetailsWithIbanFromJson(json);
 
   /// Uses the provided card or cardNumber Element for confirmation.
   @override
@@ -888,10 +884,10 @@ class _$SepaDebitPaymentMethodDetailsWithIbanImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SepaDebitPaymentMethodDetailsWithIbanImpl &&
+            other is _$_SepaDebitPaymentMethodDetailsWithIban &&
             (identical(other.sepaDebit, sepaDebit) ||
                 other.sepaDebit == sepaDebit) &&
             (identical(other.billingDetails, billingDetails) ||
@@ -905,10 +901,10 @@ class _$SepaDebitPaymentMethodDetailsWithIbanImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWith<
-          _$SepaDebitPaymentMethodDetailsWithIbanImpl>
-      get copyWith => __$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWithImpl<
-          _$SepaDebitPaymentMethodDetailsWithIbanImpl>(this, _$identity);
+  _$$_SepaDebitPaymentMethodDetailsWithIbanCopyWith<
+          _$_SepaDebitPaymentMethodDetailsWithIban>
+      get copyWith => __$$_SepaDebitPaymentMethodDetailsWithIbanCopyWithImpl<
+          _$_SepaDebitPaymentMethodDetailsWithIban>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1005,7 +1001,7 @@ class _$SepaDebitPaymentMethodDetailsWithIbanImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SepaDebitPaymentMethodDetailsWithIbanImplToJson(
+    return _$$_SepaDebitPaymentMethodDetailsWithIbanToJson(
       this,
     );
   }
@@ -1017,11 +1013,11 @@ abstract class _SepaDebitPaymentMethodDetailsWithIban
       {@JsonKey(name: "sepa_debit") required final SepaDebitIbanData sepaDebit,
       @JsonKey(name: "billing_details")
       final SepaBillingDetails?
-          billingDetails}) = _$SepaDebitPaymentMethodDetailsWithIbanImpl;
+          billingDetails}) = _$_SepaDebitPaymentMethodDetailsWithIban;
 
   factory _SepaDebitPaymentMethodDetailsWithIban.fromJson(
           Map<String, dynamic> json) =
-      _$SepaDebitPaymentMethodDetailsWithIbanImpl.fromJson;
+      _$_SepaDebitPaymentMethodDetailsWithIban.fromJson;
 
   /// Uses the provided card or cardNumber Element for confirmation.
   @JsonKey(name: "sepa_debit")
@@ -1031,8 +1027,8 @@ abstract class _SepaDebitPaymentMethodDetailsWithIban
   @JsonKey(name: "billing_details")
   SepaBillingDetails? get billingDetails;
   @JsonKey(ignore: true)
-  _$$SepaDebitPaymentMethodDetailsWithIbanImplCopyWith<
-          _$SepaDebitPaymentMethodDetailsWithIbanImpl>
+  _$$_SepaDebitPaymentMethodDetailsWithIbanCopyWith<
+          _$_SepaDebitPaymentMethodDetailsWithIban>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1085,22 +1081,22 @@ class _$SepaDebitIbanDataCopyWithImpl<$Res, $Val extends SepaDebitIbanData>
 }
 
 /// @nodoc
-abstract class _$$SepaDebitIbanDataImplCopyWith<$Res>
+abstract class _$$_SepaDebitIbanDataCopyWith<$Res>
     implements $SepaDebitIbanDataCopyWith<$Res> {
-  factory _$$SepaDebitIbanDataImplCopyWith(_$SepaDebitIbanDataImpl value,
-          $Res Function(_$SepaDebitIbanDataImpl) then) =
-      __$$SepaDebitIbanDataImplCopyWithImpl<$Res>;
+  factory _$$_SepaDebitIbanDataCopyWith(_$_SepaDebitIbanData value,
+          $Res Function(_$_SepaDebitIbanData) then) =
+      __$$_SepaDebitIbanDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String iban});
 }
 
 /// @nodoc
-class __$$SepaDebitIbanDataImplCopyWithImpl<$Res>
-    extends _$SepaDebitIbanDataCopyWithImpl<$Res, _$SepaDebitIbanDataImpl>
-    implements _$$SepaDebitIbanDataImplCopyWith<$Res> {
-  __$$SepaDebitIbanDataImplCopyWithImpl(_$SepaDebitIbanDataImpl _value,
-      $Res Function(_$SepaDebitIbanDataImpl) _then)
+class __$$_SepaDebitIbanDataCopyWithImpl<$Res>
+    extends _$SepaDebitIbanDataCopyWithImpl<$Res, _$_SepaDebitIbanData>
+    implements _$$_SepaDebitIbanDataCopyWith<$Res> {
+  __$$_SepaDebitIbanDataCopyWithImpl(
+      _$_SepaDebitIbanData _value, $Res Function(_$_SepaDebitIbanData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1108,7 +1104,7 @@ class __$$SepaDebitIbanDataImplCopyWithImpl<$Res>
   $Res call({
     Object? iban = null,
   }) {
-    return _then(_$SepaDebitIbanDataImpl(
+    return _then(_$_SepaDebitIbanData(
       iban: null == iban
           ? _value.iban
           : iban // ignore: cast_nullable_to_non_nullable
@@ -1119,11 +1115,11 @@ class __$$SepaDebitIbanDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SepaDebitIbanDataImpl implements _SepaDebitIbanData {
-  const _$SepaDebitIbanDataImpl({required this.iban});
+class _$_SepaDebitIbanData implements _SepaDebitIbanData {
+  const _$_SepaDebitIbanData({required this.iban});
 
-  factory _$SepaDebitIbanDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SepaDebitIbanDataImplFromJson(json);
+  factory _$_SepaDebitIbanData.fromJson(Map<String, dynamic> json) =>
+      _$$_SepaDebitIbanDataFromJson(json);
 
   /// An IBAN account number.
   @override
@@ -1135,10 +1131,10 @@ class _$SepaDebitIbanDataImpl implements _SepaDebitIbanData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SepaDebitIbanDataImpl &&
+            other is _$_SepaDebitIbanData &&
             (identical(other.iban, iban) || other.iban == iban));
   }
 
@@ -1149,13 +1145,13 @@ class _$SepaDebitIbanDataImpl implements _SepaDebitIbanData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SepaDebitIbanDataImplCopyWith<_$SepaDebitIbanDataImpl> get copyWith =>
-      __$$SepaDebitIbanDataImplCopyWithImpl<_$SepaDebitIbanDataImpl>(
+  _$$_SepaDebitIbanDataCopyWith<_$_SepaDebitIbanData> get copyWith =>
+      __$$_SepaDebitIbanDataCopyWithImpl<_$_SepaDebitIbanData>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SepaDebitIbanDataImplToJson(
+    return _$$_SepaDebitIbanDataToJson(
       this,
     );
   }
@@ -1163,10 +1159,10 @@ class _$SepaDebitIbanDataImpl implements _SepaDebitIbanData {
 
 abstract class _SepaDebitIbanData implements SepaDebitIbanData {
   const factory _SepaDebitIbanData({required final String iban}) =
-      _$SepaDebitIbanDataImpl;
+      _$_SepaDebitIbanData;
 
   factory _SepaDebitIbanData.fromJson(Map<String, dynamic> json) =
-      _$SepaDebitIbanDataImpl.fromJson;
+      _$_SepaDebitIbanData.fromJson;
 
   @override
 
@@ -1174,7 +1170,7 @@ abstract class _SepaDebitIbanData implements SepaDebitIbanData {
   String get iban;
   @override
   @JsonKey(ignore: true)
-  _$$SepaDebitIbanDataImplCopyWith<_$SepaDebitIbanDataImpl> get copyWith =>
+  _$$_SepaDebitIbanDataCopyWith<_$_SepaDebitIbanData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1266,11 +1262,11 @@ class _$SepaBillingDetailsCopyWithImpl<$Res, $Val extends SepaBillingDetails>
 }
 
 /// @nodoc
-abstract class _$$SepaBillingDetailsImplCopyWith<$Res>
+abstract class _$$_SepaBillingDetailsCopyWith<$Res>
     implements $SepaBillingDetailsCopyWith<$Res> {
-  factory _$$SepaBillingDetailsImplCopyWith(_$SepaBillingDetailsImpl value,
-          $Res Function(_$SepaBillingDetailsImpl) then) =
-      __$$SepaBillingDetailsImplCopyWithImpl<$Res>;
+  factory _$$_SepaBillingDetailsCopyWith(_$_SepaBillingDetails value,
+          $Res Function(_$_SepaBillingDetails) then) =
+      __$$_SepaBillingDetailsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1281,11 +1277,11 @@ abstract class _$$SepaBillingDetailsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SepaBillingDetailsImplCopyWithImpl<$Res>
-    extends _$SepaBillingDetailsCopyWithImpl<$Res, _$SepaBillingDetailsImpl>
-    implements _$$SepaBillingDetailsImplCopyWith<$Res> {
-  __$$SepaBillingDetailsImplCopyWithImpl(_$SepaBillingDetailsImpl _value,
-      $Res Function(_$SepaBillingDetailsImpl) _then)
+class __$$_SepaBillingDetailsCopyWithImpl<$Res>
+    extends _$SepaBillingDetailsCopyWithImpl<$Res, _$_SepaBillingDetails>
+    implements _$$_SepaBillingDetailsCopyWith<$Res> {
+  __$$_SepaBillingDetailsCopyWithImpl(
+      _$_SepaBillingDetails _value, $Res Function(_$_SepaBillingDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1296,7 +1292,7 @@ class __$$SepaBillingDetailsImplCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? name = null,
   }) {
-    return _then(_$SepaBillingDetailsImpl(
+    return _then(_$_SepaBillingDetails(
       email: null == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -1319,12 +1315,12 @@ class __$$SepaBillingDetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SepaBillingDetailsImpl implements _SepaBillingDetails {
-  const _$SepaBillingDetailsImpl(
+class _$_SepaBillingDetails implements _SepaBillingDetails {
+  const _$_SepaBillingDetails(
       {required this.email, this.address, this.phone, required this.name});
 
-  factory _$SepaBillingDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SepaBillingDetailsImplFromJson(json);
+  factory _$_SepaBillingDetails.fromJson(Map<String, dynamic> json) =>
+      _$$_SepaBillingDetailsFromJson(json);
 
   /// Email address.
   @override
@@ -1348,10 +1344,10 @@ class _$SepaBillingDetailsImpl implements _SepaBillingDetails {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SepaBillingDetailsImpl &&
+            other is _$_SepaBillingDetails &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -1365,13 +1361,13 @@ class _$SepaBillingDetailsImpl implements _SepaBillingDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SepaBillingDetailsImplCopyWith<_$SepaBillingDetailsImpl> get copyWith =>
-      __$$SepaBillingDetailsImplCopyWithImpl<_$SepaBillingDetailsImpl>(
+  _$$_SepaBillingDetailsCopyWith<_$_SepaBillingDetails> get copyWith =>
+      __$$_SepaBillingDetailsCopyWithImpl<_$_SepaBillingDetails>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SepaBillingDetailsImplToJson(
+    return _$$_SepaBillingDetailsToJson(
       this,
     );
   }
@@ -1382,10 +1378,10 @@ abstract class _SepaBillingDetails implements SepaBillingDetails {
       {required final String email,
       final BillingAddress? address,
       final String? phone,
-      required final String name}) = _$SepaBillingDetailsImpl;
+      required final String name}) = _$_SepaBillingDetails;
 
   factory _SepaBillingDetails.fromJson(Map<String, dynamic> json) =
-      _$SepaBillingDetailsImpl.fromJson;
+      _$_SepaBillingDetails.fromJson;
 
   @override
 
@@ -1405,6 +1401,6 @@ abstract class _SepaBillingDetails implements SepaBillingDetails {
   String get name;
   @override
   @JsonKey(ignore: true)
-  _$$SepaBillingDetailsImplCopyWith<_$SepaBillingDetailsImpl> get copyWith =>
+  _$$_SepaBillingDetailsCopyWith<_$_SepaBillingDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }

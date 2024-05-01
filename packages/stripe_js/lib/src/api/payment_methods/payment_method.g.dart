@@ -6,8 +6,7 @@ part of 'payment_method.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PaymentMethodImpl _$$PaymentMethodImplFromJson(Map json) =>
-    _$PaymentMethodImpl(
+_$_PaymentMethod _$$_PaymentMethodFromJson(Map json) => _$_PaymentMethod(
       id: json['id'] as String,
       object: json['object'] as String? ?? "payment_method",
       billingDetails: json['billingDetails'] == null
@@ -56,7 +55,7 @@ _$PaymentMethodImpl _$$PaymentMethodImplFromJson(Map json) =>
       type: $enumDecode(_$PaymentMethodTypeEnumMap, json['type']),
     );
 
-Map<String, dynamic> _$$PaymentMethodImplToJson(_$PaymentMethodImpl instance) {
+Map<String, dynamic> _$$_PaymentMethodToJson(_$_PaymentMethod instance) {
   final val = <String, dynamic>{
     'id': instance.id,
     'object': instance.object,
@@ -87,25 +86,24 @@ Map<String, dynamic> _$$PaymentMethodImplToJson(_$PaymentMethodImpl instance) {
 }
 
 const _$PaymentMethodTypeEnumMap = {
-  PaymentMethodType.acssDebit: 'acss_debit',
+  PaymentMethodType.acssDebit: 'acssDebit',
   PaymentMethodType.affirm: 'affirm',
-  PaymentMethodType.afterpayClearpay: 'afterpay_clearpay',
+  PaymentMethodType.afterpayClearpay: 'afterpayClearpay',
   PaymentMethodType.alipay: 'alipay',
-  PaymentMethodType.auBecsDebit: 'au_becs_debit',
-  PaymentMethodType.bacsDebit: 'bacs_debit',
+  PaymentMethodType.auBecsDebit: 'auBecsDebit',
+  PaymentMethodType.bacsDebit: 'bacsDebit',
   PaymentMethodType.bancontact: 'bancontact',
   PaymentMethodType.blik: 'blik',
   PaymentMethodType.boleto: 'boleto',
   PaymentMethodType.card: 'card',
-  PaymentMethodType.cashapp: 'cashapp',
-  PaymentMethodType.cardPresent: 'bacs_debit',
-  PaymentMethodType.customerBalance: 'customer_balance',
+  PaymentMethodType.cardPresent: 'cardPresent',
+  PaymentMethodType.customerBalance: 'customerBalance',
   PaymentMethodType.eps: 'eps',
   PaymentMethodType.fpx: 'fpx',
   PaymentMethodType.giropay: 'giropay',
   PaymentMethodType.grabpay: 'grabpay',
   PaymentMethodType.ideal: 'ideal',
-  PaymentMethodType.interacPresent: 'interac_present',
+  PaymentMethodType.interacPresent: 'interacPresent',
   PaymentMethodType.klarna: 'klarna',
   PaymentMethodType.konbini: 'konbini',
   PaymentMethodType.link: 'link',
@@ -114,20 +112,19 @@ const _$PaymentMethodTypeEnumMap = {
   PaymentMethodType.paynow: 'paynow',
   PaymentMethodType.pix: 'pix',
   PaymentMethodType.promptpay: 'promptpay',
-  PaymentMethodType.sepaDebit: 'sepa_debit',
+  PaymentMethodType.sepaDebit: 'sepaDebit',
   PaymentMethodType.sofort: 'sofort',
-  PaymentMethodType.usBankAccount: 'us_bank_account',
-  PaymentMethodType.wechatPay: 'wechat_pay',
-  PaymentMethodType.unknown: 'unknown',
+  PaymentMethodType.usBankAccount: 'usBankAccount',
+  PaymentMethodType.wechatPay: 'wechatPay',
 };
 
-_$AuBecsDebitImpl _$$AuBecsDebitImplFromJson(Map json) => _$AuBecsDebitImpl(
+_$_AuBecsDebit _$$_AuBecsDebitFromJson(Map json) => _$_AuBecsDebit(
       fingerprint: json['fingerprint'] as String?,
       last4: json['last4'] as String?,
       bsbNumber: json['bsbNumber'] as String?,
     );
 
-Map<String, dynamic> _$$AuBecsDebitImplToJson(_$AuBecsDebitImpl instance) {
+Map<String, dynamic> _$$_AuBecsDebitToJson(_$_AuBecsDebit instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -142,13 +139,13 @@ Map<String, dynamic> _$$AuBecsDebitImplToJson(_$AuBecsDebitImpl instance) {
   return val;
 }
 
-_$BacsDebitImpl _$$BacsDebitImplFromJson(Map json) => _$BacsDebitImpl(
+_$_BacsDebit _$$_BacsDebitFromJson(Map json) => _$_BacsDebit(
       sortCode: json['sortCode'] as String?,
       fingerprint: json['fingerprint'] as String?,
       last4: json['last4'] as String?,
     );
 
-Map<String, dynamic> _$$BacsDebitImplToJson(_$BacsDebitImpl instance) {
+Map<String, dynamic> _$$_BacsDebitToJson(_$_BacsDebit instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -163,8 +160,8 @@ Map<String, dynamic> _$$BacsDebitImplToJson(_$BacsDebitImpl instance) {
   return val;
 }
 
-_$CardPaymentMethodImpl _$$CardPaymentMethodImplFromJson(Map json) =>
-    _$CardPaymentMethodImpl(
+_$_CardPaymentMethod _$$_CardPaymentMethodFromJson(Map json) =>
+    _$_CardPaymentMethod(
       brand: json['brand'] as String?,
       country: json['country'] as String?,
       expYear: json['expYear'] as int?,
@@ -177,8 +174,8 @@ _$CardPaymentMethodImpl _$$CardPaymentMethodImplFromJson(Map json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$CardPaymentMethodImplToJson(
-    _$CardPaymentMethodImpl instance) {
+Map<String, dynamic> _$$_CardPaymentMethodToJson(
+    _$_CardPaymentMethod instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -198,12 +195,12 @@ Map<String, dynamic> _$$CardPaymentMethodImplToJson(
   return val;
 }
 
-_$FpxImpl _$$FpxImplFromJson(Map json) => _$FpxImpl(
+_$_Fpx _$$_FpxFromJson(Map json) => _$_Fpx(
       bank: json['bank'] as String?,
       accountHolderType: json['accountHolderType'] as String?,
     );
 
-Map<String, dynamic> _$$FpxImplToJson(_$FpxImpl instance) {
+Map<String, dynamic> _$$_FpxToJson(_$_Fpx instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -217,12 +214,12 @@ Map<String, dynamic> _$$FpxImplToJson(_$FpxImpl instance) {
   return val;
 }
 
-_$IdealImpl _$$IdealImplFromJson(Map json) => _$IdealImpl(
+_$_Ideal _$$_IdealFromJson(Map json) => _$_Ideal(
       bankIdentifierCode: json['bankIdentifierCode'] as String?,
       bank: json['bank'] as String?,
     );
 
-Map<String, dynamic> _$$IdealImplToJson(_$IdealImpl instance) {
+Map<String, dynamic> _$$_IdealToJson(_$_Ideal instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -236,14 +233,14 @@ Map<String, dynamic> _$$IdealImplToJson(_$IdealImpl instance) {
   return val;
 }
 
-_$SepaDebitImpl _$$SepaDebitImplFromJson(Map json) => _$SepaDebitImpl(
+_$_SepaDebit _$$_SepaDebitFromJson(Map json) => _$_SepaDebit(
       country: json['country'] as String?,
       bankCode: json['bankCode'] as String?,
       fingerprint: json['fingerprint'] as String?,
       last4: json['last4'] as String?,
     );
 
-Map<String, dynamic> _$$SepaDebitImplToJson(_$SepaDebitImpl instance) {
+Map<String, dynamic> _$$_SepaDebitToJson(_$_SepaDebit instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -259,11 +256,11 @@ Map<String, dynamic> _$$SepaDebitImplToJson(_$SepaDebitImpl instance) {
   return val;
 }
 
-_$SofortImpl _$$SofortImplFromJson(Map json) => _$SofortImpl(
+_$_Sofort _$$_SofortFromJson(Map json) => _$_Sofort(
       country: json['country'] as String?,
     );
 
-Map<String, dynamic> _$$SofortImplToJson(_$SofortImpl instance) {
+Map<String, dynamic> _$$_SofortToJson(_$_Sofort instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -276,11 +273,11 @@ Map<String, dynamic> _$$SofortImplToJson(_$SofortImpl instance) {
   return val;
 }
 
-_$UpiImpl _$$UpiImplFromJson(Map json) => _$UpiImpl(
+_$_Upi _$$_UpiFromJson(Map json) => _$_Upi(
       vpa: json['vpa'] as String?,
     );
 
-Map<String, dynamic> _$$UpiImplToJson(_$UpiImpl instance) {
+Map<String, dynamic> _$$_UpiToJson(_$_Upi instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -293,8 +290,7 @@ Map<String, dynamic> _$$UpiImplToJson(_$UpiImpl instance) {
   return val;
 }
 
-_$UsBankAccountImpl _$$UsBankAccountImplFromJson(Map json) =>
-    _$UsBankAccountImpl(
+_$_UsBankAccount _$$_UsBankAccountFromJson(Map json) => _$_UsBankAccount(
       routingNumber: json['routingNumber'] as String?,
       last4: json['last4'] as String?,
       accountHolderType: $enumDecode(
@@ -311,7 +307,7 @@ _$UsBankAccountImpl _$$UsBankAccountImplFromJson(Map json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$UsBankAccountImplToJson(_$UsBankAccountImpl instance) {
+Map<String, dynamic> _$$_UsBankAccountToJson(_$_UsBankAccount instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

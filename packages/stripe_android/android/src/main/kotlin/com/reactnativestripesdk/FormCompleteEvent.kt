@@ -1,10 +1,10 @@
 package com.reactnativestripesdk
 import com.facebook.react.bridge.ArgumentsStripe
 import com.facebook.react.bridge.WritableMapStripe
-import com.facebook.react.uimanager.events.Event
+import com.facebook.react.uimanager.events.EventStripe
 import com.facebook.react.uimanager.events.RCTEventEmitterStripe
 
-internal class FormCompleteEvent constructor(viewTag: Int, private val formDetails: MutableMap<String, Any>) : Event<FormCompleteEvent>(viewTag) {
+internal class FormCompleteEvent constructor(viewTag: Int, private val formDetails: MutableMap<String, Any>) : EventStripe<FormCompleteEvent>(viewTag) {
   override fun getEventName(): String {
     return EVENT_NAME
   }

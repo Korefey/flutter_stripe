@@ -1,6 +1,5 @@
 package com.reactnativestripesdk
 
-import android.annotation.SuppressLint
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Build
@@ -9,12 +8,12 @@ import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.widget.FrameLayout
 import androidx.core.view.setMargins
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.uimanager.PixelUtilStripe
 import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.facebook.react.uimanager.UIManagerModuleStripe
 import com.facebook.react.uimanager.events.EventDispatcherStripe
-import com.facebook.react.views.text.ReactTypefaceUtils
+import com.facebook.react.views.text.ReactTypefaceUtilsStripe
 import com.google.android.material.shape.CornerFamily
 import com.google.android.material.shape.MaterialShapeDrawable
 import com.google.android.material.shape.ShapeAppearanceModel
@@ -31,7 +30,7 @@ import com.flutter.stripe.R
 
 
 class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
-  internal var cardForm: CardFormView = CardFormView(context, null, com.stripe.android.R.style.StripeCardFormView_Borderless)
+  internal var cardForm: CardFormView = CardFormView(context, null, R.style.StripeCardFormView_Borderless)
   private var mEventDispatcher: EventDispatcherStripe? = context.getNativeModule(UIManagerModuleStripe::class.java)?.eventDispatcher
   private var dangerouslyGetFullCardDetails: Boolean = false
   private var currentFocusedField: String? = null
@@ -57,7 +56,7 @@ class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
     cardFormViewBinding.postalCodeContainer.visibility = visibility
   }
 
-  fun setDefaultValues(defaults: ReadableMap) {
+  fun setDefaultValues(defaults: ReadableMapStripe) {
     setCountry(defaults.getString("countryCode"))
   }
 
@@ -65,11 +64,6 @@ class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
     cardForm.isEnabled = !isDisabled
   }
 
-  fun setPreferredNetworks(preferredNetworks: ArrayList<Int>?) {
-    cardForm.setPreferredNetworks(mapToPreferredNetworks(preferredNetworks))
-  }
-
-  @SuppressLint("RestrictedApi")
   private fun setCountry(countryString: String?) {
     if (countryString != null) {
       cardFormViewBinding.countryLayout.setSelectedCountryCode(CountryCode(countryString))
@@ -78,7 +72,7 @@ class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
     setPostalCodeFilter()
   }
 
-  fun setPlaceHolders(value: ReadableMap) {
+  fun setPlaceHolders(value: ReadableMapStripe) {
     val numberPlaceholder = getValOr(value, "number", null)
     val expirationPlaceholder = getValOr(value, "expiration", null)
     val cvcPlaceholder = getValOr(value, "cvc", null)
@@ -130,8 +124,7 @@ class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
       CardFocusEvent(id, currentFocusedField))
   }
 
-  @SuppressLint("RestrictedApi")
-  fun setCardStyle(value: ReadableMap) {
+  fun setCardStyle(value: ReadableMapStripe) {
     val backgroundColor = getValOr(value, "backgroundColor", null)
     val textColor = getValOr(value, "textColor", null)
     val borderWidth = getIntOrNull(value, "borderWidth")
@@ -180,7 +173,7 @@ class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
     }
     fontFamily?.let {
       // Load custom font from assets, and fallback to default system font
-      val typeface = ReactTypefaceUtils.applyStyles(null, -1, -1, it.takeIf { it.isNotEmpty() }, context.assets)
+      val typeface = ReactTypefaceUtilsStripe.applyStyles(null, -1, -1, it.takeIf { it.isNotEmpty() }, context.assets)
       for (binding in editTextBindings) {
         binding.typeface = typeface
       }
@@ -296,7 +289,6 @@ class CardFormView(context: ThemedReactContextStripe) : FrameLayout(context) {
     )
   }
 
-  @SuppressLint("RestrictedApi")
   private fun createPostalCodeInputFilter(): InputFilter {
     return InputFilter { charSequence, start, end, _, _, _ ->
       if (cardFormViewBinding.countryLayout.getSelectedCountryCode() == CountryCode.US) {

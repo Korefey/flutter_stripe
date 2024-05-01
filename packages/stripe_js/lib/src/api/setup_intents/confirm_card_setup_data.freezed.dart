@@ -12,7 +12,7 @@ part of 'confirm_card_setup_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ConfirmCardSetupData _$ConfirmCardSetupDataFromJson(Map<String, dynamic> json) {
   return _ConfirmCardSetupData.fromJson(json);
@@ -96,11 +96,11 @@ class _$ConfirmCardSetupDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConfirmCardSetupDataImplCopyWith<$Res>
+abstract class _$$_ConfirmCardSetupDataCopyWith<$Res>
     implements $ConfirmCardSetupDataCopyWith<$Res> {
-  factory _$$ConfirmCardSetupDataImplCopyWith(_$ConfirmCardSetupDataImpl value,
-          $Res Function(_$ConfirmCardSetupDataImpl) then) =
-      __$$ConfirmCardSetupDataImplCopyWithImpl<$Res>;
+  factory _$$_ConfirmCardSetupDataCopyWith(_$_ConfirmCardSetupData value,
+          $Res Function(_$_ConfirmCardSetupData) then) =
+      __$$_ConfirmCardSetupDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -112,11 +112,11 @@ abstract class _$$ConfirmCardSetupDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConfirmCardSetupDataImplCopyWithImpl<$Res>
-    extends _$ConfirmCardSetupDataCopyWithImpl<$Res, _$ConfirmCardSetupDataImpl>
-    implements _$$ConfirmCardSetupDataImplCopyWith<$Res> {
-  __$$ConfirmCardSetupDataImplCopyWithImpl(_$ConfirmCardSetupDataImpl _value,
-      $Res Function(_$ConfirmCardSetupDataImpl) _then)
+class __$$_ConfirmCardSetupDataCopyWithImpl<$Res>
+    extends _$ConfirmCardSetupDataCopyWithImpl<$Res, _$_ConfirmCardSetupData>
+    implements _$$_ConfirmCardSetupDataCopyWith<$Res> {
+  __$$_ConfirmCardSetupDataCopyWithImpl(_$_ConfirmCardSetupData _value,
+      $Res Function(_$_ConfirmCardSetupData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +125,7 @@ class __$$ConfirmCardSetupDataImplCopyWithImpl<$Res>
     Object? paymentMethod = freezed,
     Object? returnUrl = freezed,
   }) {
-    return _then(_$ConfirmCardSetupDataImpl(
+    return _then(_$_ConfirmCardSetupData(
       paymentMethod: freezed == paymentMethod
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
@@ -140,13 +140,13 @@ class __$$ConfirmCardSetupDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmCardSetupDataImpl implements _ConfirmCardSetupData {
-  const _$ConfirmCardSetupDataImpl(
+class _$_ConfirmCardSetupData implements _ConfirmCardSetupData {
+  const _$_ConfirmCardSetupData(
       {@paymentMethodDetailJsonKey this.paymentMethod,
       @JsonKey(name: "return_url") this.returnUrl});
 
-  factory _$ConfirmCardSetupDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConfirmCardSetupDataImplFromJson(json);
+  factory _$_ConfirmCardSetupData.fromJson(Map<String, dynamic> json) =>
+      _$$_ConfirmCardSetupDataFromJson(json);
 
   /// Either the id of an existing PaymentMethod, or an object containing
   /// data to create a PaymentMethod with.
@@ -168,10 +168,10 @@ class _$ConfirmCardSetupDataImpl implements _ConfirmCardSetupData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmCardSetupDataImpl &&
+            other is _$_ConfirmCardSetupData &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod) &&
             (identical(other.returnUrl, returnUrl) ||
@@ -185,14 +185,13 @@ class _$ConfirmCardSetupDataImpl implements _ConfirmCardSetupData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmCardSetupDataImplCopyWith<_$ConfirmCardSetupDataImpl>
-      get copyWith =>
-          __$$ConfirmCardSetupDataImplCopyWithImpl<_$ConfirmCardSetupDataImpl>(
-              this, _$identity);
+  _$$_ConfirmCardSetupDataCopyWith<_$_ConfirmCardSetupData> get copyWith =>
+      __$$_ConfirmCardSetupDataCopyWithImpl<_$_ConfirmCardSetupData>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmCardSetupDataImplToJson(
+    return _$$_ConfirmCardSetupDataToJson(
       this,
     );
   }
@@ -203,10 +202,10 @@ abstract class _ConfirmCardSetupData implements ConfirmCardSetupData {
           {@paymentMethodDetailJsonKey
           final CardPaymentMethodDetails? paymentMethod,
           @JsonKey(name: "return_url") final String? returnUrl}) =
-      _$ConfirmCardSetupDataImpl;
+      _$_ConfirmCardSetupData;
 
   factory _ConfirmCardSetupData.fromJson(Map<String, dynamic> json) =
-      _$ConfirmCardSetupDataImpl.fromJson;
+      _$_ConfirmCardSetupData.fromJson;
 
   @override
 
@@ -224,6 +223,6 @@ abstract class _ConfirmCardSetupData implements ConfirmCardSetupData {
   String? get returnUrl;
   @override
   @JsonKey(ignore: true)
-  _$$ConfirmCardSetupDataImplCopyWith<_$ConfirmCardSetupDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_ConfirmCardSetupDataCopyWith<_$_ConfirmCardSetupData> get copyWith =>
+      throw _privateConstructorUsedError;
 }

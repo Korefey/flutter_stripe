@@ -12,7 +12,7 @@ part of 'create_token_bank_account_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CreateTokenBankAccountData _$CreateTokenBankAccountDataFromJson(
     Map<String, dynamic> json) {
@@ -117,12 +117,12 @@ class _$CreateTokenBankAccountDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$CreateTokenBankAccountDataImplCopyWith<$Res>
+abstract class _$$_CreateTokenBankAccountDataCopyWith<$Res>
     implements $CreateTokenBankAccountDataCopyWith<$Res> {
-  factory _$$CreateTokenBankAccountDataImplCopyWith(
-          _$CreateTokenBankAccountDataImpl value,
-          $Res Function(_$CreateTokenBankAccountDataImpl) then) =
-      __$$CreateTokenBankAccountDataImplCopyWithImpl<$Res>;
+  factory _$$_CreateTokenBankAccountDataCopyWith(
+          _$_CreateTokenBankAccountData value,
+          $Res Function(_$_CreateTokenBankAccountData) then) =
+      __$$_CreateTokenBankAccountDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -137,13 +137,13 @@ abstract class _$$CreateTokenBankAccountDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreateTokenBankAccountDataImplCopyWithImpl<$Res>
+class __$$_CreateTokenBankAccountDataCopyWithImpl<$Res>
     extends _$CreateTokenBankAccountDataCopyWithImpl<$Res,
-        _$CreateTokenBankAccountDataImpl>
-    implements _$$CreateTokenBankAccountDataImplCopyWith<$Res> {
-  __$$CreateTokenBankAccountDataImplCopyWithImpl(
-      _$CreateTokenBankAccountDataImpl _value,
-      $Res Function(_$CreateTokenBankAccountDataImpl) _then)
+        _$_CreateTokenBankAccountData>
+    implements _$$_CreateTokenBankAccountDataCopyWith<$Res> {
+  __$$_CreateTokenBankAccountDataCopyWithImpl(
+      _$_CreateTokenBankAccountData _value,
+      $Res Function(_$_CreateTokenBankAccountData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -157,7 +157,7 @@ class __$$CreateTokenBankAccountDataImplCopyWithImpl<$Res>
     Object? accountHolderType = freezed,
     Object? accountType = freezed,
   }) {
-    return _then(_$CreateTokenBankAccountDataImpl(
+    return _then(_$_CreateTokenBankAccountData(
       country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -192,8 +192,8 @@ class __$$CreateTokenBankAccountDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CreateTokenBankAccountDataImpl implements _CreateTokenBankAccountData {
-  const _$CreateTokenBankAccountDataImpl(
+class _$_CreateTokenBankAccountData implements _CreateTokenBankAccountData {
+  const _$_CreateTokenBankAccountData(
       {required this.country,
       required this.currency,
       @JsonKey(name: "routing_number") this.routingNumber,
@@ -202,9 +202,8 @@ class _$CreateTokenBankAccountDataImpl implements _CreateTokenBankAccountData {
       @JsonKey(name: "account_holder_type") this.accountHolderType,
       @JsonKey(name: "account_type") this.accountType});
 
-  factory _$CreateTokenBankAccountDataImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$CreateTokenBankAccountDataImplFromJson(json);
+  factory _$_CreateTokenBankAccountData.fromJson(Map<String, dynamic> json) =>
+      _$$_CreateTokenBankAccountDataFromJson(json);
 
   @override
   final String country;
@@ -234,10 +233,10 @@ class _$CreateTokenBankAccountDataImpl implements _CreateTokenBankAccountData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateTokenBankAccountDataImpl &&
+            other is _$_CreateTokenBankAccountData &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.currency, currency) ||
                 other.currency == currency) &&
@@ -261,13 +260,13 @@ class _$CreateTokenBankAccountDataImpl implements _CreateTokenBankAccountData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateTokenBankAccountDataImplCopyWith<_$CreateTokenBankAccountDataImpl>
-      get copyWith => __$$CreateTokenBankAccountDataImplCopyWithImpl<
-          _$CreateTokenBankAccountDataImpl>(this, _$identity);
+  _$$_CreateTokenBankAccountDataCopyWith<_$_CreateTokenBankAccountData>
+      get copyWith => __$$_CreateTokenBankAccountDataCopyWithImpl<
+          _$_CreateTokenBankAccountData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateTokenBankAccountDataImplToJson(
+    return _$$_CreateTokenBankAccountDataToJson(
       this,
     );
   }
@@ -284,10 +283,10 @@ abstract class _CreateTokenBankAccountData
           @JsonKey(name: "account_holder_type")
           final BankAccountHolderType? accountHolderType,
           @JsonKey(name: "account_type") final String? accountType}) =
-      _$CreateTokenBankAccountDataImpl;
+      _$_CreateTokenBankAccountData;
 
   factory _CreateTokenBankAccountData.fromJson(Map<String, dynamic> json) =
-      _$CreateTokenBankAccountDataImpl.fromJson;
+      _$_CreateTokenBankAccountData.fromJson;
 
   @override
   String get country;
@@ -312,6 +311,6 @@ abstract class _CreateTokenBankAccountData
   String? get accountType;
   @override
   @JsonKey(ignore: true)
-  _$$CreateTokenBankAccountDataImplCopyWith<_$CreateTokenBankAccountDataImpl>
+  _$$_CreateTokenBankAccountDataCopyWith<_$_CreateTokenBankAccountData>
       get copyWith => throw _privateConstructorUsedError;
 }

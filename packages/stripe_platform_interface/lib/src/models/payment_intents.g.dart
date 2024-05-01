@@ -6,8 +6,8 @@ part of 'payment_intents.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PaymentIntentImpl _$$PaymentIntentImplFromJson(Map<String, dynamic> json) =>
-    _$PaymentIntentImpl(
+_$_PaymentIntent _$$_PaymentIntentFromJson(Map<String, dynamic> json) =>
+    _$_PaymentIntent(
       id: json['id'] as String,
       amount: json['amount'] as num,
       created: json['created'] as String,
@@ -31,10 +31,9 @@ _$PaymentIntentImpl _$$PaymentIntentImplFromJson(Map<String, dynamic> json) =>
       mandateData: json['mandateData'] == null
           ? null
           : MandateData.fromJson(json['mandateData'] as Map<String, dynamic>),
-      latestCharge: json['latestCharge'] as String?,
     );
 
-Map<String, dynamic> _$$PaymentIntentImplToJson(_$PaymentIntentImpl instance) =>
+Map<String, dynamic> _$$_PaymentIntentToJson(_$_PaymentIntent instance) =>
     <String, dynamic>{
       'id': instance.id,
       'amount': instance.amount,
@@ -53,7 +52,6 @@ Map<String, dynamic> _$$PaymentIntentImplToJson(_$PaymentIntentImpl instance) =>
       'nextAction': instance.nextAction?.toJson(),
       'shipping': instance.shipping?.toJson(),
       'mandateData': instance.mandateData?.toJson(),
-      'latestCharge': instance.latestCharge,
     };
 
 const _$PaymentIntentsStatusEnumMap = {
@@ -71,18 +69,15 @@ const _$CaptureMethodEnumMap = {
   CaptureMethod.Manual: 'Manual',
   CaptureMethod.Automatic: 'Automatic',
   CaptureMethod.AutomaticAsync: 'AutomaticAsync',
-  CaptureMethod.Unknown: 'Unknown',
 };
 
 const _$ConfirmationMethodEnumMap = {
   ConfirmationMethod.Manual: 'Manual',
   ConfirmationMethod.Automatic: 'Automatic',
-  ConfirmationMethod.Unknown: 'Unknown',
 };
 
-_$ShippingDetailsImpl _$$ShippingDetailsImplFromJson(
-        Map<String, dynamic> json) =>
-    _$ShippingDetailsImpl(
+_$_ShippingDetails _$$_ShippingDetailsFromJson(Map<String, dynamic> json) =>
+    _$_ShippingDetails(
       address: Address.fromJson(json['address'] as Map<String, dynamic>),
       name: json['name'] as String?,
       carrier: json['carrier'] as String?,
@@ -90,8 +85,7 @@ _$ShippingDetailsImpl _$$ShippingDetailsImplFromJson(
       trackingNumber: json['trackingNumber'] as String?,
     );
 
-Map<String, dynamic> _$$ShippingDetailsImplToJson(
-        _$ShippingDetailsImpl instance) =>
+Map<String, dynamic> _$$_ShippingDetailsToJson(_$_ShippingDetails instance) =>
     <String, dynamic>{
       'address': instance.address.toJson(),
       'name': instance.name,

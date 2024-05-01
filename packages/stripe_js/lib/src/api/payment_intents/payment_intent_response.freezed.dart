@@ -12,7 +12,7 @@ part of 'payment_intent_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PaymentIntentResponse _$PaymentIntentResponseFromJson(
     Map<String, dynamic> json) {
@@ -100,12 +100,11 @@ class _$PaymentIntentResponseCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentIntentResponseImplCopyWith<$Res>
+abstract class _$$_PaymentIntentResponseCopyWith<$Res>
     implements $PaymentIntentResponseCopyWith<$Res> {
-  factory _$$PaymentIntentResponseImplCopyWith(
-          _$PaymentIntentResponseImpl value,
-          $Res Function(_$PaymentIntentResponseImpl) then) =
-      __$$PaymentIntentResponseImplCopyWithImpl<$Res>;
+  factory _$$_PaymentIntentResponseCopyWith(_$_PaymentIntentResponse value,
+          $Res Function(_$_PaymentIntentResponse) then) =
+      __$$_PaymentIntentResponseCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PaymentIntent? paymentIntent, StripeError? error});
@@ -117,12 +116,11 @@ abstract class _$$PaymentIntentResponseImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentIntentResponseImplCopyWithImpl<$Res>
-    extends _$PaymentIntentResponseCopyWithImpl<$Res,
-        _$PaymentIntentResponseImpl>
-    implements _$$PaymentIntentResponseImplCopyWith<$Res> {
-  __$$PaymentIntentResponseImplCopyWithImpl(_$PaymentIntentResponseImpl _value,
-      $Res Function(_$PaymentIntentResponseImpl) _then)
+class __$$_PaymentIntentResponseCopyWithImpl<$Res>
+    extends _$PaymentIntentResponseCopyWithImpl<$Res, _$_PaymentIntentResponse>
+    implements _$$_PaymentIntentResponseCopyWith<$Res> {
+  __$$_PaymentIntentResponseCopyWithImpl(_$_PaymentIntentResponse _value,
+      $Res Function(_$_PaymentIntentResponse) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -131,7 +129,7 @@ class __$$PaymentIntentResponseImplCopyWithImpl<$Res>
     Object? paymentIntent = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$PaymentIntentResponseImpl(
+    return _then(_$_PaymentIntentResponse(
       paymentIntent: freezed == paymentIntent
           ? _value.paymentIntent
           : paymentIntent // ignore: cast_nullable_to_non_nullable
@@ -146,11 +144,11 @@ class __$$PaymentIntentResponseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentIntentResponseImpl implements _PaymentIntentResponse {
-  const _$PaymentIntentResponseImpl({this.paymentIntent, this.error});
+class _$_PaymentIntentResponse implements _PaymentIntentResponse {
+  const _$_PaymentIntentResponse({this.paymentIntent, this.error});
 
-  factory _$PaymentIntentResponseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentIntentResponseImplFromJson(json);
+  factory _$_PaymentIntentResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentIntentResponseFromJson(json);
 
   /// If not null, a PaymentIntent was retrieved successfully
   @override
@@ -166,10 +164,10 @@ class _$PaymentIntentResponseImpl implements _PaymentIntentResponse {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentIntentResponseImpl &&
+            other is _$_PaymentIntentResponse &&
             (identical(other.paymentIntent, paymentIntent) ||
                 other.paymentIntent == paymentIntent) &&
             (identical(other.error, error) || other.error == error));
@@ -182,13 +180,13 @@ class _$PaymentIntentResponseImpl implements _PaymentIntentResponse {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentIntentResponseImplCopyWith<_$PaymentIntentResponseImpl>
-      get copyWith => __$$PaymentIntentResponseImplCopyWithImpl<
-          _$PaymentIntentResponseImpl>(this, _$identity);
+  _$$_PaymentIntentResponseCopyWith<_$_PaymentIntentResponse> get copyWith =>
+      __$$_PaymentIntentResponseCopyWithImpl<_$_PaymentIntentResponse>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentIntentResponseImplToJson(
+    return _$$_PaymentIntentResponseToJson(
       this,
     );
   }
@@ -197,10 +195,10 @@ class _$PaymentIntentResponseImpl implements _PaymentIntentResponse {
 abstract class _PaymentIntentResponse implements PaymentIntentResponse {
   const factory _PaymentIntentResponse(
       {final PaymentIntent? paymentIntent,
-      final StripeError? error}) = _$PaymentIntentResponseImpl;
+      final StripeError? error}) = _$_PaymentIntentResponse;
 
   factory _PaymentIntentResponse.fromJson(Map<String, dynamic> json) =
-      _$PaymentIntentResponseImpl.fromJson;
+      _$_PaymentIntentResponse.fromJson;
 
   @override
 
@@ -212,6 +210,6 @@ abstract class _PaymentIntentResponse implements PaymentIntentResponse {
   StripeError? get error;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentIntentResponseImplCopyWith<_$PaymentIntentResponseImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentIntentResponseCopyWith<_$_PaymentIntentResponse> get copyWith =>
+      throw _privateConstructorUsedError;
 }

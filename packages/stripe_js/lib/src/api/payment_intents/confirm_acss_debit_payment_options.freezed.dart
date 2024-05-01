@@ -67,25 +67,25 @@ class _$ConfirmAcssDebitPaymentOptionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConfirmAcssDebitPaymentOptionsImplCopyWith<$Res>
+abstract class _$$_ConfirmAcssDebitPaymentOptionsCopyWith<$Res>
     implements $ConfirmAcssDebitPaymentOptionsCopyWith<$Res> {
-  factory _$$ConfirmAcssDebitPaymentOptionsImplCopyWith(
-          _$ConfirmAcssDebitPaymentOptionsImpl value,
-          $Res Function(_$ConfirmAcssDebitPaymentOptionsImpl) then) =
-      __$$ConfirmAcssDebitPaymentOptionsImplCopyWithImpl<$Res>;
+  factory _$$_ConfirmAcssDebitPaymentOptionsCopyWith(
+          _$_ConfirmAcssDebitPaymentOptions value,
+          $Res Function(_$_ConfirmAcssDebitPaymentOptions) then) =
+      __$$_ConfirmAcssDebitPaymentOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? skipMandate});
 }
 
 /// @nodoc
-class __$$ConfirmAcssDebitPaymentOptionsImplCopyWithImpl<$Res>
+class __$$_ConfirmAcssDebitPaymentOptionsCopyWithImpl<$Res>
     extends _$ConfirmAcssDebitPaymentOptionsCopyWithImpl<$Res,
-        _$ConfirmAcssDebitPaymentOptionsImpl>
-    implements _$$ConfirmAcssDebitPaymentOptionsImplCopyWith<$Res> {
-  __$$ConfirmAcssDebitPaymentOptionsImplCopyWithImpl(
-      _$ConfirmAcssDebitPaymentOptionsImpl _value,
-      $Res Function(_$ConfirmAcssDebitPaymentOptionsImpl) _then)
+        _$_ConfirmAcssDebitPaymentOptions>
+    implements _$$_ConfirmAcssDebitPaymentOptionsCopyWith<$Res> {
+  __$$_ConfirmAcssDebitPaymentOptionsCopyWithImpl(
+      _$_ConfirmAcssDebitPaymentOptions _value,
+      $Res Function(_$_ConfirmAcssDebitPaymentOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$ConfirmAcssDebitPaymentOptionsImplCopyWithImpl<$Res>
   $Res call({
     Object? skipMandate = freezed,
   }) {
-    return _then(_$ConfirmAcssDebitPaymentOptionsImpl(
+    return _then(_$_ConfirmAcssDebitPaymentOptions(
       skipMandate: freezed == skipMandate
           ? _value.skipMandate
           : skipMandate // ignore: cast_nullable_to_non_nullable
@@ -104,13 +104,13 @@ class __$$ConfirmAcssDebitPaymentOptionsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmAcssDebitPaymentOptionsImpl
+class _$_ConfirmAcssDebitPaymentOptions
     implements _ConfirmAcssDebitPaymentOptions {
-  const _$ConfirmAcssDebitPaymentOptionsImpl({this.skipMandate = false});
+  const _$_ConfirmAcssDebitPaymentOptions({this.skipMandate = false});
 
-  factory _$ConfirmAcssDebitPaymentOptionsImpl.fromJson(
+  factory _$_ConfirmAcssDebitPaymentOptions.fromJson(
           Map<String, dynamic> json) =>
-      _$$ConfirmAcssDebitPaymentOptionsImplFromJson(json);
+      _$$_ConfirmAcssDebitPaymentOptionsFromJson(json);
 
   /// Set this to true if you want to skip displaying the mandate confirmation.
   @override
@@ -126,7 +126,7 @@ class _$ConfirmAcssDebitPaymentOptionsImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmAcssDebitPaymentOptionsImpl &&
+            other is _$_ConfirmAcssDebitPaymentOptions &&
             (identical(other.skipMandate, skipMandate) ||
                 other.skipMandate == skipMandate));
   }
@@ -138,14 +138,13 @@ class _$ConfirmAcssDebitPaymentOptionsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmAcssDebitPaymentOptionsImplCopyWith<
-          _$ConfirmAcssDebitPaymentOptionsImpl>
-      get copyWith => __$$ConfirmAcssDebitPaymentOptionsImplCopyWithImpl<
-          _$ConfirmAcssDebitPaymentOptionsImpl>(this, _$identity);
+  _$$_ConfirmAcssDebitPaymentOptionsCopyWith<_$_ConfirmAcssDebitPaymentOptions>
+      get copyWith => __$$_ConfirmAcssDebitPaymentOptionsCopyWithImpl<
+          _$_ConfirmAcssDebitPaymentOptions>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmAcssDebitPaymentOptionsImplToJson(
+    return _$$_ConfirmAcssDebitPaymentOptionsToJson(
       this,
     );
   }
@@ -154,10 +153,10 @@ class _$ConfirmAcssDebitPaymentOptionsImpl
 abstract class _ConfirmAcssDebitPaymentOptions
     implements ConfirmAcssDebitPaymentOptions {
   const factory _ConfirmAcssDebitPaymentOptions({final bool? skipMandate}) =
-      _$ConfirmAcssDebitPaymentOptionsImpl;
+      _$_ConfirmAcssDebitPaymentOptions;
 
   factory _ConfirmAcssDebitPaymentOptions.fromJson(Map<String, dynamic> json) =
-      _$ConfirmAcssDebitPaymentOptionsImpl.fromJson;
+      _$_ConfirmAcssDebitPaymentOptions.fromJson;
 
   @override
 
@@ -165,7 +164,6 @@ abstract class _ConfirmAcssDebitPaymentOptions
   bool? get skipMandate;
   @override
   @JsonKey(ignore: true)
-  _$$ConfirmAcssDebitPaymentOptionsImplCopyWith<
-          _$ConfirmAcssDebitPaymentOptionsImpl>
+  _$$_ConfirmAcssDebitPaymentOptionsCopyWith<_$_ConfirmAcssDebitPaymentOptions>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -6,7 +6,6 @@ import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -38,10 +37,10 @@ class PaymentSheetFragment(
   private var setupIntentClientSecret: String? = null
   private var intentConfiguration: PaymentSheet.IntentConfiguration? = null
   private lateinit var paymentSheetConfiguration: PaymentSheet.Configuration
-  private var confirmPromise: Promise? = null
-  private var presentPromise: Promise? = null
+  private var confirmPromise: PromiseStripe? = null
+  private var presentPromise: PromiseStripe? = null
   private var paymentSheetTimedOut = false
-  internal val paymentSheetIntentCreationCallback = CompletableDeferred<ReadableMap>()
+  internal val paymentSheetIntentCreationCallback = CompletableDeferred<ReadableMapStripe>()
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -194,8 +193,7 @@ class PaymentSheetFragment(
       appearance = appearance,
       shippingDetails = shippingDetails,
       primaryButtonLabel = primaryButtonLabel,
-      billingDetailsCollectionConfiguration = billingDetailsConfig,
-      preferredNetworks = mapToPreferredNetworks(arguments?.getIntegerArrayList("preferredNetworks"))
+      billingDetailsCollectionConfiguration = billingDetailsConfig
     )
 
     if (arguments?.getBoolean("customFlow") == true) {
@@ -231,7 +229,7 @@ class PaymentSheetFragment(
     }
   }
 
-  fun present(promise: Promise) {
+  fun present(promise: PromiseStripe) {
     this.presentPromise = promise
     if(paymentSheet != null) {
       if (!paymentIntentClientSecret.isNullOrEmpty()) {
@@ -251,7 +249,7 @@ class PaymentSheetFragment(
     }
   }
 
-  fun presentWithTimeout(timeout: Long, promise: Promise) {
+  fun presentWithTimeout(timeout: Long, promise: PromiseStripe) {
     var paymentSheetActivity: Activity? = null
 
     val activityLifecycleCallbacks = object : Application.ActivityLifecycleCallbacks {
@@ -287,7 +285,7 @@ class PaymentSheetFragment(
     this.present(promise)
   }
 
-  fun confirmPayment(promise: Promise) {
+  fun confirmPayment(promise: PromiseStripe) {
     this.confirmPromise = promise
     flowController?.confirm()
   }
@@ -343,17 +341,6 @@ class PaymentSheetFragment(
   companion object {
     internal const val TAG = "payment_sheet_launch_fragment"
 
-    private val mapIntToButtonType = mapOf(
-      1 to PaymentSheet.GooglePayConfiguration.ButtonType.Buy,
-      6 to PaymentSheet.GooglePayConfiguration.ButtonType.Book,
-      5 to PaymentSheet.GooglePayConfiguration.ButtonType.Checkout,
-      4 to PaymentSheet.GooglePayConfiguration.ButtonType.Donate,
-      11 to PaymentSheet.GooglePayConfiguration.ButtonType.Order,
-      1000 to PaymentSheet.GooglePayConfiguration.ButtonType.Pay,
-      7 to PaymentSheet.GooglePayConfiguration.ButtonType.Subscribe,
-      1001 to PaymentSheet.GooglePayConfiguration.ButtonType.Plain,
-    )
-
     internal fun createMissingInitError(): WritableMapStripe {
       return createError(PaymentSheetErrorType.Failed.toString(), "No payment sheet has been initialized yet. You must call `initPaymentSheet` before `presentPaymentSheet`.")
     }
@@ -366,18 +353,11 @@ class PaymentSheetFragment(
       val countryCode = params.getString("merchantCountryCode").orEmpty()
       val currencyCode = params.getString("currencyCode").orEmpty()
       val testEnv = params.getBoolean("testEnv")
-      val amount = params.getString("amount")?.toLongOrNull()
-      val label = params.getString("label")
-      val buttonType = mapIntToButtonType.get(params.getInt("buttonType")) ?: PaymentSheet.GooglePayConfiguration.ButtonType.Pay
-
 
       return PaymentSheet.GooglePayConfiguration(
         environment = if (testEnv) PaymentSheet.GooglePayConfiguration.Environment.Test else PaymentSheet.GooglePayConfiguration.Environment.Production,
         countryCode = countryCode,
-        currencyCode = currencyCode,
-        amount = amount,
-        label = label,
-        buttonType = buttonType
+        currencyCode = currencyCode
       )
     }
 
@@ -419,16 +399,10 @@ class PaymentSheetFragment(
 }
 
 fun getBitmapFromVectorDrawable(context: Context?, drawableId: Int): Bitmap? {
-  val drawable = AppCompatResources.getDrawable(context!!, drawableId) ?: return null
-  return getBitmapFromDrawable(drawable)
-}
+  var drawable = AppCompatResources.getDrawable(context!!, drawableId) ?: return null
 
-fun getBitmapFromDrawable(drawable: Drawable): Bitmap? {
-  val drawableCompat = DrawableCompat.wrap(drawable).mutate()
-  if (drawableCompat.intrinsicWidth <= 0 || drawableCompat.intrinsicHeight <= 0) {
-    return null
-  }
-  val bitmap = Bitmap.createBitmap(drawableCompat.intrinsicWidth, drawableCompat.intrinsicHeight, Bitmap.Config.ARGB_8888)
+  drawable = DrawableCompat.wrap(drawable).mutate()
+  val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
   bitmap.eraseColor(Color.WHITE)
   val canvas = Canvas(bitmap)
   drawable.setBounds(0, 0, canvas.width, canvas.height)

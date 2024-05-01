@@ -81,19 +81,12 @@ class SetupPaymentSheetParameters with _$SetupPaymentSheetParameters {
     /// paymentIntent since the customer can change those.
     @JsonKey(name: 'defaultBillingDetails') BillingDetails? billingDetails,
 
-    /// Return URL is required for IDEAL, Klarna and few other payment methods
+    /// Return URL is required for IDEAL and few other payment methods
     String? returnURL,
 
     /// Configuration for how billing details are collected during checkout.
     BillingDetailsCollectionConfiguration?
         billingDetailsCollectionConfiguration,
-
-    ///  Optional configuration to display a custom message when a saved payment method is removed. iOS only.
-    String? removeSavedPaymentMethodMessage,
-
-    /// The list of preferred networks that should be used to process payments made with a co-branded card.
-    /// This value will only be used if your user hasn't selected a network themselves.
-    @JsonKey(toJson: _cardBrandListToJson) List<CardBrand>? preferredNetworks,
   }) = _SetupParameters;
 
   factory SetupPaymentSheetParameters.fromJson(Map<String, dynamic> json) =>
@@ -160,7 +153,7 @@ class PaymentSheetApplePay with _$PaymentSheetApplePay {
     /// Use this for a different payment request than a one time request.
     PaymentRequestType? request,
 
-    /// Callback function for setting the order details (retrieved from your server) to give users the
+    /// CallbackStripe function for setting the order details (retrieved from your server) to give users the
     /// ability to track and manage their purchases in Wallet. Stripe calls your implementation after the
     /// payment is complete, but before iOS dismisses the Apple Pay sheet. You must call the `completion`
     /// function, or else the Apple Pay sheet will hang.
@@ -185,15 +178,6 @@ class PaymentSheetGooglePay with _$PaymentSheetGooglePay {
 
     /// Whether or not to use the google pay test environment.  Set to `true` until you have applied for and been granted access to the Production environment.
     @Default(false) bool testEnv,
-
-    /// An optional label to display with the amount. Google Pay may or may not display this label depending on its own internal logic. Defaults to a generic label if none is provided.
-    String? label,
-
-    /// An optional amount to display for setup intents. Google Pay may or may not display this amount depending on its own internal logic. Defaults to 0 if none is provided.
-    String? amount,
-
-    /// The Google Pay button type to use. Set to "Pay" by default.
-    PlatformButtonType? buttonType,
   }) = _PaymentSheetGooglePay;
 
   factory PaymentSheetGooglePay.fromJson(Map<String, dynamic> json) =>
@@ -464,7 +448,7 @@ class PaymentSheetPaymentOption with _$PaymentSheetPaymentOption {
     required String label,
 
     /// String decoding of the image
-    String? image,
+    required String image,
   }) = _PaymentSheetPaymentOption;
 
   factory PaymentSheetPaymentOption.fromJson(Map<String, dynamic> json) =>
@@ -548,10 +532,3 @@ typedef ConfirmHandler = void Function(
   PaymentMethod result,
   bool shouldSavePaymentMethod,
 );
-
-List<int> _cardBrandListToJson(List<CardBrand>? list) {
-  if (list == null) {
-    return [];
-  }
-  return list.map((e) => e.brandValue).toList();
-}

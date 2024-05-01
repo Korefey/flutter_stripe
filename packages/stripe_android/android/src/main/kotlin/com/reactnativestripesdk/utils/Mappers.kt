@@ -1,6 +1,5 @@
 package com.reactnativestripesdk.utils
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import com.facebook.react.bridge.*
@@ -125,7 +124,6 @@ internal fun mapPaymentMethodType(type: PaymentMethod.Type?): String {
     PaymentMethod.Type.PayPal -> "PayPal"
     PaymentMethod.Type.Affirm -> "Affirm"
     PaymentMethod.Type.CashAppPay -> "CashApp"
-    PaymentMethod.Type.RevolutPay -> "RevolutPay"
     else -> "Unknown"
   }
 }
@@ -156,7 +154,6 @@ internal fun mapToPaymentMethodType(type: String?): PaymentMethod.Type? {
     "PayPal" -> PaymentMethod.Type.PayPal
     "Affirm" -> PaymentMethod.Type.Affirm
     "CashApp" -> PaymentMethod.Type.CashAppPay
-    "RevolutPay" -> PaymentMethod.Type.RevolutPay
     else -> null
   }
 }
@@ -448,7 +445,6 @@ internal fun mapFromPaymentIntentResult(paymentIntent: PaymentIntent): WritableM
   return map
 }
 
-@SuppressLint("RestrictedApi")
 internal fun mapFromMicrodepositType(type: MicrodepositType): String {
   return when (type) {
     MicrodepositType.AMOUNTS -> "amounts"
@@ -457,7 +453,6 @@ internal fun mapFromMicrodepositType(type: MicrodepositType): String {
   }
 }
 
-@SuppressLint("RestrictedApi")
 internal fun mapNextAction(type: NextActionType?, data: NextActionData?): WritableNativeMapStripe? {
   val nextActionMap = WritableNativeMapStripe()
   when (type) {
@@ -494,24 +489,6 @@ internal fun mapNextAction(type: NextActionType?, data: NextActionData?): Writab
     }
     NextActionType.CashAppRedirect, NextActionType.BlikAuthorize, NextActionType.UseStripeSdk, NextActionType.UpiAwaitNotification,  null -> {
       return null
-    }
-    NextActionType.DisplayBoletoDetails -> {
-      (data as? NextActionData.DisplayBoletoDetails)?.let {
-        nextActionMap.putString("type", "boletoVoucher")
-        nextActionMap.putString("voucherURL", it.hostedVoucherUrl)
-      }
-    }
-    NextActionType.DisplayKonbiniDetails -> {
-      (data as? NextActionData.DisplayKonbiniDetails)?.let {
-        nextActionMap.putString("type", "konbiniVoucher")
-        nextActionMap.putString("voucherURL", it.hostedVoucherUrl)
-      }
-    }
-    NextActionType.SwishRedirect -> {
-      (data as? NextActionData.SwishRedirect)?.let {
-        nextActionMap.putString("type", "swishRedirect")
-        nextActionMap.putString("mobileAuthUrl", it.mobileAuthUrl)
-      }
     }
   }
   return nextActionMap
@@ -613,11 +590,11 @@ fun getIntOrNull(map: ReadableMapStripe?, key: String): Int? {
   return if (map?.hasKey(key) == true) map.getInt(key) else null
 }
 
-fun getMapOrNull(map: ReadableMapStripe?, key: String): ReadableMap? {
+fun getMapOrNull(map: ReadableMapStripe?, key: String): ReadableMapStripe? {
   return if (map?.hasKey(key) == true) map.getMap(key) else null
 }
 
-fun getBooleanOrFalse(map: ReadableMap?, key: String): Boolean {
+fun getBooleanOrFalse(map: ReadableMapStripe?, key: String): Boolean {
   return if (map?.hasKey(key) == true) map.getBoolean(key) else false
 }
 
@@ -625,7 +602,7 @@ private fun convertToUnixTimestamp(timestamp: Long): String {
   return (timestamp * 1000).toString()
 }
 
-fun mapToUICustomization(params: ReadableMap): PaymentAuthConfig.Stripe3ds2UiCustomization {
+fun mapToUICustomization(params: ReadableMapStripe): PaymentAuthConfig.Stripe3ds2UiCustomization {
   val labelCustomization = getMapOrNull(params, "label")
   val navigationBarCustomization = params.getMap("navigationBar")
   val textBoxCustomization = getMapOrNull(params, "textField")
@@ -830,8 +807,11 @@ internal fun mapFromSetupIntentResult(setupIntent: SetupIntent): WritableMapStri
     map.putMap("lastSetupError", setupError)
   }
 
-  for (code in setupIntent.paymentMethodTypes) {
-    PaymentMethod.Type.fromCode(code)?.let {
+  setupIntent.paymentMethodTypes.forEach { code ->
+    val type: PaymentMethod.Type? = PaymentMethod.Type.values().find {
+      code == it.code
+    }
+    type?.let {
       paymentMethodTypes.pushString(mapPaymentMethodType(it))
     }
   }
@@ -858,7 +838,7 @@ fun mapToPaymentIntentFutureUsage(type: String?): ConfirmPaymentIntentParams.Set
   }
 }
 
-fun toBundleObject(readableMap: ReadableMap?): Bundle {
+fun toBundleObject(readableMap: ReadableMapStripe?): Bundle {
   val result = Bundle()
   if (readableMap == null) {
     return result
@@ -900,54 +880,4 @@ fun toBundleObject(readableMap: ReadableMap?): Bundle {
     }
   }
   return result
-}
-
-internal fun mapFromShippingContact(googlePayResult: GooglePayResult): WritableMapStripe {
-  val map = WritableNativeMapStripe()
-  map.putString("emailAddress", googlePayResult.email)
-  val name = WritableNativeMapStripe()
-  googlePayResult.name
-  name.putString("givenName", googlePayResult.shippingInformation?.name)
-  map.putMap("name", name)
-  googlePayResult.shippingInformation?.phone?.let {
-    map.putString("phoneNumber", it)
-  } ?: run {
-    map.putString("phoneNumber", googlePayResult.phoneNumber)
-  }
-  val postalAddress = WritableNativeMapStripe()
-  postalAddress.putString("city", googlePayResult.shippingInformation?.address?.city)
-  postalAddress.putString("country", googlePayResult.shippingInformation?.address?.country)
-  postalAddress.putString("postalCode", googlePayResult.shippingInformation?.address?.postalCode)
-  postalAddress.putString("state", googlePayResult.shippingInformation?.address?.state)
-  val line1: String? = googlePayResult.shippingInformation?.address?.line1
-  val line2: String? = googlePayResult.shippingInformation?.address?.line2
-  val street =
-    (if (line1 != null) "$line1" else "") +
-    (if (line2 != null) "\n$line2" else "")
-  postalAddress.putString("street", street)
-  postalAddress.putString("isoCountryCode", googlePayResult.shippingInformation?.address?.country)
-  map.putMap("postalAddress", postalAddress)
-  return map
-}
-
-internal fun mapToPreferredNetworks(networksAsInts: ArrayList<Int>?): List<CardBrand> {
-  if (networksAsInts == null) {
-    return emptyList()
-  }
-
-  val intToCardBrand = mapOf(
-    0 to CardBrand.JCB,
-    1 to CardBrand.AmericanExpress,
-    2 to CardBrand.CartesBancaires,
-    3 to CardBrand.DinersClub,
-    4 to CardBrand.Discover,
-    5 to CardBrand.MasterCard,
-    6 to CardBrand.UnionPay,
-    7 to CardBrand.Visa,
-    8 to CardBrand.Unknown,
-  )
-
-  return networksAsInts.mapNotNull {
-    intToCardBrand[it]
-  }
 }

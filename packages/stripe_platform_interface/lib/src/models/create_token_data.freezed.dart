@@ -12,7 +12,7 @@ part of 'create_token_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CreateTokenParams _$CreateTokenParamsFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
@@ -107,11 +107,10 @@ class _$CreateTokenParamsCopyWithImpl<$Res, $Val extends CreateTokenParams>
 }
 
 /// @nodoc
-abstract class _$$CreateTokenParamsLegacyImplCopyWith<$Res> {
-  factory _$$CreateTokenParamsLegacyImplCopyWith(
-          _$CreateTokenParamsLegacyImpl value,
-          $Res Function(_$CreateTokenParamsLegacyImpl) then) =
-      __$$CreateTokenParamsLegacyImplCopyWithImpl<$Res>;
+abstract class _$$_CreateTokenParamsLegacyCopyWith<$Res> {
+  factory _$$_CreateTokenParamsLegacyCopyWith(_$_CreateTokenParamsLegacy value,
+          $Res Function(_$_CreateTokenParamsLegacy) then) =
+      __$$_CreateTokenParamsLegacyCopyWithImpl<$Res>;
   @useResult
   $Res call({TokenType type, String? name, Address? address});
 
@@ -119,12 +118,11 @@ abstract class _$$CreateTokenParamsLegacyImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$CreateTokenParamsLegacyImplCopyWithImpl<$Res>
-    extends _$CreateTokenParamsCopyWithImpl<$Res, _$CreateTokenParamsLegacyImpl>
-    implements _$$CreateTokenParamsLegacyImplCopyWith<$Res> {
-  __$$CreateTokenParamsLegacyImplCopyWithImpl(
-      _$CreateTokenParamsLegacyImpl _value,
-      $Res Function(_$CreateTokenParamsLegacyImpl) _then)
+class __$$_CreateTokenParamsLegacyCopyWithImpl<$Res>
+    extends _$CreateTokenParamsCopyWithImpl<$Res, _$_CreateTokenParamsLegacy>
+    implements _$$_CreateTokenParamsLegacyCopyWith<$Res> {
+  __$$_CreateTokenParamsLegacyCopyWithImpl(_$_CreateTokenParamsLegacy _value,
+      $Res Function(_$_CreateTokenParamsLegacy) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +132,7 @@ class __$$CreateTokenParamsLegacyImplCopyWithImpl<$Res>
     Object? name = freezed,
     Object? address = freezed,
   }) {
-    return _then(_$CreateTokenParamsLegacyImpl(
+    return _then(_$_CreateTokenParamsLegacy(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -167,16 +165,16 @@ class __$$CreateTokenParamsLegacyImplCopyWithImpl<$Res>
 
 @JsonSerializable(explicitToJson: true)
 @Deprecated('Use [CreateTokenParams.card] instead')
-class _$CreateTokenParamsLegacyImpl implements _CreateTokenParamsLegacy {
-  const _$CreateTokenParamsLegacyImpl(
+class _$_CreateTokenParamsLegacy implements _CreateTokenParamsLegacy {
+  const _$_CreateTokenParamsLegacy(
       {this.type = TokenType.Card,
       this.name,
       this.address,
       final String? $type})
       : $type = $type ?? 'default';
 
-  factory _$CreateTokenParamsLegacyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateTokenParamsLegacyImplFromJson(json);
+  factory _$_CreateTokenParamsLegacy.fromJson(Map<String, dynamic> json) =>
+      _$$_CreateTokenParamsLegacyFromJson(json);
 
   /// Type of token.
   @override
@@ -200,10 +198,10 @@ class _$CreateTokenParamsLegacyImpl implements _CreateTokenParamsLegacy {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateTokenParamsLegacyImpl &&
+            other is _$_CreateTokenParamsLegacy &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.address, address) || other.address == address));
@@ -216,9 +214,10 @@ class _$CreateTokenParamsLegacyImpl implements _CreateTokenParamsLegacy {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateTokenParamsLegacyImplCopyWith<_$CreateTokenParamsLegacyImpl>
-      get copyWith => __$$CreateTokenParamsLegacyImplCopyWithImpl<
-          _$CreateTokenParamsLegacyImpl>(this, _$identity);
+  _$$_CreateTokenParamsLegacyCopyWith<_$_CreateTokenParamsLegacy>
+      get copyWith =>
+          __$$_CreateTokenParamsLegacyCopyWithImpl<_$_CreateTokenParamsLegacy>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -298,7 +297,7 @@ class _$CreateTokenParamsLegacyImpl implements _CreateTokenParamsLegacy {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateTokenParamsLegacyImplToJson(
+    return _$$_CreateTokenParamsLegacyToJson(
       this,
     );
   }
@@ -308,10 +307,10 @@ abstract class _CreateTokenParamsLegacy implements CreateTokenParams {
   const factory _CreateTokenParamsLegacy(
       {final TokenType type,
       final String? name,
-      final Address? address}) = _$CreateTokenParamsLegacyImpl;
+      final Address? address}) = _$_CreateTokenParamsLegacy;
 
   factory _CreateTokenParamsLegacy.fromJson(Map<String, dynamic> json) =
-      _$CreateTokenParamsLegacyImpl.fromJson;
+      _$_CreateTokenParamsLegacy.fromJson;
 
   /// Type of token.
   TokenType get type;
@@ -322,16 +321,15 @@ abstract class _CreateTokenParamsLegacy implements CreateTokenParams {
   /// Additional address details
   Address? get address;
   @JsonKey(ignore: true)
-  _$$CreateTokenParamsLegacyImplCopyWith<_$CreateTokenParamsLegacyImpl>
+  _$$_CreateTokenParamsLegacyCopyWith<_$_CreateTokenParamsLegacy>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CreateTokenParamsCardImplCopyWith<$Res> {
-  factory _$$CreateTokenParamsCardImplCopyWith(
-          _$CreateTokenParamsCardImpl value,
-          $Res Function(_$CreateTokenParamsCardImpl) then) =
-      __$$CreateTokenParamsCardImplCopyWithImpl<$Res>;
+abstract class _$$_CreateTokenParamsCardCopyWith<$Res> {
+  factory _$$_CreateTokenParamsCardCopyWith(_$_CreateTokenParamsCard value,
+          $Res Function(_$_CreateTokenParamsCard) then) =
+      __$$_CreateTokenParamsCardCopyWithImpl<$Res>;
   @useResult
   $Res call({CardTokenParams params});
 
@@ -339,11 +337,11 @@ abstract class _$$CreateTokenParamsCardImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$CreateTokenParamsCardImplCopyWithImpl<$Res>
-    extends _$CreateTokenParamsCopyWithImpl<$Res, _$CreateTokenParamsCardImpl>
-    implements _$$CreateTokenParamsCardImplCopyWith<$Res> {
-  __$$CreateTokenParamsCardImplCopyWithImpl(_$CreateTokenParamsCardImpl _value,
-      $Res Function(_$CreateTokenParamsCardImpl) _then)
+class __$$_CreateTokenParamsCardCopyWithImpl<$Res>
+    extends _$CreateTokenParamsCopyWithImpl<$Res, _$_CreateTokenParamsCard>
+    implements _$$_CreateTokenParamsCardCopyWith<$Res> {
+  __$$_CreateTokenParamsCardCopyWithImpl(_$_CreateTokenParamsCard _value,
+      $Res Function(_$_CreateTokenParamsCard) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -351,7 +349,7 @@ class __$$CreateTokenParamsCardImplCopyWithImpl<$Res>
   $Res call({
     Object? params = null,
   }) {
-    return _then(_$CreateTokenParamsCardImpl(
+    return _then(_$_CreateTokenParamsCard(
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
@@ -371,12 +369,12 @@ class __$$CreateTokenParamsCardImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CreateTokenParamsCardImpl implements _CreateTokenParamsCard {
-  const _$CreateTokenParamsCardImpl({required this.params, final String? $type})
+class _$_CreateTokenParamsCard implements _CreateTokenParamsCard {
+  const _$_CreateTokenParamsCard({required this.params, final String? $type})
       : $type = $type ?? 'card';
 
-  factory _$CreateTokenParamsCardImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateTokenParamsCardImplFromJson(json);
+  factory _$_CreateTokenParamsCard.fromJson(Map<String, dynamic> json) =>
+      _$$_CreateTokenParamsCardFromJson(json);
 
   @override
   final CardTokenParams params;
@@ -390,10 +388,10 @@ class _$CreateTokenParamsCardImpl implements _CreateTokenParamsCard {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateTokenParamsCardImpl &&
+            other is _$_CreateTokenParamsCard &&
             (identical(other.params, params) || other.params == params));
   }
 
@@ -404,9 +402,9 @@ class _$CreateTokenParamsCardImpl implements _CreateTokenParamsCard {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateTokenParamsCardImplCopyWith<_$CreateTokenParamsCardImpl>
-      get copyWith => __$$CreateTokenParamsCardImplCopyWithImpl<
-          _$CreateTokenParamsCardImpl>(this, _$identity);
+  _$$_CreateTokenParamsCardCopyWith<_$_CreateTokenParamsCard> get copyWith =>
+      __$$_CreateTokenParamsCardCopyWithImpl<_$_CreateTokenParamsCard>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -486,7 +484,7 @@ class _$CreateTokenParamsCardImpl implements _CreateTokenParamsCard {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateTokenParamsCardImplToJson(
+    return _$$_CreateTokenParamsCardToJson(
       this,
     );
   }
@@ -494,23 +492,23 @@ class _$CreateTokenParamsCardImpl implements _CreateTokenParamsCard {
 
 abstract class _CreateTokenParamsCard implements CreateTokenParams {
   const factory _CreateTokenParamsCard(
-      {required final CardTokenParams params}) = _$CreateTokenParamsCardImpl;
+      {required final CardTokenParams params}) = _$_CreateTokenParamsCard;
 
   factory _CreateTokenParamsCard.fromJson(Map<String, dynamic> json) =
-      _$CreateTokenParamsCardImpl.fromJson;
+      _$_CreateTokenParamsCard.fromJson;
 
   CardTokenParams get params;
   @JsonKey(ignore: true)
-  _$$CreateTokenParamsCardImplCopyWith<_$CreateTokenParamsCardImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_CreateTokenParamsCardCopyWith<_$_CreateTokenParamsCard> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CreateTokenParamsBankAccountImplCopyWith<$Res> {
-  factory _$$CreateTokenParamsBankAccountImplCopyWith(
-          _$CreateTokenParamsBankAccountImpl value,
-          $Res Function(_$CreateTokenParamsBankAccountImpl) then) =
-      __$$CreateTokenParamsBankAccountImplCopyWithImpl<$Res>;
+abstract class _$$_CreateTokenParamsBankAccountCopyWith<$Res> {
+  factory _$$_CreateTokenParamsBankAccountCopyWith(
+          _$_CreateTokenParamsBankAccount value,
+          $Res Function(_$_CreateTokenParamsBankAccount) then) =
+      __$$_CreateTokenParamsBankAccountCopyWithImpl<$Res>;
   @useResult
   $Res call({BankAccountTokenParams params});
 
@@ -518,13 +516,13 @@ abstract class _$$CreateTokenParamsBankAccountImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$CreateTokenParamsBankAccountImplCopyWithImpl<$Res>
+class __$$_CreateTokenParamsBankAccountCopyWithImpl<$Res>
     extends _$CreateTokenParamsCopyWithImpl<$Res,
-        _$CreateTokenParamsBankAccountImpl>
-    implements _$$CreateTokenParamsBankAccountImplCopyWith<$Res> {
-  __$$CreateTokenParamsBankAccountImplCopyWithImpl(
-      _$CreateTokenParamsBankAccountImpl _value,
-      $Res Function(_$CreateTokenParamsBankAccountImpl) _then)
+        _$_CreateTokenParamsBankAccount>
+    implements _$$_CreateTokenParamsBankAccountCopyWith<$Res> {
+  __$$_CreateTokenParamsBankAccountCopyWithImpl(
+      _$_CreateTokenParamsBankAccount _value,
+      $Res Function(_$_CreateTokenParamsBankAccount) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -532,7 +530,7 @@ class __$$CreateTokenParamsBankAccountImplCopyWithImpl<$Res>
   $Res call({
     Object? params = null,
   }) {
-    return _then(_$CreateTokenParamsBankAccountImpl(
+    return _then(_$_CreateTokenParamsBankAccount(
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
@@ -552,15 +550,13 @@ class __$$CreateTokenParamsBankAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CreateTokenParamsBankAccountImpl
-    implements _CreateTokenParamsBankAccount {
-  const _$CreateTokenParamsBankAccountImpl(
+class _$_CreateTokenParamsBankAccount implements _CreateTokenParamsBankAccount {
+  const _$_CreateTokenParamsBankAccount(
       {required this.params, final String? $type})
       : $type = $type ?? 'bankAccount';
 
-  factory _$CreateTokenParamsBankAccountImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$CreateTokenParamsBankAccountImplFromJson(json);
+  factory _$_CreateTokenParamsBankAccount.fromJson(Map<String, dynamic> json) =>
+      _$$_CreateTokenParamsBankAccountFromJson(json);
 
   @override
   final BankAccountTokenParams params;
@@ -574,10 +570,10 @@ class _$CreateTokenParamsBankAccountImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateTokenParamsBankAccountImpl &&
+            other is _$_CreateTokenParamsBankAccount &&
             (identical(other.params, params) || other.params == params));
   }
 
@@ -588,10 +584,9 @@ class _$CreateTokenParamsBankAccountImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateTokenParamsBankAccountImplCopyWith<
-          _$CreateTokenParamsBankAccountImpl>
-      get copyWith => __$$CreateTokenParamsBankAccountImplCopyWithImpl<
-          _$CreateTokenParamsBankAccountImpl>(this, _$identity);
+  _$$_CreateTokenParamsBankAccountCopyWith<_$_CreateTokenParamsBankAccount>
+      get copyWith => __$$_CreateTokenParamsBankAccountCopyWithImpl<
+          _$_CreateTokenParamsBankAccount>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -671,7 +666,7 @@ class _$CreateTokenParamsBankAccountImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateTokenParamsBankAccountImplToJson(
+    return _$$_CreateTokenParamsBankAccountToJson(
       this,
     );
   }
@@ -680,23 +675,22 @@ class _$CreateTokenParamsBankAccountImpl
 abstract class _CreateTokenParamsBankAccount implements CreateTokenParams {
   const factory _CreateTokenParamsBankAccount(
           {required final BankAccountTokenParams params}) =
-      _$CreateTokenParamsBankAccountImpl;
+      _$_CreateTokenParamsBankAccount;
 
   factory _CreateTokenParamsBankAccount.fromJson(Map<String, dynamic> json) =
-      _$CreateTokenParamsBankAccountImpl.fromJson;
+      _$_CreateTokenParamsBankAccount.fromJson;
 
   BankAccountTokenParams get params;
   @JsonKey(ignore: true)
-  _$$CreateTokenParamsBankAccountImplCopyWith<
-          _$CreateTokenParamsBankAccountImpl>
+  _$$_CreateTokenParamsBankAccountCopyWith<_$_CreateTokenParamsBankAccount>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CreateTokenParamsPIIImplCopyWith<$Res> {
-  factory _$$CreateTokenParamsPIIImplCopyWith(_$CreateTokenParamsPIIImpl value,
-          $Res Function(_$CreateTokenParamsPIIImpl) then) =
-      __$$CreateTokenParamsPIIImplCopyWithImpl<$Res>;
+abstract class _$$_CreateTokenParamsPIICopyWith<$Res> {
+  factory _$$_CreateTokenParamsPIICopyWith(_$_CreateTokenParamsPII value,
+          $Res Function(_$_CreateTokenParamsPII) then) =
+      __$$_CreateTokenParamsPIICopyWithImpl<$Res>;
   @useResult
   $Res call({PIITokenParams params});
 
@@ -704,11 +698,11 @@ abstract class _$$CreateTokenParamsPIIImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$CreateTokenParamsPIIImplCopyWithImpl<$Res>
-    extends _$CreateTokenParamsCopyWithImpl<$Res, _$CreateTokenParamsPIIImpl>
-    implements _$$CreateTokenParamsPIIImplCopyWith<$Res> {
-  __$$CreateTokenParamsPIIImplCopyWithImpl(_$CreateTokenParamsPIIImpl _value,
-      $Res Function(_$CreateTokenParamsPIIImpl) _then)
+class __$$_CreateTokenParamsPIICopyWithImpl<$Res>
+    extends _$CreateTokenParamsCopyWithImpl<$Res, _$_CreateTokenParamsPII>
+    implements _$$_CreateTokenParamsPIICopyWith<$Res> {
+  __$$_CreateTokenParamsPIICopyWithImpl(_$_CreateTokenParamsPII _value,
+      $Res Function(_$_CreateTokenParamsPII) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -716,7 +710,7 @@ class __$$CreateTokenParamsPIIImplCopyWithImpl<$Res>
   $Res call({
     Object? params = null,
   }) {
-    return _then(_$CreateTokenParamsPIIImpl(
+    return _then(_$_CreateTokenParamsPII(
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
@@ -736,12 +730,12 @@ class __$$CreateTokenParamsPIIImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CreateTokenParamsPIIImpl implements _CreateTokenParamsPII {
-  const _$CreateTokenParamsPIIImpl({required this.params, final String? $type})
+class _$_CreateTokenParamsPII implements _CreateTokenParamsPII {
+  const _$_CreateTokenParamsPII({required this.params, final String? $type})
       : $type = $type ?? 'pii';
 
-  factory _$CreateTokenParamsPIIImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreateTokenParamsPIIImplFromJson(json);
+  factory _$_CreateTokenParamsPII.fromJson(Map<String, dynamic> json) =>
+      _$$_CreateTokenParamsPIIFromJson(json);
 
   @override
   final PIITokenParams params;
@@ -755,10 +749,10 @@ class _$CreateTokenParamsPIIImpl implements _CreateTokenParamsPII {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreateTokenParamsPIIImpl &&
+            other is _$_CreateTokenParamsPII &&
             (identical(other.params, params) || other.params == params));
   }
 
@@ -769,10 +763,9 @@ class _$CreateTokenParamsPIIImpl implements _CreateTokenParamsPII {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreateTokenParamsPIIImplCopyWith<_$CreateTokenParamsPIIImpl>
-      get copyWith =>
-          __$$CreateTokenParamsPIIImplCopyWithImpl<_$CreateTokenParamsPIIImpl>(
-              this, _$identity);
+  _$$_CreateTokenParamsPIICopyWith<_$_CreateTokenParamsPII> get copyWith =>
+      __$$_CreateTokenParamsPIICopyWithImpl<_$_CreateTokenParamsPII>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -852,7 +845,7 @@ class _$CreateTokenParamsPIIImpl implements _CreateTokenParamsPII {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreateTokenParamsPIIImplToJson(
+    return _$$_CreateTokenParamsPIIToJson(
       this,
     );
   }
@@ -860,15 +853,15 @@ class _$CreateTokenParamsPIIImpl implements _CreateTokenParamsPII {
 
 abstract class _CreateTokenParamsPII implements CreateTokenParams {
   const factory _CreateTokenParamsPII({required final PIITokenParams params}) =
-      _$CreateTokenParamsPIIImpl;
+      _$_CreateTokenParamsPII;
 
   factory _CreateTokenParamsPII.fromJson(Map<String, dynamic> json) =
-      _$CreateTokenParamsPIIImpl.fromJson;
+      _$_CreateTokenParamsPII.fromJson;
 
   PIITokenParams get params;
   @JsonKey(ignore: true)
-  _$$CreateTokenParamsPIIImplCopyWith<_$CreateTokenParamsPIIImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_CreateTokenParamsPIICopyWith<_$_CreateTokenParamsPII> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 CardTokenParams _$CardTokenParamsFromJson(Map<String, dynamic> json) {
@@ -958,11 +951,11 @@ class _$CardTokenParamsCopyWithImpl<$Res, $Val extends CardTokenParams>
 }
 
 /// @nodoc
-abstract class _$$CardTokenParamsImplCopyWith<$Res>
+abstract class _$$_CardTokenParamsCopyWith<$Res>
     implements $CardTokenParamsCopyWith<$Res> {
-  factory _$$CardTokenParamsImplCopyWith(_$CardTokenParamsImpl value,
-          $Res Function(_$CardTokenParamsImpl) then) =
-      __$$CardTokenParamsImplCopyWithImpl<$Res>;
+  factory _$$_CardTokenParamsCopyWith(
+          _$_CardTokenParams value, $Res Function(_$_CardTokenParams) then) =
+      __$$_CardTokenParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TokenType type, String? name, Address? address, String? currency});
@@ -972,11 +965,11 @@ abstract class _$$CardTokenParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CardTokenParamsImplCopyWithImpl<$Res>
-    extends _$CardTokenParamsCopyWithImpl<$Res, _$CardTokenParamsImpl>
-    implements _$$CardTokenParamsImplCopyWith<$Res> {
-  __$$CardTokenParamsImplCopyWithImpl(
-      _$CardTokenParamsImpl _value, $Res Function(_$CardTokenParamsImpl) _then)
+class __$$_CardTokenParamsCopyWithImpl<$Res>
+    extends _$CardTokenParamsCopyWithImpl<$Res, _$_CardTokenParams>
+    implements _$$_CardTokenParamsCopyWith<$Res> {
+  __$$_CardTokenParamsCopyWithImpl(
+      _$_CardTokenParams _value, $Res Function(_$_CardTokenParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -987,7 +980,7 @@ class __$$CardTokenParamsImplCopyWithImpl<$Res>
     Object? address = freezed,
     Object? currency = freezed,
   }) {
-    return _then(_$CardTokenParamsImpl(
+    return _then(_$_CardTokenParams(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1010,12 +1003,12 @@ class __$$CardTokenParamsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CardTokenParamsImpl implements _CardTokenParams {
-  const _$CardTokenParamsImpl(
+class _$_CardTokenParams implements _CardTokenParams {
+  const _$_CardTokenParams(
       {this.type = TokenType.Card, this.name, this.address, this.currency});
 
-  factory _$CardTokenParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CardTokenParamsImplFromJson(json);
+  factory _$_CardTokenParams.fromJson(Map<String, dynamic> json) =>
+      _$$_CardTokenParamsFromJson(json);
 
   /// Type of token.
   @override
@@ -1040,10 +1033,10 @@ class _$CardTokenParamsImpl implements _CardTokenParams {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CardTokenParamsImpl &&
+            other is _$_CardTokenParams &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.address, address) || other.address == address) &&
@@ -1058,13 +1051,12 @@ class _$CardTokenParamsImpl implements _CardTokenParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardTokenParamsImplCopyWith<_$CardTokenParamsImpl> get copyWith =>
-      __$$CardTokenParamsImplCopyWithImpl<_$CardTokenParamsImpl>(
-          this, _$identity);
+  _$$_CardTokenParamsCopyWith<_$_CardTokenParams> get copyWith =>
+      __$$_CardTokenParamsCopyWithImpl<_$_CardTokenParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CardTokenParamsImplToJson(
+    return _$$_CardTokenParamsToJson(
       this,
     );
   }
@@ -1075,10 +1067,10 @@ abstract class _CardTokenParams implements CardTokenParams {
       {final TokenType type,
       final String? name,
       final Address? address,
-      final String? currency}) = _$CardTokenParamsImpl;
+      final String? currency}) = _$_CardTokenParams;
 
   factory _CardTokenParams.fromJson(Map<String, dynamic> json) =
-      _$CardTokenParamsImpl.fromJson;
+      _$_CardTokenParams.fromJson;
 
   @override
 
@@ -1098,7 +1090,7 @@ abstract class _CardTokenParams implements CardTokenParams {
   String? get currency;
   @override
   @JsonKey(ignore: true)
-  _$$CardTokenParamsImplCopyWith<_$CardTokenParamsImpl> get copyWith =>
+  _$$_CardTokenParamsCopyWith<_$_CardTokenParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1159,22 +1151,22 @@ class _$PIITokenParamsCopyWithImpl<$Res, $Val extends PIITokenParams>
 }
 
 /// @nodoc
-abstract class _$$PIITokenParamsImplCopyWith<$Res>
+abstract class _$$_PIITokenParamsCopyWith<$Res>
     implements $PIITokenParamsCopyWith<$Res> {
-  factory _$$PIITokenParamsImplCopyWith(_$PIITokenParamsImpl value,
-          $Res Function(_$PIITokenParamsImpl) then) =
-      __$$PIITokenParamsImplCopyWithImpl<$Res>;
+  factory _$$_PIITokenParamsCopyWith(
+          _$_PIITokenParams value, $Res Function(_$_PIITokenParams) then) =
+      __$$_PIITokenParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({TokenType type, String personalId});
 }
 
 /// @nodoc
-class __$$PIITokenParamsImplCopyWithImpl<$Res>
-    extends _$PIITokenParamsCopyWithImpl<$Res, _$PIITokenParamsImpl>
-    implements _$$PIITokenParamsImplCopyWith<$Res> {
-  __$$PIITokenParamsImplCopyWithImpl(
-      _$PIITokenParamsImpl _value, $Res Function(_$PIITokenParamsImpl) _then)
+class __$$_PIITokenParamsCopyWithImpl<$Res>
+    extends _$PIITokenParamsCopyWithImpl<$Res, _$_PIITokenParams>
+    implements _$$_PIITokenParamsCopyWith<$Res> {
+  __$$_PIITokenParamsCopyWithImpl(
+      _$_PIITokenParams _value, $Res Function(_$_PIITokenParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1183,7 +1175,7 @@ class __$$PIITokenParamsImplCopyWithImpl<$Res>
     Object? type = null,
     Object? personalId = null,
   }) {
-    return _then(_$PIITokenParamsImpl(
+    return _then(_$_PIITokenParams(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1198,12 +1190,12 @@ class __$$PIITokenParamsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PIITokenParamsImpl implements _PIITokenParams {
-  const _$PIITokenParamsImpl(
+class _$_PIITokenParams implements _PIITokenParams {
+  const _$_PIITokenParams(
       {this.type = TokenType.Pii, required this.personalId});
 
-  factory _$PIITokenParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PIITokenParamsImplFromJson(json);
+  factory _$_PIITokenParams.fromJson(Map<String, dynamic> json) =>
+      _$$_PIITokenParamsFromJson(json);
 
   /// Type of token.
   @override
@@ -1220,10 +1212,10 @@ class _$PIITokenParamsImpl implements _PIITokenParams {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PIITokenParamsImpl &&
+            other is _$_PIITokenParams &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.personalId, personalId) ||
                 other.personalId == personalId));
@@ -1236,13 +1228,12 @@ class _$PIITokenParamsImpl implements _PIITokenParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PIITokenParamsImplCopyWith<_$PIITokenParamsImpl> get copyWith =>
-      __$$PIITokenParamsImplCopyWithImpl<_$PIITokenParamsImpl>(
-          this, _$identity);
+  _$$_PIITokenParamsCopyWith<_$_PIITokenParams> get copyWith =>
+      __$$_PIITokenParamsCopyWithImpl<_$_PIITokenParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PIITokenParamsImplToJson(
+    return _$$_PIITokenParamsToJson(
       this,
     );
   }
@@ -1251,10 +1242,10 @@ class _$PIITokenParamsImpl implements _PIITokenParams {
 abstract class _PIITokenParams implements PIITokenParams {
   const factory _PIITokenParams(
       {final TokenType type,
-      required final String personalId}) = _$PIITokenParamsImpl;
+      required final String personalId}) = _$_PIITokenParams;
 
   factory _PIITokenParams.fromJson(Map<String, dynamic> json) =
-      _$PIITokenParamsImpl.fromJson;
+      _$_PIITokenParams.fromJson;
 
   @override
 
@@ -1266,7 +1257,7 @@ abstract class _PIITokenParams implements PIITokenParams {
   String get personalId;
   @override
   @JsonKey(ignore: true)
-  _$$PIITokenParamsImplCopyWith<_$PIITokenParamsImpl> get copyWith =>
+  _$$_PIITokenParamsCopyWith<_$_PIITokenParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1377,12 +1368,11 @@ class _$BankAccountTokenParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$BankAccountTokenParamsImplCopyWith<$Res>
+abstract class _$$_BankAccountTokenParamsCopyWith<$Res>
     implements $BankAccountTokenParamsCopyWith<$Res> {
-  factory _$$BankAccountTokenParamsImplCopyWith(
-          _$BankAccountTokenParamsImpl value,
-          $Res Function(_$BankAccountTokenParamsImpl) then) =
-      __$$BankAccountTokenParamsImplCopyWithImpl<$Res>;
+  factory _$$_BankAccountTokenParamsCopyWith(_$_BankAccountTokenParams value,
+          $Res Function(_$_BankAccountTokenParams) then) =
+      __$$_BankAccountTokenParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1396,13 +1386,12 @@ abstract class _$$BankAccountTokenParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$BankAccountTokenParamsImplCopyWithImpl<$Res>
+class __$$_BankAccountTokenParamsCopyWithImpl<$Res>
     extends _$BankAccountTokenParamsCopyWithImpl<$Res,
-        _$BankAccountTokenParamsImpl>
-    implements _$$BankAccountTokenParamsImplCopyWith<$Res> {
-  __$$BankAccountTokenParamsImplCopyWithImpl(
-      _$BankAccountTokenParamsImpl _value,
-      $Res Function(_$BankAccountTokenParamsImpl) _then)
+        _$_BankAccountTokenParams>
+    implements _$$_BankAccountTokenParamsCopyWith<$Res> {
+  __$$_BankAccountTokenParamsCopyWithImpl(_$_BankAccountTokenParams _value,
+      $Res Function(_$_BankAccountTokenParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1416,7 +1405,7 @@ class __$$BankAccountTokenParamsImplCopyWithImpl<$Res>
     Object? accountHolderType = freezed,
     Object? routingNumber = freezed,
   }) {
-    return _then(_$BankAccountTokenParamsImpl(
+    return _then(_$_BankAccountTokenParams(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -1451,8 +1440,8 @@ class __$$BankAccountTokenParamsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BankAccountTokenParamsImpl implements _BankAccountTokenParams {
-  const _$BankAccountTokenParamsImpl(
+class _$_BankAccountTokenParams implements _BankAccountTokenParams {
+  const _$_BankAccountTokenParams(
       {this.type = TokenType.BankAccount,
       required this.accountNumber,
       required this.country,
@@ -1461,8 +1450,8 @@ class _$BankAccountTokenParamsImpl implements _BankAccountTokenParams {
       this.accountHolderType,
       this.routingNumber});
 
-  factory _$BankAccountTokenParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BankAccountTokenParamsImplFromJson(json);
+  factory _$_BankAccountTokenParams.fromJson(Map<String, dynamic> json) =>
+      _$$_BankAccountTokenParamsFromJson(json);
 
   /// Type of token.
   @override
@@ -1499,10 +1488,10 @@ class _$BankAccountTokenParamsImpl implements _BankAccountTokenParams {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BankAccountTokenParamsImpl &&
+            other is _$_BankAccountTokenParams &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.accountNumber, accountNumber) ||
                 other.accountNumber == accountNumber) &&
@@ -1525,13 +1514,13 @@ class _$BankAccountTokenParamsImpl implements _BankAccountTokenParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BankAccountTokenParamsImplCopyWith<_$BankAccountTokenParamsImpl>
-      get copyWith => __$$BankAccountTokenParamsImplCopyWithImpl<
-          _$BankAccountTokenParamsImpl>(this, _$identity);
+  _$$_BankAccountTokenParamsCopyWith<_$_BankAccountTokenParams> get copyWith =>
+      __$$_BankAccountTokenParamsCopyWithImpl<_$_BankAccountTokenParams>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BankAccountTokenParamsImplToJson(
+    return _$$_BankAccountTokenParamsToJson(
       this,
     );
   }
@@ -1545,10 +1534,10 @@ abstract class _BankAccountTokenParams implements BankAccountTokenParams {
       required final String currency,
       final String? accountHolderName,
       final BankAccountHolderType? accountHolderType,
-      final String? routingNumber}) = _$BankAccountTokenParamsImpl;
+      final String? routingNumber}) = _$_BankAccountTokenParams;
 
   factory _BankAccountTokenParams.fromJson(Map<String, dynamic> json) =
-      _$BankAccountTokenParamsImpl.fromJson;
+      _$_BankAccountTokenParams.fromJson;
 
   @override
 
@@ -1580,8 +1569,8 @@ abstract class _BankAccountTokenParams implements BankAccountTokenParams {
   String? get routingNumber;
   @override
   @JsonKey(ignore: true)
-  _$$BankAccountTokenParamsImplCopyWith<_$BankAccountTokenParamsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_BankAccountTokenParamsCopyWith<_$_BankAccountTokenParams> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 TokenData _$TokenDataFromJson(Map<String, dynamic> json) {
@@ -1706,11 +1695,10 @@ class _$TokenDataCopyWithImpl<$Res, $Val extends TokenData>
 }
 
 /// @nodoc
-abstract class _$$TokenDataImplCopyWith<$Res>
-    implements $TokenDataCopyWith<$Res> {
-  factory _$$TokenDataImplCopyWith(
-          _$TokenDataImpl value, $Res Function(_$TokenDataImpl) then) =
-      __$$TokenDataImplCopyWithImpl<$Res>;
+abstract class _$$_TokenDataCopyWith<$Res> implements $TokenDataCopyWith<$Res> {
+  factory _$$_TokenDataCopyWith(
+          _$_TokenData value, $Res Function(_$_TokenData) then) =
+      __$$_TokenDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1728,11 +1716,11 @@ abstract class _$$TokenDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$TokenDataImplCopyWithImpl<$Res>
-    extends _$TokenDataCopyWithImpl<$Res, _$TokenDataImpl>
-    implements _$$TokenDataImplCopyWith<$Res> {
-  __$$TokenDataImplCopyWithImpl(
-      _$TokenDataImpl _value, $Res Function(_$TokenDataImpl) _then)
+class __$$_TokenDataCopyWithImpl<$Res>
+    extends _$TokenDataCopyWithImpl<$Res, _$_TokenData>
+    implements _$$_TokenDataCopyWith<$Res> {
+  __$$_TokenDataCopyWithImpl(
+      _$_TokenData _value, $Res Function(_$_TokenData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1745,7 +1733,7 @@ class __$$TokenDataImplCopyWithImpl<$Res>
     Object? bankAccount = freezed,
     Object? card = freezed,
   }) {
-    return _then(_$TokenDataImpl(
+    return _then(_$_TokenData(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1776,8 +1764,8 @@ class __$$TokenDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$TokenDataImpl extends _TokenData {
-  const _$TokenDataImpl(
+class _$_TokenData extends _TokenData {
+  const _$_TokenData(
       {required this.id,
       @JsonKey(name: 'created') required this.created,
       required this.type,
@@ -1786,8 +1774,8 @@ class _$TokenDataImpl extends _TokenData {
       this.card})
       : super._();
 
-  factory _$TokenDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TokenDataImplFromJson(json);
+  factory _$_TokenData.fromJson(Map<String, dynamic> json) =>
+      _$$_TokenDataFromJson(json);
 
   /// Unique identifier of the token
   @override
@@ -1820,10 +1808,10 @@ class _$TokenDataImpl extends _TokenData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TokenDataImpl &&
+            other is _$_TokenData &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.created, created) || other.created == created) &&
             (identical(other.type, type) || other.type == type) &&
@@ -1842,12 +1830,12 @@ class _$TokenDataImpl extends _TokenData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TokenDataImplCopyWith<_$TokenDataImpl> get copyWith =>
-      __$$TokenDataImplCopyWithImpl<_$TokenDataImpl>(this, _$identity);
+  _$$_TokenDataCopyWith<_$_TokenData> get copyWith =>
+      __$$_TokenDataCopyWithImpl<_$_TokenData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TokenDataImplToJson(
+    return _$$_TokenDataToJson(
       this,
     );
   }
@@ -1860,11 +1848,11 @@ abstract class _TokenData extends TokenData {
       required final TokenType type,
       required final bool livemode,
       final BankAccount? bankAccount,
-      final CardData? card}) = _$TokenDataImpl;
+      final CardData? card}) = _$_TokenData;
   const _TokenData._() : super._();
 
   factory _TokenData.fromJson(Map<String, dynamic> json) =
-      _$TokenDataImpl.fromJson;
+      _$_TokenData.fromJson;
 
   @override
 
@@ -1893,7 +1881,7 @@ abstract class _TokenData extends TokenData {
   CardData? get card;
   @override
   @JsonKey(ignore: true)
-  _$$TokenDataImplCopyWith<_$TokenDataImpl> get copyWith =>
+  _$$_TokenDataCopyWith<_$_TokenData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2041,11 +2029,10 @@ class _$CardDataCopyWithImpl<$Res, $Val extends CardData>
 }
 
 /// @nodoc
-abstract class _$$CardDataImplCopyWith<$Res>
-    implements $CardDataCopyWith<$Res> {
-  factory _$$CardDataImplCopyWith(
-          _$CardDataImpl value, $Res Function(_$CardDataImpl) then) =
-      __$$CardDataImplCopyWithImpl<$Res>;
+abstract class _$$_CardDataCopyWith<$Res> implements $CardDataCopyWith<$Res> {
+  factory _$$_CardDataCopyWith(
+          _$_CardData value, $Res Function(_$_CardData) then) =
+      __$$_CardDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2065,11 +2052,11 @@ abstract class _$$CardDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CardDataImplCopyWithImpl<$Res>
-    extends _$CardDataCopyWithImpl<$Res, _$CardDataImpl>
-    implements _$$CardDataImplCopyWith<$Res> {
-  __$$CardDataImplCopyWithImpl(
-      _$CardDataImpl _value, $Res Function(_$CardDataImpl) _then)
+class __$$_CardDataCopyWithImpl<$Res>
+    extends _$CardDataCopyWithImpl<$Res, _$_CardData>
+    implements _$$_CardDataCopyWith<$Res> {
+  __$$_CardDataCopyWithImpl(
+      _$_CardData _value, $Res Function(_$_CardData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2086,7 +2073,7 @@ class __$$CardDataImplCopyWithImpl<$Res>
     Object? last4 = freezed,
     Object? address = freezed,
   }) {
-    return _then(_$CardDataImpl(
+    return _then(_$_CardData(
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2134,8 +2121,8 @@ class __$$CardDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CardDataImpl implements _CardData {
-  const _$CardDataImpl(
+class _$_CardData implements _CardData {
+  const _$_CardData(
       {this.id,
       required this.brand,
       this.country,
@@ -2147,8 +2134,8 @@ class _$CardDataImpl implements _CardData {
       this.last4,
       this.address});
 
-  factory _$CardDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CardDataImplFromJson(json);
+  factory _$_CardData.fromJson(Map<String, dynamic> json) =>
+      _$$_CardDataFromJson(json);
 
   /// Unique identifier
   @override
@@ -2196,10 +2183,10 @@ class _$CardDataImpl implements _CardData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CardDataImpl &&
+            other is _$_CardData &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.country, country) || other.country == country) &&
@@ -2222,12 +2209,12 @@ class _$CardDataImpl implements _CardData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardDataImplCopyWith<_$CardDataImpl> get copyWith =>
-      __$$CardDataImplCopyWithImpl<_$CardDataImpl>(this, _$identity);
+  _$$_CardDataCopyWith<_$_CardData> get copyWith =>
+      __$$_CardDataCopyWithImpl<_$_CardData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CardDataImplToJson(
+    return _$$_CardDataToJson(
       this,
     );
   }
@@ -2244,10 +2231,9 @@ abstract class _CardData implements CardData {
       final String? name,
       final String? funding,
       final String? last4,
-      final Address? address}) = _$CardDataImpl;
+      final Address? address}) = _$_CardData;
 
-  factory _CardData.fromJson(Map<String, dynamic> json) =
-      _$CardDataImpl.fromJson;
+  factory _CardData.fromJson(Map<String, dynamic> json) = _$_CardData.fromJson;
 
   @override
 
@@ -2291,7 +2277,7 @@ abstract class _CardData implements CardData {
   Address? get address;
   @override
   @JsonKey(ignore: true)
-  _$$CardDataImplCopyWith<_$CardDataImpl> get copyWith =>
+  _$$_CardDataCopyWith<_$_CardData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2429,11 +2415,11 @@ class _$BankAccountCopyWithImpl<$Res, $Val extends BankAccount>
 }
 
 /// @nodoc
-abstract class _$$BankAccountImplCopyWith<$Res>
+abstract class _$$_BankAccountCopyWith<$Res>
     implements $BankAccountCopyWith<$Res> {
-  factory _$$BankAccountImplCopyWith(
-          _$BankAccountImpl value, $Res Function(_$BankAccountImpl) then) =
-      __$$BankAccountImplCopyWithImpl<$Res>;
+  factory _$$_BankAccountCopyWith(
+          _$_BankAccount value, $Res Function(_$_BankAccount) then) =
+      __$$_BankAccountCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2450,11 +2436,11 @@ abstract class _$$BankAccountImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$BankAccountImplCopyWithImpl<$Res>
-    extends _$BankAccountCopyWithImpl<$Res, _$BankAccountImpl>
-    implements _$$BankAccountImplCopyWith<$Res> {
-  __$$BankAccountImplCopyWithImpl(
-      _$BankAccountImpl _value, $Res Function(_$BankAccountImpl) _then)
+class __$$_BankAccountCopyWithImpl<$Res>
+    extends _$BankAccountCopyWithImpl<$Res, _$_BankAccount>
+    implements _$$_BankAccountCopyWith<$Res> {
+  __$$_BankAccountCopyWithImpl(
+      _$_BankAccount _value, $Res Function(_$_BankAccount) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2471,7 +2457,7 @@ class __$$BankAccountImplCopyWithImpl<$Res>
     Object? fingerprint = freezed,
     Object? last4 = freezed,
   }) {
-    return _then(_$BankAccountImpl(
+    return _then(_$_BankAccount(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -2518,8 +2504,8 @@ class __$$BankAccountImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$BankAccountImpl implements _BankAccount {
-  const _$BankAccountImpl(
+class _$_BankAccount implements _BankAccount {
+  const _$_BankAccount(
       {required this.id,
       this.accountHolderType,
       this.bankName,
@@ -2531,8 +2517,8 @@ class _$BankAccountImpl implements _BankAccount {
       this.fingerprint,
       this.last4});
 
-  factory _$BankAccountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BankAccountImplFromJson(json);
+  factory _$_BankAccount.fromJson(Map<String, dynamic> json) =>
+      _$$_BankAccountFromJson(json);
 
   /// Unique id for this bank account
   @override
@@ -2582,10 +2568,10 @@ class _$BankAccountImpl implements _BankAccount {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BankAccountImpl &&
+            other is _$_BankAccount &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.accountHolderType, accountHolderType) ||
                 other.accountHolderType == accountHolderType) &&
@@ -2622,12 +2608,12 @@ class _$BankAccountImpl implements _BankAccount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BankAccountImplCopyWith<_$BankAccountImpl> get copyWith =>
-      __$$BankAccountImplCopyWithImpl<_$BankAccountImpl>(this, _$identity);
+  _$$_BankAccountCopyWith<_$_BankAccount> get copyWith =>
+      __$$_BankAccountCopyWithImpl<_$_BankAccount>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BankAccountImplToJson(
+    return _$$_BankAccountToJson(
       this,
     );
   }
@@ -2644,10 +2630,10 @@ abstract class _BankAccount implements BankAccount {
       final String? routingNumber,
       final BankAccountStatus? status,
       final String? fingerprint,
-      final String? last4}) = _$BankAccountImpl;
+      final String? last4}) = _$_BankAccount;
 
   factory _BankAccount.fromJson(Map<String, dynamic> json) =
-      _$BankAccountImpl.fromJson;
+      _$_BankAccount.fromJson;
 
   @override
 
@@ -2693,6 +2679,6 @@ abstract class _BankAccount implements BankAccount {
   String? get last4;
   @override
   @JsonKey(ignore: true)
-  _$$BankAccountImplCopyWith<_$BankAccountImpl> get copyWith =>
+  _$$_BankAccountCopyWith<_$_BankAccount> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,9 +1,9 @@
 package com.reactnativestripesdk.pushprovisioning
 import com.facebook.react.bridge.WritableMapStripe
-import com.facebook.react.uimanager.events.Event
+import com.facebook.react.uimanager.events.EventStripe
 import com.facebook.react.uimanager.events.RCTEventEmitterStripe
 
-internal class AddToWalletCompleteEvent constructor(viewTag: Int, private val error: WritableMapStripe?) : Event<AddToWalletCompleteEvent>(viewTag) {
+internal class AddToWalletCompleteEvent constructor(viewTag: Int, private val error: WritableMapStripe?) : EventStripe<AddToWalletCompleteEvent>(viewTag) {
   override fun getEventName(): String {
     return EVENT_NAME
   }

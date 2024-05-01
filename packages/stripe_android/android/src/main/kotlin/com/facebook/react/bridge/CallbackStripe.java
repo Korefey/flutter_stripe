@@ -14,7 +14,7 @@ package com.facebook.react.bridge;
 public interface CallbackStripe {
 
   /**
-   * Schedule javascript function execution represented by this {@link Callback} instance
+   * Schedule javascript function execution represented by this {@link CallbackStripe} instance
    *
    * @param args arguments passed to javascript callback method via bridge
    */

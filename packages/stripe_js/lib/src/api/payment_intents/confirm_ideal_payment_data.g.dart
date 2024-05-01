@@ -6,9 +6,8 @@ part of 'confirm_ideal_payment_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConfirmIdealPaymentDataImpl _$$ConfirmIdealPaymentDataImplFromJson(
-        Map json) =>
-    _$ConfirmIdealPaymentDataImpl(
+_$_ConfirmIdealPaymentData _$$_ConfirmIdealPaymentDataFromJson(Map json) =>
+    _$_ConfirmIdealPaymentData(
       paymentMethod: json['payment_method'] == null
           ? null
           : IdealPaymentMethodDetails.fromJson(
@@ -18,8 +17,8 @@ _$ConfirmIdealPaymentDataImpl _$$ConfirmIdealPaymentDataImplFromJson(
           _$PaymentIntentSetupFutureUsageEnumMap, json['setup_future_usage']),
     );
 
-Map<String, dynamic> _$$ConfirmIdealPaymentDataImplToJson(
-    _$ConfirmIdealPaymentDataImpl instance) {
+Map<String, dynamic> _$$_ConfirmIdealPaymentDataToJson(
+    _$_ConfirmIdealPaymentData instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

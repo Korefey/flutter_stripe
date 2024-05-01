@@ -6,8 +6,8 @@ part of 'card_element_options.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CardElementOptionsImpl _$$CardElementOptionsImplFromJson(Map json) =>
-    _$CardElementOptionsImpl(
+_$_CardElementOptions _$$_CardElementOptionsFromJson(Map json) =>
+    _$_CardElementOptions(
       classes: json['classes'] == null
           ? null
           : CardElementClasses.fromJson(
@@ -21,8 +21,8 @@ _$CardElementOptionsImpl _$$CardElementOptionsImplFromJson(Map json) =>
       disabled: json['disabled'] as bool?,
     );
 
-Map<String, dynamic> _$$CardElementOptionsImplToJson(
-    _$CardElementOptionsImpl instance) {
+Map<String, dynamic> _$$_CardElementOptionsToJson(
+    _$_CardElementOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -46,8 +46,8 @@ const _$CardElementIconStyleEnumMap = {
   CardElementIconStyle.defaultStyle: 'defaultStyle',
 };
 
-_$CardElementClassesImpl _$$CardElementClassesImplFromJson(Map json) =>
-    _$CardElementClassesImpl(
+_$_CardElementClasses _$$_CardElementClassesFromJson(Map json) =>
+    _$_CardElementClasses(
       base: json['base'] as String?,
       complete: json['complete'] as String?,
       empty: json['empty'] as String?,
@@ -56,8 +56,8 @@ _$CardElementClassesImpl _$$CardElementClassesImplFromJson(Map json) =>
       webkitAutofill: json['webkitAutofill'] as bool?,
     );
 
-Map<String, dynamic> _$$CardElementClassesImplToJson(
-    _$CardElementClassesImpl instance) {
+Map<String, dynamic> _$$_CardElementClassesToJson(
+    _$_CardElementClasses instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

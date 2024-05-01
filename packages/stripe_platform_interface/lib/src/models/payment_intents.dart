@@ -66,11 +66,6 @@ class PaymentIntent with _$PaymentIntent {
 
     /// Mandata data for this paymentintent.
     MandateData? mandateData,
-
-    /// The latest charge created by this payment intent.
-    ///
-    /// This field is only available on stripe web.
-    String? latestCharge,
   }) = _PaymentIntent;
 
   factory PaymentIntent.fromJson(Map<String, dynamic> json) =>
@@ -84,9 +79,6 @@ enum ConfirmationMethod {
 
   /// Payment intent will be confirmed using the publishable key.
   Automatic,
-
-  /// Unknown confirmation method.
-  Unknown,
 }
 
 //nextActionMap.putString("type", "urlRedirect")

@@ -10,15 +10,13 @@ enum CreateTokenError { unknown }
 
 enum PaymentSheetError { unknown }
 
-enum CustomerSheetError { unknown, failed, canceled }
-
 @freezed
 
 /// Wrapper class that represents an error with the Stripe platform.
 class StripeError<T> with _$StripeError<T>, Exception {
   @JsonSerializable(explicitToJson: true)
   const factory StripeError({
-    @Default('Unknown error') String message,
+    required String message,
     @JsonKey(fromJson: _dataFromJson, toJson: _dataToJson) required T code,
   }) = _StripeErrorGeneric;
 

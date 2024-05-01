@@ -6,7 +6,7 @@ part of 'token.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenImpl _$$TokenImplFromJson(Map json) => _$TokenImpl(
+_$_Token _$$_TokenFromJson(Map json) => _$_Token(
       id: json['id'] as String,
       object: json['object'] as String? ?? "token",
       bankAccount: json['bank_account'] == null
@@ -23,7 +23,7 @@ _$TokenImpl _$$TokenImplFromJson(Map json) => _$TokenImpl(
       used: json['used'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$$TokenImplToJson(_$TokenImpl instance) {
+Map<String, dynamic> _$$_TokenToJson(_$_Token instance) {
   final val = <String, dynamic>{
     'id': instance.id,
     'object': instance.object,
@@ -52,8 +52,8 @@ const _$TokenTypeEnumMap = {
   TokenType.pii: 'pii',
 };
 
-_$BankAccountTokenImpl _$$BankAccountTokenImplFromJson(Map json) =>
-    _$BankAccountTokenImpl(
+_$_BankAccountToken _$$_BankAccountTokenFromJson(Map json) =>
+    _$_BankAccountToken(
       id: json['id'] as String,
       object: json['object'] as String? ?? "bank_account",
       accountHolderName: json['account_holder_name'] as String?,
@@ -69,8 +69,7 @@ _$BankAccountTokenImpl _$$BankAccountTokenImplFromJson(Map json) =>
       status: $enumDecodeNullable(_$BankAccountStatusEnumMap, json['status']),
     );
 
-Map<String, dynamic> _$$BankAccountTokenImplToJson(
-    _$BankAccountTokenImpl instance) {
+Map<String, dynamic> _$$_BankAccountTokenToJson(_$_BankAccountToken instance) {
   final val = <String, dynamic>{
     'id': instance.id,
     'object': instance.object,
@@ -109,7 +108,7 @@ const _$BankAccountStatusEnumMap = {
   BankAccountStatus.errored: 'errored',
 };
 
-_$CardTokenImpl _$$CardTokenImplFromJson(Map json) => _$CardTokenImpl(
+_$_CardToken _$$_CardTokenFromJson(Map json) => _$_CardToken(
       id: json['id'] as String,
       object: json['object'] as String? ?? "card",
       addressCity: json['address_city'] as String?,
@@ -143,7 +142,7 @@ _$CardTokenImpl _$$CardTokenImplFromJson(Map json) => _$CardTokenImpl(
           _$CardTokenizationMethodEnumMap, json['tokenization_method']),
     );
 
-Map<String, dynamic> _$$CardTokenImplToJson(_$CardTokenImpl instance) {
+Map<String, dynamic> _$$_CardTokenToJson(_$_CardToken instance) {
   final val = <String, dynamic>{
     'id': instance.id,
     'object': instance.object,

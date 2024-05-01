@@ -1,6 +1,6 @@
 package com.reactnativestripesdk
 
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.reactnativestripesdk.utils.*
 import com.reactnativestripesdk.utils.mapToBillingDetails
 import com.reactnativestripesdk.utils.mapToUSBankAccountHolderType
@@ -8,8 +8,8 @@ import com.reactnativestripesdk.utils.mapToUSBankAccountType
 import com.stripe.android.model.*
 
 class PaymentMethodCreateParamsFactory(
-  private val paymentMethodData: ReadableMap?,
-  private val options: ReadableMap,
+  private val paymentMethodData: ReadableMapStripe?,
+  private val options: ReadableMapStripe,
   private val cardFieldView: CardFieldView?,
   private val cardFormView: CardFormView?,
 ) {
@@ -38,7 +38,6 @@ class PaymentMethodCreateParamsFactory(
         PaymentMethod.Type.PayPal -> createPayPalParams()
         PaymentMethod.Type.Affirm -> createAffirmParams()
         PaymentMethod.Type.CashAppPay -> createCashAppParams()
-        PaymentMethod.Type.RevolutPay -> createRevolutPayParams()
         else -> {
           throw Exception("This paymentMethodType is not supported yet")
         }
@@ -210,11 +209,6 @@ class PaymentMethodCreateParamsFactory(
   }
 
   @Throws(PaymentMethodCreateParamsException::class)
-  private fun createRevolutPayParams(): PaymentMethodCreateParams {
-    return PaymentMethodCreateParams.createRevolutPay(billingDetailsParams)
-  }
-
-  @Throws(PaymentMethodCreateParamsException::class)
   fun createParams(clientSecret: String, paymentMethodType: PaymentMethod.Type?, isPaymentIntent: Boolean): ConfirmStripeIntentParams {
     try {
       return when (paymentMethodType) {
@@ -236,8 +230,7 @@ class PaymentMethodCreateParamsFactory(
         PaymentMethod.Type.AuBecsDebit,
         PaymentMethod.Type.Klarna,
         PaymentMethod.Type.PayPal,
-        PaymentMethod.Type.CashAppPay,
-        PaymentMethod.Type.RevolutPay -> {
+        PaymentMethod.Type.CashAppPay -> {
           val params = createPaymentMethodParams(paymentMethodType)
 
           return if (isPaymentIntent) {
@@ -373,7 +366,7 @@ class PaymentMethodCreateParamsFactory(
   }
 
   @Throws(PaymentMethodCreateParamsException::class)
-  private fun createUSBankAccountParams(params: ReadableMap?): PaymentMethodCreateParams {
+  private fun createUSBankAccountParams(params: ReadableMapStripe?): PaymentMethodCreateParams {
     val accountNumber = getValOr(params, "accountNumber", null)
     val routingNumber = getValOr(params, "routingNumber", null)
 

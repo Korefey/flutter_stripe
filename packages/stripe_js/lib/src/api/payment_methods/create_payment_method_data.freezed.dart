@@ -12,7 +12,7 @@ part of 'create_payment_method_data.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 CreatePaymentMethodData _$CreatePaymentMethodDataFromJson(
     Map<String, dynamic> json) {
@@ -192,12 +192,11 @@ class _$CreatePaymentMethodDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$CreatePaymentMethodDataImplCopyWith<$Res>
+abstract class _$$_CreatePaymentMethodDataCopyWith<$Res>
     implements $CreatePaymentMethodDataCopyWith<$Res> {
-  factory _$$CreatePaymentMethodDataImplCopyWith(
-          _$CreatePaymentMethodDataImpl value,
-          $Res Function(_$CreatePaymentMethodDataImpl) then) =
-      __$$CreatePaymentMethodDataImplCopyWithImpl<$Res>;
+  factory _$$_CreatePaymentMethodDataCopyWith(_$_CreatePaymentMethodData value,
+          $Res Function(_$_CreatePaymentMethodData) then) =
+      __$$_CreatePaymentMethodDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -219,13 +218,12 @@ abstract class _$$CreatePaymentMethodDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CreatePaymentMethodDataImplCopyWithImpl<$Res>
+class __$$_CreatePaymentMethodDataCopyWithImpl<$Res>
     extends _$CreatePaymentMethodDataCopyWithImpl<$Res,
-        _$CreatePaymentMethodDataImpl>
-    implements _$$CreatePaymentMethodDataImplCopyWith<$Res> {
-  __$$CreatePaymentMethodDataImplCopyWithImpl(
-      _$CreatePaymentMethodDataImpl _value,
-      $Res Function(_$CreatePaymentMethodDataImpl) _then)
+        _$_CreatePaymentMethodData>
+    implements _$$_CreatePaymentMethodDataCopyWith<$Res> {
+  __$$_CreatePaymentMethodDataCopyWithImpl(_$_CreatePaymentMethodData _value,
+      $Res Function(_$_CreatePaymentMethodData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -244,7 +242,7 @@ class __$$CreatePaymentMethodDataImplCopyWithImpl<$Res>
     Object? upiVpa = freezed,
     Object? billingDetails = freezed,
   }) {
-    return _then(_$CreatePaymentMethodDataImpl(
+    return _then(_$_CreatePaymentMethodData(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -299,8 +297,8 @@ class __$$CreatePaymentMethodDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CreatePaymentMethodDataImpl implements _CreatePaymentMethodData {
-  const _$CreatePaymentMethodDataImpl(
+class _$_CreatePaymentMethodData implements _CreatePaymentMethodData {
+  const _$_CreatePaymentMethodData(
       {required this.type,
       @ElementConverter() this.card,
       @JsonKey(name: "au_becs_debit") @ElementConverter() this.auBecsDebit,
@@ -314,8 +312,8 @@ class _$CreatePaymentMethodDataImpl implements _CreatePaymentMethodData {
       @JsonKey(name: "upi[vpa]") this.upiVpa,
       @JsonKey(name: "billing_details") this.billingDetails});
 
-  factory _$CreatePaymentMethodDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CreatePaymentMethodDataImplFromJson(json);
+  factory _$_CreatePaymentMethodData.fromJson(Map<String, dynamic> json) =>
+      _$$_CreatePaymentMethodDataFromJson(json);
 
   /// Unique identifier for the object.
   @override
@@ -384,10 +382,10 @@ class _$CreatePaymentMethodDataImpl implements _CreatePaymentMethodData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreatePaymentMethodDataImpl &&
+            other is _$_CreatePaymentMethodData &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.card, card) || other.card == card) &&
             (identical(other.auBecsDebit, auBecsDebit) ||
@@ -428,13 +426,14 @@ class _$CreatePaymentMethodDataImpl implements _CreatePaymentMethodData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreatePaymentMethodDataImplCopyWith<_$CreatePaymentMethodDataImpl>
-      get copyWith => __$$CreatePaymentMethodDataImplCopyWithImpl<
-          _$CreatePaymentMethodDataImpl>(this, _$identity);
+  _$$_CreatePaymentMethodDataCopyWith<_$_CreatePaymentMethodData>
+      get copyWith =>
+          __$$_CreatePaymentMethodDataCopyWithImpl<_$_CreatePaymentMethodData>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CreatePaymentMethodDataImplToJson(
+    return _$$_CreatePaymentMethodDataToJson(
       this,
     );
   }
@@ -456,10 +455,10 @@ abstract class _CreatePaymentMethodData implements CreatePaymentMethodData {
       @JsonKey(name: "sepa_debit[iban]") final String? sepaDebitIban,
       @JsonKey(name: "upi[vpa]") final String? upiVpa,
       @JsonKey(name: "billing_details")
-      final BillingDetails? billingDetails}) = _$CreatePaymentMethodDataImpl;
+      final BillingDetails? billingDetails}) = _$_CreatePaymentMethodData;
 
   factory _CreatePaymentMethodData.fromJson(Map<String, dynamic> json) =
-      _$CreatePaymentMethodDataImpl.fromJson;
+      _$_CreatePaymentMethodData.fromJson;
 
   @override
 
@@ -524,6 +523,6 @@ abstract class _CreatePaymentMethodData implements CreatePaymentMethodData {
   BillingDetails? get billingDetails;
   @override
   @JsonKey(ignore: true)
-  _$$CreatePaymentMethodDataImplCopyWith<_$CreatePaymentMethodDataImpl>
+  _$$_CreatePaymentMethodDataCopyWith<_$_CreatePaymentMethodData>
       get copyWith => throw _privateConstructorUsedError;
 }

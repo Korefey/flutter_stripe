@@ -12,6 +12,9 @@ import com.facebook.react.bridge.ReadableMapStripe
 import com.reactnativestripesdk.utils.createError
 import com.reactnativestripesdk.utils.mapError
 import com.stripe.android.pushProvisioning.PushProvisioningActivity
+//import com.stripe.android.pushProvisioning.AddToWalletButtonView
+//import com.stripe.android.pushProvisioning.EphemeralKeyProvider
+//import com.stripe.android.pushProvisioning.TapAndPayProxy
 import com.stripe.android.pushProvisioning.PushProvisioningActivityStarter
 
 

@@ -6,14 +6,14 @@ part of 'confirm_acss_debit_payment_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConfirmAcssDebitPaymentDataImpl _$$ConfirmAcssDebitPaymentDataImplFromJson(
+_$_ConfirmAcssDebitPaymentData _$$_ConfirmAcssDebitPaymentDataFromJson(
         Map json) =>
-    _$ConfirmAcssDebitPaymentDataImpl(
+    _$_ConfirmAcssDebitPaymentData(
       paymentMethod: json['payment_method'] as String?,
     );
 
-Map<String, dynamic> _$$ConfirmAcssDebitPaymentDataImplToJson(
-    _$ConfirmAcssDebitPaymentDataImpl instance) {
+Map<String, dynamic> _$$_ConfirmAcssDebitPaymentDataToJson(
+    _$_ConfirmAcssDebitPaymentData instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

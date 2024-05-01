@@ -1,10 +1,10 @@
 package com.reactnativestripesdk
 import com.facebook.react.bridge.ArgumentsStripe
 import com.facebook.react.bridge.WritableMapStripe
-import com.facebook.react.uimanager.events.Event
+import com.facebook.react.uimanager.events.EventStripe
 import com.facebook.react.uimanager.events.RCTEventEmitterStripe
 
-internal class CardFocusEvent constructor(viewTag: Int, private val focusField: String?) : Event<CardFocusEvent>(viewTag) {
+internal class CardFocusEvent constructor(viewTag: Int, private val focusField: String?) : EventStripe<CardFocusEvent>(viewTag) {
   override fun getEventName(): String {
     return EVENT_NAME
   }

@@ -6,8 +6,8 @@ part of 'payment_element_options.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PaymentElementOptionsImpl _$$PaymentElementOptionsImplFromJson(Map json) =>
-    _$PaymentElementOptionsImpl(
+_$_PaymentElementOptions _$$_PaymentElementOptionsFromJson(Map json) =>
+    _$_PaymentElementOptions(
       layout: json['layout'] == null
           ? null
           : PaymentElementLayout.fromJson(
@@ -30,8 +30,8 @@ _$PaymentElementOptionsImpl _$$PaymentElementOptionsImplFromJson(Map json) =>
       wallets: json['wallets'],
     );
 
-Map<String, dynamic> _$$PaymentElementOptionsImplToJson(
-    _$PaymentElementOptionsImpl instance) {
+Map<String, dynamic> _$$_PaymentElementOptionsToJson(
+    _$_PaymentElementOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -51,16 +51,16 @@ Map<String, dynamic> _$$PaymentElementOptionsImplToJson(
   return val;
 }
 
-_$PaymentElementLayoutImpl _$$PaymentElementLayoutImplFromJson(Map json) =>
-    _$PaymentElementLayoutImpl(
+_$_PaymentElementLayout _$$_PaymentElementLayoutFromJson(Map json) =>
+    _$_PaymentElementLayout(
       type: $enumDecode(_$PaymentElementLayoutTypeEnumMap, json['type']),
       defaultCollapsed: json['defaultCollapsed'] as bool?,
       radios: json['radios'] as bool?,
       spacedAccordionItems: json['spacedAccordionItems'] as bool?,
     );
 
-Map<String, dynamic> _$$PaymentElementLayoutImplToJson(
-    _$PaymentElementLayoutImpl instance) {
+Map<String, dynamic> _$$_PaymentElementLayoutToJson(
+    _$_PaymentElementLayout instance) {
   final val = <String, dynamic>{
     'type': _$PaymentElementLayoutTypeEnumMap[instance.type]!,
   };
@@ -82,17 +82,17 @@ const _$PaymentElementLayoutTypeEnumMap = {
   PaymentElementLayoutType.tabs: 'tabs',
 };
 
-_$PaymentElementDefaultValuesImpl _$$PaymentElementDefaultValuesImplFromJson(
+_$_PaymentElementDefaultValues _$$_PaymentElementDefaultValuesFromJson(
         Map json) =>
-    _$PaymentElementDefaultValuesImpl(
+    _$_PaymentElementDefaultValues(
       billingDetails: json['billingDetails'] == null
           ? null
           : PaymentElementBillingDetails.fromJson(
               Map<String, dynamic>.from(json['billingDetails'] as Map)),
     );
 
-Map<String, dynamic> _$$PaymentElementDefaultValuesImplToJson(
-    _$PaymentElementDefaultValuesImpl instance) {
+Map<String, dynamic> _$$_PaymentElementDefaultValuesToJson(
+    _$_PaymentElementDefaultValues instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -105,9 +105,9 @@ Map<String, dynamic> _$$PaymentElementDefaultValuesImplToJson(
   return val;
 }
 
-_$PaymentElementBillingDetailsImpl _$$PaymentElementBillingDetailsImplFromJson(
+_$_PaymentElementBillingDetails _$$_PaymentElementBillingDetailsFromJson(
         Map json) =>
-    _$PaymentElementBillingDetailsImpl(
+    _$_PaymentElementBillingDetails(
       name: json['name'] as String?,
       email: json['email'] as String?,
       phone: json['phone'] as String?,
@@ -117,8 +117,8 @@ _$PaymentElementBillingDetailsImpl _$$PaymentElementBillingDetailsImplFromJson(
               Map<String, dynamic>.from(json['address'] as Map)),
     );
 
-Map<String, dynamic> _$$PaymentElementBillingDetailsImplToJson(
-    _$PaymentElementBillingDetailsImpl instance) {
+Map<String, dynamic> _$$_PaymentElementBillingDetailsToJson(
+    _$_PaymentElementBillingDetails instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -134,9 +134,9 @@ Map<String, dynamic> _$$PaymentElementBillingDetailsImplToJson(
   return val;
 }
 
-_$PaymentElementBillingDetailsAddressImpl
-    _$$PaymentElementBillingDetailsAddressImplFromJson(Map json) =>
-        _$PaymentElementBillingDetailsAddressImpl(
+_$_PaymentElementBillingDetailsAddress
+    _$$_PaymentElementBillingDetailsAddressFromJson(Map json) =>
+        _$_PaymentElementBillingDetailsAddress(
           line1: json['line1'] as String?,
           line2: json['line2'] as String?,
           city: json['city'] as String?,
@@ -145,8 +145,8 @@ _$PaymentElementBillingDetailsAddressImpl
           postalCode: json['postal_code'] as String?,
         );
 
-Map<String, dynamic> _$$PaymentElementBillingDetailsAddressImplToJson(
-    _$PaymentElementBillingDetailsAddressImpl instance) {
+Map<String, dynamic> _$$_PaymentElementBillingDetailsAddressToJson(
+    _$_PaymentElementBillingDetailsAddress instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -164,13 +164,13 @@ Map<String, dynamic> _$$PaymentElementBillingDetailsAddressImplToJson(
   return val;
 }
 
-_$PaymentElementBusinessImpl _$$PaymentElementBusinessImplFromJson(Map json) =>
-    _$PaymentElementBusinessImpl(
+_$_PaymentElementBusiness _$$_PaymentElementBusinessFromJson(Map json) =>
+    _$_PaymentElementBusiness(
       name: json['name'] as String?,
     );
 
-Map<String, dynamic> _$$PaymentElementBusinessImplToJson(
-    _$PaymentElementBusinessImpl instance) {
+Map<String, dynamic> _$$_PaymentElementBusinessToJson(
+    _$_PaymentElementBusiness instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -183,22 +183,22 @@ Map<String, dynamic> _$$PaymentElementBusinessImplToJson(
   return val;
 }
 
-_$PaymentElementFieldsImpl _$$PaymentElementFieldsImplFromJson(Map json) =>
-    _$PaymentElementFieldsImpl(
+_$_PaymentElementFields _$$_PaymentElementFieldsFromJson(Map json) =>
+    _$_PaymentElementFields(
       billingDetails: json['billingDetails'] == null
           ? BillingDetailsFields.auto
           : BillingDetailsFields.fromJson(
               Map<String, dynamic>.from(json['billingDetails'] as Map)),
     );
 
-Map<String, dynamic> _$$PaymentElementFieldsImplToJson(
-        _$PaymentElementFieldsImpl instance) =>
+Map<String, dynamic> _$$_PaymentElementFieldsToJson(
+        _$_PaymentElementFields instance) =>
     <String, dynamic>{
       'billingDetails': instance.billingDetails.toJson(),
     };
 
-_$BillingDetailsFieldsImpl _$$BillingDetailsFieldsImplFromJson(Map json) =>
-    _$BillingDetailsFieldsImpl(
+_$_BillingDetailsFields _$$_BillingDetailsFieldsFromJson(Map json) =>
+    _$_BillingDetailsFields(
       name: $enumDecodeNullable(
               _$PaymentElementFieldRequiredEnumMap, json['name']) ??
           PaymentElementFieldRequired.auto,
@@ -214,8 +214,8 @@ _$BillingDetailsFieldsImpl _$$BillingDetailsFieldsImplFromJson(Map json) =>
               Map<String, dynamic>.from(json['address'] as Map)),
     );
 
-Map<String, dynamic> _$$BillingDetailsFieldsImplToJson(
-        _$BillingDetailsFieldsImpl instance) =>
+Map<String, dynamic> _$$_BillingDetailsFieldsToJson(
+        _$_BillingDetailsFields instance) =>
     <String, dynamic>{
       'name': _$PaymentElementFieldRequiredEnumMap[instance.name]!,
       'email': _$PaymentElementFieldRequiredEnumMap[instance.email]!,
@@ -228,9 +228,9 @@ const _$PaymentElementFieldRequiredEnumMap = {
   PaymentElementFieldRequired.auto: 'auto',
 };
 
-_$PaymentElementAddressFieldsImpl _$$PaymentElementAddressFieldsImplFromJson(
+_$_PaymentElementAddressFields _$$_PaymentElementAddressFieldsFromJson(
         Map json) =>
-    _$PaymentElementAddressFieldsImpl(
+    _$_PaymentElementAddressFields(
       line1: $enumDecodeNullable(
               _$PaymentElementFieldRequiredEnumMap, json['line1']) ??
           PaymentElementFieldRequired.auto,
@@ -251,8 +251,8 @@ _$PaymentElementAddressFieldsImpl _$$PaymentElementAddressFieldsImplFromJson(
           PaymentElementFieldRequired.auto,
     );
 
-Map<String, dynamic> _$$PaymentElementAddressFieldsImplToJson(
-        _$PaymentElementAddressFieldsImpl instance) =>
+Map<String, dynamic> _$$_PaymentElementAddressFieldsToJson(
+        _$_PaymentElementAddressFields instance) =>
     <String, dynamic>{
       'line1': _$PaymentElementFieldRequiredEnumMap[instance.line1]!,
       'line2': _$PaymentElementFieldRequiredEnumMap[instance.line2]!,

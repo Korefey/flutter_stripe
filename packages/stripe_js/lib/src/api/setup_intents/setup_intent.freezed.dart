@@ -12,7 +12,7 @@ part of 'setup_intent.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SetupIntent _$SetupIntentFromJson(Map<String, dynamic> json) {
   return _SetupIntent.fromJson(json);
@@ -315,11 +315,11 @@ class _$SetupIntentCopyWithImpl<$Res, $Val extends SetupIntent>
 }
 
 /// @nodoc
-abstract class _$$SetupIntentImplCopyWith<$Res>
+abstract class _$$_SetupIntentCopyWith<$Res>
     implements $SetupIntentCopyWith<$Res> {
-  factory _$$SetupIntentImplCopyWith(
-          _$SetupIntentImpl value, $Res Function(_$SetupIntentImpl) then) =
-      __$$SetupIntentImplCopyWithImpl<$Res>;
+  factory _$$_SetupIntentCopyWith(
+          _$_SetupIntent value, $Res Function(_$_SetupIntent) then) =
+      __$$_SetupIntentCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -352,11 +352,11 @@ abstract class _$$SetupIntentImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetupIntentImplCopyWithImpl<$Res>
-    extends _$SetupIntentCopyWithImpl<$Res, _$SetupIntentImpl>
-    implements _$$SetupIntentImplCopyWith<$Res> {
-  __$$SetupIntentImplCopyWithImpl(
-      _$SetupIntentImpl _value, $Res Function(_$SetupIntentImpl) _then)
+class __$$_SetupIntentCopyWithImpl<$Res>
+    extends _$SetupIntentCopyWithImpl<$Res, _$_SetupIntent>
+    implements _$$_SetupIntentCopyWith<$Res> {
+  __$$_SetupIntentCopyWithImpl(
+      _$_SetupIntent _value, $Res Function(_$_SetupIntent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -386,7 +386,7 @@ class __$$SetupIntentImplCopyWithImpl<$Res>
     Object? status = null,
     Object? usage = null,
   }) {
-    return _then(_$SetupIntentImpl(
+    return _then(_$_SetupIntent(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -485,8 +485,8 @@ class __$$SetupIntentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SetupIntentImpl implements _SetupIntent {
-  const _$SetupIntentImpl(
+class _$_SetupIntent implements _SetupIntent {
+  const _$_SetupIntent(
       {required this.id,
       this.object = "setup_intent",
       this.application,
@@ -516,8 +516,8 @@ class _$SetupIntentImpl implements _SetupIntent {
         _metadata = metadata,
         _paymentMethodTypes = paymentMethodTypes;
 
-  factory _$SetupIntentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SetupIntentImplFromJson(json);
+  factory _$_SetupIntent.fromJson(Map<String, dynamic> json) =>
+      _$$_SetupIntentFromJson(json);
 
   /// Unique identifier for the object.
   @override
@@ -702,10 +702,10 @@ class _$SetupIntentImpl implements _SetupIntent {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetupIntentImpl &&
+            other is _$_SetupIntent &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.object, object) || other.object == object) &&
             (identical(other.application, application) ||
@@ -779,12 +779,12 @@ class _$SetupIntentImpl implements _SetupIntent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SetupIntentImplCopyWith<_$SetupIntentImpl> get copyWith =>
-      __$$SetupIntentImplCopyWithImpl<_$SetupIntentImpl>(this, _$identity);
+  _$$_SetupIntentCopyWith<_$_SetupIntent> get copyWith =>
+      __$$_SetupIntentCopyWithImpl<_$_SetupIntent>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SetupIntentImplToJson(
+    return _$$_SetupIntentToJson(
       this,
     );
   }
@@ -818,10 +818,10 @@ abstract class _SetupIntent implements SetupIntent {
       final List<PaymentMethodType> paymentMethodTypes,
       @JsonKey(name: "single_use_mandate") final String? singleUseMandate,
       required final SetupIntentsStatus status,
-      final SetupIntentUsage usage}) = _$SetupIntentImpl;
+      final SetupIntentUsage usage}) = _$_SetupIntent;
 
   factory _SetupIntent.fromJson(Map<String, dynamic> json) =
-      _$SetupIntentImpl.fromJson;
+      _$_SetupIntent.fromJson;
 
   @override
 
@@ -964,6 +964,6 @@ abstract class _SetupIntent implements SetupIntent {
   SetupIntentUsage get usage;
   @override
   @JsonKey(ignore: true)
-  _$$SetupIntentImplCopyWith<_$SetupIntentImpl> get copyWith =>
+  _$$_SetupIntentCopyWith<_$_SetupIntent> get copyWith =>
       throw _privateConstructorUsedError;
 }

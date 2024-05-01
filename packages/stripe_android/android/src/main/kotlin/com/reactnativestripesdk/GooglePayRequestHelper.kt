@@ -25,7 +25,7 @@ class GooglePayRequestHelper {
   companion object {
     internal const val LOAD_PAYMENT_DATA_REQUEST_CODE = 414243
 
-    internal fun createPaymentRequest(activity: FragmentActivity, factory: GooglePayJsonFactory, googlePayParams: ReadableMap): Task<PaymentData> {
+    internal fun createPaymentRequest(activity: FragmentActivity, factory: GooglePayJsonFactory, googlePayParams: ReadableMapStripe): Task<PaymentData> {
       val transactionInfo = buildTransactionInfo(googlePayParams)
       val merchantInfo = GooglePayJsonFactory.MerchantInfo(googlePayParams.getString("merchantName").orEmpty())
       val billingAddressParameters = buildBillingAddressParameters(googlePayParams.getMap("billingAddressConfig"))
@@ -47,7 +47,7 @@ class GooglePayRequestHelper {
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun buildShippingAddressParameters(params: ReadableMap?): GooglePayJsonFactory.ShippingAddressParameters {
+    private fun buildShippingAddressParameters(params: ReadableMapStripe?): GooglePayJsonFactory.ShippingAddressParameters {
       val isPhoneNumberRequired = params?.getBooleanOr("isPhoneNumberRequired", false)
       val isRequired = params?.getBooleanOr("isRequired", false)
       val allowedCountryCodes = if (params?.hasKey("allowedCountryCodes") == true)
@@ -60,7 +60,7 @@ class GooglePayRequestHelper {
       )
     }
 
-    private fun buildBillingAddressParameters(params: ReadableMap?): GooglePayJsonFactory.BillingAddressParameters {
+    private fun buildBillingAddressParameters(params: ReadableMapStripe?): GooglePayJsonFactory.BillingAddressParameters {
       val isRequired = params?.getBooleanOr("isRequired", false)
       val isPhoneNumberRequired = params?.getBooleanOr("isPhoneNumberRequired", false)
       val format = when (params?.getString("format").orEmpty()) {
@@ -76,18 +76,16 @@ class GooglePayRequestHelper {
       )
     }
 
-    private fun buildTransactionInfo(params: ReadableMap): GooglePayJsonFactory.TransactionInfo {
+    private fun buildTransactionInfo(params: ReadableMapStripe): GooglePayJsonFactory.TransactionInfo {
       val countryCode = params.getString("merchantCountryCode").orEmpty()
       val currencyCode = params.getString("currencyCode") ?: "USD"
       val amount = params.getInt("amount")
-      val label = params.getString("label")
 
       return GooglePayJsonFactory.TransactionInfo(
         currencyCode = currencyCode,
         totalPriceStatus = GooglePayJsonFactory.TransactionInfo.TotalPriceStatus.Estimated,
         countryCode = countryCode,
         totalPrice = amount,
-        totalPriceLabel = label,
         checkoutOption = GooglePayJsonFactory.TransactionInfo.CheckoutOption.Default
       )
     }
@@ -136,26 +134,18 @@ class GooglePayRequestHelper {
 
           override fun onSuccess(result: PaymentMethod) {
             promiseResult.putMap("paymentMethod", mapFromPaymentMethod(result))
-            GooglePayResult.fromJson(paymentInformation).let {
-              if (it.shippingInformation != null) {
-                promiseResult.putMap("shippingContact", mapFromShippingContact(it))
-              }
-            }
             promise.resolve(promiseResult)
           }
         }
       )
     }
 
-    private fun resolveWithToken(paymentData: PaymentData, promise: Promise) {
+    private fun resolveWithToken(paymentData: PaymentData, promise: PromiseStripe) {
       val paymentInformation = JSONObject(paymentData.toJson())
       val googlePayResult = GooglePayResult.fromJson(paymentInformation)
       val promiseResult = WritableNativeMapStripe()
       googlePayResult.token?.let {
         promiseResult.putMap("token", mapFromToken(it))
-        if (googlePayResult.shippingInformation != null) {
-          promiseResult.putMap("shippingContact", mapFromShippingContact(googlePayResult))
-        }
         promise.resolve(promiseResult)
       } ?: run {
         promise.resolve(createError("Failed", "Unexpected response from Google Pay. No token was found."))

@@ -12,7 +12,7 @@ part of 'setup_intent.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 SetupIntent _$SetupIntentFromJson(Map<String, dynamic> json) {
   return _SetupIntent.fromJson(json);
@@ -207,11 +207,11 @@ class _$SetupIntentCopyWithImpl<$Res, $Val extends SetupIntent>
 }
 
 /// @nodoc
-abstract class _$$SetupIntentImplCopyWith<$Res>
+abstract class _$$_SetupIntentCopyWith<$Res>
     implements $SetupIntentCopyWith<$Res> {
-  factory _$$SetupIntentImplCopyWith(
-          _$SetupIntentImpl value, $Res Function(_$SetupIntentImpl) then) =
-      __$$SetupIntentImplCopyWithImpl<$Res>;
+  factory _$$_SetupIntentCopyWith(
+          _$_SetupIntent value, $Res Function(_$_SetupIntent) then) =
+      __$$_SetupIntentCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -237,11 +237,11 @@ abstract class _$$SetupIntentImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetupIntentImplCopyWithImpl<$Res>
-    extends _$SetupIntentCopyWithImpl<$Res, _$SetupIntentImpl>
-    implements _$$SetupIntentImplCopyWith<$Res> {
-  __$$SetupIntentImplCopyWithImpl(
-      _$SetupIntentImpl _value, $Res Function(_$SetupIntentImpl) _then)
+class __$$_SetupIntentCopyWithImpl<$Res>
+    extends _$SetupIntentCopyWithImpl<$Res, _$_SetupIntent>
+    implements _$$_SetupIntentCopyWith<$Res> {
+  __$$_SetupIntentCopyWithImpl(
+      _$_SetupIntent _value, $Res Function(_$_SetupIntent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -260,7 +260,7 @@ class __$$SetupIntentImplCopyWithImpl<$Res>
     Object? nextAction = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$SetupIntentImpl(
+    return _then(_$_SetupIntent(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -316,8 +316,8 @@ class __$$SetupIntentImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$SetupIntentImpl implements _SetupIntent {
-  const _$SetupIntentImpl(
+class _$_SetupIntent implements _SetupIntent {
+  const _$_SetupIntent(
       {required this.id,
       required this.status,
       required this.livemode,
@@ -332,8 +332,8 @@ class _$SetupIntentImpl implements _SetupIntent {
       this.mandateData})
       : _paymentMethodTypes = paymentMethodTypes;
 
-  factory _$SetupIntentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SetupIntentImplFromJson(json);
+  factory _$_SetupIntent.fromJson(Map<String, dynamic> json) =>
+      _$$_SetupIntentFromJson(json);
 
   /// Unique identifier.
   @override
@@ -400,10 +400,10 @@ class _$SetupIntentImpl implements _SetupIntent {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SetupIntentImpl &&
+            other is _$_SetupIntent &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.status, status) || other.status == status) &&
             (identical(other.livemode, livemode) ||
@@ -446,12 +446,12 @@ class _$SetupIntentImpl implements _SetupIntent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SetupIntentImplCopyWith<_$SetupIntentImpl> get copyWith =>
-      __$$SetupIntentImplCopyWithImpl<_$SetupIntentImpl>(this, _$identity);
+  _$$_SetupIntentCopyWith<_$_SetupIntent> get copyWith =>
+      __$$_SetupIntentCopyWithImpl<_$_SetupIntent>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SetupIntentImplToJson(
+    return _$$_SetupIntentToJson(
       this,
     );
   }
@@ -470,10 +470,10 @@ abstract class _SetupIntent implements SetupIntent {
       final String? created,
       final LastSetupError? lastSetupError,
       final NextAction? nextAction,
-      final MandateData? mandateData}) = _$SetupIntentImpl;
+      final MandateData? mandateData}) = _$_SetupIntent;
 
   factory _SetupIntent.fromJson(Map<String, dynamic> json) =
-      _$SetupIntentImpl.fromJson;
+      _$_SetupIntent.fromJson;
 
   @override
 
@@ -528,7 +528,7 @@ abstract class _SetupIntent implements SetupIntent {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$SetupIntentImplCopyWith<_$SetupIntentImpl> get copyWith =>
+  _$$_SetupIntentCopyWith<_$_SetupIntent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -589,22 +589,22 @@ class _$LastSetupErrorCopyWithImpl<$Res, $Val extends LastSetupError>
 }
 
 /// @nodoc
-abstract class _$$LastSetupErrorImplCopyWith<$Res>
+abstract class _$$_LastSetupErrorCopyWith<$Res>
     implements $LastSetupErrorCopyWith<$Res> {
-  factory _$$LastSetupErrorImplCopyWith(_$LastSetupErrorImpl value,
-          $Res Function(_$LastSetupErrorImpl) then) =
-      __$$LastSetupErrorImplCopyWithImpl<$Res>;
+  factory _$$_LastSetupErrorCopyWith(
+          _$_LastSetupError value, $Res Function(_$_LastSetupError) then) =
+      __$$_LastSetupErrorCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String code, String message});
 }
 
 /// @nodoc
-class __$$LastSetupErrorImplCopyWithImpl<$Res>
-    extends _$LastSetupErrorCopyWithImpl<$Res, _$LastSetupErrorImpl>
-    implements _$$LastSetupErrorImplCopyWith<$Res> {
-  __$$LastSetupErrorImplCopyWithImpl(
-      _$LastSetupErrorImpl _value, $Res Function(_$LastSetupErrorImpl) _then)
+class __$$_LastSetupErrorCopyWithImpl<$Res>
+    extends _$LastSetupErrorCopyWithImpl<$Res, _$_LastSetupError>
+    implements _$$_LastSetupErrorCopyWith<$Res> {
+  __$$_LastSetupErrorCopyWithImpl(
+      _$_LastSetupError _value, $Res Function(_$_LastSetupError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -613,7 +613,7 @@ class __$$LastSetupErrorImplCopyWithImpl<$Res>
     Object? code = null,
     Object? message = null,
   }) {
-    return _then(_$LastSetupErrorImpl(
+    return _then(_$_LastSetupError(
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -629,11 +629,11 @@ class __$$LastSetupErrorImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$LastSetupErrorImpl implements _LastSetupError {
-  const _$LastSetupErrorImpl({required this.code, required this.message});
+class _$_LastSetupError implements _LastSetupError {
+  const _$_LastSetupError({required this.code, required this.message});
 
-  factory _$LastSetupErrorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LastSetupErrorImplFromJson(json);
+  factory _$_LastSetupError.fromJson(Map<String, dynamic> json) =>
+      _$$_LastSetupErrorFromJson(json);
 
   /// Code.
   @override
@@ -649,10 +649,10 @@ class _$LastSetupErrorImpl implements _LastSetupError {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LastSetupErrorImpl &&
+            other is _$_LastSetupError &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -664,13 +664,12 @@ class _$LastSetupErrorImpl implements _LastSetupError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LastSetupErrorImplCopyWith<_$LastSetupErrorImpl> get copyWith =>
-      __$$LastSetupErrorImplCopyWithImpl<_$LastSetupErrorImpl>(
-          this, _$identity);
+  _$$_LastSetupErrorCopyWith<_$_LastSetupError> get copyWith =>
+      __$$_LastSetupErrorCopyWithImpl<_$_LastSetupError>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LastSetupErrorImplToJson(
+    return _$$_LastSetupErrorToJson(
       this,
     );
   }
@@ -679,10 +678,10 @@ class _$LastSetupErrorImpl implements _LastSetupError {
 abstract class _LastSetupError implements LastSetupError {
   const factory _LastSetupError(
       {required final String code,
-      required final String message}) = _$LastSetupErrorImpl;
+      required final String message}) = _$_LastSetupError;
 
   factory _LastSetupError.fromJson(Map<String, dynamic> json) =
-      _$LastSetupErrorImpl.fromJson;
+      _$_LastSetupError.fromJson;
 
   @override
 
@@ -694,6 +693,6 @@ abstract class _LastSetupError implements LastSetupError {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$LastSetupErrorImplCopyWith<_$LastSetupErrorImpl> get copyWith =>
+  _$$_LastSetupErrorCopyWith<_$_LastSetupError> get copyWith =>
       throw _privateConstructorUsedError;
 }

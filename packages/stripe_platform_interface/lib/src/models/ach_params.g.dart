@@ -6,9 +6,9 @@ part of 'ach_params.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CollectBankAccountParamsImpl _$$CollectBankAccountParamsImplFromJson(
+_$_CollectBankAccountParams _$$_CollectBankAccountParamsFromJson(
         Map<String, dynamic> json) =>
-    _$CollectBankAccountParamsImpl(
+    _$_CollectBankAccountParams(
       billingDetails: BillingDetails.fromJson(
           json['billingDetails'] as Map<String, dynamic>),
       paymentMethodType: $enumDecodeNullable(
@@ -16,8 +16,8 @@ _$CollectBankAccountParamsImpl _$$CollectBankAccountParamsImplFromJson(
           PaymentMethodType.USBankAccount,
     );
 
-Map<String, dynamic> _$$CollectBankAccountParamsImplToJson(
-        _$CollectBankAccountParamsImpl instance) =>
+Map<String, dynamic> _$$_CollectBankAccountParamsToJson(
+        _$_CollectBankAccountParams instance) =>
     <String, dynamic>{
       'billingDetails': instance.billingDetails.toJson(),
       'paymentMethodType':
@@ -27,7 +27,7 @@ Map<String, dynamic> _$$CollectBankAccountParamsImplToJson(
 const _$PaymentMethodTypeEnumMap = {
   PaymentMethodType.AfterpayClearpay: 'AfterpayClearpay',
   PaymentMethodType.Card: 'Card',
-  PaymentMethodType.CashApp: 'CashApp',
+  PaymentMethodType.CashAppPay: 'CashAppPay',
   PaymentMethodType.Alipay: 'Alipay',
   PaymentMethodType.Grabpay: 'Grabpay',
   PaymentMethodType.Ideal: 'Ideal',
@@ -41,24 +41,22 @@ const _$PaymentMethodTypeEnumMap = {
   PaymentMethodType.Eps: 'Eps',
   PaymentMethodType.Bancontact: 'Bancontact',
   PaymentMethodType.Oxxo: 'Oxxo',
-  PaymentMethodType.PayPal: 'PayPal',
   PaymentMethodType.Sofort: 'Sofort',
   PaymentMethodType.Upi: 'Upi',
   PaymentMethodType.USBankAccount: 'USBankAccount',
-  PaymentMethodType.RevolutPay: 'RevolutPay',
   PaymentMethodType.Unknown: 'Unknown',
 };
 
-_$VerifyMicroDepositsParamsImpl _$$VerifyMicroDepositsParamsImplFromJson(
+_$_VerifyMicroDepositsParams _$$_VerifyMicroDepositsParamsFromJson(
         Map<String, dynamic> json) =>
-    _$VerifyMicroDepositsParamsImpl(
+    _$_VerifyMicroDepositsParams(
       amounts:
           (json['amounts'] as List<dynamic>?)?.map((e) => e as int).toList(),
       descriptorCode: json['descriptorCode'] as String?,
     );
 
-Map<String, dynamic> _$$VerifyMicroDepositsParamsImplToJson(
-        _$VerifyMicroDepositsParamsImpl instance) =>
+Map<String, dynamic> _$$_VerifyMicroDepositsParamsToJson(
+        _$_VerifyMicroDepositsParams instance) =>
     <String, dynamic>{
       'amounts': instance.amounts,
       'descriptorCode': instance.descriptorCode,

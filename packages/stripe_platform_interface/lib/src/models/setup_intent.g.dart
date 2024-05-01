@@ -6,8 +6,8 @@ part of 'setup_intent.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SetupIntentImpl _$$SetupIntentImplFromJson(Map<String, dynamic> json) =>
-    _$SetupIntentImpl(
+_$_SetupIntent _$$_SetupIntentFromJson(Map<String, dynamic> json) =>
+    _$_SetupIntent(
       id: json['id'] as String,
       status: json['status'] as String,
       livemode: json['livemode'] as bool,
@@ -31,7 +31,7 @@ _$SetupIntentImpl _$$SetupIntentImplFromJson(Map<String, dynamic> json) =>
           : MandateData.fromJson(json['mandateData'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$SetupIntentImplToJson(_$SetupIntentImpl instance) =>
+Map<String, dynamic> _$$_SetupIntentToJson(_$_SetupIntent instance) =>
     <String, dynamic>{
       'id': instance.id,
       'status': instance.status,
@@ -52,7 +52,7 @@ Map<String, dynamic> _$$SetupIntentImplToJson(_$SetupIntentImpl instance) =>
 const _$PaymentMethodTypeEnumMap = {
   PaymentMethodType.AfterpayClearpay: 'AfterpayClearpay',
   PaymentMethodType.Card: 'Card',
-  PaymentMethodType.CashApp: 'CashApp',
+  PaymentMethodType.CashAppPay: 'CashAppPay',
   PaymentMethodType.Alipay: 'Alipay',
   PaymentMethodType.Grabpay: 'Grabpay',
   PaymentMethodType.Ideal: 'Ideal',
@@ -66,22 +66,19 @@ const _$PaymentMethodTypeEnumMap = {
   PaymentMethodType.Eps: 'Eps',
   PaymentMethodType.Bancontact: 'Bancontact',
   PaymentMethodType.Oxxo: 'Oxxo',
-  PaymentMethodType.PayPal: 'PayPal',
   PaymentMethodType.Sofort: 'Sofort',
   PaymentMethodType.Upi: 'Upi',
   PaymentMethodType.USBankAccount: 'USBankAccount',
-  PaymentMethodType.RevolutPay: 'RevolutPay',
   PaymentMethodType.Unknown: 'Unknown',
 };
 
-_$LastSetupErrorImpl _$$LastSetupErrorImplFromJson(Map<String, dynamic> json) =>
-    _$LastSetupErrorImpl(
+_$_LastSetupError _$$_LastSetupErrorFromJson(Map<String, dynamic> json) =>
+    _$_LastSetupError(
       code: json['code'] as String,
       message: json['message'] as String,
     );
 
-Map<String, dynamic> _$$LastSetupErrorImplToJson(
-        _$LastSetupErrorImpl instance) =>
+Map<String, dynamic> _$$_LastSetupErrorToJson(_$_LastSetupError instance) =>
     <String, dynamic>{
       'code': instance.code,
       'message': instance.message,

@@ -1,9 +1,8 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_stripe/flutter_stripe.dart';
+import 'package:stripe_platform_interface/stripe_platform_interface.dart';
 
 import 'apple_pay_button.dart';
 import 'google_pay_button.dart';
@@ -17,24 +16,22 @@ class PlatformPayButton extends StatelessWidget {
     super.key,
     this.type = PlatformButtonType.plain,
     this.appearance = PlatformButtonStyle.automatic,
-    this.borderRadius = 4,
+    this.borderRadius = 4.0,
     this.constraints,
     this.onShippingContactSelected,
     this.onCouponCodeEntered,
     this.onShippingMethodSelected,
     this.onOrderTracking,
-    this.paymentRequestCreateOptions =
-        PlatformPayWebPaymentRequestCreateOptions.defaultOptions,
   });
 
   /// Defines the displayed text on the button.
   final PlatformButtonType type;
 
-  /// Defines the coloring of the button
+  /// iOS only, defines the color and border radius of the button
   final PlatformButtonStyle appearance;
 
-  /// Sets the border radius of the corners.
-  final int borderRadius;
+  /// iOS only, sets the border radius of the corners.
+  final double borderRadius;
 
   /// ios only, execute a callback when shipping
 
@@ -69,25 +66,12 @@ class PlatformPayButton extends StatelessWidget {
   /// See https://stripe.com/docs/apple-pay?platform=ios&locale=es-ES#order-tracking
   final OnOrderTracking? onOrderTracking;
 
-  final PlatformPayWebPaymentRequestCreateOptions paymentRequestCreateOptions;
-
   @override
   Widget build(BuildContext context) {
-    if (kIsWeb) {
-      return Stripe.buildPaymentRequestButton(
-        onPressed: onPressed,
-        paymentRequestCreateOptions: paymentRequestCreateOptions,
-        constraints: constraints,
-        type: type,
-        style: appearance,
-      );
-    }
     if (Platform.isAndroid) {
       return GooglePayButton(
         onTap: onPressed,
         buttonType: type,
-        borderRadius: borderRadius,
-        appearance: appearance,
       );
     } else if (Platform.isIOS) {
       return ApplePayButton(

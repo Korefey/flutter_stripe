@@ -6,14 +6,14 @@ part of 'confirm_ideal_payment_options.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConfirmIdealPaymentOptionsImpl _$$ConfirmIdealPaymentOptionsImplFromJson(
+_$_ConfirmIdealPaymentOptions _$$_ConfirmIdealPaymentOptionsFromJson(
         Map json) =>
-    _$ConfirmIdealPaymentOptionsImpl(
+    _$_ConfirmIdealPaymentOptions(
       handleActions: json['handleActions'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$ConfirmIdealPaymentOptionsImplToJson(
-    _$ConfirmIdealPaymentOptionsImpl instance) {
+Map<String, dynamic> _$$_ConfirmIdealPaymentOptionsToJson(
+    _$_ConfirmIdealPaymentOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

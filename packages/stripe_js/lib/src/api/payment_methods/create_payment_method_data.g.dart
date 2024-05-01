@@ -6,9 +6,8 @@ part of 'create_payment_method_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreatePaymentMethodDataImpl _$$CreatePaymentMethodDataImplFromJson(
-        Map json) =>
-    _$CreatePaymentMethodDataImpl(
+_$_CreatePaymentMethodData _$$_CreatePaymentMethodDataFromJson(Map json) =>
+    _$_CreatePaymentMethodData(
       type: json['type'] as String,
       card: const ElementConverter().fromJson(json['card']),
       auBecsDebit: const ElementConverter().fromJson(json['au_becs_debit']),
@@ -26,8 +25,8 @@ _$CreatePaymentMethodDataImpl _$$CreatePaymentMethodDataImplFromJson(
               Map<String, dynamic>.from(json['billing_details'] as Map)),
     );
 
-Map<String, dynamic> _$$CreatePaymentMethodDataImplToJson(
-    _$CreatePaymentMethodDataImpl instance) {
+Map<String, dynamic> _$$_CreatePaymentMethodDataToJson(
+    _$_CreatePaymentMethodData instance) {
   final val = <String, dynamic>{
     'type': instance.type,
   };

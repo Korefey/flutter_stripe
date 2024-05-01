@@ -88,7 +88,7 @@ class FinancialConnectionsSheetFragment : Fragment() {
       }
       is FinancialConnectionsSheetResult.Completed -> {
         promise.resolve(
-          WritableNativeMapStripe().also {
+            WritableNativeMapStripe().also {
               it.putMap("session", mapFromSession(result.financialConnectionsSession))
             }
         )

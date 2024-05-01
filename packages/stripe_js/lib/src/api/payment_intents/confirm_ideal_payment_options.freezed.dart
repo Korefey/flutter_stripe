@@ -12,7 +12,7 @@ part of 'confirm_ideal_payment_options.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 ConfirmIdealPaymentOptions _$ConfirmIdealPaymentOptionsFromJson(
     Map<String, dynamic> json) {
@@ -67,25 +67,25 @@ class _$ConfirmIdealPaymentOptionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConfirmIdealPaymentOptionsImplCopyWith<$Res>
+abstract class _$$_ConfirmIdealPaymentOptionsCopyWith<$Res>
     implements $ConfirmIdealPaymentOptionsCopyWith<$Res> {
-  factory _$$ConfirmIdealPaymentOptionsImplCopyWith(
-          _$ConfirmIdealPaymentOptionsImpl value,
-          $Res Function(_$ConfirmIdealPaymentOptionsImpl) then) =
-      __$$ConfirmIdealPaymentOptionsImplCopyWithImpl<$Res>;
+  factory _$$_ConfirmIdealPaymentOptionsCopyWith(
+          _$_ConfirmIdealPaymentOptions value,
+          $Res Function(_$_ConfirmIdealPaymentOptions) then) =
+      __$$_ConfirmIdealPaymentOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? handleActions});
 }
 
 /// @nodoc
-class __$$ConfirmIdealPaymentOptionsImplCopyWithImpl<$Res>
+class __$$_ConfirmIdealPaymentOptionsCopyWithImpl<$Res>
     extends _$ConfirmIdealPaymentOptionsCopyWithImpl<$Res,
-        _$ConfirmIdealPaymentOptionsImpl>
-    implements _$$ConfirmIdealPaymentOptionsImplCopyWith<$Res> {
-  __$$ConfirmIdealPaymentOptionsImplCopyWithImpl(
-      _$ConfirmIdealPaymentOptionsImpl _value,
-      $Res Function(_$ConfirmIdealPaymentOptionsImpl) _then)
+        _$_ConfirmIdealPaymentOptions>
+    implements _$$_ConfirmIdealPaymentOptionsCopyWith<$Res> {
+  __$$_ConfirmIdealPaymentOptionsCopyWithImpl(
+      _$_ConfirmIdealPaymentOptions _value,
+      $Res Function(_$_ConfirmIdealPaymentOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$ConfirmIdealPaymentOptionsImplCopyWithImpl<$Res>
   $Res call({
     Object? handleActions = freezed,
   }) {
-    return _then(_$ConfirmIdealPaymentOptionsImpl(
+    return _then(_$_ConfirmIdealPaymentOptions(
       handleActions: freezed == handleActions
           ? _value.handleActions
           : handleActions // ignore: cast_nullable_to_non_nullable
@@ -104,12 +104,11 @@ class __$$ConfirmIdealPaymentOptionsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmIdealPaymentOptionsImpl implements _ConfirmIdealPaymentOptions {
-  const _$ConfirmIdealPaymentOptionsImpl({this.handleActions = true});
+class _$_ConfirmIdealPaymentOptions implements _ConfirmIdealPaymentOptions {
+  const _$_ConfirmIdealPaymentOptions({this.handleActions = true});
 
-  factory _$ConfirmIdealPaymentOptionsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ConfirmIdealPaymentOptionsImplFromJson(json);
+  factory _$_ConfirmIdealPaymentOptions.fromJson(Map<String, dynamic> json) =>
+      _$$_ConfirmIdealPaymentOptionsFromJson(json);
 
   /// Set this to false if you want to manually handle
   /// the authorization redirect. Default is true.
@@ -123,10 +122,10 @@ class _$ConfirmIdealPaymentOptionsImpl implements _ConfirmIdealPaymentOptions {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmIdealPaymentOptionsImpl &&
+            other is _$_ConfirmIdealPaymentOptions &&
             (identical(other.handleActions, handleActions) ||
                 other.handleActions == handleActions));
   }
@@ -138,13 +137,13 @@ class _$ConfirmIdealPaymentOptionsImpl implements _ConfirmIdealPaymentOptions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmIdealPaymentOptionsImplCopyWith<_$ConfirmIdealPaymentOptionsImpl>
-      get copyWith => __$$ConfirmIdealPaymentOptionsImplCopyWithImpl<
-          _$ConfirmIdealPaymentOptionsImpl>(this, _$identity);
+  _$$_ConfirmIdealPaymentOptionsCopyWith<_$_ConfirmIdealPaymentOptions>
+      get copyWith => __$$_ConfirmIdealPaymentOptionsCopyWithImpl<
+          _$_ConfirmIdealPaymentOptions>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmIdealPaymentOptionsImplToJson(
+    return _$$_ConfirmIdealPaymentOptionsToJson(
       this,
     );
   }
@@ -153,10 +152,10 @@ class _$ConfirmIdealPaymentOptionsImpl implements _ConfirmIdealPaymentOptions {
 abstract class _ConfirmIdealPaymentOptions
     implements ConfirmIdealPaymentOptions {
   const factory _ConfirmIdealPaymentOptions({final bool? handleActions}) =
-      _$ConfirmIdealPaymentOptionsImpl;
+      _$_ConfirmIdealPaymentOptions;
 
   factory _ConfirmIdealPaymentOptions.fromJson(Map<String, dynamic> json) =
-      _$ConfirmIdealPaymentOptionsImpl.fromJson;
+      _$_ConfirmIdealPaymentOptions.fromJson;
 
   @override
 
@@ -165,6 +164,6 @@ abstract class _ConfirmIdealPaymentOptions
   bool? get handleActions;
   @override
   @JsonKey(ignore: true)
-  _$$ConfirmIdealPaymentOptionsImplCopyWith<_$ConfirmIdealPaymentOptionsImpl>
+  _$$_ConfirmIdealPaymentOptionsCopyWith<_$_ConfirmIdealPaymentOptions>
       get copyWith => throw _privateConstructorUsedError;
 }

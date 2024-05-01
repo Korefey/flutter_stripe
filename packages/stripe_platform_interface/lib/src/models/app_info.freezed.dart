@@ -12,7 +12,7 @@ part of 'app_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AppInfo _$AppInfoFromJson(Map<String, dynamic> json) {
   return _AppInfo.fromJson(json);
@@ -78,21 +78,20 @@ class _$AppInfoCopyWithImpl<$Res, $Val extends AppInfo>
 }
 
 /// @nodoc
-abstract class _$$AppInfoImplCopyWith<$Res> implements $AppInfoCopyWith<$Res> {
-  factory _$$AppInfoImplCopyWith(
-          _$AppInfoImpl value, $Res Function(_$AppInfoImpl) then) =
-      __$$AppInfoImplCopyWithImpl<$Res>;
+abstract class _$$_AppInfoCopyWith<$Res> implements $AppInfoCopyWith<$Res> {
+  factory _$$_AppInfoCopyWith(
+          _$_AppInfo value, $Res Function(_$_AppInfo) then) =
+      __$$_AppInfoCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? name, String? partnerId, String? url, String? version});
 }
 
 /// @nodoc
-class __$$AppInfoImplCopyWithImpl<$Res>
-    extends _$AppInfoCopyWithImpl<$Res, _$AppInfoImpl>
-    implements _$$AppInfoImplCopyWith<$Res> {
-  __$$AppInfoImplCopyWithImpl(
-      _$AppInfoImpl _value, $Res Function(_$AppInfoImpl) _then)
+class __$$_AppInfoCopyWithImpl<$Res>
+    extends _$AppInfoCopyWithImpl<$Res, _$_AppInfo>
+    implements _$$_AppInfoCopyWith<$Res> {
+  __$$_AppInfoCopyWithImpl(_$_AppInfo _value, $Res Function(_$_AppInfo) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +102,7 @@ class __$$AppInfoImplCopyWithImpl<$Res>
     Object? url = freezed,
     Object? version = freezed,
   }) {
-    return _then(_$AppInfoImpl(
+    return _then(_$_AppInfo(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -127,11 +126,11 @@ class __$$AppInfoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$AppInfoImpl implements _AppInfo {
-  const _$AppInfoImpl({this.name, this.partnerId, this.url, this.version});
+class _$_AppInfo implements _AppInfo {
+  const _$_AppInfo({this.name, this.partnerId, this.url, this.version});
 
-  factory _$AppInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AppInfoImplFromJson(json);
+  factory _$_AppInfo.fromJson(Map<String, dynamic> json) =>
+      _$$_AppInfoFromJson(json);
 
   @override
   final String? name;
@@ -148,10 +147,10 @@ class _$AppInfoImpl implements _AppInfo {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AppInfoImpl &&
+            other is _$_AppInfo &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.partnerId, partnerId) ||
                 other.partnerId == partnerId) &&
@@ -166,12 +165,12 @@ class _$AppInfoImpl implements _AppInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AppInfoImplCopyWith<_$AppInfoImpl> get copyWith =>
-      __$$AppInfoImplCopyWithImpl<_$AppInfoImpl>(this, _$identity);
+  _$$_AppInfoCopyWith<_$_AppInfo> get copyWith =>
+      __$$_AppInfoCopyWithImpl<_$_AppInfo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AppInfoImplToJson(
+    return _$$_AppInfoToJson(
       this,
     );
   }
@@ -182,9 +181,9 @@ abstract class _AppInfo implements AppInfo {
       {final String? name,
       final String? partnerId,
       final String? url,
-      final String? version}) = _$AppInfoImpl;
+      final String? version}) = _$_AppInfo;
 
-  factory _AppInfo.fromJson(Map<String, dynamic> json) = _$AppInfoImpl.fromJson;
+  factory _AppInfo.fromJson(Map<String, dynamic> json) = _$_AppInfo.fromJson;
 
   @override
   String? get name;
@@ -196,6 +195,6 @@ abstract class _AppInfo implements AppInfo {
   String? get version;
   @override
   @JsonKey(ignore: true)
-  _$$AppInfoImplCopyWith<_$AppInfoImpl> get copyWith =>
+  _$$_AppInfoCopyWith<_$_AppInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

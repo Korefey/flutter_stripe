@@ -3,12 +3,10 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:stripe_platform_interface/src/models/ach_params.dart';
 import 'package:stripe_platform_interface/src/models/create_token_data.dart';
-import 'package:stripe_platform_interface/src/models/customer_sheet.dart';
 import 'package:stripe_platform_interface/src/models/financial_connections.dart';
 import 'package:stripe_platform_interface/src/models/google_pay.dart';
 import 'package:stripe_platform_interface/src/models/intent_creation_callback_params.dart';
 import 'package:stripe_platform_interface/src/models/platform_pay.dart';
-import 'package:stripe_platform_interface/src/models/push_provisioning.dart';
 import 'package:stripe_platform_interface/src/models/wallet.dart';
 import 'package:stripe_platform_interface/src/result_parser.dart';
 
@@ -152,11 +150,10 @@ class MethodChannelStripe extends StripePlatform {
   }
 
   @override
-  Future<SetupIntent> handleNextActionForSetupIntent(
-      String setupIntentClientSecret,
+  Future<SetupIntent> handleNextActionForSetupIntent(String setupIntentClientSecret,
       {String? returnURL}) async {
     final result = await _methodChannel
-        .invokeMapMethod<String, dynamic>('handleNextActionForSetup', {
+        .invokeMapMethod<String, dynamic>('handleNextAction', {
       'setupIntentClientSecret': setupIntentClientSecret,
       if (_platformIsIos) 'returnURL': returnURL,
     });
@@ -249,47 +246,6 @@ class MethodChannelStripe extends StripePlatform {
   }
 
   @override
-  Future<CustomerSheetResult?> initCustomerSheet(
-      CustomerSheetInitParams params) async {
-    final result = await _methodChannel.invokeMethod(
-      'initCustomerSheet',
-      {
-        'params': params.toJson(),
-        'customerAdapterOverrides': {},
-      },
-    );
-
-    if (result is List) {
-      return null;
-    } else {
-      return _parseCustomerSheetResult(result);
-    }
-  }
-
-  @override
-  Future<CustomerSheetResult?> presentCustomerSheet({
-    CustomerSheetPresentParams? options,
-  }) async {
-    final result = await _methodChannel.invokeMethod<dynamic>(
-      'presentCustomerSheet',
-      {'params': {}, 'options': options?.toJson() ?? {}},
-    );
-
-    return _parseCustomerSheetResult(result);
-  }
-
-  @override
-  Future<CustomerSheetResult?>
-      retrieveCustomerSheetPaymentOptionSelection() async {
-    final result = await _methodChannel.invokeMethod<dynamic>(
-      'retrieveCustomerSheetPaymentOptionSelection',
-      {},
-    );
-
-    return _parseCustomerSheetResult(result);
-  }
-
-  @override
   Future<TokenData> createToken(CreateTokenParams params) async {
     final invokeParams = params.map(
       (value) => value.toJson(),
@@ -323,9 +279,7 @@ class MethodChannelStripe extends StripePlatform {
   PaymentSheetPaymentOption? _parsePaymentSheetResult(
       Map<String, dynamic>? result) {
     if (result != null) {
-      ///iOS sometimes returns empty paymentoption so add workaround for it.
-      if (result.isEmpty ||
-          (result['paymentOption'] == null && result['error'] == null)) {
+      if (result.isEmpty) {
         return null;
       } else if (result['paymentOption'] != null) {
         return PaymentSheetPaymentOption.fromJson(result['paymentOption']);
@@ -346,33 +300,6 @@ class MethodChannelStripe extends StripePlatform {
       throw const StripeError<PaymentSheetError>(
         message: 'Result should not be null',
         code: PaymentSheetError.unknown,
-      );
-    }
-  }
-
-  CustomerSheetResult? _parseCustomerSheetResult(Map<String, dynamic>? result) {
-    if (result != null) {
-      if (result.isEmpty) {
-        return null;
-      } else if (result['paymentOption'] != null) {
-        return CustomerSheetResult.fromJson(result);
-      } else {
-        if (result['error'] != null) {
-          //workaround for tojson in sumtypes
-          result['runtimeType'] = 'failed';
-          throw StripeException.fromJson(result);
-        } else {
-          throw StripeError<CustomerSheetError>(
-            message:
-                'Unknown result this is likely a problem in the plugin $result',
-            code: CustomerSheetError.unknown,
-          );
-        }
-      }
-    } else {
-      throw const StripeError<CustomerSheetError>(
-        message: 'Result should not be null',
-        code: CustomerSheetError.unknown,
       );
     }
   }
@@ -420,7 +347,6 @@ class MethodChannelStripe extends StripePlatform {
   @override
   Future<bool> isPlatformPaySupported({
     IsGooglePaySupportedParams? params,
-    PlatformPayWebPaymentRequestCreateOptions? paymentRequestOptions,
   }) async {
     bool? isSupported;
     if (params == null) {
@@ -572,7 +498,7 @@ class MethodChannelStripe extends StripePlatform {
   }
 
   @override
-  Future<PlatformPayPaymentMethod> platformPayCreatePaymentMethod({
+  Future<PaymentMethod> platformPayCreatePaymentMethod({
     required PlatformPayPaymentMethodParams params,
     bool usesDeprecatedTokenFlow = false,
   }) async {
@@ -581,7 +507,6 @@ class MethodChannelStripe extends StripePlatform {
       data = {
         'applePay': {
           ...params.applePayParams.toJson(),
-          'usesDeprecatedTokenFlow': usesDeprecatedTokenFlow,
         },
       };
     } else if (params is PlatformPayPaymentMethodParamsGooglePay) {
@@ -589,7 +514,6 @@ class MethodChannelStripe extends StripePlatform {
         'googlePay': {
           ...params.googlePayParams.toJson(),
           ...params.googlePayPaymentMethodParams.toJson(),
-          'usesDeprecatedTokenFlow': usesDeprecatedTokenFlow,
         },
       };
     }
@@ -600,11 +524,9 @@ class MethodChannelStripe extends StripePlatform {
       'usesDeprecatedTokenFlow': usesDeprecatedTokenFlow,
     });
 
-    if (result!.containsKey('error')) {
-      throw ResultParser<void>(parseJson: (json) => {}).parseError(result);
-    }
-
-    return PlatformPayPaymentMethod.fromJson(result);
+    return ResultParser<PaymentMethod>(
+            parseJson: (json) => PaymentMethod.fromJson(json))
+        .parse(result: result!, successResultKey: 'paymentMethod');
   }
 
   @override
@@ -631,29 +553,6 @@ class MethodChannelStripe extends StripePlatform {
       'intentCreationCallback',
       {'params': params.toJson()},
     );
-  }
-
-  @override
-  Future<CanAddCardToWalletResult> canAddCardToWallet(
-      CanAddCardToWalletParams params) async {
-    final result = await _methodChannel.invokeMethod('canAddCardToWallet', {
-      'params': params.toJson(),
-    });
-
-    return ResultParser<CanAddCardToWalletResult>(
-            parseJson: (json) => CanAddCardToWalletResult.fromJson(json))
-        .parse(result: result!, successResultKey: 'canAddCardToWalletResult');
-  }
-
-  @override
-  Future<IsCardInWalletResult> isCardInWallet(String cardLastFour) async {
-    final result = await _methodChannel.invokeMethod('canAddCardToWallet', {
-      'params': {'cardLastFour': cardLastFour},
-    });
-
-    return ResultParser<IsCardInWalletResult>(
-            parseJson: (json) => IsCardInWalletResult.fromJson(json))
-        .parse(result: result!, successResultKey: 'canAddCardToWalletResult');
   }
 }
 

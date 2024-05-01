@@ -70,25 +70,25 @@ class _$ConfirmAcssDebitPaymentDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConfirmAcssDebitPaymentDataImplCopyWith<$Res>
+abstract class _$$_ConfirmAcssDebitPaymentDataCopyWith<$Res>
     implements $ConfirmAcssDebitPaymentDataCopyWith<$Res> {
-  factory _$$ConfirmAcssDebitPaymentDataImplCopyWith(
-          _$ConfirmAcssDebitPaymentDataImpl value,
-          $Res Function(_$ConfirmAcssDebitPaymentDataImpl) then) =
-      __$$ConfirmAcssDebitPaymentDataImplCopyWithImpl<$Res>;
+  factory _$$_ConfirmAcssDebitPaymentDataCopyWith(
+          _$_ConfirmAcssDebitPaymentData value,
+          $Res Function(_$_ConfirmAcssDebitPaymentData) then) =
+      __$$_ConfirmAcssDebitPaymentDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: "payment_method") String? paymentMethod});
 }
 
 /// @nodoc
-class __$$ConfirmAcssDebitPaymentDataImplCopyWithImpl<$Res>
+class __$$_ConfirmAcssDebitPaymentDataCopyWithImpl<$Res>
     extends _$ConfirmAcssDebitPaymentDataCopyWithImpl<$Res,
-        _$ConfirmAcssDebitPaymentDataImpl>
-    implements _$$ConfirmAcssDebitPaymentDataImplCopyWith<$Res> {
-  __$$ConfirmAcssDebitPaymentDataImplCopyWithImpl(
-      _$ConfirmAcssDebitPaymentDataImpl _value,
-      $Res Function(_$ConfirmAcssDebitPaymentDataImpl) _then)
+        _$_ConfirmAcssDebitPaymentData>
+    implements _$$_ConfirmAcssDebitPaymentDataCopyWith<$Res> {
+  __$$_ConfirmAcssDebitPaymentDataCopyWithImpl(
+      _$_ConfirmAcssDebitPaymentData _value,
+      $Res Function(_$_ConfirmAcssDebitPaymentData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$ConfirmAcssDebitPaymentDataImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethod = freezed,
   }) {
-    return _then(_$ConfirmAcssDebitPaymentDataImpl(
+    return _then(_$_ConfirmAcssDebitPaymentData(
       paymentMethod: freezed == paymentMethod
           ? _value.paymentMethod
           : paymentMethod // ignore: cast_nullable_to_non_nullable
@@ -107,14 +107,12 @@ class __$$ConfirmAcssDebitPaymentDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmAcssDebitPaymentDataImpl
-    implements _ConfirmAcssDebitPaymentData {
-  const _$ConfirmAcssDebitPaymentDataImpl(
+class _$_ConfirmAcssDebitPaymentData implements _ConfirmAcssDebitPaymentData {
+  const _$_ConfirmAcssDebitPaymentData(
       {@JsonKey(name: "payment_method") this.paymentMethod});
 
-  factory _$ConfirmAcssDebitPaymentDataImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ConfirmAcssDebitPaymentDataImplFromJson(json);
+  factory _$_ConfirmAcssDebitPaymentData.fromJson(Map<String, dynamic> json) =>
+      _$$_ConfirmAcssDebitPaymentDataFromJson(json);
 
   /// Either the id of an existing PaymentMethod, or an object containing
   /// data to create a PaymentMethod with.
@@ -132,7 +130,7 @@ class _$ConfirmAcssDebitPaymentDataImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmAcssDebitPaymentDataImpl &&
+            other is _$_ConfirmAcssDebitPaymentData &&
             (identical(other.paymentMethod, paymentMethod) ||
                 other.paymentMethod == paymentMethod));
   }
@@ -144,13 +142,13 @@ class _$ConfirmAcssDebitPaymentDataImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmAcssDebitPaymentDataImplCopyWith<_$ConfirmAcssDebitPaymentDataImpl>
-      get copyWith => __$$ConfirmAcssDebitPaymentDataImplCopyWithImpl<
-          _$ConfirmAcssDebitPaymentDataImpl>(this, _$identity);
+  _$$_ConfirmAcssDebitPaymentDataCopyWith<_$_ConfirmAcssDebitPaymentData>
+      get copyWith => __$$_ConfirmAcssDebitPaymentDataCopyWithImpl<
+          _$_ConfirmAcssDebitPaymentData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmAcssDebitPaymentDataImplToJson(
+    return _$$_ConfirmAcssDebitPaymentDataToJson(
       this,
     );
   }
@@ -160,10 +158,10 @@ abstract class _ConfirmAcssDebitPaymentData
     implements ConfirmAcssDebitPaymentData {
   const factory _ConfirmAcssDebitPaymentData(
           {@JsonKey(name: "payment_method") final String? paymentMethod}) =
-      _$ConfirmAcssDebitPaymentDataImpl;
+      _$_ConfirmAcssDebitPaymentData;
 
   factory _ConfirmAcssDebitPaymentData.fromJson(Map<String, dynamic> json) =
-      _$ConfirmAcssDebitPaymentDataImpl.fromJson;
+      _$_ConfirmAcssDebitPaymentData.fromJson;
 
   @override
 
@@ -174,6 +172,6 @@ abstract class _ConfirmAcssDebitPaymentData
   String? get paymentMethod;
   @override
   @JsonKey(ignore: true)
-  _$$ConfirmAcssDebitPaymentDataImplCopyWith<_$ConfirmAcssDebitPaymentDataImpl>
+  _$$_ConfirmAcssDebitPaymentDataCopyWith<_$_ConfirmAcssDebitPaymentData>
       get copyWith => throw _privateConstructorUsedError;
 }

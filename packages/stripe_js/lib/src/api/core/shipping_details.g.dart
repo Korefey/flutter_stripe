@@ -6,9 +6,8 @@ part of 'shipping_details.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PaymentElementChangeEventImpl _$$PaymentElementChangeEventImplFromJson(
-        Map json) =>
-    _$PaymentElementChangeEventImpl(
+_$_PaymentElementChangeEvent _$$_PaymentElementChangeEventFromJson(Map json) =>
+    _$_PaymentElementChangeEvent(
       address: json['address'] == null
           ? const ShippingDetailsAddress()
           : ShippingDetailsAddress.fromJson(
@@ -19,8 +18,8 @@ _$PaymentElementChangeEventImpl _$$PaymentElementChangeEventImplFromJson(
       trackingNumber: json['tracking_number'] as String?,
     );
 
-Map<String, dynamic> _$$PaymentElementChangeEventImplToJson(
-    _$PaymentElementChangeEventImpl instance) {
+Map<String, dynamic> _$$_PaymentElementChangeEventToJson(
+    _$_PaymentElementChangeEvent instance) {
   final val = <String, dynamic>{
     'address': instance.address.toJson(),
   };
@@ -38,9 +37,9 @@ Map<String, dynamic> _$$PaymentElementChangeEventImplToJson(
   return val;
 }
 
-_$PaymentElementBillingDetailsAddressImpl
-    _$$PaymentElementBillingDetailsAddressImplFromJson(Map json) =>
-        _$PaymentElementBillingDetailsAddressImpl(
+_$_PaymentElementBillingDetailsAddress
+    _$$_PaymentElementBillingDetailsAddressFromJson(Map json) =>
+        _$_PaymentElementBillingDetailsAddress(
           line1: json['line1'] as String?,
           line2: json['line2'] as String?,
           city: json['city'] as String?,
@@ -49,8 +48,8 @@ _$PaymentElementBillingDetailsAddressImpl
           postalCode: json['postal_code'] as String?,
         );
 
-Map<String, dynamic> _$$PaymentElementBillingDetailsAddressImplToJson(
-    _$PaymentElementBillingDetailsAddressImpl instance) {
+Map<String, dynamic> _$$_PaymentElementBillingDetailsAddressToJson(
+    _$_PaymentElementBillingDetailsAddress instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

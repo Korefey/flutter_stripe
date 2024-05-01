@@ -6,8 +6,8 @@ part of 'confirm_card_payment_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConfirmCardPaymentDataImpl _$$ConfirmCardPaymentDataImplFromJson(Map json) =>
-    _$ConfirmCardPaymentDataImpl(
+_$_ConfirmCardPaymentData _$$_ConfirmCardPaymentDataFromJson(Map json) =>
+    _$_ConfirmCardPaymentData(
       paymentMethod: json['payment_method'] == null
           ? null
           : CardPaymentMethodDetails.fromJson(
@@ -23,8 +23,8 @@ _$ConfirmCardPaymentDataImpl _$$ConfirmCardPaymentDataImplFromJson(Map json) =>
       paymentMethodOptions: json['payment_method_options'],
     );
 
-Map<String, dynamic> _$$ConfirmCardPaymentDataImplToJson(
-    _$ConfirmCardPaymentDataImpl instance) {
+Map<String, dynamic> _$$_ConfirmCardPaymentDataToJson(
+    _$_ConfirmCardPaymentData instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

@@ -1,10 +1,10 @@
 package com.reactnativestripesdk.addresssheet
 
 import com.facebook.react.bridge.WritableMapStripe
-import com.facebook.react.uimanager.events.Event
+import com.facebook.react.uimanager.events.EventStripe
 import com.facebook.react.uimanager.events.RCTEventEmitterStripe
 
-internal class AddressSheetEvent constructor(viewTag: Int, private val eventType: EventType, private val eventMap: WritableMapStripe?) : Event<AddressSheetEvent>(viewTag) {
+internal class AddressSheetEvent constructor(viewTag: Int, private val eventType: EventType, private val eventMap: WritableMapStripe?) : EventStripe<AddressSheetEvent>(viewTag) {
   enum class EventType {
     OnSubmit,
     OnError

@@ -1,7 +1,7 @@
 package com.reactnativestripesdk
 
 import com.facebook.react.bridge.ReadableArrayStripe
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.common.MapBuilderStripe
 import com.facebook.react.uimanager.SimpleViewManagerStripe
 import com.facebook.react.uimanager.ThemedReactContextStripe
@@ -37,7 +37,7 @@ class CardFormViewManager : SimpleViewManagerStripe<CardFormView>() {
   }
 
    @ReactPropStripe(name = "placeholders")
-   fun setPlaceHolders(view: CardFormView, placeholders: ReadableMap) {
+   fun setPlaceHolders(view: CardFormView, placeholders: ReadableMapStripe) {
      view.setPlaceHolders(placeholders)
    }
 
@@ -47,24 +47,18 @@ class CardFormViewManager : SimpleViewManagerStripe<CardFormView>() {
   }
 
   @ReactPropStripe(name = "cardStyle")
-  fun setCardStyle(view: CardFormView, cardStyle: ReadableMap) {
+  fun setCardStyle(view: CardFormView, cardStyle: ReadableMapStripe) {
     view.setCardStyle(cardStyle)
   }
 
   @ReactPropStripe(name = "defaultValues")
-  fun setDefaultValues(view: CardFormView, defaults: ReadableMap) {
+  fun setDefaultValues(view: CardFormView, defaults: ReadableMapStripe) {
     view.setDefaultValues(defaults)
   }
 
   @ReactPropStripe(name = "disabled")
   fun setDisabled(view: CardFormView, isDisabled: Boolean) {
     view.setDisabled(isDisabled)
-  }
-
-  @ReactPropStripe(name = "preferredNetworks")
-  fun setPreferredNetworks(view: CardFormView, preferredNetworks: ReadableArrayStripe?) {
-    val networks = preferredNetworks?.toArrayList()?.filterIsInstance<Int>()?.let { ArrayList(it) }
-    view.setPreferredNetworks(networks)
   }
 
   override fun createViewInstance(reactContext: ThemedReactContextStripe): CardFormView {

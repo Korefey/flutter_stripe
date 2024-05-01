@@ -64,12 +64,6 @@ class CardFieldViewManager : SimpleViewManagerStripe<CardFieldView>() {
     view.setDisabled(isDisabled)
   }
 
-  @ReactPropStripe(name = "preferredNetworks")
-  fun setPreferredNetworks(view: CardFieldView, preferredNetworks: ReadableArrayStripe?) {
-    val networks = preferredNetworks?.toArrayList()?.filterIsInstance<Int>()?.let { ArrayList(it) }
-    view.setPreferredNetworks(networks)
-  }
-
   override fun createViewInstance(reactContext: ThemedReactContextStripe): CardFieldView {
     val stripeSdkModule: StripeSdkModule? = reactContext.getNativeModule(StripeSdkModule::class.java)
     val view = CardFieldView(reactContext)

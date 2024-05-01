@@ -21,13 +21,9 @@ extension StripeSdk : PKPaymentAuthorizationViewControllerDelegate, STPApplePayC
                 if let error = error {
                     self.createPlatformPayPaymentMethodResolver?(Errors.createError(ErrorType.Failed, error))
                 } else {
-                    var promiseResult = [
-                        "token": token != nil ? Mappers.mapFromToken(token: token!.splitApplePayAddressByNewline()) : [:],
+                    let promiseResult = [
+                        "token": token != nil ? Mappers.mapFromToken(token: token!.splitApplePayAddressByNewline()) : [:]
                     ]
-                    if let shippingContact = payment.shippingContact {
-                        promiseResult["shippingContact"] = Mappers.mapFromShippingContact(shippingContact: shippingContact)
-                    }
-
                     self.createPlatformPayPaymentMethodResolver?(promiseResult)
                 }
                 completion(PKPaymentAuthorizationResult.init(status: .success, errors: nil))
@@ -37,13 +33,9 @@ extension StripeSdk : PKPaymentAuthorizationViewControllerDelegate, STPApplePayC
                 if let error = error {
                     self.createPlatformPayPaymentMethodResolver?(Errors.createError(ErrorType.Failed, error))
                 } else {
-                    var promiseResult = [
+                    let promiseResult = [
                         "paymentMethod": Mappers.mapFromPaymentMethod(paymentMethod?.splitApplePayAddressByNewline()) ?? [:]
                     ]
-                    if let shippingContact = payment.shippingContact {
-                        promiseResult["shippingContact"] = Mappers.mapFromShippingContact(shippingContact: shippingContact)
-                    }
-                    
                     self.createPlatformPayPaymentMethodResolver?(promiseResult)
                 }
                 completion(PKPaymentAuthorizationResult.init(status: .success, errors: nil))
@@ -165,7 +157,6 @@ extension StripeSdk : PKPaymentAuthorizationViewControllerDelegate, STPApplePayC
         paymentInformation: PKPayment,
         completion: @escaping STPIntentClientSecretCompletionBlock
     ) {
-        self.confirmApplePayPaymentMethod = paymentMethod
         if let clientSecret = self.confirmApplePayPaymentClientSecret {
             completion(clientSecret, nil)
         } else if let clientSecret = self.confirmApplePaySetupClientSecret {
@@ -208,15 +199,10 @@ extension StripeSdk : PKPaymentAuthorizationViewControllerDelegate, STPApplePayC
                         }
 
                         if let paymentIntent = paymentIntent {
-                            let result = Mappers.mapFromPaymentIntent(paymentIntent: paymentIntent)
-                            if (paymentIntent.paymentMethod == nil) {
-                                result.setValue(Mappers.mapFromPaymentMethod(self.confirmApplePayPaymentMethod), forKey: "paymentMethod")
-                            }
-                            resolve(Mappers.createResult("paymentIntent", result))
+                            resolve(Mappers.createResult("paymentIntent", Mappers.mapFromPaymentIntent(paymentIntent: paymentIntent)))
                         } else {
                             resolve(Mappers.createResult("paymentIntent", nil))
                         }
-                        self.confirmApplePayPaymentMethod = nil
                     }
                 } else if let clientSecret = self.confirmApplePaySetupClientSecret {
                     STPAPIClient.shared.retrieveSetupIntent(withClientSecret: clientSecret) { (setupIntent, error) in
@@ -230,15 +216,10 @@ extension StripeSdk : PKPaymentAuthorizationViewControllerDelegate, STPApplePayC
                         }
 
                         if let setupIntent = setupIntent {
-                            let result = Mappers.mapFromSetupIntent(setupIntent: setupIntent)
-                            if (setupIntent.paymentMethod == nil) {
-                                result.setValue(Mappers.mapFromPaymentMethod(self.confirmApplePayPaymentMethod), forKey: "paymentMethod")
-                            }
-                            resolve(Mappers.createResult("setupIntent", result))
+                            resolve(Mappers.createResult("setupIntent", Mappers.mapFromSetupIntent(setupIntent: setupIntent)))
                         } else {
                             resolve(Mappers.createResult("setupIntent", nil))
                         }
-                        self.confirmApplePayPaymentMethod = nil
                     }
                 }
             }

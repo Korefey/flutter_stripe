@@ -12,7 +12,7 @@ part of 'payment_intent.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PaymentIntent _$PaymentIntentFromJson(Map<String, dynamic> json) {
   return _PaymentIntent.fromJson(json);
@@ -171,8 +171,7 @@ mixin _$PaymentIntent {
 
   /// The list of payment method types (e.g. card) that this PaymentIntent
   /// is allowed to use.
-  @JsonKey(
-      name: "payment_method_types", unknownEnumValue: PaymentMethodType.unknown)
+  @JsonKey(name: "payment_method_types")
   List<PaymentMethodType> get paymentMethodTypes =>
       throw _privateConstructorUsedError;
 
@@ -281,9 +280,7 @@ abstract class $PaymentIntentCopyWith<$Res> {
       @JsonKey(name: "payment_method") String? paymentMethod,
       @JsonKey(name: "payment_method_options")
       Map<dynamic, dynamic> paymentMethodOptions,
-      @JsonKey(
-          name: "payment_method_types",
-          unknownEnumValue: PaymentMethodType.unknown)
+      @JsonKey(name: "payment_method_types")
       List<PaymentMethodType> paymentMethodTypes,
       dynamic processing,
       @JsonKey(name: "receipt_email") String? receiptEmail,
@@ -566,11 +563,11 @@ class _$PaymentIntentCopyWithImpl<$Res, $Val extends PaymentIntent>
 }
 
 /// @nodoc
-abstract class _$$PaymentIntentImplCopyWith<$Res>
+abstract class _$$_PaymentIntentCopyWith<$Res>
     implements $PaymentIntentCopyWith<$Res> {
-  factory _$$PaymentIntentImplCopyWith(
-          _$PaymentIntentImpl value, $Res Function(_$PaymentIntentImpl) then) =
-      __$$PaymentIntentImplCopyWithImpl<$Res>;
+  factory _$$_PaymentIntentCopyWith(
+          _$_PaymentIntent value, $Res Function(_$_PaymentIntent) then) =
+      __$$_PaymentIntentCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -606,9 +603,7 @@ abstract class _$$PaymentIntentImplCopyWith<$Res>
       @JsonKey(name: "payment_method") String? paymentMethod,
       @JsonKey(name: "payment_method_options")
       Map<dynamic, dynamic> paymentMethodOptions,
-      @JsonKey(
-          name: "payment_method_types",
-          unknownEnumValue: PaymentMethodType.unknown)
+      @JsonKey(name: "payment_method_types")
       List<PaymentMethodType> paymentMethodTypes,
       dynamic processing,
       @JsonKey(name: "receipt_email") String? receiptEmail,
@@ -635,11 +630,11 @@ abstract class _$$PaymentIntentImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentIntentImplCopyWithImpl<$Res>
-    extends _$PaymentIntentCopyWithImpl<$Res, _$PaymentIntentImpl>
-    implements _$$PaymentIntentImplCopyWith<$Res> {
-  __$$PaymentIntentImplCopyWithImpl(
-      _$PaymentIntentImpl _value, $Res Function(_$PaymentIntentImpl) _then)
+class __$$_PaymentIntentCopyWithImpl<$Res>
+    extends _$PaymentIntentCopyWithImpl<$Res, _$_PaymentIntent>
+    implements _$$_PaymentIntentCopyWith<$Res> {
+  __$$_PaymentIntentCopyWithImpl(
+      _$_PaymentIntent _value, $Res Function(_$_PaymentIntent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -684,7 +679,7 @@ class __$$PaymentIntentImplCopyWithImpl<$Res>
     Object? transferData = freezed,
     Object? transferGroup = freezed,
   }) {
-    return _then(_$PaymentIntentImpl(
+    return _then(_$_PaymentIntent(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -843,8 +838,8 @@ class __$$PaymentIntentImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentIntentImpl implements _PaymentIntent {
-  const _$PaymentIntentImpl(
+class _$_PaymentIntent implements _PaymentIntent {
+  const _$_PaymentIntent(
       {required this.id,
       this.object = "payment_intent",
       required this.amount,
@@ -876,9 +871,7 @@ class _$PaymentIntentImpl implements _PaymentIntent {
       @JsonKey(name: "payment_method") this.paymentMethod,
       @JsonKey(name: "payment_method_options")
       final Map<dynamic, dynamic> paymentMethodOptions = const {},
-      @JsonKey(
-          name: "payment_method_types",
-          unknownEnumValue: PaymentMethodType.unknown)
+      @JsonKey(name: "payment_method_types")
       final List<PaymentMethodType> paymentMethodTypes = const [],
       this.processing,
       @JsonKey(name: "receipt_email") this.receiptEmail,
@@ -895,8 +888,8 @@ class _$PaymentIntentImpl implements _PaymentIntent {
         _paymentMethodOptions = paymentMethodOptions,
         _paymentMethodTypes = paymentMethodTypes;
 
-  factory _$PaymentIntentImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentIntentImplFromJson(json);
+  factory _$_PaymentIntent.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentIntentFromJson(json);
 
   /// Unique identifier for the object.
   @override
@@ -1094,8 +1087,7 @@ class _$PaymentIntentImpl implements _PaymentIntent {
   /// The list of payment method types (e.g. card) that this PaymentIntent
   /// is allowed to use.
   @override
-  @JsonKey(
-      name: "payment_method_types", unknownEnumValue: PaymentMethodType.unknown)
+  @JsonKey(name: "payment_method_types")
   List<PaymentMethodType> get paymentMethodTypes {
     if (_paymentMethodTypes is EqualUnmodifiableListView)
       return _paymentMethodTypes;
@@ -1178,10 +1170,10 @@ class _$PaymentIntentImpl implements _PaymentIntent {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentIntentImpl &&
+            other is _$_PaymentIntent &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.object, object) || other.object == object) &&
             (identical(other.amount, amount) || other.amount == amount) &&
@@ -1300,12 +1292,12 @@ class _$PaymentIntentImpl implements _PaymentIntent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentIntentImplCopyWith<_$PaymentIntentImpl> get copyWith =>
-      __$$PaymentIntentImplCopyWithImpl<_$PaymentIntentImpl>(this, _$identity);
+  _$$_PaymentIntentCopyWith<_$_PaymentIntent> get copyWith =>
+      __$$_PaymentIntentCopyWithImpl<_$_PaymentIntent>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentIntentImplToJson(
+    return _$$_PaymentIntentToJson(
       this,
     );
   }
@@ -1346,9 +1338,7 @@ abstract class _PaymentIntent implements PaymentIntent {
       @JsonKey(name: "payment_method") final String? paymentMethod,
       @JsonKey(name: "payment_method_options")
       final Map<dynamic, dynamic> paymentMethodOptions,
-      @JsonKey(
-          name: "payment_method_types",
-          unknownEnumValue: PaymentMethodType.unknown)
+      @JsonKey(name: "payment_method_types")
       final List<PaymentMethodType> paymentMethodTypes,
       final dynamic processing,
       @JsonKey(name: "receipt_email") final String? receiptEmail,
@@ -1362,10 +1352,10 @@ abstract class _PaymentIntent implements PaymentIntent {
       required final PaymentIntentsStatus status,
       @JsonKey(name: "transfer_data") final dynamic transferData,
       @JsonKey(name: "transfer_group")
-      final dynamic transferGroup}) = _$PaymentIntentImpl;
+      final dynamic transferGroup}) = _$_PaymentIntent;
 
   factory _PaymentIntent.fromJson(Map<String, dynamic> json) =
-      _$PaymentIntentImpl.fromJson;
+      _$_PaymentIntent.fromJson;
 
   @override
 
@@ -1541,8 +1531,7 @@ abstract class _PaymentIntent implements PaymentIntent {
 
   /// The list of payment method types (e.g. card) that this PaymentIntent
   /// is allowed to use.
-  @JsonKey(
-      name: "payment_method_types", unknownEnumValue: PaymentMethodType.unknown)
+  @JsonKey(name: "payment_method_types")
   List<PaymentMethodType> get paymentMethodTypes;
   @override
 
@@ -1614,7 +1603,7 @@ abstract class _PaymentIntent implements PaymentIntent {
   dynamic get transferGroup;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentIntentImplCopyWith<_$PaymentIntentImpl> get copyWith =>
+  _$$_PaymentIntentCopyWith<_$_PaymentIntent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1684,12 +1673,12 @@ class _$PaymentIntentAmountDetailsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentIntentAmountDetailsImplCopyWith<$Res>
+abstract class _$$_PaymentIntentAmountDetailsCopyWith<$Res>
     implements $PaymentIntentAmountDetailsCopyWith<$Res> {
-  factory _$$PaymentIntentAmountDetailsImplCopyWith(
-          _$PaymentIntentAmountDetailsImpl value,
-          $Res Function(_$PaymentIntentAmountDetailsImpl) then) =
-      __$$PaymentIntentAmountDetailsImplCopyWithImpl<$Res>;
+  factory _$$_PaymentIntentAmountDetailsCopyWith(
+          _$_PaymentIntentAmountDetails value,
+          $Res Function(_$_PaymentIntentAmountDetails) then) =
+      __$$_PaymentIntentAmountDetailsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PaymentIntentTip? tip});
@@ -1699,13 +1688,13 @@ abstract class _$$PaymentIntentAmountDetailsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentIntentAmountDetailsImplCopyWithImpl<$Res>
+class __$$_PaymentIntentAmountDetailsCopyWithImpl<$Res>
     extends _$PaymentIntentAmountDetailsCopyWithImpl<$Res,
-        _$PaymentIntentAmountDetailsImpl>
-    implements _$$PaymentIntentAmountDetailsImplCopyWith<$Res> {
-  __$$PaymentIntentAmountDetailsImplCopyWithImpl(
-      _$PaymentIntentAmountDetailsImpl _value,
-      $Res Function(_$PaymentIntentAmountDetailsImpl) _then)
+        _$_PaymentIntentAmountDetails>
+    implements _$$_PaymentIntentAmountDetailsCopyWith<$Res> {
+  __$$_PaymentIntentAmountDetailsCopyWithImpl(
+      _$_PaymentIntentAmountDetails _value,
+      $Res Function(_$_PaymentIntentAmountDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1713,7 +1702,7 @@ class __$$PaymentIntentAmountDetailsImplCopyWithImpl<$Res>
   $Res call({
     Object? tip = freezed,
   }) {
-    return _then(_$PaymentIntentAmountDetailsImpl(
+    return _then(_$_PaymentIntentAmountDetails(
       tip: freezed == tip
           ? _value.tip
           : tip // ignore: cast_nullable_to_non_nullable
@@ -1724,12 +1713,11 @@ class __$$PaymentIntentAmountDetailsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentIntentAmountDetailsImpl implements _PaymentIntentAmountDetails {
-  const _$PaymentIntentAmountDetailsImpl({this.tip = const PaymentIntentTip()});
+class _$_PaymentIntentAmountDetails implements _PaymentIntentAmountDetails {
+  const _$_PaymentIntentAmountDetails({this.tip = const PaymentIntentTip()});
 
-  factory _$PaymentIntentAmountDetailsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PaymentIntentAmountDetailsImplFromJson(json);
+  factory _$_PaymentIntentAmountDetails.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentIntentAmountDetailsFromJson(json);
 
   /// Details about items included in the amount
   @override
@@ -1742,10 +1730,10 @@ class _$PaymentIntentAmountDetailsImpl implements _PaymentIntentAmountDetails {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentIntentAmountDetailsImpl &&
+            other is _$_PaymentIntentAmountDetails &&
             (identical(other.tip, tip) || other.tip == tip));
   }
 
@@ -1756,13 +1744,13 @@ class _$PaymentIntentAmountDetailsImpl implements _PaymentIntentAmountDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentIntentAmountDetailsImplCopyWith<_$PaymentIntentAmountDetailsImpl>
-      get copyWith => __$$PaymentIntentAmountDetailsImplCopyWithImpl<
-          _$PaymentIntentAmountDetailsImpl>(this, _$identity);
+  _$$_PaymentIntentAmountDetailsCopyWith<_$_PaymentIntentAmountDetails>
+      get copyWith => __$$_PaymentIntentAmountDetailsCopyWithImpl<
+          _$_PaymentIntentAmountDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentIntentAmountDetailsImplToJson(
+    return _$$_PaymentIntentAmountDetailsToJson(
       this,
     );
   }
@@ -1771,10 +1759,10 @@ class _$PaymentIntentAmountDetailsImpl implements _PaymentIntentAmountDetails {
 abstract class _PaymentIntentAmountDetails
     implements PaymentIntentAmountDetails {
   const factory _PaymentIntentAmountDetails({final PaymentIntentTip? tip}) =
-      _$PaymentIntentAmountDetailsImpl;
+      _$_PaymentIntentAmountDetails;
 
   factory _PaymentIntentAmountDetails.fromJson(Map<String, dynamic> json) =
-      _$PaymentIntentAmountDetailsImpl.fromJson;
+      _$_PaymentIntentAmountDetails.fromJson;
 
   @override
 
@@ -1782,7 +1770,7 @@ abstract class _PaymentIntentAmountDetails
   PaymentIntentTip? get tip;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentIntentAmountDetailsImplCopyWith<_$PaymentIntentAmountDetailsImpl>
+  _$$_PaymentIntentAmountDetailsCopyWith<_$_PaymentIntentAmountDetails>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1835,22 +1823,22 @@ class _$PaymentIntentTipCopyWithImpl<$Res, $Val extends PaymentIntentTip>
 }
 
 /// @nodoc
-abstract class _$$PaymentIntentTipImplCopyWith<$Res>
+abstract class _$$_PaymentIntentTipCopyWith<$Res>
     implements $PaymentIntentTipCopyWith<$Res> {
-  factory _$$PaymentIntentTipImplCopyWith(_$PaymentIntentTipImpl value,
-          $Res Function(_$PaymentIntentTipImpl) then) =
-      __$$PaymentIntentTipImplCopyWithImpl<$Res>;
+  factory _$$_PaymentIntentTipCopyWith(
+          _$_PaymentIntentTip value, $Res Function(_$_PaymentIntentTip) then) =
+      __$$_PaymentIntentTipCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int? amount});
 }
 
 /// @nodoc
-class __$$PaymentIntentTipImplCopyWithImpl<$Res>
-    extends _$PaymentIntentTipCopyWithImpl<$Res, _$PaymentIntentTipImpl>
-    implements _$$PaymentIntentTipImplCopyWith<$Res> {
-  __$$PaymentIntentTipImplCopyWithImpl(_$PaymentIntentTipImpl _value,
-      $Res Function(_$PaymentIntentTipImpl) _then)
+class __$$_PaymentIntentTipCopyWithImpl<$Res>
+    extends _$PaymentIntentTipCopyWithImpl<$Res, _$_PaymentIntentTip>
+    implements _$$_PaymentIntentTipCopyWith<$Res> {
+  __$$_PaymentIntentTipCopyWithImpl(
+      _$_PaymentIntentTip _value, $Res Function(_$_PaymentIntentTip) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1858,7 +1846,7 @@ class __$$PaymentIntentTipImplCopyWithImpl<$Res>
   $Res call({
     Object? amount = freezed,
   }) {
-    return _then(_$PaymentIntentTipImpl(
+    return _then(_$_PaymentIntentTip(
       amount: freezed == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -1869,11 +1857,11 @@ class __$$PaymentIntentTipImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentIntentTipImpl implements _PaymentIntentTip {
-  const _$PaymentIntentTipImpl({this.amount});
+class _$_PaymentIntentTip implements _PaymentIntentTip {
+  const _$_PaymentIntentTip({this.amount});
 
-  factory _$PaymentIntentTipImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentIntentTipImplFromJson(json);
+  factory _$_PaymentIntentTip.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentIntentTipFromJson(json);
 
   /// Portion of the amount that corresponds to a tip.
   @override
@@ -1885,10 +1873,10 @@ class _$PaymentIntentTipImpl implements _PaymentIntentTip {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentIntentTipImpl &&
+            other is _$_PaymentIntentTip &&
             (identical(other.amount, amount) || other.amount == amount));
   }
 
@@ -1899,23 +1887,22 @@ class _$PaymentIntentTipImpl implements _PaymentIntentTip {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentIntentTipImplCopyWith<_$PaymentIntentTipImpl> get copyWith =>
-      __$$PaymentIntentTipImplCopyWithImpl<_$PaymentIntentTipImpl>(
-          this, _$identity);
+  _$$_PaymentIntentTipCopyWith<_$_PaymentIntentTip> get copyWith =>
+      __$$_PaymentIntentTipCopyWithImpl<_$_PaymentIntentTip>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentIntentTipImplToJson(
+    return _$$_PaymentIntentTipToJson(
       this,
     );
   }
 }
 
 abstract class _PaymentIntentTip implements PaymentIntentTip {
-  const factory _PaymentIntentTip({final int? amount}) = _$PaymentIntentTipImpl;
+  const factory _PaymentIntentTip({final int? amount}) = _$_PaymentIntentTip;
 
   factory _PaymentIntentTip.fromJson(Map<String, dynamic> json) =
-      _$PaymentIntentTipImpl.fromJson;
+      _$_PaymentIntentTip.fromJson;
 
   @override
 
@@ -1923,7 +1910,7 @@ abstract class _PaymentIntentTip implements PaymentIntentTip {
   int? get amount;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentIntentTipImplCopyWith<_$PaymentIntentTipImpl> get copyWith =>
+  _$$_PaymentIntentTipCopyWith<_$_PaymentIntentTip> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1981,25 +1968,25 @@ class _$PaymentIntentAutomaticPaymentMethodsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentIntentAutomaticPaymentMethodsImplCopyWith<$Res>
+abstract class _$$_PaymentIntentAutomaticPaymentMethodsCopyWith<$Res>
     implements $PaymentIntentAutomaticPaymentMethodsCopyWith<$Res> {
-  factory _$$PaymentIntentAutomaticPaymentMethodsImplCopyWith(
-          _$PaymentIntentAutomaticPaymentMethodsImpl value,
-          $Res Function(_$PaymentIntentAutomaticPaymentMethodsImpl) then) =
-      __$$PaymentIntentAutomaticPaymentMethodsImplCopyWithImpl<$Res>;
+  factory _$$_PaymentIntentAutomaticPaymentMethodsCopyWith(
+          _$_PaymentIntentAutomaticPaymentMethods value,
+          $Res Function(_$_PaymentIntentAutomaticPaymentMethods) then) =
+      __$$_PaymentIntentAutomaticPaymentMethodsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? enabled});
 }
 
 /// @nodoc
-class __$$PaymentIntentAutomaticPaymentMethodsImplCopyWithImpl<$Res>
+class __$$_PaymentIntentAutomaticPaymentMethodsCopyWithImpl<$Res>
     extends _$PaymentIntentAutomaticPaymentMethodsCopyWithImpl<$Res,
-        _$PaymentIntentAutomaticPaymentMethodsImpl>
-    implements _$$PaymentIntentAutomaticPaymentMethodsImplCopyWith<$Res> {
-  __$$PaymentIntentAutomaticPaymentMethodsImplCopyWithImpl(
-      _$PaymentIntentAutomaticPaymentMethodsImpl _value,
-      $Res Function(_$PaymentIntentAutomaticPaymentMethodsImpl) _then)
+        _$_PaymentIntentAutomaticPaymentMethods>
+    implements _$$_PaymentIntentAutomaticPaymentMethodsCopyWith<$Res> {
+  __$$_PaymentIntentAutomaticPaymentMethodsCopyWithImpl(
+      _$_PaymentIntentAutomaticPaymentMethods _value,
+      $Res Function(_$_PaymentIntentAutomaticPaymentMethods) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2007,7 +1994,7 @@ class __$$PaymentIntentAutomaticPaymentMethodsImplCopyWithImpl<$Res>
   $Res call({
     Object? enabled = freezed,
   }) {
-    return _then(_$PaymentIntentAutomaticPaymentMethodsImpl(
+    return _then(_$_PaymentIntentAutomaticPaymentMethods(
       enabled: freezed == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
@@ -2018,13 +2005,13 @@ class __$$PaymentIntentAutomaticPaymentMethodsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentIntentAutomaticPaymentMethodsImpl
+class _$_PaymentIntentAutomaticPaymentMethods
     implements _PaymentIntentAutomaticPaymentMethods {
-  const _$PaymentIntentAutomaticPaymentMethodsImpl({required this.enabled});
+  const _$_PaymentIntentAutomaticPaymentMethods({required this.enabled});
 
-  factory _$PaymentIntentAutomaticPaymentMethodsImpl.fromJson(
+  factory _$_PaymentIntentAutomaticPaymentMethods.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentIntentAutomaticPaymentMethodsImplFromJson(json);
+      _$$_PaymentIntentAutomaticPaymentMethodsFromJson(json);
 
   /// Automatically calculates compatible payment methods
   @override
@@ -2036,10 +2023,10 @@ class _$PaymentIntentAutomaticPaymentMethodsImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentIntentAutomaticPaymentMethodsImpl &&
+            other is _$_PaymentIntentAutomaticPaymentMethods &&
             (identical(other.enabled, enabled) || other.enabled == enabled));
   }
 
@@ -2050,14 +2037,14 @@ class _$PaymentIntentAutomaticPaymentMethodsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentIntentAutomaticPaymentMethodsImplCopyWith<
-          _$PaymentIntentAutomaticPaymentMethodsImpl>
-      get copyWith => __$$PaymentIntentAutomaticPaymentMethodsImplCopyWithImpl<
-          _$PaymentIntentAutomaticPaymentMethodsImpl>(this, _$identity);
+  _$$_PaymentIntentAutomaticPaymentMethodsCopyWith<
+          _$_PaymentIntentAutomaticPaymentMethods>
+      get copyWith => __$$_PaymentIntentAutomaticPaymentMethodsCopyWithImpl<
+          _$_PaymentIntentAutomaticPaymentMethods>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentIntentAutomaticPaymentMethodsImplToJson(
+    return _$$_PaymentIntentAutomaticPaymentMethodsToJson(
       this,
     );
   }
@@ -2066,12 +2053,11 @@ class _$PaymentIntentAutomaticPaymentMethodsImpl
 abstract class _PaymentIntentAutomaticPaymentMethods
     implements PaymentIntentAutomaticPaymentMethods {
   const factory _PaymentIntentAutomaticPaymentMethods(
-          {required final bool? enabled}) =
-      _$PaymentIntentAutomaticPaymentMethodsImpl;
+      {required final bool? enabled}) = _$_PaymentIntentAutomaticPaymentMethods;
 
   factory _PaymentIntentAutomaticPaymentMethods.fromJson(
           Map<String, dynamic> json) =
-      _$PaymentIntentAutomaticPaymentMethodsImpl.fromJson;
+      _$_PaymentIntentAutomaticPaymentMethods.fromJson;
 
   @override
 
@@ -2079,7 +2065,7 @@ abstract class _PaymentIntentAutomaticPaymentMethods
   bool? get enabled;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentIntentAutomaticPaymentMethodsImplCopyWith<
-          _$PaymentIntentAutomaticPaymentMethodsImpl>
+  _$$_PaymentIntentAutomaticPaymentMethodsCopyWith<
+          _$_PaymentIntentAutomaticPaymentMethods>
       get copyWith => throw _privateConstructorUsedError;
 }

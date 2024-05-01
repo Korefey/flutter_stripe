@@ -296,7 +296,7 @@ enum UsBankAccountType {
 enum PaymentMethodType {
   AfterpayClearpay,
   Card,
-  CashApp,
+  CashAppPay,
   Alipay,
   Grabpay,
   Ideal,
@@ -310,11 +310,9 @@ enum PaymentMethodType {
   Eps,
   Bancontact,
   Oxxo,
-  PayPal,
   Sofort,
   Upi,
   USBankAccount,
-  RevolutPay,
   // WeChatPay,
   Unknown
 }
@@ -500,15 +498,6 @@ class PaymentMethodParams with _$PaymentMethodParams {
   }) = _PaymentMethodParamsPayPal;
 
   @JsonSerializable(explicitToJson: true)
-  @FreezedUnionValue('RevolutPay')
-
-  /// Paypal is in private beta make sure to request access at Stripe to try it out.
-  const factory PaymentMethodParams.revolutPay({
-    /// Paymentmethod data for this paymentmethod.
-    required PaymentMethodData paymentMethodData,
-  }) = _PaymentMethodParamsRevolutPay;
-
-  @JsonSerializable(explicitToJson: true)
   @FreezedUnionValue('USBankAccount')
   const factory PaymentMethodParams.usBankAccount({
     /// Paymentmethod data for this paymentmethod.
@@ -601,9 +590,6 @@ class PaymentMethodDataCardFromMethod with _$PaymentMethodDataCardFromMethod {
 class PaymentMethodDataIdeal with _$PaymentMethodDataIdeal {
   @JsonSerializable(explicitToJson: true)
   const factory PaymentMethodDataIdeal({
-    /// The bank identifier code of the bank.
-    String? bankIdentifierCode,
-
     /// The name of bank.
     String? bankName,
 
@@ -797,37 +783,14 @@ class MandateData with _$MandateData {
 
 ///Information about the online mandate
 class MandateDataCustomerAcceptance with _$MandateDataCustomerAcceptance {
+  @JsonSerializable(explicitToJson: true)
   const factory MandateDataCustomerAcceptance({
     /// Online data regarding the mandate.
     MandateDataOnlineData? ipAddress,
   }) = _MandateDataCustomerAcceptance;
-  const MandateDataCustomerAcceptance._();
 
-  factory MandateDataCustomerAcceptance.fromJson(Map<String, dynamic> json) {
-    final type = json['type'] as String?;
-    if (type != 'online') {
-      throw ArgumentError.value(
-        type,
-        'type',
-        'Only customer acceptance of type online is supported.',
-      );
-    }
-
-    return _MandateDataCustomerAcceptance(
-      ipAddress: json['online'] == null
-          ? null
-          : MandateDataOnlineData.fromJson(
-              json['online'] as Map<String, dynamic>,
-            ),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'type': 'online',
-      'online': ipAddress?.toJson(),
-    };
-  }
+  factory MandateDataCustomerAcceptance.fromJson(Map<String, dynamic> json) =>
+      _$MandateDataCustomerAcceptanceFromJson(json);
 }
 
 @freezed

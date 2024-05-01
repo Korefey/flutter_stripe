@@ -6,8 +6,7 @@ part of 'token_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TokenResponseImpl _$$TokenResponseImplFromJson(Map json) =>
-    _$TokenResponseImpl(
+_$_TokenResponse _$$_TokenResponseFromJson(Map json) => _$_TokenResponse(
       token: json['token'] == null
           ? null
           : Token.fromJson(Map<String, dynamic>.from(json['token'] as Map)),
@@ -17,7 +16,7 @@ _$TokenResponseImpl _$$TokenResponseImplFromJson(Map json) =>
               Map<String, dynamic>.from(json['error'] as Map)),
     );
 
-Map<String, dynamic> _$$TokenResponseImplToJson(_$TokenResponseImpl instance) {
+Map<String, dynamic> _$$_TokenResponseToJson(_$_TokenResponse instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

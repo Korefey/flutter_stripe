@@ -45,7 +45,7 @@ void main() async {
 
 Use your [test mode](https://stripe.com/docs/keys#obtain-api-keys) keys while you test and develop, and your [live mode](https://stripe.com/docs/keys#test-live-modes) keys when you publish your app.
 
-## 2. Add an endpoint [Server Side]
+## 2. Add an enpoint [Server Side]
 
 First, you need a Stripe account. [Register now](https://dashboard.stripe.com/register).
 
@@ -100,14 +100,11 @@ Future<void> initPaymentSheet() async {
           customerEphemeralKeySecret: data['ephemeralKey'],
           customerId: data['customer'],
           // Extra options
-          applePay: const PaymentSheetApplePay(
-            merchantCountryCode: 'US',
-          ),
-          googlePay: const PaymentSheetGooglePay(
-            merchantCountryCode: 'US',
-            testEnv: true,
-          ),
+          testEnv: true,
+          applePay: true,
+          googlePay: true,
           style: ThemeMode.dark,
+          merchantCountryCode: 'DE',
         ),
       );
       setState(() {
@@ -178,31 +175,15 @@ Add the Apple Pay capability to your app. In Xcode, open your project settings, 
 <img src="https://b.stripecdn.com/docs/assets/xcode.a05220aeae26f8b793b5694692a79117.png" height="36" />
 
 ####  Add Apple Pay
-To add Apple Pay to PaymentSheet, 
-Make sure to set your Apple merchant ID `Stripe.merchantIdentifier` when you init stripe instance in your `main.dart`
-
-[Check stripe docs](https://support.stripe.com/questions/enable-apple-pay-on-your-stripe-account) for enabling Apple Pay on your Stripe account & create merchantIdentifier
-
-
-```dart
-  Stripe.publishableKey = stripePublishableKey;
-  Stripe.merchantIdentifier = 'merchant.flutter.stripe.test';
-  Stripe.urlScheme = 'flutterstripe';
-  await Stripe.instance.applySettings();
-```
-
-
-then add `applePay: PaymentSheetApplePay()`  with the country code of your business.
+To add Apple Pay to PaymentSheet, set `applePay: true`  with your Apple merchant ID and the country code of your business.
  
 ```dart
 Stripe.instance.initPaymentSheet(
   paymentSheetParameters: SetupPaymentSheetParameters(
     merchantDisplayName: 'Flutter Stripe Store Demo',
     //...
-    applePay: const PaymentSheetApplePay(
-      buttonType: PlatformButtonType.buy,
-      merchantCountryCode: 'US',
-    ),
+    merchantId: "merchant.com.your_app_name",
+    merchantCountryCode: "US
   ),
 );
 ```
@@ -237,17 +218,15 @@ For more details, see Google Pay’s Set up Google Pay API for Android.
 
 #### Add Google Pay
 
-To add Google Pay to your integration, set `googlePay: PaymentSheetGooglePay()` and specify the country code of your business within that.
+To add Google Pay to your integration, set `googlePay: true` with your Google Pay environment (production or test) and the country code of your business.
 
 ```dart
 Stripe.instance.initPaymentSheet(
   paymentSheetParameters: SetupPaymentSheetParameters(
     merchantDisplayName: 'Flutter Stripe Store Demo',
     //...
-    googlePay: const PaymentSheetGooglePay(
-      merchantCountryCode: 'US',
-      testEnv: true,
-    ),
+    testEnv: true,
+    merchantCountryCode: "US",
   ),
 );
 ```

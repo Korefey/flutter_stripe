@@ -15,7 +15,7 @@ operator fun Int.invoke(): Int {
  * Safely get and cast the current activity as an AppCompatActivity. If that fails, the promise
  * provided will be resolved with an error message instructing the user to retry the method.
  */
-fun StripeSdkModule.getCurrentActivityOrResolveWithError(promise: Promise?): FragmentActivity? {
+fun StripeSdkModule.getCurrentActivityOrResolveWithError(promise: PromiseStripe?): FragmentActivity? {
     currentActivity?.let {
         return it
     }

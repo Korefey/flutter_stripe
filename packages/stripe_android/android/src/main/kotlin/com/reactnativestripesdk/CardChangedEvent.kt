@@ -2,10 +2,10 @@ package com.reactnativestripesdk
 
 import com.facebook.react.bridge.ArgumentsStripe
 import com.facebook.react.bridge.WritableMapStripe
-import com.facebook.react.uimanager.events.Event
+import com.facebook.react.uimanager.events.EventStripe
 import com.facebook.react.uimanager.events.RCTEventEmitterStripe
 
-internal class CardChangedEvent constructor(viewTag: Int, private val cardDetails: MutableMap<String, Any?>, private val postalCodeEnabled: Boolean, private val complete: Boolean, private val dangerouslyGetFullCardDetails: Boolean) : Event<CardChangedEvent>(viewTag) {
+internal class CardChangedEvent constructor(viewTag: Int, private val cardDetails: MutableMap<String, Any?>, private val postalCodeEnabled: Boolean, private val complete: Boolean, private val dangerouslyGetFullCardDetails: Boolean) : EventStripe<CardChangedEvent>(viewTag) {
   override fun getEventName(): String {
     return EVENT_NAME
   }

@@ -12,7 +12,7 @@ part of 'payment_methods.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PaymentMethod _$PaymentMethodFromJson(Map<String, dynamic> json) {
   return _PaymentMethod.fromJson(json);
@@ -281,11 +281,11 @@ class _$PaymentMethodCopyWithImpl<$Res, $Val extends PaymentMethod>
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodImplCopyWith<$Res>
+abstract class _$$_PaymentMethodCopyWith<$Res>
     implements $PaymentMethodCopyWith<$Res> {
-  factory _$$PaymentMethodImplCopyWith(
-          _$PaymentMethodImpl value, $Res Function(_$PaymentMethodImpl) then) =
-      __$$PaymentMethodImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodCopyWith(
+          _$_PaymentMethod value, $Res Function(_$_PaymentMethod) then) =
+      __$$_PaymentMethodCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -327,11 +327,11 @@ abstract class _$$PaymentMethodImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodImplCopyWithImpl<$Res>
-    extends _$PaymentMethodCopyWithImpl<$Res, _$PaymentMethodImpl>
-    implements _$$PaymentMethodImplCopyWith<$Res> {
-  __$$PaymentMethodImplCopyWithImpl(
-      _$PaymentMethodImpl _value, $Res Function(_$PaymentMethodImpl) _then)
+class __$$_PaymentMethodCopyWithImpl<$Res>
+    extends _$PaymentMethodCopyWithImpl<$Res, _$_PaymentMethod>
+    implements _$$_PaymentMethodCopyWith<$Res> {
+  __$$_PaymentMethodCopyWithImpl(
+      _$_PaymentMethod _value, $Res Function(_$_PaymentMethod) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -352,7 +352,7 @@ class __$$PaymentMethodImplCopyWithImpl<$Res>
     Object? usBankAccount = null,
     Object? customerId = freezed,
   }) {
-    return _then(_$PaymentMethodImpl(
+    return _then(_$_PaymentMethod(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -416,8 +416,8 @@ class __$$PaymentMethodImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodImpl implements _PaymentMethod {
-  const _$PaymentMethodImpl(
+class _$_PaymentMethod implements _PaymentMethod {
+  const _$_PaymentMethod(
       {required this.id,
       required this.livemode,
       required this.paymentMethodType,
@@ -433,8 +433,8 @@ class _$PaymentMethodImpl implements _PaymentMethod {
       @JsonKey(name: 'USBankAccount') required this.usBankAccount,
       this.customerId});
 
-  factory _$PaymentMethodImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodImplFromJson(json);
+  factory _$_PaymentMethod.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodFromJson(json);
 
   /// Unique identifier.
   @override
@@ -507,10 +507,10 @@ class _$PaymentMethodImpl implements _PaymentMethod {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodImpl &&
+            other is _$_PaymentMethod &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.livemode, livemode) ||
                 other.livemode == livemode) &&
@@ -557,12 +557,12 @@ class _$PaymentMethodImpl implements _PaymentMethod {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodImplCopyWith<_$PaymentMethodImpl> get copyWith =>
-      __$$PaymentMethodImplCopyWithImpl<_$PaymentMethodImpl>(this, _$identity);
+  _$$_PaymentMethodCopyWith<_$_PaymentMethod> get copyWith =>
+      __$$_PaymentMethodCopyWithImpl<_$_PaymentMethod>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodImplToJson(
+    return _$$_PaymentMethodToJson(
       this,
     );
   }
@@ -574,20 +574,28 @@ abstract class _PaymentMethod implements PaymentMethod {
       required final bool livemode,
       required final String paymentMethodType,
       required final BillingDetails billingDetails,
-      @JsonKey(name: 'Card') required final Card card,
-      @JsonKey(name: 'SepaDebit') required final SepaDebit sepaDebit,
-      @JsonKey(name: 'BacsDebit') required final BacsDebit bacsDebit,
-      @JsonKey(name: 'AuBecsDebit') required final AuBecsDebit auBecsDebit,
-      @JsonKey(name: 'Sofort') required final Sofort sofort,
-      @JsonKey(name: 'Ideal') required final Ideal ideal,
-      @JsonKey(name: 'Fpx') required final Fpx fpx,
-      @JsonKey(name: 'Upi') required final Upi upi,
+      @JsonKey(name: 'Card')
+          required final Card card,
+      @JsonKey(name: 'SepaDebit')
+          required final SepaDebit sepaDebit,
+      @JsonKey(name: 'BacsDebit')
+          required final BacsDebit bacsDebit,
+      @JsonKey(name: 'AuBecsDebit')
+          required final AuBecsDebit auBecsDebit,
+      @JsonKey(name: 'Sofort')
+          required final Sofort sofort,
+      @JsonKey(name: 'Ideal')
+          required final Ideal ideal,
+      @JsonKey(name: 'Fpx')
+          required final Fpx fpx,
+      @JsonKey(name: 'Upi')
+          required final Upi upi,
       @JsonKey(name: 'USBankAccount')
-      required final UsBankAccount usBankAccount,
-      final String? customerId}) = _$PaymentMethodImpl;
+          required final UsBankAccount usBankAccount,
+      final String? customerId}) = _$_PaymentMethod;
 
   factory _PaymentMethod.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodImpl.fromJson;
+      _$_PaymentMethod.fromJson;
 
   @override
 
@@ -656,7 +664,7 @@ abstract class _PaymentMethod implements PaymentMethod {
   String? get customerId;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodImplCopyWith<_$PaymentMethodImpl> get copyWith =>
+  _$$_PaymentMethodCopyWith<_$_PaymentMethod> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -747,11 +755,11 @@ class _$BillingDetailsCopyWithImpl<$Res, $Val extends BillingDetails>
 }
 
 /// @nodoc
-abstract class _$$BillingDetailsImplCopyWith<$Res>
+abstract class _$$_BillingDetailsCopyWith<$Res>
     implements $BillingDetailsCopyWith<$Res> {
-  factory _$$BillingDetailsImplCopyWith(_$BillingDetailsImpl value,
-          $Res Function(_$BillingDetailsImpl) then) =
-      __$$BillingDetailsImplCopyWithImpl<$Res>;
+  factory _$$_BillingDetailsCopyWith(
+          _$_BillingDetails value, $Res Function(_$_BillingDetails) then) =
+      __$$_BillingDetailsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? email, Address? address, String? phone, String? name});
@@ -761,11 +769,11 @@ abstract class _$$BillingDetailsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$BillingDetailsImplCopyWithImpl<$Res>
-    extends _$BillingDetailsCopyWithImpl<$Res, _$BillingDetailsImpl>
-    implements _$$BillingDetailsImplCopyWith<$Res> {
-  __$$BillingDetailsImplCopyWithImpl(
-      _$BillingDetailsImpl _value, $Res Function(_$BillingDetailsImpl) _then)
+class __$$_BillingDetailsCopyWithImpl<$Res>
+    extends _$BillingDetailsCopyWithImpl<$Res, _$_BillingDetails>
+    implements _$$_BillingDetailsCopyWith<$Res> {
+  __$$_BillingDetailsCopyWithImpl(
+      _$_BillingDetails _value, $Res Function(_$_BillingDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -776,7 +784,7 @@ class __$$BillingDetailsImplCopyWithImpl<$Res>
     Object? phone = freezed,
     Object? name = freezed,
   }) {
-    return _then(_$BillingDetailsImpl(
+    return _then(_$_BillingDetails(
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -800,11 +808,11 @@ class __$$BillingDetailsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable()
-class _$BillingDetailsImpl implements _BillingDetails {
-  const _$BillingDetailsImpl({this.email, this.address, this.phone, this.name});
+class _$_BillingDetails implements _BillingDetails {
+  const _$_BillingDetails({this.email, this.address, this.phone, this.name});
 
-  factory _$BillingDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BillingDetailsImplFromJson(json);
+  factory _$_BillingDetails.fromJson(Map<String, dynamic> json) =>
+      _$$_BillingDetailsFromJson(json);
 
   /// Email address.
   @override
@@ -828,10 +836,10 @@ class _$BillingDetailsImpl implements _BillingDetails {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BillingDetailsImpl &&
+            other is _$_BillingDetails &&
             (identical(other.email, email) || other.email == email) &&
             (identical(other.address, address) || other.address == address) &&
             (identical(other.phone, phone) || other.phone == phone) &&
@@ -845,13 +853,12 @@ class _$BillingDetailsImpl implements _BillingDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BillingDetailsImplCopyWith<_$BillingDetailsImpl> get copyWith =>
-      __$$BillingDetailsImplCopyWithImpl<_$BillingDetailsImpl>(
-          this, _$identity);
+  _$$_BillingDetailsCopyWith<_$_BillingDetails> get copyWith =>
+      __$$_BillingDetailsCopyWithImpl<_$_BillingDetails>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BillingDetailsImplToJson(
+    return _$$_BillingDetailsToJson(
       this,
     );
   }
@@ -862,10 +869,10 @@ abstract class _BillingDetails implements BillingDetails {
       {final String? email,
       final Address? address,
       final String? phone,
-      final String? name}) = _$BillingDetailsImpl;
+      final String? name}) = _$_BillingDetails;
 
   factory _BillingDetails.fromJson(Map<String, dynamic> json) =
-      _$BillingDetailsImpl.fromJson;
+      _$_BillingDetails.fromJson;
 
   @override
 
@@ -885,7 +892,7 @@ abstract class _BillingDetails implements BillingDetails {
   String? get name;
   @override
   @JsonKey(ignore: true)
-  _$$BillingDetailsImplCopyWith<_$BillingDetailsImpl> get copyWith =>
+  _$$_BillingDetailsCopyWith<_$_BillingDetails> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -954,22 +961,22 @@ class _$AuBecsDebitCopyWithImpl<$Res, $Val extends AuBecsDebit>
 }
 
 /// @nodoc
-abstract class _$$AuBecsDebitImplCopyWith<$Res>
+abstract class _$$_AuBecsDebitCopyWith<$Res>
     implements $AuBecsDebitCopyWith<$Res> {
-  factory _$$AuBecsDebitImplCopyWith(
-          _$AuBecsDebitImpl value, $Res Function(_$AuBecsDebitImpl) then) =
-      __$$AuBecsDebitImplCopyWithImpl<$Res>;
+  factory _$$_AuBecsDebitCopyWith(
+          _$_AuBecsDebit value, $Res Function(_$_AuBecsDebit) then) =
+      __$$_AuBecsDebitCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? fingerprint, String? last4, String? bsbNumber});
 }
 
 /// @nodoc
-class __$$AuBecsDebitImplCopyWithImpl<$Res>
-    extends _$AuBecsDebitCopyWithImpl<$Res, _$AuBecsDebitImpl>
-    implements _$$AuBecsDebitImplCopyWith<$Res> {
-  __$$AuBecsDebitImplCopyWithImpl(
-      _$AuBecsDebitImpl _value, $Res Function(_$AuBecsDebitImpl) _then)
+class __$$_AuBecsDebitCopyWithImpl<$Res>
+    extends _$AuBecsDebitCopyWithImpl<$Res, _$_AuBecsDebit>
+    implements _$$_AuBecsDebitCopyWith<$Res> {
+  __$$_AuBecsDebitCopyWithImpl(
+      _$_AuBecsDebit _value, $Res Function(_$_AuBecsDebit) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -979,7 +986,7 @@ class __$$AuBecsDebitImplCopyWithImpl<$Res>
     Object? last4 = freezed,
     Object? bsbNumber = freezed,
   }) {
-    return _then(_$AuBecsDebitImpl(
+    return _then(_$_AuBecsDebit(
       fingerprint: freezed == fingerprint
           ? _value.fingerprint
           : fingerprint // ignore: cast_nullable_to_non_nullable
@@ -999,11 +1006,11 @@ class __$$AuBecsDebitImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$AuBecsDebitImpl implements _AuBecsDebit {
-  const _$AuBecsDebitImpl({this.fingerprint, this.last4, this.bsbNumber});
+class _$_AuBecsDebit implements _AuBecsDebit {
+  const _$_AuBecsDebit({this.fingerprint, this.last4, this.bsbNumber});
 
-  factory _$AuBecsDebitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AuBecsDebitImplFromJson(json);
+  factory _$_AuBecsDebit.fromJson(Map<String, dynamic> json) =>
+      _$$_AuBecsDebitFromJson(json);
 
   /// Unique identifier for the bankaccount.
   @override
@@ -1023,10 +1030,10 @@ class _$AuBecsDebitImpl implements _AuBecsDebit {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuBecsDebitImpl &&
+            other is _$_AuBecsDebit &&
             (identical(other.fingerprint, fingerprint) ||
                 other.fingerprint == fingerprint) &&
             (identical(other.last4, last4) || other.last4 == last4) &&
@@ -1041,12 +1048,12 @@ class _$AuBecsDebitImpl implements _AuBecsDebit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuBecsDebitImplCopyWith<_$AuBecsDebitImpl> get copyWith =>
-      __$$AuBecsDebitImplCopyWithImpl<_$AuBecsDebitImpl>(this, _$identity);
+  _$$_AuBecsDebitCopyWith<_$_AuBecsDebit> get copyWith =>
+      __$$_AuBecsDebitCopyWithImpl<_$_AuBecsDebit>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AuBecsDebitImplToJson(
+    return _$$_AuBecsDebitToJson(
       this,
     );
   }
@@ -1056,10 +1063,10 @@ abstract class _AuBecsDebit implements AuBecsDebit {
   const factory _AuBecsDebit(
       {final String? fingerprint,
       final String? last4,
-      final String? bsbNumber}) = _$AuBecsDebitImpl;
+      final String? bsbNumber}) = _$_AuBecsDebit;
 
   factory _AuBecsDebit.fromJson(Map<String, dynamic> json) =
-      _$AuBecsDebitImpl.fromJson;
+      _$_AuBecsDebit.fromJson;
 
   @override
 
@@ -1075,7 +1082,7 @@ abstract class _AuBecsDebit implements AuBecsDebit {
   String? get bsbNumber;
   @override
   @JsonKey(ignore: true)
-  _$$AuBecsDebitImplCopyWith<_$AuBecsDebitImpl> get copyWith =>
+  _$$_AuBecsDebitCopyWith<_$_AuBecsDebit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1143,22 +1150,21 @@ class _$BacsDebitCopyWithImpl<$Res, $Val extends BacsDebit>
 }
 
 /// @nodoc
-abstract class _$$BacsDebitImplCopyWith<$Res>
-    implements $BacsDebitCopyWith<$Res> {
-  factory _$$BacsDebitImplCopyWith(
-          _$BacsDebitImpl value, $Res Function(_$BacsDebitImpl) then) =
-      __$$BacsDebitImplCopyWithImpl<$Res>;
+abstract class _$$_BacsDebitCopyWith<$Res> implements $BacsDebitCopyWith<$Res> {
+  factory _$$_BacsDebitCopyWith(
+          _$_BacsDebit value, $Res Function(_$_BacsDebit) then) =
+      __$$_BacsDebitCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? sortCode, String? fingerprint, String? last4});
 }
 
 /// @nodoc
-class __$$BacsDebitImplCopyWithImpl<$Res>
-    extends _$BacsDebitCopyWithImpl<$Res, _$BacsDebitImpl>
-    implements _$$BacsDebitImplCopyWith<$Res> {
-  __$$BacsDebitImplCopyWithImpl(
-      _$BacsDebitImpl _value, $Res Function(_$BacsDebitImpl) _then)
+class __$$_BacsDebitCopyWithImpl<$Res>
+    extends _$BacsDebitCopyWithImpl<$Res, _$_BacsDebit>
+    implements _$$_BacsDebitCopyWith<$Res> {
+  __$$_BacsDebitCopyWithImpl(
+      _$_BacsDebit _value, $Res Function(_$_BacsDebit) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1168,7 +1174,7 @@ class __$$BacsDebitImplCopyWithImpl<$Res>
     Object? fingerprint = freezed,
     Object? last4 = freezed,
   }) {
-    return _then(_$BacsDebitImpl(
+    return _then(_$_BacsDebit(
       sortCode: freezed == sortCode
           ? _value.sortCode
           : sortCode // ignore: cast_nullable_to_non_nullable
@@ -1188,11 +1194,11 @@ class __$$BacsDebitImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$BacsDebitImpl implements _BacsDebit {
-  const _$BacsDebitImpl({this.sortCode, this.fingerprint, this.last4});
+class _$_BacsDebit implements _BacsDebit {
+  const _$_BacsDebit({this.sortCode, this.fingerprint, this.last4});
 
-  factory _$BacsDebitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BacsDebitImplFromJson(json);
+  factory _$_BacsDebit.fromJson(Map<String, dynamic> json) =>
+      _$$_BacsDebitFromJson(json);
 
   /// Sort code of the bankaccount.
   @override
@@ -1212,10 +1218,10 @@ class _$BacsDebitImpl implements _BacsDebit {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BacsDebitImpl &&
+            other is _$_BacsDebit &&
             (identical(other.sortCode, sortCode) ||
                 other.sortCode == sortCode) &&
             (identical(other.fingerprint, fingerprint) ||
@@ -1230,12 +1236,12 @@ class _$BacsDebitImpl implements _BacsDebit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BacsDebitImplCopyWith<_$BacsDebitImpl> get copyWith =>
-      __$$BacsDebitImplCopyWithImpl<_$BacsDebitImpl>(this, _$identity);
+  _$$_BacsDebitCopyWith<_$_BacsDebit> get copyWith =>
+      __$$_BacsDebitCopyWithImpl<_$_BacsDebit>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BacsDebitImplToJson(
+    return _$$_BacsDebitToJson(
       this,
     );
   }
@@ -1245,10 +1251,10 @@ abstract class _BacsDebit implements BacsDebit {
   const factory _BacsDebit(
       {final String? sortCode,
       final String? fingerprint,
-      final String? last4}) = _$BacsDebitImpl;
+      final String? last4}) = _$_BacsDebit;
 
   factory _BacsDebit.fromJson(Map<String, dynamic> json) =
-      _$BacsDebitImpl.fromJson;
+      _$_BacsDebit.fromJson;
 
   @override
 
@@ -1264,7 +1270,7 @@ abstract class _BacsDebit implements BacsDebit {
   String? get last4;
   @override
   @JsonKey(ignore: true)
-  _$$BacsDebitImplCopyWith<_$BacsDebitImpl> get copyWith =>
+  _$$_BacsDebitCopyWith<_$_BacsDebit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1403,10 +1409,9 @@ class _$CardCopyWithImpl<$Res, $Val extends Card>
 }
 
 /// @nodoc
-abstract class _$$CardImplCopyWith<$Res> implements $CardCopyWith<$Res> {
-  factory _$$CardImplCopyWith(
-          _$CardImpl value, $Res Function(_$CardImpl) then) =
-      __$$CardImplCopyWithImpl<$Res>;
+abstract class _$$_CardCopyWith<$Res> implements $CardCopyWith<$Res> {
+  factory _$$_CardCopyWith(_$_Card value, $Res Function(_$_Card) then) =
+      __$$_CardCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -1425,10 +1430,9 @@ abstract class _$$CardImplCopyWith<$Res> implements $CardCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$CardImplCopyWithImpl<$Res>
-    extends _$CardCopyWithImpl<$Res, _$CardImpl>
-    implements _$$CardImplCopyWith<$Res> {
-  __$$CardImplCopyWithImpl(_$CardImpl _value, $Res Function(_$CardImpl) _then)
+class __$$_CardCopyWithImpl<$Res> extends _$CardCopyWithImpl<$Res, _$_Card>
+    implements _$$_CardCopyWith<$Res> {
+  __$$_CardCopyWithImpl(_$_Card _value, $Res Function(_$_Card) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1444,7 +1448,7 @@ class __$$CardImplCopyWithImpl<$Res>
     Object? availableNetworks = freezed,
     Object? threeDSecureUsage = freezed,
   }) {
-    return _then(_$CardImpl(
+    return _then(_$_Card(
       brand: freezed == brand
           ? _value.brand
           : brand // ignore: cast_nullable_to_non_nullable
@@ -1488,8 +1492,8 @@ class __$$CardImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$CardImpl implements _Card {
-  const _$CardImpl(
+class _$_Card implements _Card {
+  const _$_Card(
       {this.brand,
       this.country,
       this.expYear,
@@ -1501,8 +1505,7 @@ class _$CardImpl implements _Card {
       this.threeDSecureUsage})
       : _availableNetworks = availableNetworks;
 
-  factory _$CardImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CardImplFromJson(json);
+  factory _$_Card.fromJson(Map<String, dynamic> json) => _$$_CardFromJson(json);
 
   /// The brand associated to the card e.g. (visa, amex).
   @override
@@ -1556,10 +1559,10 @@ class _$CardImpl implements _Card {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CardImpl &&
+            other is _$_Card &&
             (identical(other.brand, brand) || other.brand == brand) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.expYear, expYear) || other.expYear == expYear) &&
@@ -1592,12 +1595,12 @@ class _$CardImpl implements _Card {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardImplCopyWith<_$CardImpl> get copyWith =>
-      __$$CardImplCopyWithImpl<_$CardImpl>(this, _$identity);
+  _$$_CardCopyWith<_$_Card> get copyWith =>
+      __$$_CardCopyWithImpl<_$_Card>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CardImplToJson(
+    return _$$_CardToJson(
       this,
     );
   }
@@ -1613,9 +1616,9 @@ abstract class _Card implements Card {
       final String? last4,
       final String? preferredNetwork,
       final List<String>? availableNetworks,
-      final ThreeDSecureUsage? threeDSecureUsage}) = _$CardImpl;
+      final ThreeDSecureUsage? threeDSecureUsage}) = _$_Card;
 
-  factory _Card.fromJson(Map<String, dynamic> json) = _$CardImpl.fromJson;
+  factory _Card.fromJson(Map<String, dynamic> json) = _$_Card.fromJson;
 
   @override
 
@@ -1655,8 +1658,7 @@ abstract class _Card implements Card {
   ThreeDSecureUsage? get threeDSecureUsage;
   @override
   @JsonKey(ignore: true)
-  _$$CardImplCopyWith<_$CardImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_CardCopyWith<_$_Card> get copyWith => throw _privateConstructorUsedError;
 }
 
 Fpx _$FpxFromJson(Map<String, dynamic> json) {
@@ -1713,18 +1715,18 @@ class _$FpxCopyWithImpl<$Res, $Val extends Fpx> implements $FpxCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$FpxImplCopyWith<$Res> implements $FpxCopyWith<$Res> {
-  factory _$$FpxImplCopyWith(_$FpxImpl value, $Res Function(_$FpxImpl) then) =
-      __$$FpxImplCopyWithImpl<$Res>;
+abstract class _$$_FpxCopyWith<$Res> implements $FpxCopyWith<$Res> {
+  factory _$$_FpxCopyWith(_$_Fpx value, $Res Function(_$_Fpx) then) =
+      __$$_FpxCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? bank, String? accountHolderType});
 }
 
 /// @nodoc
-class __$$FpxImplCopyWithImpl<$Res> extends _$FpxCopyWithImpl<$Res, _$FpxImpl>
-    implements _$$FpxImplCopyWith<$Res> {
-  __$$FpxImplCopyWithImpl(_$FpxImpl _value, $Res Function(_$FpxImpl) _then)
+class __$$_FpxCopyWithImpl<$Res> extends _$FpxCopyWithImpl<$Res, _$_Fpx>
+    implements _$$_FpxCopyWith<$Res> {
+  __$$_FpxCopyWithImpl(_$_Fpx _value, $Res Function(_$_Fpx) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1733,7 +1735,7 @@ class __$$FpxImplCopyWithImpl<$Res> extends _$FpxCopyWithImpl<$Res, _$FpxImpl>
     Object? bank = freezed,
     Object? accountHolderType = freezed,
   }) {
-    return _then(_$FpxImpl(
+    return _then(_$_Fpx(
       bank: freezed == bank
           ? _value.bank
           : bank // ignore: cast_nullable_to_non_nullable
@@ -1749,11 +1751,10 @@ class __$$FpxImplCopyWithImpl<$Res> extends _$FpxCopyWithImpl<$Res, _$FpxImpl>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$FpxImpl implements _Fpx {
-  const _$FpxImpl({this.bank, this.accountHolderType});
+class _$_Fpx implements _Fpx {
+  const _$_Fpx({this.bank, this.accountHolderType});
 
-  factory _$FpxImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FpxImplFromJson(json);
+  factory _$_Fpx.fromJson(Map<String, dynamic> json) => _$$_FpxFromJson(json);
 
   /// the customer bank
   @override
@@ -1769,10 +1770,10 @@ class _$FpxImpl implements _Fpx {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FpxImpl &&
+            other is _$_Fpx &&
             (identical(other.bank, bank) || other.bank == bank) &&
             (identical(other.accountHolderType, accountHolderType) ||
                 other.accountHolderType == accountHolderType));
@@ -1785,12 +1786,12 @@ class _$FpxImpl implements _Fpx {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FpxImplCopyWith<_$FpxImpl> get copyWith =>
-      __$$FpxImplCopyWithImpl<_$FpxImpl>(this, _$identity);
+  _$$_FpxCopyWith<_$_Fpx> get copyWith =>
+      __$$_FpxCopyWithImpl<_$_Fpx>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FpxImplToJson(
+    return _$$_FpxToJson(
       this,
     );
   }
@@ -1798,9 +1799,9 @@ class _$FpxImpl implements _Fpx {
 
 abstract class _Fpx implements Fpx {
   const factory _Fpx({final String? bank, final String? accountHolderType}) =
-      _$FpxImpl;
+      _$_Fpx;
 
-  factory _Fpx.fromJson(Map<String, dynamic> json) = _$FpxImpl.fromJson;
+  factory _Fpx.fromJson(Map<String, dynamic> json) = _$_Fpx.fromJson;
 
   @override
 
@@ -1812,8 +1813,7 @@ abstract class _Fpx implements Fpx {
   String? get accountHolderType;
   @override
   @JsonKey(ignore: true)
-  _$$FpxImplCopyWith<_$FpxImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_FpxCopyWith<_$_Fpx> get copyWith => throw _privateConstructorUsedError;
 }
 
 Ideal _$IdealFromJson(Map<String, dynamic> json) {
@@ -1871,21 +1871,18 @@ class _$IdealCopyWithImpl<$Res, $Val extends Ideal>
 }
 
 /// @nodoc
-abstract class _$$IdealImplCopyWith<$Res> implements $IdealCopyWith<$Res> {
-  factory _$$IdealImplCopyWith(
-          _$IdealImpl value, $Res Function(_$IdealImpl) then) =
-      __$$IdealImplCopyWithImpl<$Res>;
+abstract class _$$_IdealCopyWith<$Res> implements $IdealCopyWith<$Res> {
+  factory _$$_IdealCopyWith(_$_Ideal value, $Res Function(_$_Ideal) then) =
+      __$$_IdealCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? bankIdentifierCode, String? bank});
 }
 
 /// @nodoc
-class __$$IdealImplCopyWithImpl<$Res>
-    extends _$IdealCopyWithImpl<$Res, _$IdealImpl>
-    implements _$$IdealImplCopyWith<$Res> {
-  __$$IdealImplCopyWithImpl(
-      _$IdealImpl _value, $Res Function(_$IdealImpl) _then)
+class __$$_IdealCopyWithImpl<$Res> extends _$IdealCopyWithImpl<$Res, _$_Ideal>
+    implements _$$_IdealCopyWith<$Res> {
+  __$$_IdealCopyWithImpl(_$_Ideal _value, $Res Function(_$_Ideal) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1894,7 +1891,7 @@ class __$$IdealImplCopyWithImpl<$Res>
     Object? bankIdentifierCode = freezed,
     Object? bank = freezed,
   }) {
-    return _then(_$IdealImpl(
+    return _then(_$_Ideal(
       bankIdentifierCode: freezed == bankIdentifierCode
           ? _value.bankIdentifierCode
           : bankIdentifierCode // ignore: cast_nullable_to_non_nullable
@@ -1910,11 +1907,11 @@ class __$$IdealImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$IdealImpl implements _Ideal {
-  const _$IdealImpl({this.bankIdentifierCode, this.bank});
+class _$_Ideal implements _Ideal {
+  const _$_Ideal({this.bankIdentifierCode, this.bank});
 
-  factory _$IdealImpl.fromJson(Map<String, dynamic> json) =>
-      _$$IdealImplFromJson(json);
+  factory _$_Ideal.fromJson(Map<String, dynamic> json) =>
+      _$$_IdealFromJson(json);
 
   /// The BIC code of the bank
   @override
@@ -1930,10 +1927,10 @@ class _$IdealImpl implements _Ideal {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IdealImpl &&
+            other is _$_Ideal &&
             (identical(other.bankIdentifierCode, bankIdentifierCode) ||
                 other.bankIdentifierCode == bankIdentifierCode) &&
             (identical(other.bank, bank) || other.bank == bank));
@@ -1946,12 +1943,12 @@ class _$IdealImpl implements _Ideal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IdealImplCopyWith<_$IdealImpl> get copyWith =>
-      __$$IdealImplCopyWithImpl<_$IdealImpl>(this, _$identity);
+  _$$_IdealCopyWith<_$_Ideal> get copyWith =>
+      __$$_IdealCopyWithImpl<_$_Ideal>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$IdealImplToJson(
+    return _$$_IdealToJson(
       this,
     );
   }
@@ -1959,9 +1956,9 @@ class _$IdealImpl implements _Ideal {
 
 abstract class _Ideal implements Ideal {
   const factory _Ideal({final String? bankIdentifierCode, final String? bank}) =
-      _$IdealImpl;
+      _$_Ideal;
 
-  factory _Ideal.fromJson(Map<String, dynamic> json) = _$IdealImpl.fromJson;
+  factory _Ideal.fromJson(Map<String, dynamic> json) = _$_Ideal.fromJson;
 
   @override
 
@@ -1973,7 +1970,7 @@ abstract class _Ideal implements Ideal {
   String? get bank;
   @override
   @JsonKey(ignore: true)
-  _$$IdealImplCopyWith<_$IdealImpl> get copyWith =>
+  _$$_IdealCopyWith<_$_Ideal> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2050,11 +2047,10 @@ class _$SepaDebitCopyWithImpl<$Res, $Val extends SepaDebit>
 }
 
 /// @nodoc
-abstract class _$$SepaDebitImplCopyWith<$Res>
-    implements $SepaDebitCopyWith<$Res> {
-  factory _$$SepaDebitImplCopyWith(
-          _$SepaDebitImpl value, $Res Function(_$SepaDebitImpl) then) =
-      __$$SepaDebitImplCopyWithImpl<$Res>;
+abstract class _$$_SepaDebitCopyWith<$Res> implements $SepaDebitCopyWith<$Res> {
+  factory _$$_SepaDebitCopyWith(
+          _$_SepaDebit value, $Res Function(_$_SepaDebit) then) =
+      __$$_SepaDebitCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2062,11 +2058,11 @@ abstract class _$$SepaDebitImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SepaDebitImplCopyWithImpl<$Res>
-    extends _$SepaDebitCopyWithImpl<$Res, _$SepaDebitImpl>
-    implements _$$SepaDebitImplCopyWith<$Res> {
-  __$$SepaDebitImplCopyWithImpl(
-      _$SepaDebitImpl _value, $Res Function(_$SepaDebitImpl) _then)
+class __$$_SepaDebitCopyWithImpl<$Res>
+    extends _$SepaDebitCopyWithImpl<$Res, _$_SepaDebit>
+    implements _$$_SepaDebitCopyWith<$Res> {
+  __$$_SepaDebitCopyWithImpl(
+      _$_SepaDebit _value, $Res Function(_$_SepaDebit) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2077,7 +2073,7 @@ class __$$SepaDebitImplCopyWithImpl<$Res>
     Object? fingerprint = freezed,
     Object? last4 = freezed,
   }) {
-    return _then(_$SepaDebitImpl(
+    return _then(_$_SepaDebit(
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -2101,12 +2097,12 @@ class __$$SepaDebitImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$SepaDebitImpl implements _SepaDebit {
-  const _$SepaDebitImpl(
+class _$_SepaDebit implements _SepaDebit {
+  const _$_SepaDebit(
       {this.country, this.bankCode, this.fingerprint, this.last4});
 
-  factory _$SepaDebitImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SepaDebitImplFromJson(json);
+  factory _$_SepaDebit.fromJson(Map<String, dynamic> json) =>
+      _$$_SepaDebitFromJson(json);
 
   /// Two letter ISO code representing the country of the bank account.
   @override
@@ -2130,10 +2126,10 @@ class _$SepaDebitImpl implements _SepaDebit {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SepaDebitImpl &&
+            other is _$_SepaDebit &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.bankCode, bankCode) ||
                 other.bankCode == bankCode) &&
@@ -2150,12 +2146,12 @@ class _$SepaDebitImpl implements _SepaDebit {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SepaDebitImplCopyWith<_$SepaDebitImpl> get copyWith =>
-      __$$SepaDebitImplCopyWithImpl<_$SepaDebitImpl>(this, _$identity);
+  _$$_SepaDebitCopyWith<_$_SepaDebit> get copyWith =>
+      __$$_SepaDebitCopyWithImpl<_$_SepaDebit>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SepaDebitImplToJson(
+    return _$$_SepaDebitToJson(
       this,
     );
   }
@@ -2166,10 +2162,10 @@ abstract class _SepaDebit implements SepaDebit {
       {final String? country,
       final String? bankCode,
       final String? fingerprint,
-      final String? last4}) = _$SepaDebitImpl;
+      final String? last4}) = _$_SepaDebit;
 
   factory _SepaDebit.fromJson(Map<String, dynamic> json) =
-      _$SepaDebitImpl.fromJson;
+      _$_SepaDebit.fromJson;
 
   @override
 
@@ -2189,7 +2185,7 @@ abstract class _SepaDebit implements SepaDebit {
   String? get last4;
   @override
   @JsonKey(ignore: true)
-  _$$SepaDebitImplCopyWith<_$SepaDebitImpl> get copyWith =>
+  _$$_SepaDebitCopyWith<_$_SepaDebit> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2240,21 +2236,19 @@ class _$SofortCopyWithImpl<$Res, $Val extends Sofort>
 }
 
 /// @nodoc
-abstract class _$$SofortImplCopyWith<$Res> implements $SofortCopyWith<$Res> {
-  factory _$$SofortImplCopyWith(
-          _$SofortImpl value, $Res Function(_$SofortImpl) then) =
-      __$$SofortImplCopyWithImpl<$Res>;
+abstract class _$$_SofortCopyWith<$Res> implements $SofortCopyWith<$Res> {
+  factory _$$_SofortCopyWith(_$_Sofort value, $Res Function(_$_Sofort) then) =
+      __$$_SofortCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? country});
 }
 
 /// @nodoc
-class __$$SofortImplCopyWithImpl<$Res>
-    extends _$SofortCopyWithImpl<$Res, _$SofortImpl>
-    implements _$$SofortImplCopyWith<$Res> {
-  __$$SofortImplCopyWithImpl(
-      _$SofortImpl _value, $Res Function(_$SofortImpl) _then)
+class __$$_SofortCopyWithImpl<$Res>
+    extends _$SofortCopyWithImpl<$Res, _$_Sofort>
+    implements _$$_SofortCopyWith<$Res> {
+  __$$_SofortCopyWithImpl(_$_Sofort _value, $Res Function(_$_Sofort) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2262,7 +2256,7 @@ class __$$SofortImplCopyWithImpl<$Res>
   $Res call({
     Object? country = freezed,
   }) {
-    return _then(_$SofortImpl(
+    return _then(_$_Sofort(
       country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -2274,11 +2268,11 @@ class __$$SofortImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$SofortImpl implements _Sofort {
-  const _$SofortImpl({this.country});
+class _$_Sofort implements _Sofort {
+  const _$_Sofort({this.country});
 
-  factory _$SofortImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SofortImplFromJson(json);
+  factory _$_Sofort.fromJson(Map<String, dynamic> json) =>
+      _$$_SofortFromJson(json);
 
   /// Two letter ISO code representing the country of the bank account.
   @override
@@ -2290,10 +2284,10 @@ class _$SofortImpl implements _Sofort {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SofortImpl &&
+            other is _$_Sofort &&
             (identical(other.country, country) || other.country == country));
   }
 
@@ -2304,21 +2298,21 @@ class _$SofortImpl implements _Sofort {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SofortImplCopyWith<_$SofortImpl> get copyWith =>
-      __$$SofortImplCopyWithImpl<_$SofortImpl>(this, _$identity);
+  _$$_SofortCopyWith<_$_Sofort> get copyWith =>
+      __$$_SofortCopyWithImpl<_$_Sofort>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SofortImplToJson(
+    return _$$_SofortToJson(
       this,
     );
   }
 }
 
 abstract class _Sofort implements Sofort {
-  const factory _Sofort({final String? country}) = _$SofortImpl;
+  const factory _Sofort({final String? country}) = _$_Sofort;
 
-  factory _Sofort.fromJson(Map<String, dynamic> json) = _$SofortImpl.fromJson;
+  factory _Sofort.fromJson(Map<String, dynamic> json) = _$_Sofort.fromJson;
 
   @override
 
@@ -2326,7 +2320,7 @@ abstract class _Sofort implements Sofort {
   String? get country;
   @override
   @JsonKey(ignore: true)
-  _$$SofortImplCopyWith<_$SofortImpl> get copyWith =>
+  _$$_SofortCopyWith<_$_Sofort> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2376,18 +2370,18 @@ class _$UpiCopyWithImpl<$Res, $Val extends Upi> implements $UpiCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$UpiImplCopyWith<$Res> implements $UpiCopyWith<$Res> {
-  factory _$$UpiImplCopyWith(_$UpiImpl value, $Res Function(_$UpiImpl) then) =
-      __$$UpiImplCopyWithImpl<$Res>;
+abstract class _$$_UpiCopyWith<$Res> implements $UpiCopyWith<$Res> {
+  factory _$$_UpiCopyWith(_$_Upi value, $Res Function(_$_Upi) then) =
+      __$$_UpiCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? vpa});
 }
 
 /// @nodoc
-class __$$UpiImplCopyWithImpl<$Res> extends _$UpiCopyWithImpl<$Res, _$UpiImpl>
-    implements _$$UpiImplCopyWith<$Res> {
-  __$$UpiImplCopyWithImpl(_$UpiImpl _value, $Res Function(_$UpiImpl) _then)
+class __$$_UpiCopyWithImpl<$Res> extends _$UpiCopyWithImpl<$Res, _$_Upi>
+    implements _$$_UpiCopyWith<$Res> {
+  __$$_UpiCopyWithImpl(_$_Upi _value, $Res Function(_$_Upi) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2395,7 +2389,7 @@ class __$$UpiImplCopyWithImpl<$Res> extends _$UpiCopyWithImpl<$Res, _$UpiImpl>
   $Res call({
     Object? vpa = freezed,
   }) {
-    return _then(_$UpiImpl(
+    return _then(_$_Upi(
       vpa: freezed == vpa
           ? _value.vpa
           : vpa // ignore: cast_nullable_to_non_nullable
@@ -2407,11 +2401,10 @@ class __$$UpiImplCopyWithImpl<$Res> extends _$UpiCopyWithImpl<$Res, _$UpiImpl>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$UpiImpl implements _Upi {
-  const _$UpiImpl({this.vpa});
+class _$_Upi implements _Upi {
+  const _$_Upi({this.vpa});
 
-  factory _$UpiImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UpiImplFromJson(json);
+  factory _$_Upi.fromJson(Map<String, dynamic> json) => _$$_UpiFromJson(json);
 
   /// The customer's vpa.
   @override
@@ -2423,10 +2416,10 @@ class _$UpiImpl implements _Upi {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UpiImpl &&
+            other is _$_Upi &&
             (identical(other.vpa, vpa) || other.vpa == vpa));
   }
 
@@ -2437,21 +2430,21 @@ class _$UpiImpl implements _Upi {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UpiImplCopyWith<_$UpiImpl> get copyWith =>
-      __$$UpiImplCopyWithImpl<_$UpiImpl>(this, _$identity);
+  _$$_UpiCopyWith<_$_Upi> get copyWith =>
+      __$$_UpiCopyWithImpl<_$_Upi>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UpiImplToJson(
+    return _$$_UpiToJson(
       this,
     );
   }
 }
 
 abstract class _Upi implements Upi {
-  const factory _Upi({final String? vpa}) = _$UpiImpl;
+  const factory _Upi({final String? vpa}) = _$_Upi;
 
-  factory _Upi.fromJson(Map<String, dynamic> json) = _$UpiImpl.fromJson;
+  factory _Upi.fromJson(Map<String, dynamic> json) = _$_Upi.fromJson;
 
   @override
 
@@ -2459,8 +2452,7 @@ abstract class _Upi implements Upi {
   String? get vpa;
   @override
   @JsonKey(ignore: true)
-  _$$UpiImplCopyWith<_$UpiImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_UpiCopyWith<_$_Upi> get copyWith => throw _privateConstructorUsedError;
 }
 
 UsBankAccount _$UsBankAccountFromJson(Map<String, dynamic> json) {
@@ -2586,11 +2578,11 @@ class _$UsBankAccountCopyWithImpl<$Res, $Val extends UsBankAccount>
 }
 
 /// @nodoc
-abstract class _$$UsBankAccountImplCopyWith<$Res>
+abstract class _$$_UsBankAccountCopyWith<$Res>
     implements $UsBankAccountCopyWith<$Res> {
-  factory _$$UsBankAccountImplCopyWith(
-          _$UsBankAccountImpl value, $Res Function(_$UsBankAccountImpl) then) =
-      __$$UsBankAccountImplCopyWithImpl<$Res>;
+  factory _$$_UsBankAccountCopyWith(
+          _$_UsBankAccount value, $Res Function(_$_UsBankAccount) then) =
+      __$$_UsBankAccountCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -2606,11 +2598,11 @@ abstract class _$$UsBankAccountImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$UsBankAccountImplCopyWithImpl<$Res>
-    extends _$UsBankAccountCopyWithImpl<$Res, _$UsBankAccountImpl>
-    implements _$$UsBankAccountImplCopyWith<$Res> {
-  __$$UsBankAccountImplCopyWithImpl(
-      _$UsBankAccountImpl _value, $Res Function(_$UsBankAccountImpl) _then)
+class __$$_UsBankAccountCopyWithImpl<$Res>
+    extends _$UsBankAccountCopyWithImpl<$Res, _$_UsBankAccount>
+    implements _$$_UsBankAccountCopyWith<$Res> {
+  __$$_UsBankAccountCopyWithImpl(
+      _$_UsBankAccount _value, $Res Function(_$_UsBankAccount) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2626,7 +2618,7 @@ class __$$UsBankAccountImplCopyWithImpl<$Res>
     Object? preferredNetworks = freezed,
     Object? supportedNetworks = freezed,
   }) {
-    return _then(_$UsBankAccountImpl(
+    return _then(_$_UsBankAccount(
       routingNumber: freezed == routingNumber
           ? _value.routingNumber
           : routingNumber // ignore: cast_nullable_to_non_nullable
@@ -2670,8 +2662,8 @@ class __$$UsBankAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$UsBankAccountImpl implements _UsBankAccount {
-  const _$UsBankAccountImpl(
+class _$_UsBankAccount implements _UsBankAccount {
+  const _$_UsBankAccount(
       {this.routingNumber,
       this.last4,
       required this.accountHolderType,
@@ -2684,8 +2676,8 @@ class _$UsBankAccountImpl implements _UsBankAccount {
       : _preferredNetworks = preferredNetworks,
         _supportedNetworks = supportedNetworks;
 
-  factory _$UsBankAccountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UsBankAccountImplFromJson(json);
+  factory _$_UsBankAccount.fromJson(Map<String, dynamic> json) =>
+      _$$_UsBankAccountFromJson(json);
 
   /// Routing number of the bank account
   @override
@@ -2749,10 +2741,10 @@ class _$UsBankAccountImpl implements _UsBankAccount {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UsBankAccountImpl &&
+            other is _$_UsBankAccount &&
             (identical(other.routingNumber, routingNumber) ||
                 other.routingNumber == routingNumber) &&
             (identical(other.last4, last4) || other.last4 == last4) &&
@@ -2789,12 +2781,12 @@ class _$UsBankAccountImpl implements _UsBankAccount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UsBankAccountImplCopyWith<_$UsBankAccountImpl> get copyWith =>
-      __$$UsBankAccountImplCopyWithImpl<_$UsBankAccountImpl>(this, _$identity);
+  _$$_UsBankAccountCopyWith<_$_UsBankAccount> get copyWith =>
+      __$$_UsBankAccountCopyWithImpl<_$_UsBankAccount>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UsBankAccountImplToJson(
+    return _$$_UsBankAccountToJson(
       this,
     );
   }
@@ -2810,10 +2802,10 @@ abstract class _UsBankAccount implements UsBankAccount {
       final String? fingerprint,
       final String? linkedAccount,
       final List<String>? preferredNetworks,
-      final List<String>? supportedNetworks}) = _$UsBankAccountImpl;
+      final List<String>? supportedNetworks}) = _$_UsBankAccount;
 
   factory _UsBankAccount.fromJson(Map<String, dynamic> json) =
-      _$UsBankAccountImpl.fromJson;
+      _$_UsBankAccount.fromJson;
 
   @override
 
@@ -2853,7 +2845,7 @@ abstract class _UsBankAccount implements UsBankAccount {
   List<String>? get supportedNetworks;
   @override
   @JsonKey(ignore: true)
-  _$$UsBankAccountImplCopyWith<_$UsBankAccountImpl> get copyWith =>
+  _$$_UsBankAccountCopyWith<_$_UsBankAccount> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2899,8 +2891,6 @@ PaymentMethodParams _$PaymentMethodParamsFromJson(Map<String, dynamic> json) {
       return _PaymentMethodParamsKlarna.fromJson(json);
     case 'PayPal':
       return _PaymentMethodParamsPayPal.fromJson(json);
-    case 'RevolutPay':
-      return _PaymentMethodParamsRevolutPay.fromJson(json);
     case 'USBankAccount':
       return _PaymentMethodParamsUsBankAccount.fromJson(json);
 
@@ -2943,7 +2933,6 @@ mixin _$PaymentMethodParams {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) =>
@@ -2973,7 +2962,6 @@ mixin _$PaymentMethodParams {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) =>
       throw _privateConstructorUsedError;
@@ -3002,7 +2990,6 @@ mixin _$PaymentMethodParams {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) =>
@@ -3032,7 +3019,6 @@ mixin _$PaymentMethodParams {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) =>
@@ -3061,7 +3047,6 @@ mixin _$PaymentMethodParams {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) =>
       throw _privateConstructorUsedError;
@@ -3089,7 +3074,6 @@ mixin _$PaymentMethodParams {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) =>
@@ -3116,11 +3100,10 @@ class _$PaymentMethodParamsCopyWithImpl<$Res, $Val extends PaymentMethodParams>
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsCardImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsCardImplCopyWith(
-          _$PaymentMethodParamsCardImpl value,
-          $Res Function(_$PaymentMethodParamsCardImpl) then) =
-      __$$PaymentMethodParamsCardImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsCardCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsCardCopyWith(_$_PaymentMethodParamsCard value,
+          $Res Function(_$_PaymentMethodParamsCard) then) =
+      __$$_PaymentMethodParamsCardCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -3128,13 +3111,11 @@ abstract class _$$PaymentMethodParamsCardImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsCardImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsCardImpl>
-    implements _$$PaymentMethodParamsCardImplCopyWith<$Res> {
-  __$$PaymentMethodParamsCardImplCopyWithImpl(
-      _$PaymentMethodParamsCardImpl _value,
-      $Res Function(_$PaymentMethodParamsCardImpl) _then)
+class __$$_PaymentMethodParamsCardCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsCard>
+    implements _$$_PaymentMethodParamsCardCopyWith<$Res> {
+  __$$_PaymentMethodParamsCardCopyWithImpl(_$_PaymentMethodParamsCard _value,
+      $Res Function(_$_PaymentMethodParamsCard) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3142,7 +3123,7 @@ class __$$PaymentMethodParamsCardImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsCardImpl(
+    return _then(_$_PaymentMethodParamsCard(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -3162,13 +3143,13 @@ class __$$PaymentMethodParamsCardImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
-  const _$PaymentMethodParamsCardImpl(
+class _$_PaymentMethodParamsCard implements _PaymentMethodParamsCard {
+  const _$_PaymentMethodParamsCard(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Card';
 
-  factory _$PaymentMethodParamsCardImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsCardImplFromJson(json);
+  factory _$_PaymentMethodParamsCard.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsCardFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -3183,10 +3164,10 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsCardImpl &&
+            other is _$_PaymentMethodParamsCard &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -3198,9 +3179,10 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsCardImplCopyWith<_$PaymentMethodParamsCardImpl>
-      get copyWith => __$$PaymentMethodParamsCardImplCopyWithImpl<
-          _$PaymentMethodParamsCardImpl>(this, _$identity);
+  _$$_PaymentMethodParamsCardCopyWith<_$_PaymentMethodParamsCard>
+      get copyWith =>
+          __$$_PaymentMethodParamsCardCopyWithImpl<_$_PaymentMethodParamsCard>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3229,7 +3211,6 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -3262,7 +3243,6 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return card?.call(paymentMethodData);
@@ -3294,7 +3274,6 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -3330,7 +3309,6 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -3362,7 +3340,6 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return card?.call(this);
@@ -3393,7 +3370,6 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -3405,7 +3381,7 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsCardImplToJson(
+    return _$$_PaymentMethodParamsCardToJson(
       this,
     );
   }
@@ -3414,26 +3390,26 @@ class _$PaymentMethodParamsCardImpl implements _PaymentMethodParamsCard {
 abstract class _PaymentMethodParamsCard implements PaymentMethodParams {
   const factory _PaymentMethodParamsCard(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsCardImpl;
+      _$_PaymentMethodParamsCard;
 
   factory _PaymentMethodParamsCard.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsCardImpl.fromJson;
+      _$_PaymentMethodParamsCard.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsCardImplCopyWith<_$PaymentMethodParamsCardImpl>
+  _$$_PaymentMethodParamsCardCopyWith<_$_PaymentMethodParamsCard>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsCardWithTokenImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsCardWithTokenImplCopyWith(
-          _$PaymentMethodParamsCardWithTokenImpl value,
-          $Res Function(_$PaymentMethodParamsCardWithTokenImpl) then) =
-      __$$PaymentMethodParamsCardWithTokenImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsCardWithTokenCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsCardWithTokenCopyWith(
+          _$_PaymentMethodParamsCardWithToken value,
+          $Res Function(_$_PaymentMethodParamsCardWithToken) then) =
+      __$$_PaymentMethodParamsCardWithTokenCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataCardFromToken paymentMethodData});
 
@@ -3441,13 +3417,13 @@ abstract class _$$PaymentMethodParamsCardWithTokenImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsCardWithTokenImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsCardWithTokenCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsCardWithTokenImpl>
-    implements _$$PaymentMethodParamsCardWithTokenImplCopyWith<$Res> {
-  __$$PaymentMethodParamsCardWithTokenImplCopyWithImpl(
-      _$PaymentMethodParamsCardWithTokenImpl _value,
-      $Res Function(_$PaymentMethodParamsCardWithTokenImpl) _then)
+        _$_PaymentMethodParamsCardWithToken>
+    implements _$$_PaymentMethodParamsCardWithTokenCopyWith<$Res> {
+  __$$_PaymentMethodParamsCardWithTokenCopyWithImpl(
+      _$_PaymentMethodParamsCardWithToken _value,
+      $Res Function(_$_PaymentMethodParamsCardWithToken) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3455,7 +3431,7 @@ class __$$PaymentMethodParamsCardWithTokenImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsCardWithTokenImpl(
+    return _then(_$_PaymentMethodParamsCardWithToken(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -3476,15 +3452,15 @@ class __$$PaymentMethodParamsCardWithTokenImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsCardWithTokenImpl
+class _$_PaymentMethodParamsCardWithToken
     implements _PaymentMethodParamsCardWithToken {
-  const _$PaymentMethodParamsCardWithTokenImpl(
+  const _$_PaymentMethodParamsCardWithToken(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Card';
 
-  factory _$PaymentMethodParamsCardWithTokenImpl.fromJson(
+  factory _$_PaymentMethodParamsCardWithToken.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsCardWithTokenImplFromJson(json);
+      _$$_PaymentMethodParamsCardWithTokenFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -3499,10 +3475,10 @@ class _$PaymentMethodParamsCardWithTokenImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsCardWithTokenImpl &&
+            other is _$_PaymentMethodParamsCardWithToken &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -3514,10 +3490,10 @@ class _$PaymentMethodParamsCardWithTokenImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsCardWithTokenImplCopyWith<
-          _$PaymentMethodParamsCardWithTokenImpl>
-      get copyWith => __$$PaymentMethodParamsCardWithTokenImplCopyWithImpl<
-          _$PaymentMethodParamsCardWithTokenImpl>(this, _$identity);
+  _$$_PaymentMethodParamsCardWithTokenCopyWith<
+          _$_PaymentMethodParamsCardWithToken>
+      get copyWith => __$$_PaymentMethodParamsCardWithTokenCopyWithImpl<
+          _$_PaymentMethodParamsCardWithToken>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3546,7 +3522,6 @@ class _$PaymentMethodParamsCardWithTokenImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -3579,7 +3554,6 @@ class _$PaymentMethodParamsCardWithTokenImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return cardFromToken?.call(paymentMethodData);
@@ -3611,7 +3585,6 @@ class _$PaymentMethodParamsCardWithTokenImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -3647,7 +3620,6 @@ class _$PaymentMethodParamsCardWithTokenImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -3679,7 +3651,6 @@ class _$PaymentMethodParamsCardWithTokenImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return cardFromToken?.call(this);
@@ -3710,7 +3681,6 @@ class _$PaymentMethodParamsCardWithTokenImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -3722,7 +3692,7 @@ class _$PaymentMethodParamsCardWithTokenImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsCardWithTokenImplToJson(
+    return _$$_PaymentMethodParamsCardWithTokenToJson(
       this,
     );
   }
@@ -3732,28 +3702,27 @@ abstract class _PaymentMethodParamsCardWithToken
     implements PaymentMethodParams {
   const factory _PaymentMethodParamsCardWithToken(
           {required final PaymentMethodDataCardFromToken paymentMethodData}) =
-      _$PaymentMethodParamsCardWithTokenImpl;
+      _$_PaymentMethodParamsCardWithToken;
 
   factory _PaymentMethodParamsCardWithToken.fromJson(
-          Map<String, dynamic> json) =
-      _$PaymentMethodParamsCardWithTokenImpl.fromJson;
+      Map<String, dynamic> json) = _$_PaymentMethodParamsCardWithToken.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodDataCardFromToken get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsCardWithTokenImplCopyWith<
-          _$PaymentMethodParamsCardWithTokenImpl>
+  _$$_PaymentMethodParamsCardWithTokenCopyWith<
+          _$_PaymentMethodParamsCardWithToken>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsCardWithMethodIdImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsCardWithMethodIdImplCopyWith(
-          _$PaymentMethodParamsCardWithMethodIdImpl value,
-          $Res Function(_$PaymentMethodParamsCardWithMethodIdImpl) then) =
-      __$$PaymentMethodParamsCardWithMethodIdImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsCardWithMethodIdCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsCardWithMethodIdCopyWith(
+          _$_PaymentMethodParamsCardWithMethodId value,
+          $Res Function(_$_PaymentMethodParamsCardWithMethodId) then) =
+      __$$_PaymentMethodParamsCardWithMethodIdCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataCardFromMethod paymentMethodData});
 
@@ -3761,13 +3730,13 @@ abstract class _$$PaymentMethodParamsCardWithMethodIdImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsCardWithMethodIdImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsCardWithMethodIdCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsCardWithMethodIdImpl>
-    implements _$$PaymentMethodParamsCardWithMethodIdImplCopyWith<$Res> {
-  __$$PaymentMethodParamsCardWithMethodIdImplCopyWithImpl(
-      _$PaymentMethodParamsCardWithMethodIdImpl _value,
-      $Res Function(_$PaymentMethodParamsCardWithMethodIdImpl) _then)
+        _$_PaymentMethodParamsCardWithMethodId>
+    implements _$$_PaymentMethodParamsCardWithMethodIdCopyWith<$Res> {
+  __$$_PaymentMethodParamsCardWithMethodIdCopyWithImpl(
+      _$_PaymentMethodParamsCardWithMethodId _value,
+      $Res Function(_$_PaymentMethodParamsCardWithMethodId) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3775,7 +3744,7 @@ class __$$PaymentMethodParamsCardWithMethodIdImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsCardWithMethodIdImpl(
+    return _then(_$_PaymentMethodParamsCardWithMethodId(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -3796,15 +3765,15 @@ class __$$PaymentMethodParamsCardWithMethodIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsCardWithMethodIdImpl
+class _$_PaymentMethodParamsCardWithMethodId
     implements _PaymentMethodParamsCardWithMethodId {
-  const _$PaymentMethodParamsCardWithMethodIdImpl(
+  const _$_PaymentMethodParamsCardWithMethodId(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Card';
 
-  factory _$PaymentMethodParamsCardWithMethodIdImpl.fromJson(
+  factory _$_PaymentMethodParamsCardWithMethodId.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsCardWithMethodIdImplFromJson(json);
+      _$$_PaymentMethodParamsCardWithMethodIdFromJson(json);
 
   /// Payment method data object for card from payment method.
   @override
@@ -3819,10 +3788,10 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsCardWithMethodIdImpl &&
+            other is _$_PaymentMethodParamsCardWithMethodId &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -3834,10 +3803,10 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsCardWithMethodIdImplCopyWith<
-          _$PaymentMethodParamsCardWithMethodIdImpl>
-      get copyWith => __$$PaymentMethodParamsCardWithMethodIdImplCopyWithImpl<
-          _$PaymentMethodParamsCardWithMethodIdImpl>(this, _$identity);
+  _$$_PaymentMethodParamsCardWithMethodIdCopyWith<
+          _$_PaymentMethodParamsCardWithMethodId>
+      get copyWith => __$$_PaymentMethodParamsCardWithMethodIdCopyWithImpl<
+          _$_PaymentMethodParamsCardWithMethodId>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -3866,7 +3835,6 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -3899,7 +3867,6 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return cardFromMethodId?.call(paymentMethodData);
@@ -3931,7 +3898,6 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -3967,7 +3933,6 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -3999,7 +3964,6 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return cardFromMethodId?.call(this);
@@ -4030,7 +3994,6 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4042,7 +4005,7 @@ class _$PaymentMethodParamsCardWithMethodIdImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsCardWithMethodIdImplToJson(
+    return _$$_PaymentMethodParamsCardWithMethodIdToJson(
       this,
     );
   }
@@ -4052,28 +4015,28 @@ abstract class _PaymentMethodParamsCardWithMethodId
     implements PaymentMethodParams {
   const factory _PaymentMethodParamsCardWithMethodId(
           {required final PaymentMethodDataCardFromMethod paymentMethodData}) =
-      _$PaymentMethodParamsCardWithMethodIdImpl;
+      _$_PaymentMethodParamsCardWithMethodId;
 
   factory _PaymentMethodParamsCardWithMethodId.fromJson(
           Map<String, dynamic> json) =
-      _$PaymentMethodParamsCardWithMethodIdImpl.fromJson;
+      _$_PaymentMethodParamsCardWithMethodId.fromJson;
 
   @override
 
   /// Payment method data object for card from payment method.
   PaymentMethodDataCardFromMethod get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsCardWithMethodIdImplCopyWith<
-          _$PaymentMethodParamsCardWithMethodIdImpl>
+  _$$_PaymentMethodParamsCardWithMethodIdCopyWith<
+          _$_PaymentMethodParamsCardWithMethodId>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsAlipayImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsAlipayImplCopyWith(
-          _$PaymentMethodParamsAlipayImpl value,
-          $Res Function(_$PaymentMethodParamsAlipayImpl) then) =
-      __$$PaymentMethodParamsAlipayImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsAlipayCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsAlipayCopyWith(
+          _$_PaymentMethodParamsAlipay value,
+          $Res Function(_$_PaymentMethodParamsAlipay) then) =
+      __$$_PaymentMethodParamsAlipayCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -4081,13 +4044,13 @@ abstract class _$$PaymentMethodParamsAlipayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsAlipayImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsAlipayCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsAlipayImpl>
-    implements _$$PaymentMethodParamsAlipayImplCopyWith<$Res> {
-  __$$PaymentMethodParamsAlipayImplCopyWithImpl(
-      _$PaymentMethodParamsAlipayImpl _value,
-      $Res Function(_$PaymentMethodParamsAlipayImpl) _then)
+        _$_PaymentMethodParamsAlipay>
+    implements _$$_PaymentMethodParamsAlipayCopyWith<$Res> {
+  __$$_PaymentMethodParamsAlipayCopyWithImpl(
+      _$_PaymentMethodParamsAlipay _value,
+      $Res Function(_$_PaymentMethodParamsAlipay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4095,7 +4058,7 @@ class __$$PaymentMethodParamsAlipayImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsAlipayImpl(
+    return _then(_$_PaymentMethodParamsAlipay(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -4115,13 +4078,13 @@ class __$$PaymentMethodParamsAlipayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
-  const _$PaymentMethodParamsAlipayImpl(
+class _$_PaymentMethodParamsAlipay implements _PaymentMethodParamsAlipay {
+  const _$_PaymentMethodParamsAlipay(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Alipay';
 
-  factory _$PaymentMethodParamsAlipayImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsAlipayImplFromJson(json);
+  factory _$_PaymentMethodParamsAlipay.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsAlipayFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -4136,10 +4099,10 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsAlipayImpl &&
+            other is _$_PaymentMethodParamsAlipay &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -4151,9 +4114,9 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsAlipayImplCopyWith<_$PaymentMethodParamsAlipayImpl>
-      get copyWith => __$$PaymentMethodParamsAlipayImplCopyWithImpl<
-          _$PaymentMethodParamsAlipayImpl>(this, _$identity);
+  _$$_PaymentMethodParamsAlipayCopyWith<_$_PaymentMethodParamsAlipay>
+      get copyWith => __$$_PaymentMethodParamsAlipayCopyWithImpl<
+          _$_PaymentMethodParamsAlipay>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4182,7 +4145,6 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -4215,7 +4177,6 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return alipay?.call(paymentMethodData);
@@ -4247,7 +4208,6 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4283,7 +4243,6 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -4315,7 +4274,6 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return alipay?.call(this);
@@ -4346,7 +4304,6 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4358,7 +4315,7 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsAlipayImplToJson(
+    return _$$_PaymentMethodParamsAlipayToJson(
       this,
     );
   }
@@ -4367,26 +4324,26 @@ class _$PaymentMethodParamsAlipayImpl implements _PaymentMethodParamsAlipay {
 abstract class _PaymentMethodParamsAlipay implements PaymentMethodParams {
   const factory _PaymentMethodParamsAlipay(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsAlipayImpl;
+      _$_PaymentMethodParamsAlipay;
 
   factory _PaymentMethodParamsAlipay.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsAlipayImpl.fromJson;
+      _$_PaymentMethodParamsAlipay.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsAlipayImplCopyWith<_$PaymentMethodParamsAlipayImpl>
+  _$$_PaymentMethodParamsAlipayCopyWith<_$_PaymentMethodParamsAlipay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsCashAppPayImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsCashAppPayImplCopyWith(
-          _$PaymentMethodParamsCashAppPayImpl value,
-          $Res Function(_$PaymentMethodParamsCashAppPayImpl) then) =
-      __$$PaymentMethodParamsCashAppPayImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsCashAppPayCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsCashAppPayCopyWith(
+          _$_PaymentMethodParamsCashAppPay value,
+          $Res Function(_$_PaymentMethodParamsCashAppPay) then) =
+      __$$_PaymentMethodParamsCashAppPayCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -4394,13 +4351,13 @@ abstract class _$$PaymentMethodParamsCashAppPayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsCashAppPayImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsCashAppPayCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsCashAppPayImpl>
-    implements _$$PaymentMethodParamsCashAppPayImplCopyWith<$Res> {
-  __$$PaymentMethodParamsCashAppPayImplCopyWithImpl(
-      _$PaymentMethodParamsCashAppPayImpl _value,
-      $Res Function(_$PaymentMethodParamsCashAppPayImpl) _then)
+        _$_PaymentMethodParamsCashAppPay>
+    implements _$$_PaymentMethodParamsCashAppPayCopyWith<$Res> {
+  __$$_PaymentMethodParamsCashAppPayCopyWithImpl(
+      _$_PaymentMethodParamsCashAppPay _value,
+      $Res Function(_$_PaymentMethodParamsCashAppPay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4408,7 +4365,7 @@ class __$$PaymentMethodParamsCashAppPayImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsCashAppPayImpl(
+    return _then(_$_PaymentMethodParamsCashAppPay(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -4428,15 +4385,15 @@ class __$$PaymentMethodParamsCashAppPayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsCashAppPayImpl
+class _$_PaymentMethodParamsCashAppPay
     implements _PaymentMethodParamsCashAppPay {
-  const _$PaymentMethodParamsCashAppPayImpl(
+  const _$_PaymentMethodParamsCashAppPay(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'CashApp';
 
-  factory _$PaymentMethodParamsCashAppPayImpl.fromJson(
+  factory _$_PaymentMethodParamsCashAppPay.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsCashAppPayImplFromJson(json);
+      _$$_PaymentMethodParamsCashAppPayFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -4451,10 +4408,10 @@ class _$PaymentMethodParamsCashAppPayImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsCashAppPayImpl &&
+            other is _$_PaymentMethodParamsCashAppPay &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -4466,10 +4423,9 @@ class _$PaymentMethodParamsCashAppPayImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsCashAppPayImplCopyWith<
-          _$PaymentMethodParamsCashAppPayImpl>
-      get copyWith => __$$PaymentMethodParamsCashAppPayImplCopyWithImpl<
-          _$PaymentMethodParamsCashAppPayImpl>(this, _$identity);
+  _$$_PaymentMethodParamsCashAppPayCopyWith<_$_PaymentMethodParamsCashAppPay>
+      get copyWith => __$$_PaymentMethodParamsCashAppPayCopyWithImpl<
+          _$_PaymentMethodParamsCashAppPay>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4498,7 +4454,6 @@ class _$PaymentMethodParamsCashAppPayImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -4531,7 +4486,6 @@ class _$PaymentMethodParamsCashAppPayImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return cashAppPay?.call(paymentMethodData);
@@ -4563,7 +4517,6 @@ class _$PaymentMethodParamsCashAppPayImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4599,7 +4552,6 @@ class _$PaymentMethodParamsCashAppPayImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -4631,7 +4583,6 @@ class _$PaymentMethodParamsCashAppPayImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return cashAppPay?.call(this);
@@ -4662,7 +4613,6 @@ class _$PaymentMethodParamsCashAppPayImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4674,7 +4624,7 @@ class _$PaymentMethodParamsCashAppPayImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsCashAppPayImplToJson(
+    return _$$_PaymentMethodParamsCashAppPayToJson(
       this,
     );
   }
@@ -4683,27 +4633,26 @@ class _$PaymentMethodParamsCashAppPayImpl
 abstract class _PaymentMethodParamsCashAppPay implements PaymentMethodParams {
   const factory _PaymentMethodParamsCashAppPay(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsCashAppPayImpl;
+      _$_PaymentMethodParamsCashAppPay;
 
   factory _PaymentMethodParamsCashAppPay.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsCashAppPayImpl.fromJson;
+      _$_PaymentMethodParamsCashAppPay.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsCashAppPayImplCopyWith<
-          _$PaymentMethodParamsCashAppPayImpl>
+  _$$_PaymentMethodParamsCashAppPayCopyWith<_$_PaymentMethodParamsCashAppPay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsIdealImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsIdealImplCopyWith(
-          _$PaymentMethodParamsIdealImpl value,
-          $Res Function(_$PaymentMethodParamsIdealImpl) then) =
-      __$$PaymentMethodParamsIdealImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsIdealCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsIdealCopyWith(
+          _$_PaymentMethodParamsIdeal value,
+          $Res Function(_$_PaymentMethodParamsIdeal) then) =
+      __$$_PaymentMethodParamsIdealCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataIdeal paymentMethodData});
 
@@ -4711,13 +4660,11 @@ abstract class _$$PaymentMethodParamsIdealImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsIdealImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsIdealImpl>
-    implements _$$PaymentMethodParamsIdealImplCopyWith<$Res> {
-  __$$PaymentMethodParamsIdealImplCopyWithImpl(
-      _$PaymentMethodParamsIdealImpl _value,
-      $Res Function(_$PaymentMethodParamsIdealImpl) _then)
+class __$$_PaymentMethodParamsIdealCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsIdeal>
+    implements _$$_PaymentMethodParamsIdealCopyWith<$Res> {
+  __$$_PaymentMethodParamsIdealCopyWithImpl(_$_PaymentMethodParamsIdeal _value,
+      $Res Function(_$_PaymentMethodParamsIdeal) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4725,7 +4672,7 @@ class __$$PaymentMethodParamsIdealImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsIdealImpl(
+    return _then(_$_PaymentMethodParamsIdeal(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -4746,13 +4693,13 @@ class __$$PaymentMethodParamsIdealImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
-  const _$PaymentMethodParamsIdealImpl(
+class _$_PaymentMethodParamsIdeal implements _PaymentMethodParamsIdeal {
+  const _$_PaymentMethodParamsIdeal(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Ideal';
 
-  factory _$PaymentMethodParamsIdealImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsIdealImplFromJson(json);
+  factory _$_PaymentMethodParamsIdeal.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsIdealFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -4767,10 +4714,10 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsIdealImpl &&
+            other is _$_PaymentMethodParamsIdeal &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -4782,9 +4729,9 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsIdealImplCopyWith<_$PaymentMethodParamsIdealImpl>
-      get copyWith => __$$PaymentMethodParamsIdealImplCopyWithImpl<
-          _$PaymentMethodParamsIdealImpl>(this, _$identity);
+  _$$_PaymentMethodParamsIdealCopyWith<_$_PaymentMethodParamsIdeal>
+      get copyWith => __$$_PaymentMethodParamsIdealCopyWithImpl<
+          _$_PaymentMethodParamsIdeal>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -4813,7 +4760,6 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -4846,7 +4792,6 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return ideal?.call(paymentMethodData);
@@ -4878,7 +4823,6 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4914,7 +4858,6 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -4946,7 +4889,6 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return ideal?.call(this);
@@ -4977,7 +4919,6 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -4989,7 +4930,7 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsIdealImplToJson(
+    return _$$_PaymentMethodParamsIdealToJson(
       this,
     );
   }
@@ -4998,26 +4939,26 @@ class _$PaymentMethodParamsIdealImpl implements _PaymentMethodParamsIdeal {
 abstract class _PaymentMethodParamsIdeal implements PaymentMethodParams {
   const factory _PaymentMethodParamsIdeal(
           {required final PaymentMethodDataIdeal paymentMethodData}) =
-      _$PaymentMethodParamsIdealImpl;
+      _$_PaymentMethodParamsIdeal;
 
   factory _PaymentMethodParamsIdeal.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsIdealImpl.fromJson;
+      _$_PaymentMethodParamsIdeal.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodDataIdeal get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsIdealImplCopyWith<_$PaymentMethodParamsIdealImpl>
+  _$$_PaymentMethodParamsIdealCopyWith<_$_PaymentMethodParamsIdeal>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsAubecsImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsAubecsImplCopyWith(
-          _$PaymentMethodParamsAubecsImpl value,
-          $Res Function(_$PaymentMethodParamsAubecsImpl) then) =
-      __$$PaymentMethodParamsAubecsImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsAubecsCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsAubecsCopyWith(
+          _$_PaymentMethodParamsAubecs value,
+          $Res Function(_$_PaymentMethodParamsAubecs) then) =
+      __$$_PaymentMethodParamsAubecsCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataAubecs paymentMethodData});
 
@@ -5025,13 +4966,13 @@ abstract class _$$PaymentMethodParamsAubecsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsAubecsImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsAubecsCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsAubecsImpl>
-    implements _$$PaymentMethodParamsAubecsImplCopyWith<$Res> {
-  __$$PaymentMethodParamsAubecsImplCopyWithImpl(
-      _$PaymentMethodParamsAubecsImpl _value,
-      $Res Function(_$PaymentMethodParamsAubecsImpl) _then)
+        _$_PaymentMethodParamsAubecs>
+    implements _$$_PaymentMethodParamsAubecsCopyWith<$Res> {
+  __$$_PaymentMethodParamsAubecsCopyWithImpl(
+      _$_PaymentMethodParamsAubecs _value,
+      $Res Function(_$_PaymentMethodParamsAubecs) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5039,7 +4980,7 @@ class __$$PaymentMethodParamsAubecsImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsAubecsImpl(
+    return _then(_$_PaymentMethodParamsAubecs(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -5060,13 +5001,13 @@ class __$$PaymentMethodParamsAubecsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
-  const _$PaymentMethodParamsAubecsImpl(
+class _$_PaymentMethodParamsAubecs implements _PaymentMethodParamsAubecs {
+  const _$_PaymentMethodParamsAubecs(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'AuBecsDebit';
 
-  factory _$PaymentMethodParamsAubecsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsAubecsImplFromJson(json);
+  factory _$_PaymentMethodParamsAubecs.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsAubecsFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -5081,10 +5022,10 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsAubecsImpl &&
+            other is _$_PaymentMethodParamsAubecs &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -5096,9 +5037,9 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsAubecsImplCopyWith<_$PaymentMethodParamsAubecsImpl>
-      get copyWith => __$$PaymentMethodParamsAubecsImplCopyWithImpl<
-          _$PaymentMethodParamsAubecsImpl>(this, _$identity);
+  _$$_PaymentMethodParamsAubecsCopyWith<_$_PaymentMethodParamsAubecs>
+      get copyWith => __$$_PaymentMethodParamsAubecsCopyWithImpl<
+          _$_PaymentMethodParamsAubecs>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5127,7 +5068,6 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -5160,7 +5100,6 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return aubecs?.call(paymentMethodData);
@@ -5192,7 +5131,6 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -5228,7 +5166,6 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -5260,7 +5197,6 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return aubecs?.call(this);
@@ -5291,7 +5227,6 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -5303,7 +5238,7 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsAubecsImplToJson(
+    return _$$_PaymentMethodParamsAubecsToJson(
       this,
     );
   }
@@ -5312,26 +5247,26 @@ class _$PaymentMethodParamsAubecsImpl implements _PaymentMethodParamsAubecs {
 abstract class _PaymentMethodParamsAubecs implements PaymentMethodParams {
   const factory _PaymentMethodParamsAubecs(
           {required final PaymentMethodDataAubecs paymentMethodData}) =
-      _$PaymentMethodParamsAubecsImpl;
+      _$_PaymentMethodParamsAubecs;
 
   factory _PaymentMethodParamsAubecs.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsAubecsImpl.fromJson;
+      _$_PaymentMethodParamsAubecs.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodDataAubecs get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsAubecsImplCopyWith<_$PaymentMethodParamsAubecsImpl>
+  _$$_PaymentMethodParamsAubecsCopyWith<_$_PaymentMethodParamsAubecs>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsBankContactImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsBankContactImplCopyWith(
-          _$PaymentMethodParamsBankContactImpl value,
-          $Res Function(_$PaymentMethodParamsBankContactImpl) then) =
-      __$$PaymentMethodParamsBankContactImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsBankContactCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsBankContactCopyWith(
+          _$_PaymentMethodParamsBankContact value,
+          $Res Function(_$_PaymentMethodParamsBankContact) then) =
+      __$$_PaymentMethodParamsBankContactCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -5339,13 +5274,13 @@ abstract class _$$PaymentMethodParamsBankContactImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsBankContactImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsBankContactCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsBankContactImpl>
-    implements _$$PaymentMethodParamsBankContactImplCopyWith<$Res> {
-  __$$PaymentMethodParamsBankContactImplCopyWithImpl(
-      _$PaymentMethodParamsBankContactImpl _value,
-      $Res Function(_$PaymentMethodParamsBankContactImpl) _then)
+        _$_PaymentMethodParamsBankContact>
+    implements _$$_PaymentMethodParamsBankContactCopyWith<$Res> {
+  __$$_PaymentMethodParamsBankContactCopyWithImpl(
+      _$_PaymentMethodParamsBankContact _value,
+      $Res Function(_$_PaymentMethodParamsBankContact) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5353,7 +5288,7 @@ class __$$PaymentMethodParamsBankContactImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsBankContactImpl(
+    return _then(_$_PaymentMethodParamsBankContact(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -5373,15 +5308,15 @@ class __$$PaymentMethodParamsBankContactImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsBankContactImpl
+class _$_PaymentMethodParamsBankContact
     implements _PaymentMethodParamsBankContact {
-  const _$PaymentMethodParamsBankContactImpl(
+  const _$_PaymentMethodParamsBankContact(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Bancontact';
 
-  factory _$PaymentMethodParamsBankContactImpl.fromJson(
+  factory _$_PaymentMethodParamsBankContact.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsBankContactImplFromJson(json);
+      _$$_PaymentMethodParamsBankContactFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -5396,10 +5331,10 @@ class _$PaymentMethodParamsBankContactImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsBankContactImpl &&
+            other is _$_PaymentMethodParamsBankContact &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -5411,10 +5346,9 @@ class _$PaymentMethodParamsBankContactImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsBankContactImplCopyWith<
-          _$PaymentMethodParamsBankContactImpl>
-      get copyWith => __$$PaymentMethodParamsBankContactImplCopyWithImpl<
-          _$PaymentMethodParamsBankContactImpl>(this, _$identity);
+  _$$_PaymentMethodParamsBankContactCopyWith<_$_PaymentMethodParamsBankContact>
+      get copyWith => __$$_PaymentMethodParamsBankContactCopyWithImpl<
+          _$_PaymentMethodParamsBankContact>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5443,7 +5377,6 @@ class _$PaymentMethodParamsBankContactImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -5476,7 +5409,6 @@ class _$PaymentMethodParamsBankContactImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return bancontact?.call(paymentMethodData);
@@ -5508,7 +5440,6 @@ class _$PaymentMethodParamsBankContactImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -5544,7 +5475,6 @@ class _$PaymentMethodParamsBankContactImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -5576,7 +5506,6 @@ class _$PaymentMethodParamsBankContactImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return bancontact?.call(this);
@@ -5607,7 +5536,6 @@ class _$PaymentMethodParamsBankContactImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -5619,7 +5547,7 @@ class _$PaymentMethodParamsBankContactImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsBankContactImplToJson(
+    return _$$_PaymentMethodParamsBankContactToJson(
       this,
     );
   }
@@ -5628,27 +5556,26 @@ class _$PaymentMethodParamsBankContactImpl
 abstract class _PaymentMethodParamsBankContact implements PaymentMethodParams {
   const factory _PaymentMethodParamsBankContact(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsBankContactImpl;
+      _$_PaymentMethodParamsBankContact;
 
   factory _PaymentMethodParamsBankContact.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsBankContactImpl.fromJson;
+      _$_PaymentMethodParamsBankContact.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsBankContactImplCopyWith<
-          _$PaymentMethodParamsBankContactImpl>
+  _$$_PaymentMethodParamsBankContactCopyWith<_$_PaymentMethodParamsBankContact>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsGiroPayImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsGiroPayImplCopyWith(
-          _$PaymentMethodParamsGiroPayImpl value,
-          $Res Function(_$PaymentMethodParamsGiroPayImpl) then) =
-      __$$PaymentMethodParamsGiroPayImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsGiroPayCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsGiroPayCopyWith(
+          _$_PaymentMethodParamsGiroPay value,
+          $Res Function(_$_PaymentMethodParamsGiroPay) then) =
+      __$$_PaymentMethodParamsGiroPayCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -5656,13 +5583,13 @@ abstract class _$$PaymentMethodParamsGiroPayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsGiroPayImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsGiroPayCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsGiroPayImpl>
-    implements _$$PaymentMethodParamsGiroPayImplCopyWith<$Res> {
-  __$$PaymentMethodParamsGiroPayImplCopyWithImpl(
-      _$PaymentMethodParamsGiroPayImpl _value,
-      $Res Function(_$PaymentMethodParamsGiroPayImpl) _then)
+        _$_PaymentMethodParamsGiroPay>
+    implements _$$_PaymentMethodParamsGiroPayCopyWith<$Res> {
+  __$$_PaymentMethodParamsGiroPayCopyWithImpl(
+      _$_PaymentMethodParamsGiroPay _value,
+      $Res Function(_$_PaymentMethodParamsGiroPay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5670,7 +5597,7 @@ class __$$PaymentMethodParamsGiroPayImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsGiroPayImpl(
+    return _then(_$_PaymentMethodParamsGiroPay(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -5690,14 +5617,13 @@ class __$$PaymentMethodParamsGiroPayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
-  const _$PaymentMethodParamsGiroPayImpl(
+class _$_PaymentMethodParamsGiroPay implements _PaymentMethodParamsGiroPay {
+  const _$_PaymentMethodParamsGiroPay(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Giropay';
 
-  factory _$PaymentMethodParamsGiroPayImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsGiroPayImplFromJson(json);
+  factory _$_PaymentMethodParamsGiroPay.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsGiroPayFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -5712,10 +5638,10 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsGiroPayImpl &&
+            other is _$_PaymentMethodParamsGiroPay &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -5727,9 +5653,9 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsGiroPayImplCopyWith<_$PaymentMethodParamsGiroPayImpl>
-      get copyWith => __$$PaymentMethodParamsGiroPayImplCopyWithImpl<
-          _$PaymentMethodParamsGiroPayImpl>(this, _$identity);
+  _$$_PaymentMethodParamsGiroPayCopyWith<_$_PaymentMethodParamsGiroPay>
+      get copyWith => __$$_PaymentMethodParamsGiroPayCopyWithImpl<
+          _$_PaymentMethodParamsGiroPay>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5758,7 +5684,6 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -5791,7 +5716,6 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return giroPay?.call(paymentMethodData);
@@ -5823,7 +5747,6 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -5859,7 +5782,6 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -5891,7 +5813,6 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return giroPay?.call(this);
@@ -5922,7 +5843,6 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -5934,7 +5854,7 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsGiroPayImplToJson(
+    return _$$_PaymentMethodParamsGiroPayToJson(
       this,
     );
   }
@@ -5943,26 +5863,25 @@ class _$PaymentMethodParamsGiroPayImpl implements _PaymentMethodParamsGiroPay {
 abstract class _PaymentMethodParamsGiroPay implements PaymentMethodParams {
   const factory _PaymentMethodParamsGiroPay(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsGiroPayImpl;
+      _$_PaymentMethodParamsGiroPay;
 
   factory _PaymentMethodParamsGiroPay.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsGiroPayImpl.fromJson;
+      _$_PaymentMethodParamsGiroPay.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsGiroPayImplCopyWith<_$PaymentMethodParamsGiroPayImpl>
+  _$$_PaymentMethodParamsGiroPayCopyWith<_$_PaymentMethodParamsGiroPay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsEpsImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsEpsImplCopyWith(
-          _$PaymentMethodParamsEpsImpl value,
-          $Res Function(_$PaymentMethodParamsEpsImpl) then) =
-      __$$PaymentMethodParamsEpsImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsEpsCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsEpsCopyWith(_$_PaymentMethodParamsEps value,
+          $Res Function(_$_PaymentMethodParamsEps) then) =
+      __$$_PaymentMethodParamsEpsCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -5970,13 +5889,11 @@ abstract class _$$PaymentMethodParamsEpsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsEpsImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsEpsImpl>
-    implements _$$PaymentMethodParamsEpsImplCopyWith<$Res> {
-  __$$PaymentMethodParamsEpsImplCopyWithImpl(
-      _$PaymentMethodParamsEpsImpl _value,
-      $Res Function(_$PaymentMethodParamsEpsImpl) _then)
+class __$$_PaymentMethodParamsEpsCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsEps>
+    implements _$$_PaymentMethodParamsEpsCopyWith<$Res> {
+  __$$_PaymentMethodParamsEpsCopyWithImpl(_$_PaymentMethodParamsEps _value,
+      $Res Function(_$_PaymentMethodParamsEps) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5984,7 +5901,7 @@ class __$$PaymentMethodParamsEpsImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsEpsImpl(
+    return _then(_$_PaymentMethodParamsEps(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -6004,13 +5921,13 @@ class __$$PaymentMethodParamsEpsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
-  const _$PaymentMethodParamsEpsImpl(
+class _$_PaymentMethodParamsEps implements _PaymentMethodParamsEps {
+  const _$_PaymentMethodParamsEps(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Eps';
 
-  factory _$PaymentMethodParamsEpsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsEpsImplFromJson(json);
+  factory _$_PaymentMethodParamsEps.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsEpsFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -6025,10 +5942,10 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsEpsImpl &&
+            other is _$_PaymentMethodParamsEps &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -6040,9 +5957,9 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsEpsImplCopyWith<_$PaymentMethodParamsEpsImpl>
-      get copyWith => __$$PaymentMethodParamsEpsImplCopyWithImpl<
-          _$PaymentMethodParamsEpsImpl>(this, _$identity);
+  _$$_PaymentMethodParamsEpsCopyWith<_$_PaymentMethodParamsEps> get copyWith =>
+      __$$_PaymentMethodParamsEpsCopyWithImpl<_$_PaymentMethodParamsEps>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6071,7 +5988,6 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -6104,7 +6020,6 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return eps?.call(paymentMethodData);
@@ -6136,7 +6051,6 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -6172,7 +6086,6 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -6204,7 +6117,6 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return eps?.call(this);
@@ -6235,7 +6147,6 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -6247,7 +6158,7 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsEpsImplToJson(
+    return _$$_PaymentMethodParamsEpsToJson(
       this,
     );
   }
@@ -6256,26 +6167,26 @@ class _$PaymentMethodParamsEpsImpl implements _PaymentMethodParamsEps {
 abstract class _PaymentMethodParamsEps implements PaymentMethodParams {
   const factory _PaymentMethodParamsEps(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsEpsImpl;
+      _$_PaymentMethodParamsEps;
 
   factory _PaymentMethodParamsEps.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsEpsImpl.fromJson;
+      _$_PaymentMethodParamsEps.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsEpsImplCopyWith<_$PaymentMethodParamsEpsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodParamsEpsCopyWith<_$_PaymentMethodParamsEps> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsAffirmImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsAffirmImplCopyWith(
-          _$PaymentMethodParamsAffirmImpl value,
-          $Res Function(_$PaymentMethodParamsAffirmImpl) then) =
-      __$$PaymentMethodParamsAffirmImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsAffirmCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsAffirmCopyWith(
+          _$_PaymentMethodParamsAffirm value,
+          $Res Function(_$_PaymentMethodParamsAffirm) then) =
+      __$$_PaymentMethodParamsAffirmCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -6283,13 +6194,13 @@ abstract class _$$PaymentMethodParamsAffirmImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsAffirmImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsAffirmCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsAffirmImpl>
-    implements _$$PaymentMethodParamsAffirmImplCopyWith<$Res> {
-  __$$PaymentMethodParamsAffirmImplCopyWithImpl(
-      _$PaymentMethodParamsAffirmImpl _value,
-      $Res Function(_$PaymentMethodParamsAffirmImpl) _then)
+        _$_PaymentMethodParamsAffirm>
+    implements _$$_PaymentMethodParamsAffirmCopyWith<$Res> {
+  __$$_PaymentMethodParamsAffirmCopyWithImpl(
+      _$_PaymentMethodParamsAffirm _value,
+      $Res Function(_$_PaymentMethodParamsAffirm) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6297,7 +6208,7 @@ class __$$PaymentMethodParamsAffirmImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsAffirmImpl(
+    return _then(_$_PaymentMethodParamsAffirm(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -6317,13 +6228,13 @@ class __$$PaymentMethodParamsAffirmImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
-  const _$PaymentMethodParamsAffirmImpl(
+class _$_PaymentMethodParamsAffirm implements _PaymentMethodParamsAffirm {
+  const _$_PaymentMethodParamsAffirm(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Affirm';
 
-  factory _$PaymentMethodParamsAffirmImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsAffirmImplFromJson(json);
+  factory _$_PaymentMethodParamsAffirm.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsAffirmFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -6338,10 +6249,10 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsAffirmImpl &&
+            other is _$_PaymentMethodParamsAffirm &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -6353,9 +6264,9 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsAffirmImplCopyWith<_$PaymentMethodParamsAffirmImpl>
-      get copyWith => __$$PaymentMethodParamsAffirmImplCopyWithImpl<
-          _$PaymentMethodParamsAffirmImpl>(this, _$identity);
+  _$$_PaymentMethodParamsAffirmCopyWith<_$_PaymentMethodParamsAffirm>
+      get copyWith => __$$_PaymentMethodParamsAffirmCopyWithImpl<
+          _$_PaymentMethodParamsAffirm>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6384,7 +6295,6 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -6417,7 +6327,6 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return affirm?.call(paymentMethodData);
@@ -6449,7 +6358,6 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -6485,7 +6393,6 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -6517,7 +6424,6 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return affirm?.call(this);
@@ -6548,7 +6454,6 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -6560,7 +6465,7 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsAffirmImplToJson(
+    return _$$_PaymentMethodParamsAffirmToJson(
       this,
     );
   }
@@ -6569,26 +6474,25 @@ class _$PaymentMethodParamsAffirmImpl implements _PaymentMethodParamsAffirm {
 abstract class _PaymentMethodParamsAffirm implements PaymentMethodParams {
   const factory _PaymentMethodParamsAffirm(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsAffirmImpl;
+      _$_PaymentMethodParamsAffirm;
 
   factory _PaymentMethodParamsAffirm.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsAffirmImpl.fromJson;
+      _$_PaymentMethodParamsAffirm.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsAffirmImplCopyWith<_$PaymentMethodParamsAffirmImpl>
+  _$$_PaymentMethodParamsAffirmCopyWith<_$_PaymentMethodParamsAffirm>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsPayImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsPayImplCopyWith(
-          _$PaymentMethodParamsPayImpl value,
-          $Res Function(_$PaymentMethodParamsPayImpl) then) =
-      __$$PaymentMethodParamsPayImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsPayCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsPayCopyWith(_$_PaymentMethodParamsPay value,
+          $Res Function(_$_PaymentMethodParamsPay) then) =
+      __$$_PaymentMethodParamsPayCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -6596,13 +6500,11 @@ abstract class _$$PaymentMethodParamsPayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsPayImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsPayImpl>
-    implements _$$PaymentMethodParamsPayImplCopyWith<$Res> {
-  __$$PaymentMethodParamsPayImplCopyWithImpl(
-      _$PaymentMethodParamsPayImpl _value,
-      $Res Function(_$PaymentMethodParamsPayImpl) _then)
+class __$$_PaymentMethodParamsPayCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsPay>
+    implements _$$_PaymentMethodParamsPayCopyWith<$Res> {
+  __$$_PaymentMethodParamsPayCopyWithImpl(_$_PaymentMethodParamsPay _value,
+      $Res Function(_$_PaymentMethodParamsPay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6610,7 +6512,7 @@ class __$$PaymentMethodParamsPayImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsPayImpl(
+    return _then(_$_PaymentMethodParamsPay(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -6630,13 +6532,13 @@ class __$$PaymentMethodParamsPayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
-  const _$PaymentMethodParamsPayImpl(
+class _$_PaymentMethodParamsPay implements _PaymentMethodParamsPay {
+  const _$_PaymentMethodParamsPay(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'GrabPay';
 
-  factory _$PaymentMethodParamsPayImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsPayImplFromJson(json);
+  factory _$_PaymentMethodParamsPay.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsPayFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -6651,10 +6553,10 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsPayImpl &&
+            other is _$_PaymentMethodParamsPay &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -6666,9 +6568,9 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsPayImplCopyWith<_$PaymentMethodParamsPayImpl>
-      get copyWith => __$$PaymentMethodParamsPayImplCopyWithImpl<
-          _$PaymentMethodParamsPayImpl>(this, _$identity);
+  _$$_PaymentMethodParamsPayCopyWith<_$_PaymentMethodParamsPay> get copyWith =>
+      __$$_PaymentMethodParamsPayCopyWithImpl<_$_PaymentMethodParamsPay>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6697,7 +6599,6 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -6730,7 +6631,6 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return grabPay?.call(paymentMethodData);
@@ -6762,7 +6662,6 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -6798,7 +6697,6 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -6830,7 +6728,6 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return grabPay?.call(this);
@@ -6861,7 +6758,6 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -6873,7 +6769,7 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsPayImplToJson(
+    return _$$_PaymentMethodParamsPayToJson(
       this,
     );
   }
@@ -6882,26 +6778,25 @@ class _$PaymentMethodParamsPayImpl implements _PaymentMethodParamsPay {
 abstract class _PaymentMethodParamsPay implements PaymentMethodParams {
   const factory _PaymentMethodParamsPay(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsPayImpl;
+      _$_PaymentMethodParamsPay;
 
   factory _PaymentMethodParamsPay.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsPayImpl.fromJson;
+      _$_PaymentMethodParamsPay.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsPayImplCopyWith<_$PaymentMethodParamsPayImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodParamsPayCopyWith<_$_PaymentMethodParamsPay> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsP24ImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsP24ImplCopyWith(
-          _$PaymentMethodParamsP24Impl value,
-          $Res Function(_$PaymentMethodParamsP24Impl) then) =
-      __$$PaymentMethodParamsP24ImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsP24CopyWith<$Res> {
+  factory _$$_PaymentMethodParamsP24CopyWith(_$_PaymentMethodParamsP24 value,
+          $Res Function(_$_PaymentMethodParamsP24) then) =
+      __$$_PaymentMethodParamsP24CopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -6909,13 +6804,11 @@ abstract class _$$PaymentMethodParamsP24ImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsP24ImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsP24Impl>
-    implements _$$PaymentMethodParamsP24ImplCopyWith<$Res> {
-  __$$PaymentMethodParamsP24ImplCopyWithImpl(
-      _$PaymentMethodParamsP24Impl _value,
-      $Res Function(_$PaymentMethodParamsP24Impl) _then)
+class __$$_PaymentMethodParamsP24CopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsP24>
+    implements _$$_PaymentMethodParamsP24CopyWith<$Res> {
+  __$$_PaymentMethodParamsP24CopyWithImpl(_$_PaymentMethodParamsP24 _value,
+      $Res Function(_$_PaymentMethodParamsP24) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6923,7 +6816,7 @@ class __$$PaymentMethodParamsP24ImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsP24Impl(
+    return _then(_$_PaymentMethodParamsP24(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -6943,13 +6836,13 @@ class __$$PaymentMethodParamsP24ImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
-  const _$PaymentMethodParamsP24Impl(
+class _$_PaymentMethodParamsP24 implements _PaymentMethodParamsP24 {
+  const _$_PaymentMethodParamsP24(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'P24';
 
-  factory _$PaymentMethodParamsP24Impl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsP24ImplFromJson(json);
+  factory _$_PaymentMethodParamsP24.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsP24FromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -6964,10 +6857,10 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsP24Impl &&
+            other is _$_PaymentMethodParamsP24 &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -6979,9 +6872,9 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsP24ImplCopyWith<_$PaymentMethodParamsP24Impl>
-      get copyWith => __$$PaymentMethodParamsP24ImplCopyWithImpl<
-          _$PaymentMethodParamsP24Impl>(this, _$identity);
+  _$$_PaymentMethodParamsP24CopyWith<_$_PaymentMethodParamsP24> get copyWith =>
+      __$$_PaymentMethodParamsP24CopyWithImpl<_$_PaymentMethodParamsP24>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7010,7 +6903,6 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -7043,7 +6935,6 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return p24?.call(paymentMethodData);
@@ -7075,7 +6966,6 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -7111,7 +7001,6 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -7143,7 +7032,6 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return p24?.call(this);
@@ -7174,7 +7062,6 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -7186,7 +7073,7 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsP24ImplToJson(
+    return _$$_PaymentMethodParamsP24ToJson(
       this,
     );
   }
@@ -7195,26 +7082,25 @@ class _$PaymentMethodParamsP24Impl implements _PaymentMethodParamsP24 {
 abstract class _PaymentMethodParamsP24 implements PaymentMethodParams {
   const factory _PaymentMethodParamsP24(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsP24Impl;
+      _$_PaymentMethodParamsP24;
 
   factory _PaymentMethodParamsP24.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsP24Impl.fromJson;
+      _$_PaymentMethodParamsP24.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsP24ImplCopyWith<_$PaymentMethodParamsP24Impl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodParamsP24CopyWith<_$_PaymentMethodParamsP24> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsFpxImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsFpxImplCopyWith(
-          _$PaymentMethodParamsFpxImpl value,
-          $Res Function(_$PaymentMethodParamsFpxImpl) then) =
-      __$$PaymentMethodParamsFpxImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsFpxCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsFpxCopyWith(_$_PaymentMethodParamsFpx value,
+          $Res Function(_$_PaymentMethodParamsFpx) then) =
+      __$$_PaymentMethodParamsFpxCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataFpx paymentMethodData});
 
@@ -7222,13 +7108,11 @@ abstract class _$$PaymentMethodParamsFpxImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsFpxImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsFpxImpl>
-    implements _$$PaymentMethodParamsFpxImplCopyWith<$Res> {
-  __$$PaymentMethodParamsFpxImplCopyWithImpl(
-      _$PaymentMethodParamsFpxImpl _value,
-      $Res Function(_$PaymentMethodParamsFpxImpl) _then)
+class __$$_PaymentMethodParamsFpxCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsFpx>
+    implements _$$_PaymentMethodParamsFpxCopyWith<$Res> {
+  __$$_PaymentMethodParamsFpxCopyWithImpl(_$_PaymentMethodParamsFpx _value,
+      $Res Function(_$_PaymentMethodParamsFpx) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7236,7 +7120,7 @@ class __$$PaymentMethodParamsFpxImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsFpxImpl(
+    return _then(_$_PaymentMethodParamsFpx(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -7257,13 +7141,13 @@ class __$$PaymentMethodParamsFpxImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
-  const _$PaymentMethodParamsFpxImpl(
+class _$_PaymentMethodParamsFpx implements _PaymentMethodParamsFpx {
+  const _$_PaymentMethodParamsFpx(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Fpx';
 
-  factory _$PaymentMethodParamsFpxImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsFpxImplFromJson(json);
+  factory _$_PaymentMethodParamsFpx.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsFpxFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -7278,10 +7162,10 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsFpxImpl &&
+            other is _$_PaymentMethodParamsFpx &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -7293,9 +7177,9 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsFpxImplCopyWith<_$PaymentMethodParamsFpxImpl>
-      get copyWith => __$$PaymentMethodParamsFpxImplCopyWithImpl<
-          _$PaymentMethodParamsFpxImpl>(this, _$identity);
+  _$$_PaymentMethodParamsFpxCopyWith<_$_PaymentMethodParamsFpx> get copyWith =>
+      __$$_PaymentMethodParamsFpxCopyWithImpl<_$_PaymentMethodParamsFpx>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7324,7 +7208,6 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -7357,7 +7240,6 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return fpx?.call(paymentMethodData);
@@ -7389,7 +7271,6 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -7425,7 +7306,6 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -7457,7 +7337,6 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return fpx?.call(this);
@@ -7488,7 +7367,6 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -7500,7 +7378,7 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsFpxImplToJson(
+    return _$$_PaymentMethodParamsFpxToJson(
       this,
     );
   }
@@ -7509,26 +7387,26 @@ class _$PaymentMethodParamsFpxImpl implements _PaymentMethodParamsFpx {
 abstract class _PaymentMethodParamsFpx implements PaymentMethodParams {
   const factory _PaymentMethodParamsFpx(
           {required final PaymentMethodDataFpx paymentMethodData}) =
-      _$PaymentMethodParamsFpxImpl;
+      _$_PaymentMethodParamsFpx;
 
   factory _PaymentMethodParamsFpx.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsFpxImpl.fromJson;
+      _$_PaymentMethodParamsFpx.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodDataFpx get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsFpxImplCopyWith<_$PaymentMethodParamsFpxImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodParamsFpxCopyWith<_$_PaymentMethodParamsFpx> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsSepaDebitImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsSepaDebitImplCopyWith(
-          _$PaymentMethodParamsSepaDebitImpl value,
-          $Res Function(_$PaymentMethodParamsSepaDebitImpl) then) =
-      __$$PaymentMethodParamsSepaDebitImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsSepaDebitCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsSepaDebitCopyWith(
+          _$_PaymentMethodParamsSepaDebit value,
+          $Res Function(_$_PaymentMethodParamsSepaDebit) then) =
+      __$$_PaymentMethodParamsSepaDebitCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataSepa paymentMethodData});
 
@@ -7536,13 +7414,13 @@ abstract class _$$PaymentMethodParamsSepaDebitImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsSepaDebitImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsSepaDebitCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsSepaDebitImpl>
-    implements _$$PaymentMethodParamsSepaDebitImplCopyWith<$Res> {
-  __$$PaymentMethodParamsSepaDebitImplCopyWithImpl(
-      _$PaymentMethodParamsSepaDebitImpl _value,
-      $Res Function(_$PaymentMethodParamsSepaDebitImpl) _then)
+        _$_PaymentMethodParamsSepaDebit>
+    implements _$$_PaymentMethodParamsSepaDebitCopyWith<$Res> {
+  __$$_PaymentMethodParamsSepaDebitCopyWithImpl(
+      _$_PaymentMethodParamsSepaDebit _value,
+      $Res Function(_$_PaymentMethodParamsSepaDebit) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7550,7 +7428,7 @@ class __$$PaymentMethodParamsSepaDebitImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsSepaDebitImpl(
+    return _then(_$_PaymentMethodParamsSepaDebit(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -7571,15 +7449,13 @@ class __$$PaymentMethodParamsSepaDebitImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsSepaDebitImpl
-    implements _PaymentMethodParamsSepaDebit {
-  const _$PaymentMethodParamsSepaDebitImpl(
+class _$_PaymentMethodParamsSepaDebit implements _PaymentMethodParamsSepaDebit {
+  const _$_PaymentMethodParamsSepaDebit(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'SepaDebit';
 
-  factory _$PaymentMethodParamsSepaDebitImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsSepaDebitImplFromJson(json);
+  factory _$_PaymentMethodParamsSepaDebit.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsSepaDebitFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -7594,10 +7470,10 @@ class _$PaymentMethodParamsSepaDebitImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsSepaDebitImpl &&
+            other is _$_PaymentMethodParamsSepaDebit &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -7609,10 +7485,9 @@ class _$PaymentMethodParamsSepaDebitImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsSepaDebitImplCopyWith<
-          _$PaymentMethodParamsSepaDebitImpl>
-      get copyWith => __$$PaymentMethodParamsSepaDebitImplCopyWithImpl<
-          _$PaymentMethodParamsSepaDebitImpl>(this, _$identity);
+  _$$_PaymentMethodParamsSepaDebitCopyWith<_$_PaymentMethodParamsSepaDebit>
+      get copyWith => __$$_PaymentMethodParamsSepaDebitCopyWithImpl<
+          _$_PaymentMethodParamsSepaDebit>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7641,7 +7516,6 @@ class _$PaymentMethodParamsSepaDebitImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -7674,7 +7548,6 @@ class _$PaymentMethodParamsSepaDebitImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return sepaDebit?.call(paymentMethodData);
@@ -7706,7 +7579,6 @@ class _$PaymentMethodParamsSepaDebitImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -7742,7 +7614,6 @@ class _$PaymentMethodParamsSepaDebitImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -7774,7 +7645,6 @@ class _$PaymentMethodParamsSepaDebitImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return sepaDebit?.call(this);
@@ -7805,7 +7675,6 @@ class _$PaymentMethodParamsSepaDebitImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -7817,7 +7686,7 @@ class _$PaymentMethodParamsSepaDebitImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsSepaDebitImplToJson(
+    return _$$_PaymentMethodParamsSepaDebitToJson(
       this,
     );
   }
@@ -7826,27 +7695,26 @@ class _$PaymentMethodParamsSepaDebitImpl
 abstract class _PaymentMethodParamsSepaDebit implements PaymentMethodParams {
   const factory _PaymentMethodParamsSepaDebit(
           {required final PaymentMethodDataSepa paymentMethodData}) =
-      _$PaymentMethodParamsSepaDebitImpl;
+      _$_PaymentMethodParamsSepaDebit;
 
   factory _PaymentMethodParamsSepaDebit.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsSepaDebitImpl.fromJson;
+      _$_PaymentMethodParamsSepaDebit.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodDataSepa get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsSepaDebitImplCopyWith<
-          _$PaymentMethodParamsSepaDebitImpl>
+  _$$_PaymentMethodParamsSepaDebitCopyWith<_$_PaymentMethodParamsSepaDebit>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsSofortImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsSofortImplCopyWith(
-          _$PaymentMethodParamsSofortImpl value,
-          $Res Function(_$PaymentMethodParamsSofortImpl) then) =
-      __$$PaymentMethodParamsSofortImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsSofortCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsSofortCopyWith(
+          _$_PaymentMethodParamsSofort value,
+          $Res Function(_$_PaymentMethodParamsSofort) then) =
+      __$$_PaymentMethodParamsSofortCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataSofort paymentMethodData});
 
@@ -7854,13 +7722,13 @@ abstract class _$$PaymentMethodParamsSofortImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsSofortImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsSofortCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsSofortImpl>
-    implements _$$PaymentMethodParamsSofortImplCopyWith<$Res> {
-  __$$PaymentMethodParamsSofortImplCopyWithImpl(
-      _$PaymentMethodParamsSofortImpl _value,
-      $Res Function(_$PaymentMethodParamsSofortImpl) _then)
+        _$_PaymentMethodParamsSofort>
+    implements _$$_PaymentMethodParamsSofortCopyWith<$Res> {
+  __$$_PaymentMethodParamsSofortCopyWithImpl(
+      _$_PaymentMethodParamsSofort _value,
+      $Res Function(_$_PaymentMethodParamsSofort) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -7868,7 +7736,7 @@ class __$$PaymentMethodParamsSofortImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsSofortImpl(
+    return _then(_$_PaymentMethodParamsSofort(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -7889,13 +7757,13 @@ class __$$PaymentMethodParamsSofortImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
-  const _$PaymentMethodParamsSofortImpl(
+class _$_PaymentMethodParamsSofort implements _PaymentMethodParamsSofort {
+  const _$_PaymentMethodParamsSofort(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Sofort';
 
-  factory _$PaymentMethodParamsSofortImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsSofortImplFromJson(json);
+  factory _$_PaymentMethodParamsSofort.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsSofortFromJson(json);
 
   @override
   final PaymentMethodDataSofort paymentMethodData;
@@ -7909,10 +7777,10 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsSofortImpl &&
+            other is _$_PaymentMethodParamsSofort &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -7924,9 +7792,9 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsSofortImplCopyWith<_$PaymentMethodParamsSofortImpl>
-      get copyWith => __$$PaymentMethodParamsSofortImplCopyWithImpl<
-          _$PaymentMethodParamsSofortImpl>(this, _$identity);
+  _$$_PaymentMethodParamsSofortCopyWith<_$_PaymentMethodParamsSofort>
+      get copyWith => __$$_PaymentMethodParamsSofortCopyWithImpl<
+          _$_PaymentMethodParamsSofort>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -7955,7 +7823,6 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -7988,7 +7855,6 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return sofort?.call(paymentMethodData);
@@ -8020,7 +7886,6 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -8056,7 +7921,6 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -8088,7 +7952,6 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return sofort?.call(this);
@@ -8119,7 +7982,6 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -8131,7 +7993,7 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsSofortImplToJson(
+    return _$$_PaymentMethodParamsSofortToJson(
       this,
     );
   }
@@ -8140,24 +8002,24 @@ class _$PaymentMethodParamsSofortImpl implements _PaymentMethodParamsSofort {
 abstract class _PaymentMethodParamsSofort implements PaymentMethodParams {
   const factory _PaymentMethodParamsSofort(
           {required final PaymentMethodDataSofort paymentMethodData}) =
-      _$PaymentMethodParamsSofortImpl;
+      _$_PaymentMethodParamsSofort;
 
   factory _PaymentMethodParamsSofort.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsSofortImpl.fromJson;
+      _$_PaymentMethodParamsSofort.fromJson;
 
   @override
   PaymentMethodDataSofort get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsSofortImplCopyWith<_$PaymentMethodParamsSofortImpl>
+  _$$_PaymentMethodParamsSofortCopyWith<_$_PaymentMethodParamsSofort>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsAfterpayClearpayImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsAfterpayClearpayImplCopyWith(
-          _$PaymentMethodParamsAfterpayClearpayImpl value,
-          $Res Function(_$PaymentMethodParamsAfterpayClearpayImpl) then) =
-      __$$PaymentMethodParamsAfterpayClearpayImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsAfterpayClearpayCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsAfterpayClearpayCopyWith(
+          _$_PaymentMethodParamsAfterpayClearpay value,
+          $Res Function(_$_PaymentMethodParamsAfterpayClearpay) then) =
+      __$$_PaymentMethodParamsAfterpayClearpayCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataAfterPay paymentMethodData});
 
@@ -8165,13 +8027,13 @@ abstract class _$$PaymentMethodParamsAfterpayClearpayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsAfterpayClearpayImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsAfterpayClearpayCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsAfterpayClearpayImpl>
-    implements _$$PaymentMethodParamsAfterpayClearpayImplCopyWith<$Res> {
-  __$$PaymentMethodParamsAfterpayClearpayImplCopyWithImpl(
-      _$PaymentMethodParamsAfterpayClearpayImpl _value,
-      $Res Function(_$PaymentMethodParamsAfterpayClearpayImpl) _then)
+        _$_PaymentMethodParamsAfterpayClearpay>
+    implements _$$_PaymentMethodParamsAfterpayClearpayCopyWith<$Res> {
+  __$$_PaymentMethodParamsAfterpayClearpayCopyWithImpl(
+      _$_PaymentMethodParamsAfterpayClearpay _value,
+      $Res Function(_$_PaymentMethodParamsAfterpayClearpay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8179,7 +8041,7 @@ class __$$PaymentMethodParamsAfterpayClearpayImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsAfterpayClearpayImpl(
+    return _then(_$_PaymentMethodParamsAfterpayClearpay(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -8200,15 +8062,15 @@ class __$$PaymentMethodParamsAfterpayClearpayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsAfterpayClearpayImpl
+class _$_PaymentMethodParamsAfterpayClearpay
     implements _PaymentMethodParamsAfterpayClearpay {
-  const _$PaymentMethodParamsAfterpayClearpayImpl(
+  const _$_PaymentMethodParamsAfterpayClearpay(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'AfterpayClearpay';
 
-  factory _$PaymentMethodParamsAfterpayClearpayImpl.fromJson(
+  factory _$_PaymentMethodParamsAfterpayClearpay.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsAfterpayClearpayImplFromJson(json);
+      _$$_PaymentMethodParamsAfterpayClearpayFromJson(json);
 
   @override
   final PaymentMethodDataAfterPay paymentMethodData;
@@ -8222,10 +8084,10 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsAfterpayClearpayImpl &&
+            other is _$_PaymentMethodParamsAfterpayClearpay &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -8237,10 +8099,10 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsAfterpayClearpayImplCopyWith<
-          _$PaymentMethodParamsAfterpayClearpayImpl>
-      get copyWith => __$$PaymentMethodParamsAfterpayClearpayImplCopyWithImpl<
-          _$PaymentMethodParamsAfterpayClearpayImpl>(this, _$identity);
+  _$$_PaymentMethodParamsAfterpayClearpayCopyWith<
+          _$_PaymentMethodParamsAfterpayClearpay>
+      get copyWith => __$$_PaymentMethodParamsAfterpayClearpayCopyWithImpl<
+          _$_PaymentMethodParamsAfterpayClearpay>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8269,7 +8131,6 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -8302,7 +8163,6 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return afterpayClearpay?.call(paymentMethodData);
@@ -8334,7 +8194,6 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -8370,7 +8229,6 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -8402,7 +8260,6 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return afterpayClearpay?.call(this);
@@ -8433,7 +8290,6 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -8445,7 +8301,7 @@ class _$PaymentMethodParamsAfterpayClearpayImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsAfterpayClearpayImplToJson(
+    return _$$_PaymentMethodParamsAfterpayClearpayToJson(
       this,
     );
   }
@@ -8455,26 +8311,25 @@ abstract class _PaymentMethodParamsAfterpayClearpay
     implements PaymentMethodParams {
   const factory _PaymentMethodParamsAfterpayClearpay(
           {required final PaymentMethodDataAfterPay paymentMethodData}) =
-      _$PaymentMethodParamsAfterpayClearpayImpl;
+      _$_PaymentMethodParamsAfterpayClearpay;
 
   factory _PaymentMethodParamsAfterpayClearpay.fromJson(
           Map<String, dynamic> json) =
-      _$PaymentMethodParamsAfterpayClearpayImpl.fromJson;
+      _$_PaymentMethodParamsAfterpayClearpay.fromJson;
 
   @override
   PaymentMethodDataAfterPay get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsAfterpayClearpayImplCopyWith<
-          _$PaymentMethodParamsAfterpayClearpayImpl>
+  _$$_PaymentMethodParamsAfterpayClearpayCopyWith<
+          _$_PaymentMethodParamsAfterpayClearpay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsOxxoImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsOxxoImplCopyWith(
-          _$PaymentMethodParamsOxxoImpl value,
-          $Res Function(_$PaymentMethodParamsOxxoImpl) then) =
-      __$$PaymentMethodParamsOxxoImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsOxxoCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsOxxoCopyWith(_$_PaymentMethodParamsOxxo value,
+          $Res Function(_$_PaymentMethodParamsOxxo) then) =
+      __$$_PaymentMethodParamsOxxoCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -8482,13 +8337,11 @@ abstract class _$$PaymentMethodParamsOxxoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsOxxoImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsOxxoImpl>
-    implements _$$PaymentMethodParamsOxxoImplCopyWith<$Res> {
-  __$$PaymentMethodParamsOxxoImplCopyWithImpl(
-      _$PaymentMethodParamsOxxoImpl _value,
-      $Res Function(_$PaymentMethodParamsOxxoImpl) _then)
+class __$$_PaymentMethodParamsOxxoCopyWithImpl<$Res>
+    extends _$PaymentMethodParamsCopyWithImpl<$Res, _$_PaymentMethodParamsOxxo>
+    implements _$$_PaymentMethodParamsOxxoCopyWith<$Res> {
+  __$$_PaymentMethodParamsOxxoCopyWithImpl(_$_PaymentMethodParamsOxxo _value,
+      $Res Function(_$_PaymentMethodParamsOxxo) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8496,7 +8349,7 @@ class __$$PaymentMethodParamsOxxoImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsOxxoImpl(
+    return _then(_$_PaymentMethodParamsOxxo(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -8516,13 +8369,13 @@ class __$$PaymentMethodParamsOxxoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
-  const _$PaymentMethodParamsOxxoImpl(
+class _$_PaymentMethodParamsOxxo implements _PaymentMethodParamsOxxo {
+  const _$_PaymentMethodParamsOxxo(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Oxxo';
 
-  factory _$PaymentMethodParamsOxxoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsOxxoImplFromJson(json);
+  factory _$_PaymentMethodParamsOxxo.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsOxxoFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -8537,10 +8390,10 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsOxxoImpl &&
+            other is _$_PaymentMethodParamsOxxo &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -8552,9 +8405,10 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsOxxoImplCopyWith<_$PaymentMethodParamsOxxoImpl>
-      get copyWith => __$$PaymentMethodParamsOxxoImplCopyWithImpl<
-          _$PaymentMethodParamsOxxoImpl>(this, _$identity);
+  _$$_PaymentMethodParamsOxxoCopyWith<_$_PaymentMethodParamsOxxo>
+      get copyWith =>
+          __$$_PaymentMethodParamsOxxoCopyWithImpl<_$_PaymentMethodParamsOxxo>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8583,7 +8437,6 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -8616,7 +8469,6 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return oxxo?.call(paymentMethodData);
@@ -8648,7 +8500,6 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -8684,7 +8535,6 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -8716,7 +8566,6 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return oxxo?.call(this);
@@ -8747,7 +8596,6 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -8759,7 +8607,7 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsOxxoImplToJson(
+    return _$$_PaymentMethodParamsOxxoToJson(
       this,
     );
   }
@@ -8768,26 +8616,26 @@ class _$PaymentMethodParamsOxxoImpl implements _PaymentMethodParamsOxxo {
 abstract class _PaymentMethodParamsOxxo implements PaymentMethodParams {
   const factory _PaymentMethodParamsOxxo(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsOxxoImpl;
+      _$_PaymentMethodParamsOxxo;
 
   factory _PaymentMethodParamsOxxo.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsOxxoImpl.fromJson;
+      _$_PaymentMethodParamsOxxo.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsOxxoImplCopyWith<_$PaymentMethodParamsOxxoImpl>
+  _$$_PaymentMethodParamsOxxoCopyWith<_$_PaymentMethodParamsOxxo>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsKlarnaImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsKlarnaImplCopyWith(
-          _$PaymentMethodParamsKlarnaImpl value,
-          $Res Function(_$PaymentMethodParamsKlarnaImpl) then) =
-      __$$PaymentMethodParamsKlarnaImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsKlarnaCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsKlarnaCopyWith(
+          _$_PaymentMethodParamsKlarna value,
+          $Res Function(_$_PaymentMethodParamsKlarna) then) =
+      __$$_PaymentMethodParamsKlarnaCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -8795,13 +8643,13 @@ abstract class _$$PaymentMethodParamsKlarnaImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsKlarnaImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsKlarnaCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsKlarnaImpl>
-    implements _$$PaymentMethodParamsKlarnaImplCopyWith<$Res> {
-  __$$PaymentMethodParamsKlarnaImplCopyWithImpl(
-      _$PaymentMethodParamsKlarnaImpl _value,
-      $Res Function(_$PaymentMethodParamsKlarnaImpl) _then)
+        _$_PaymentMethodParamsKlarna>
+    implements _$$_PaymentMethodParamsKlarnaCopyWith<$Res> {
+  __$$_PaymentMethodParamsKlarnaCopyWithImpl(
+      _$_PaymentMethodParamsKlarna _value,
+      $Res Function(_$_PaymentMethodParamsKlarna) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -8809,7 +8657,7 @@ class __$$PaymentMethodParamsKlarnaImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsKlarnaImpl(
+    return _then(_$_PaymentMethodParamsKlarna(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -8829,13 +8677,13 @@ class __$$PaymentMethodParamsKlarnaImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
-  const _$PaymentMethodParamsKlarnaImpl(
+class _$_PaymentMethodParamsKlarna implements _PaymentMethodParamsKlarna {
+  const _$_PaymentMethodParamsKlarna(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'Klarna';
 
-  factory _$PaymentMethodParamsKlarnaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsKlarnaImplFromJson(json);
+  factory _$_PaymentMethodParamsKlarna.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsKlarnaFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   ///
@@ -8853,10 +8701,10 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsKlarnaImpl &&
+            other is _$_PaymentMethodParamsKlarna &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -8868,9 +8716,9 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsKlarnaImplCopyWith<_$PaymentMethodParamsKlarnaImpl>
-      get copyWith => __$$PaymentMethodParamsKlarnaImplCopyWithImpl<
-          _$PaymentMethodParamsKlarnaImpl>(this, _$identity);
+  _$$_PaymentMethodParamsKlarnaCopyWith<_$_PaymentMethodParamsKlarna>
+      get copyWith => __$$_PaymentMethodParamsKlarnaCopyWithImpl<
+          _$_PaymentMethodParamsKlarna>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -8899,7 +8747,6 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -8932,7 +8779,6 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return klarna?.call(paymentMethodData);
@@ -8964,7 +8810,6 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -9000,7 +8845,6 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -9032,7 +8876,6 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return klarna?.call(this);
@@ -9063,7 +8906,6 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -9075,7 +8917,7 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsKlarnaImplToJson(
+    return _$$_PaymentMethodParamsKlarnaToJson(
       this,
     );
   }
@@ -9084,10 +8926,10 @@ class _$PaymentMethodParamsKlarnaImpl implements _PaymentMethodParamsKlarna {
 abstract class _PaymentMethodParamsKlarna implements PaymentMethodParams {
   const factory _PaymentMethodParamsKlarna(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsKlarnaImpl;
+      _$_PaymentMethodParamsKlarna;
 
   factory _PaymentMethodParamsKlarna.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsKlarnaImpl.fromJson;
+      _$_PaymentMethodParamsKlarna.fromJson;
 
   @override
 
@@ -9097,16 +8939,16 @@ abstract class _PaymentMethodParamsKlarna implements PaymentMethodParams {
   /// billingdetails which is required for using Klarna.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsKlarnaImplCopyWith<_$PaymentMethodParamsKlarnaImpl>
+  _$$_PaymentMethodParamsKlarnaCopyWith<_$_PaymentMethodParamsKlarna>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsPayPalImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsPayPalImplCopyWith(
-          _$PaymentMethodParamsPayPalImpl value,
-          $Res Function(_$PaymentMethodParamsPayPalImpl) then) =
-      __$$PaymentMethodParamsPayPalImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsPayPalCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsPayPalCopyWith(
+          _$_PaymentMethodParamsPayPal value,
+          $Res Function(_$_PaymentMethodParamsPayPal) then) =
+      __$$_PaymentMethodParamsPayPalCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodData paymentMethodData});
 
@@ -9114,13 +8956,13 @@ abstract class _$$PaymentMethodParamsPayPalImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsPayPalImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsPayPalCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsPayPalImpl>
-    implements _$$PaymentMethodParamsPayPalImplCopyWith<$Res> {
-  __$$PaymentMethodParamsPayPalImplCopyWithImpl(
-      _$PaymentMethodParamsPayPalImpl _value,
-      $Res Function(_$PaymentMethodParamsPayPalImpl) _then)
+        _$_PaymentMethodParamsPayPal>
+    implements _$$_PaymentMethodParamsPayPalCopyWith<$Res> {
+  __$$_PaymentMethodParamsPayPalCopyWithImpl(
+      _$_PaymentMethodParamsPayPal _value,
+      $Res Function(_$_PaymentMethodParamsPayPal) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -9128,7 +8970,7 @@ class __$$PaymentMethodParamsPayPalImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsPayPalImpl(
+    return _then(_$_PaymentMethodParamsPayPal(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -9148,13 +8990,13 @@ class __$$PaymentMethodParamsPayPalImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
-  const _$PaymentMethodParamsPayPalImpl(
+class _$_PaymentMethodParamsPayPal implements _PaymentMethodParamsPayPal {
+  const _$_PaymentMethodParamsPayPal(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'PayPal';
 
-  factory _$PaymentMethodParamsPayPalImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsPayPalImplFromJson(json);
+  factory _$_PaymentMethodParamsPayPal.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodParamsPayPalFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -9169,10 +9011,10 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsPayPalImpl &&
+            other is _$_PaymentMethodParamsPayPal &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -9184,9 +9026,9 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsPayPalImplCopyWith<_$PaymentMethodParamsPayPalImpl>
-      get copyWith => __$$PaymentMethodParamsPayPalImplCopyWithImpl<
-          _$PaymentMethodParamsPayPalImpl>(this, _$identity);
+  _$$_PaymentMethodParamsPayPalCopyWith<_$_PaymentMethodParamsPayPal>
+      get copyWith => __$$_PaymentMethodParamsPayPalCopyWithImpl<
+          _$_PaymentMethodParamsPayPal>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9215,7 +9057,6 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -9248,7 +9089,6 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return payPal?.call(paymentMethodData);
@@ -9280,7 +9120,6 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -9316,7 +9155,6 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -9348,7 +9186,6 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return payPal?.call(this);
@@ -9379,7 +9216,6 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -9391,7 +9227,7 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsPayPalImplToJson(
+    return _$$_PaymentMethodParamsPayPalToJson(
       this,
     );
   }
@@ -9400,343 +9236,26 @@ class _$PaymentMethodParamsPayPalImpl implements _PaymentMethodParamsPayPal {
 abstract class _PaymentMethodParamsPayPal implements PaymentMethodParams {
   const factory _PaymentMethodParamsPayPal(
           {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsPayPalImpl;
+      _$_PaymentMethodParamsPayPal;
 
   factory _PaymentMethodParamsPayPal.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsPayPalImpl.fromJson;
+      _$_PaymentMethodParamsPayPal.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodData get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsPayPalImplCopyWith<_$PaymentMethodParamsPayPalImpl>
+  _$$_PaymentMethodParamsPayPalCopyWith<_$_PaymentMethodParamsPayPal>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodParamsRevolutPayImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsRevolutPayImplCopyWith(
-          _$PaymentMethodParamsRevolutPayImpl value,
-          $Res Function(_$PaymentMethodParamsRevolutPayImpl) then) =
-      __$$PaymentMethodParamsRevolutPayImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PaymentMethodData paymentMethodData});
-
-  $PaymentMethodDataCopyWith<$Res> get paymentMethodData;
-}
-
-/// @nodoc
-class __$$PaymentMethodParamsRevolutPayImplCopyWithImpl<$Res>
-    extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsRevolutPayImpl>
-    implements _$$PaymentMethodParamsRevolutPayImplCopyWith<$Res> {
-  __$$PaymentMethodParamsRevolutPayImplCopyWithImpl(
-      _$PaymentMethodParamsRevolutPayImpl _value,
-      $Res Function(_$PaymentMethodParamsRevolutPayImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? paymentMethodData = null,
-  }) {
-    return _then(_$PaymentMethodParamsRevolutPayImpl(
-      paymentMethodData: null == paymentMethodData
-          ? _value.paymentMethodData
-          : paymentMethodData // ignore: cast_nullable_to_non_nullable
-              as PaymentMethodData,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PaymentMethodDataCopyWith<$Res> get paymentMethodData {
-    return $PaymentMethodDataCopyWith<$Res>(_value.paymentMethodData, (value) {
-      return _then(_value.copyWith(paymentMethodData: value));
-    });
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsRevolutPayImpl
-    implements _PaymentMethodParamsRevolutPay {
-  const _$PaymentMethodParamsRevolutPayImpl(
-      {required this.paymentMethodData, final String? $type})
-      : $type = $type ?? 'RevolutPay';
-
-  factory _$PaymentMethodParamsRevolutPayImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsRevolutPayImplFromJson(json);
-
-  /// Paymentmethod data for this paymentmethod.
-  @override
-  final PaymentMethodData paymentMethodData;
-
-  @JsonKey(name: 'paymentMethodType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'PaymentMethodParams.revolutPay(paymentMethodData: $paymentMethodData)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsRevolutPayImpl &&
-            (identical(other.paymentMethodData, paymentMethodData) ||
-                other.paymentMethodData == paymentMethodData));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, paymentMethodData);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsRevolutPayImplCopyWith<
-          _$PaymentMethodParamsRevolutPayImpl>
-      get copyWith => __$$PaymentMethodParamsRevolutPayImplCopyWithImpl<
-          _$PaymentMethodParamsRevolutPayImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(PaymentMethodData paymentMethodData) card,
-    required TResult Function(PaymentMethodDataCardFromToken paymentMethodData)
-        cardFromToken,
-    required TResult Function(PaymentMethodDataCardFromMethod paymentMethodData)
-        cardFromMethodId,
-    required TResult Function(PaymentMethodData paymentMethodData) alipay,
-    required TResult Function(PaymentMethodData paymentMethodData) cashAppPay,
-    required TResult Function(PaymentMethodDataIdeal paymentMethodData) ideal,
-    required TResult Function(PaymentMethodDataAubecs paymentMethodData) aubecs,
-    required TResult Function(PaymentMethodData paymentMethodData) bancontact,
-    required TResult Function(PaymentMethodData paymentMethodData) giroPay,
-    required TResult Function(PaymentMethodData paymentMethodData) eps,
-    required TResult Function(PaymentMethodData paymentMethodData) affirm,
-    required TResult Function(PaymentMethodData paymentMethodData) grabPay,
-    required TResult Function(PaymentMethodData paymentMethodData) p24,
-    required TResult Function(PaymentMethodDataFpx paymentMethodData) fpx,
-    required TResult Function(PaymentMethodDataSepa paymentMethodData)
-        sepaDebit,
-    required TResult Function(PaymentMethodDataSofort paymentMethodData) sofort,
-    required TResult Function(PaymentMethodDataAfterPay paymentMethodData)
-        afterpayClearpay,
-    required TResult Function(PaymentMethodData paymentMethodData) oxxo,
-    required TResult Function(PaymentMethodData paymentMethodData) klarna,
-    required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
-    required TResult Function(PaymentMethodDataUsBank paymentMethodData)
-        usBankAccount,
-  }) {
-    return revolutPay(paymentMethodData);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PaymentMethodData paymentMethodData)? card,
-    TResult? Function(PaymentMethodDataCardFromToken paymentMethodData)?
-        cardFromToken,
-    TResult? Function(PaymentMethodDataCardFromMethod paymentMethodData)?
-        cardFromMethodId,
-    TResult? Function(PaymentMethodData paymentMethodData)? alipay,
-    TResult? Function(PaymentMethodData paymentMethodData)? cashAppPay,
-    TResult? Function(PaymentMethodDataIdeal paymentMethodData)? ideal,
-    TResult? Function(PaymentMethodDataAubecs paymentMethodData)? aubecs,
-    TResult? Function(PaymentMethodData paymentMethodData)? bancontact,
-    TResult? Function(PaymentMethodData paymentMethodData)? giroPay,
-    TResult? Function(PaymentMethodData paymentMethodData)? eps,
-    TResult? Function(PaymentMethodData paymentMethodData)? affirm,
-    TResult? Function(PaymentMethodData paymentMethodData)? grabPay,
-    TResult? Function(PaymentMethodData paymentMethodData)? p24,
-    TResult? Function(PaymentMethodDataFpx paymentMethodData)? fpx,
-    TResult? Function(PaymentMethodDataSepa paymentMethodData)? sepaDebit,
-    TResult? Function(PaymentMethodDataSofort paymentMethodData)? sofort,
-    TResult? Function(PaymentMethodDataAfterPay paymentMethodData)?
-        afterpayClearpay,
-    TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
-    TResult? Function(PaymentMethodData paymentMethodData)? klarna,
-    TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
-    TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
-  }) {
-    return revolutPay?.call(paymentMethodData);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PaymentMethodData paymentMethodData)? card,
-    TResult Function(PaymentMethodDataCardFromToken paymentMethodData)?
-        cardFromToken,
-    TResult Function(PaymentMethodDataCardFromMethod paymentMethodData)?
-        cardFromMethodId,
-    TResult Function(PaymentMethodData paymentMethodData)? alipay,
-    TResult Function(PaymentMethodData paymentMethodData)? cashAppPay,
-    TResult Function(PaymentMethodDataIdeal paymentMethodData)? ideal,
-    TResult Function(PaymentMethodDataAubecs paymentMethodData)? aubecs,
-    TResult Function(PaymentMethodData paymentMethodData)? bancontact,
-    TResult Function(PaymentMethodData paymentMethodData)? giroPay,
-    TResult Function(PaymentMethodData paymentMethodData)? eps,
-    TResult Function(PaymentMethodData paymentMethodData)? affirm,
-    TResult Function(PaymentMethodData paymentMethodData)? grabPay,
-    TResult Function(PaymentMethodData paymentMethodData)? p24,
-    TResult Function(PaymentMethodDataFpx paymentMethodData)? fpx,
-    TResult Function(PaymentMethodDataSepa paymentMethodData)? sepaDebit,
-    TResult Function(PaymentMethodDataSofort paymentMethodData)? sofort,
-    TResult Function(PaymentMethodDataAfterPay paymentMethodData)?
-        afterpayClearpay,
-    TResult Function(PaymentMethodData paymentMethodData)? oxxo,
-    TResult Function(PaymentMethodData paymentMethodData)? klarna,
-    TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
-    TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
-    required TResult orElse(),
-  }) {
-    if (revolutPay != null) {
-      return revolutPay(paymentMethodData);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_PaymentMethodParamsCard value) card,
-    required TResult Function(_PaymentMethodParamsCardWithToken value)
-        cardFromToken,
-    required TResult Function(_PaymentMethodParamsCardWithMethodId value)
-        cardFromMethodId,
-    required TResult Function(_PaymentMethodParamsAlipay value) alipay,
-    required TResult Function(_PaymentMethodParamsCashAppPay value) cashAppPay,
-    required TResult Function(_PaymentMethodParamsIdeal value) ideal,
-    required TResult Function(_PaymentMethodParamsAubecs value) aubecs,
-    required TResult Function(_PaymentMethodParamsBankContact value) bancontact,
-    required TResult Function(_PaymentMethodParamsGiroPay value) giroPay,
-    required TResult Function(_PaymentMethodParamsEps value) eps,
-    required TResult Function(_PaymentMethodParamsAffirm value) affirm,
-    required TResult Function(_PaymentMethodParamsPay value) grabPay,
-    required TResult Function(_PaymentMethodParamsP24 value) p24,
-    required TResult Function(_PaymentMethodParamsFpx value) fpx,
-    required TResult Function(_PaymentMethodParamsSepaDebit value) sepaDebit,
-    required TResult Function(_PaymentMethodParamsSofort value) sofort,
-    required TResult Function(_PaymentMethodParamsAfterpayClearpay value)
-        afterpayClearpay,
-    required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
-    required TResult Function(_PaymentMethodParamsKlarna value) klarna,
-    required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
-    required TResult Function(_PaymentMethodParamsUsBankAccount value)
-        usBankAccount,
-  }) {
-    return revolutPay(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_PaymentMethodParamsCard value)? card,
-    TResult? Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
-    TResult? Function(_PaymentMethodParamsCardWithMethodId value)?
-        cardFromMethodId,
-    TResult? Function(_PaymentMethodParamsAlipay value)? alipay,
-    TResult? Function(_PaymentMethodParamsCashAppPay value)? cashAppPay,
-    TResult? Function(_PaymentMethodParamsIdeal value)? ideal,
-    TResult? Function(_PaymentMethodParamsAubecs value)? aubecs,
-    TResult? Function(_PaymentMethodParamsBankContact value)? bancontact,
-    TResult? Function(_PaymentMethodParamsGiroPay value)? giroPay,
-    TResult? Function(_PaymentMethodParamsEps value)? eps,
-    TResult? Function(_PaymentMethodParamsAffirm value)? affirm,
-    TResult? Function(_PaymentMethodParamsPay value)? grabPay,
-    TResult? Function(_PaymentMethodParamsP24 value)? p24,
-    TResult? Function(_PaymentMethodParamsFpx value)? fpx,
-    TResult? Function(_PaymentMethodParamsSepaDebit value)? sepaDebit,
-    TResult? Function(_PaymentMethodParamsSofort value)? sofort,
-    TResult? Function(_PaymentMethodParamsAfterpayClearpay value)?
-        afterpayClearpay,
-    TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
-    TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
-    TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
-    TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
-  }) {
-    return revolutPay?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_PaymentMethodParamsCard value)? card,
-    TResult Function(_PaymentMethodParamsCardWithToken value)? cardFromToken,
-    TResult Function(_PaymentMethodParamsCardWithMethodId value)?
-        cardFromMethodId,
-    TResult Function(_PaymentMethodParamsAlipay value)? alipay,
-    TResult Function(_PaymentMethodParamsCashAppPay value)? cashAppPay,
-    TResult Function(_PaymentMethodParamsIdeal value)? ideal,
-    TResult Function(_PaymentMethodParamsAubecs value)? aubecs,
-    TResult Function(_PaymentMethodParamsBankContact value)? bancontact,
-    TResult Function(_PaymentMethodParamsGiroPay value)? giroPay,
-    TResult Function(_PaymentMethodParamsEps value)? eps,
-    TResult Function(_PaymentMethodParamsAffirm value)? affirm,
-    TResult Function(_PaymentMethodParamsPay value)? grabPay,
-    TResult Function(_PaymentMethodParamsP24 value)? p24,
-    TResult Function(_PaymentMethodParamsFpx value)? fpx,
-    TResult Function(_PaymentMethodParamsSepaDebit value)? sepaDebit,
-    TResult Function(_PaymentMethodParamsSofort value)? sofort,
-    TResult Function(_PaymentMethodParamsAfterpayClearpay value)?
-        afterpayClearpay,
-    TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
-    TResult Function(_PaymentMethodParamsKlarna value)? klarna,
-    TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
-    TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
-    required TResult orElse(),
-  }) {
-    if (revolutPay != null) {
-      return revolutPay(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsRevolutPayImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PaymentMethodParamsRevolutPay implements PaymentMethodParams {
-  const factory _PaymentMethodParamsRevolutPay(
-          {required final PaymentMethodData paymentMethodData}) =
-      _$PaymentMethodParamsRevolutPayImpl;
-
-  factory _PaymentMethodParamsRevolutPay.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodParamsRevolutPayImpl.fromJson;
-
-  @override
-
-  /// Paymentmethod data for this paymentmethod.
-  PaymentMethodData get paymentMethodData;
-  @JsonKey(ignore: true)
-  _$$PaymentMethodParamsRevolutPayImplCopyWith<
-          _$PaymentMethodParamsRevolutPayImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PaymentMethodParamsUsBankAccountImplCopyWith<$Res> {
-  factory _$$PaymentMethodParamsUsBankAccountImplCopyWith(
-          _$PaymentMethodParamsUsBankAccountImpl value,
-          $Res Function(_$PaymentMethodParamsUsBankAccountImpl) then) =
-      __$$PaymentMethodParamsUsBankAccountImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentMethodParamsUsBankAccountCopyWith<$Res> {
+  factory _$$_PaymentMethodParamsUsBankAccountCopyWith(
+          _$_PaymentMethodParamsUsBankAccount value,
+          $Res Function(_$_PaymentMethodParamsUsBankAccount) then) =
+      __$$_PaymentMethodParamsUsBankAccountCopyWithImpl<$Res>;
   @useResult
   $Res call({PaymentMethodDataUsBank paymentMethodData});
 
@@ -9744,13 +9263,13 @@ abstract class _$$PaymentMethodParamsUsBankAccountImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentMethodParamsUsBankAccountImplCopyWithImpl<$Res>
+class __$$_PaymentMethodParamsUsBankAccountCopyWithImpl<$Res>
     extends _$PaymentMethodParamsCopyWithImpl<$Res,
-        _$PaymentMethodParamsUsBankAccountImpl>
-    implements _$$PaymentMethodParamsUsBankAccountImplCopyWith<$Res> {
-  __$$PaymentMethodParamsUsBankAccountImplCopyWithImpl(
-      _$PaymentMethodParamsUsBankAccountImpl _value,
-      $Res Function(_$PaymentMethodParamsUsBankAccountImpl) _then)
+        _$_PaymentMethodParamsUsBankAccount>
+    implements _$$_PaymentMethodParamsUsBankAccountCopyWith<$Res> {
+  __$$_PaymentMethodParamsUsBankAccountCopyWithImpl(
+      _$_PaymentMethodParamsUsBankAccount _value,
+      $Res Function(_$_PaymentMethodParamsUsBankAccount) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -9758,7 +9277,7 @@ class __$$PaymentMethodParamsUsBankAccountImplCopyWithImpl<$Res>
   $Res call({
     Object? paymentMethodData = null,
   }) {
-    return _then(_$PaymentMethodParamsUsBankAccountImpl(
+    return _then(_$_PaymentMethodParamsUsBankAccount(
       paymentMethodData: null == paymentMethodData
           ? _value.paymentMethodData
           : paymentMethodData // ignore: cast_nullable_to_non_nullable
@@ -9779,15 +9298,15 @@ class __$$PaymentMethodParamsUsBankAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodParamsUsBankAccountImpl
+class _$_PaymentMethodParamsUsBankAccount
     implements _PaymentMethodParamsUsBankAccount {
-  const _$PaymentMethodParamsUsBankAccountImpl(
+  const _$_PaymentMethodParamsUsBankAccount(
       {required this.paymentMethodData, final String? $type})
       : $type = $type ?? 'USBankAccount';
 
-  factory _$PaymentMethodParamsUsBankAccountImpl.fromJson(
+  factory _$_PaymentMethodParamsUsBankAccount.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodParamsUsBankAccountImplFromJson(json);
+      _$$_PaymentMethodParamsUsBankAccountFromJson(json);
 
   /// Paymentmethod data for this paymentmethod.
   @override
@@ -9802,10 +9321,10 @@ class _$PaymentMethodParamsUsBankAccountImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodParamsUsBankAccountImpl &&
+            other is _$_PaymentMethodParamsUsBankAccount &&
             (identical(other.paymentMethodData, paymentMethodData) ||
                 other.paymentMethodData == paymentMethodData));
   }
@@ -9817,10 +9336,10 @@ class _$PaymentMethodParamsUsBankAccountImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodParamsUsBankAccountImplCopyWith<
-          _$PaymentMethodParamsUsBankAccountImpl>
-      get copyWith => __$$PaymentMethodParamsUsBankAccountImplCopyWithImpl<
-          _$PaymentMethodParamsUsBankAccountImpl>(this, _$identity);
+  _$$_PaymentMethodParamsUsBankAccountCopyWith<
+          _$_PaymentMethodParamsUsBankAccount>
+      get copyWith => __$$_PaymentMethodParamsUsBankAccountCopyWithImpl<
+          _$_PaymentMethodParamsUsBankAccount>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -9849,7 +9368,6 @@ class _$PaymentMethodParamsUsBankAccountImpl
     required TResult Function(PaymentMethodData paymentMethodData) oxxo,
     required TResult Function(PaymentMethodData paymentMethodData) klarna,
     required TResult Function(PaymentMethodData paymentMethodData) payPal,
-    required TResult Function(PaymentMethodData paymentMethodData) revolutPay,
     required TResult Function(PaymentMethodDataUsBank paymentMethodData)
         usBankAccount,
   }) {
@@ -9882,7 +9400,6 @@ class _$PaymentMethodParamsUsBankAccountImpl
     TResult? Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult? Function(PaymentMethodData paymentMethodData)? klarna,
     TResult? Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult? Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult? Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
   }) {
     return usBankAccount?.call(paymentMethodData);
@@ -9914,7 +9431,6 @@ class _$PaymentMethodParamsUsBankAccountImpl
     TResult Function(PaymentMethodData paymentMethodData)? oxxo,
     TResult Function(PaymentMethodData paymentMethodData)? klarna,
     TResult Function(PaymentMethodData paymentMethodData)? payPal,
-    TResult Function(PaymentMethodData paymentMethodData)? revolutPay,
     TResult Function(PaymentMethodDataUsBank paymentMethodData)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -9950,7 +9466,6 @@ class _$PaymentMethodParamsUsBankAccountImpl
     required TResult Function(_PaymentMethodParamsOxxo value) oxxo,
     required TResult Function(_PaymentMethodParamsKlarna value) klarna,
     required TResult Function(_PaymentMethodParamsPayPal value) payPal,
-    required TResult Function(_PaymentMethodParamsRevolutPay value) revolutPay,
     required TResult Function(_PaymentMethodParamsUsBankAccount value)
         usBankAccount,
   }) {
@@ -9982,7 +9497,6 @@ class _$PaymentMethodParamsUsBankAccountImpl
     TResult? Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult? Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult? Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult? Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult? Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
   }) {
     return usBankAccount?.call(this);
@@ -10013,7 +9527,6 @@ class _$PaymentMethodParamsUsBankAccountImpl
     TResult Function(_PaymentMethodParamsOxxo value)? oxxo,
     TResult Function(_PaymentMethodParamsKlarna value)? klarna,
     TResult Function(_PaymentMethodParamsPayPal value)? payPal,
-    TResult Function(_PaymentMethodParamsRevolutPay value)? revolutPay,
     TResult Function(_PaymentMethodParamsUsBankAccount value)? usBankAccount,
     required TResult orElse(),
   }) {
@@ -10025,7 +9538,7 @@ class _$PaymentMethodParamsUsBankAccountImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodParamsUsBankAccountImplToJson(
+    return _$$_PaymentMethodParamsUsBankAccountToJson(
       this,
     );
   }
@@ -10035,19 +9548,18 @@ abstract class _PaymentMethodParamsUsBankAccount
     implements PaymentMethodParams {
   const factory _PaymentMethodParamsUsBankAccount(
           {required final PaymentMethodDataUsBank paymentMethodData}) =
-      _$PaymentMethodParamsUsBankAccountImpl;
+      _$_PaymentMethodParamsUsBankAccount;
 
   factory _PaymentMethodParamsUsBankAccount.fromJson(
-          Map<String, dynamic> json) =
-      _$PaymentMethodParamsUsBankAccountImpl.fromJson;
+      Map<String, dynamic> json) = _$_PaymentMethodParamsUsBankAccount.fromJson;
 
   @override
 
   /// Paymentmethod data for this paymentmethod.
   PaymentMethodDataUsBank get paymentMethodData;
   @JsonKey(ignore: true)
-  _$$PaymentMethodParamsUsBankAccountImplCopyWith<
-          _$PaymentMethodParamsUsBankAccountImpl>
+  _$$_PaymentMethodParamsUsBankAccountCopyWith<
+          _$_PaymentMethodParamsUsBankAccount>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -10159,11 +9671,11 @@ class _$PaymentMethodDataCopyWithImpl<$Res, $Val extends PaymentMethodData>
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataCopyWith<$Res>
     implements $PaymentMethodDataCopyWith<$Res> {
-  factory _$$PaymentMethodDataImplCopyWith(_$PaymentMethodDataImpl value,
-          $Res Function(_$PaymentMethodDataImpl) then) =
-      __$$PaymentMethodDataImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataCopyWith(_$_PaymentMethodData value,
+          $Res Function(_$_PaymentMethodData) then) =
+      __$$_PaymentMethodDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -10180,11 +9692,11 @@ abstract class _$$PaymentMethodDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataImplCopyWithImpl<$Res>
-    extends _$PaymentMethodDataCopyWithImpl<$Res, _$PaymentMethodDataImpl>
-    implements _$$PaymentMethodDataImplCopyWith<$Res> {
-  __$$PaymentMethodDataImplCopyWithImpl(_$PaymentMethodDataImpl _value,
-      $Res Function(_$PaymentMethodDataImpl) _then)
+class __$$_PaymentMethodDataCopyWithImpl<$Res>
+    extends _$PaymentMethodDataCopyWithImpl<$Res, _$_PaymentMethodData>
+    implements _$$_PaymentMethodDataCopyWith<$Res> {
+  __$$_PaymentMethodDataCopyWithImpl(
+      _$_PaymentMethodData _value, $Res Function(_$_PaymentMethodData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10194,7 +9706,7 @@ class __$$PaymentMethodDataImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataImpl(
+    return _then(_$_PaymentMethodData(
       billingDetails: freezed == billingDetails
           ? _value.billingDetails
           : billingDetails // ignore: cast_nullable_to_non_nullable
@@ -10214,12 +9726,12 @@ class __$$PaymentMethodDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataImpl implements _PaymentMethodData {
-  const _$PaymentMethodDataImpl(
+class _$_PaymentMethodData implements _PaymentMethodData {
+  const _$_PaymentMethodData(
       {this.billingDetails, this.shippingDetails, this.mandateData});
 
-  factory _$PaymentMethodDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataImplFromJson(json);
+  factory _$_PaymentMethodData.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataFromJson(json);
 
   /// Billing information.
   @override
@@ -10239,10 +9751,10 @@ class _$PaymentMethodDataImpl implements _PaymentMethodData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataImpl &&
+            other is _$_PaymentMethodData &&
             (identical(other.billingDetails, billingDetails) ||
                 other.billingDetails == billingDetails) &&
             (identical(other.shippingDetails, shippingDetails) ||
@@ -10259,13 +9771,13 @@ class _$PaymentMethodDataImpl implements _PaymentMethodData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataImplCopyWith<_$PaymentMethodDataImpl> get copyWith =>
-      __$$PaymentMethodDataImplCopyWithImpl<_$PaymentMethodDataImpl>(
+  _$$_PaymentMethodDataCopyWith<_$_PaymentMethodData> get copyWith =>
+      __$$_PaymentMethodDataCopyWithImpl<_$_PaymentMethodData>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataImplToJson(
+    return _$$_PaymentMethodDataToJson(
       this,
     );
   }
@@ -10275,10 +9787,10 @@ abstract class _PaymentMethodData implements PaymentMethodData {
   const factory _PaymentMethodData(
       {final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodData;
 
   factory _PaymentMethodData.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataImpl.fromJson;
+      _$_PaymentMethodData.fromJson;
 
   @override
 
@@ -10294,7 +9806,7 @@ abstract class _PaymentMethodData implements PaymentMethodData {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataImplCopyWith<_$PaymentMethodDataImpl> get copyWith =>
+  _$$_PaymentMethodDataCopyWith<_$_PaymentMethodData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -10419,12 +9931,12 @@ class _$PaymentMethodDataCardFromTokenCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataCardFromTokenImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataCardFromTokenCopyWith<$Res>
     implements $PaymentMethodDataCardFromTokenCopyWith<$Res> {
-  factory _$$PaymentMethodDataCardFromTokenImplCopyWith(
-          _$PaymentMethodDataCardFromTokenImpl value,
-          $Res Function(_$PaymentMethodDataCardFromTokenImpl) then) =
-      __$$PaymentMethodDataCardFromTokenImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataCardFromTokenCopyWith(
+          _$_PaymentMethodDataCardFromToken value,
+          $Res Function(_$_PaymentMethodDataCardFromToken) then) =
+      __$$_PaymentMethodDataCardFromTokenCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -10442,13 +9954,13 @@ abstract class _$$PaymentMethodDataCardFromTokenImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataCardFromTokenImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataCardFromTokenCopyWithImpl<$Res>
     extends _$PaymentMethodDataCardFromTokenCopyWithImpl<$Res,
-        _$PaymentMethodDataCardFromTokenImpl>
-    implements _$$PaymentMethodDataCardFromTokenImplCopyWith<$Res> {
-  __$$PaymentMethodDataCardFromTokenImplCopyWithImpl(
-      _$PaymentMethodDataCardFromTokenImpl _value,
-      $Res Function(_$PaymentMethodDataCardFromTokenImpl) _then)
+        _$_PaymentMethodDataCardFromToken>
+    implements _$$_PaymentMethodDataCardFromTokenCopyWith<$Res> {
+  __$$_PaymentMethodDataCardFromTokenCopyWithImpl(
+      _$_PaymentMethodDataCardFromToken _value,
+      $Res Function(_$_PaymentMethodDataCardFromToken) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10459,7 +9971,7 @@ class __$$PaymentMethodDataCardFromTokenImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataCardFromTokenImpl(
+    return _then(_$_PaymentMethodDataCardFromToken(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -10483,17 +9995,17 @@ class __$$PaymentMethodDataCardFromTokenImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataCardFromTokenImpl
+class _$_PaymentMethodDataCardFromToken
     implements _PaymentMethodDataCardFromToken {
-  const _$PaymentMethodDataCardFromTokenImpl(
+  const _$_PaymentMethodDataCardFromToken(
       {required this.token,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataCardFromTokenImpl.fromJson(
+  factory _$_PaymentMethodDataCardFromToken.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodDataCardFromTokenImplFromJson(json);
+      _$$_PaymentMethodDataCardFromTokenFromJson(json);
 
   /// Token.
   @override
@@ -10517,10 +10029,10 @@ class _$PaymentMethodDataCardFromTokenImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataCardFromTokenImpl &&
+            other is _$_PaymentMethodDataCardFromToken &&
             (identical(other.token, token) || other.token == token) &&
             (identical(other.billingDetails, billingDetails) ||
                 other.billingDetails == billingDetails) &&
@@ -10538,14 +10050,13 @@ class _$PaymentMethodDataCardFromTokenImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataCardFromTokenImplCopyWith<
-          _$PaymentMethodDataCardFromTokenImpl>
-      get copyWith => __$$PaymentMethodDataCardFromTokenImplCopyWithImpl<
-          _$PaymentMethodDataCardFromTokenImpl>(this, _$identity);
+  _$$_PaymentMethodDataCardFromTokenCopyWith<_$_PaymentMethodDataCardFromToken>
+      get copyWith => __$$_PaymentMethodDataCardFromTokenCopyWithImpl<
+          _$_PaymentMethodDataCardFromToken>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataCardFromTokenImplToJson(
+    return _$$_PaymentMethodDataCardFromTokenToJson(
       this,
     );
   }
@@ -10557,10 +10068,10 @@ abstract class _PaymentMethodDataCardFromToken
       {required final String token,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataCardFromTokenImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataCardFromToken;
 
   factory _PaymentMethodDataCardFromToken.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataCardFromTokenImpl.fromJson;
+      _$_PaymentMethodDataCardFromToken.fromJson;
 
   @override
 
@@ -10580,8 +10091,7 @@ abstract class _PaymentMethodDataCardFromToken
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataCardFromTokenImplCopyWith<
-          _$PaymentMethodDataCardFromTokenImpl>
+  _$$_PaymentMethodDataCardFromTokenCopyWith<_$_PaymentMethodDataCardFromToken>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -10715,12 +10225,12 @@ class _$PaymentMethodDataCardFromMethodCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataCardFromMethodImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataCardFromMethodCopyWith<$Res>
     implements $PaymentMethodDataCardFromMethodCopyWith<$Res> {
-  factory _$$PaymentMethodDataCardFromMethodImplCopyWith(
-          _$PaymentMethodDataCardFromMethodImpl value,
-          $Res Function(_$PaymentMethodDataCardFromMethodImpl) then) =
-      __$$PaymentMethodDataCardFromMethodImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataCardFromMethodCopyWith(
+          _$_PaymentMethodDataCardFromMethod value,
+          $Res Function(_$_PaymentMethodDataCardFromMethod) then) =
+      __$$_PaymentMethodDataCardFromMethodCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -10739,13 +10249,13 @@ abstract class _$$PaymentMethodDataCardFromMethodImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataCardFromMethodImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataCardFromMethodCopyWithImpl<$Res>
     extends _$PaymentMethodDataCardFromMethodCopyWithImpl<$Res,
-        _$PaymentMethodDataCardFromMethodImpl>
-    implements _$$PaymentMethodDataCardFromMethodImplCopyWith<$Res> {
-  __$$PaymentMethodDataCardFromMethodImplCopyWithImpl(
-      _$PaymentMethodDataCardFromMethodImpl _value,
-      $Res Function(_$PaymentMethodDataCardFromMethodImpl) _then)
+        _$_PaymentMethodDataCardFromMethod>
+    implements _$$_PaymentMethodDataCardFromMethodCopyWith<$Res> {
+  __$$_PaymentMethodDataCardFromMethodCopyWithImpl(
+      _$_PaymentMethodDataCardFromMethod _value,
+      $Res Function(_$_PaymentMethodDataCardFromMethod) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -10757,7 +10267,7 @@ class __$$PaymentMethodDataCardFromMethodImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataCardFromMethodImpl(
+    return _then(_$_PaymentMethodDataCardFromMethod(
       paymentMethodId: null == paymentMethodId
           ? _value.paymentMethodId
           : paymentMethodId // ignore: cast_nullable_to_non_nullable
@@ -10785,18 +10295,18 @@ class __$$PaymentMethodDataCardFromMethodImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataCardFromMethodImpl
+class _$_PaymentMethodDataCardFromMethod
     implements _PaymentMethodDataCardFromMethod {
-  const _$PaymentMethodDataCardFromMethodImpl(
+  const _$_PaymentMethodDataCardFromMethod(
       {required this.paymentMethodId,
       this.cvc,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataCardFromMethodImpl.fromJson(
+  factory _$_PaymentMethodDataCardFromMethod.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentMethodDataCardFromMethodImplFromJson(json);
+      _$$_PaymentMethodDataCardFromMethodFromJson(json);
 
   /// Payment method id.
   @override
@@ -10824,10 +10334,10 @@ class _$PaymentMethodDataCardFromMethodImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataCardFromMethodImpl &&
+            other is _$_PaymentMethodDataCardFromMethod &&
             (identical(other.paymentMethodId, paymentMethodId) ||
                 other.paymentMethodId == paymentMethodId) &&
             (identical(other.cvc, cvc) || other.cvc == cvc) &&
@@ -10847,14 +10357,14 @@ class _$PaymentMethodDataCardFromMethodImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataCardFromMethodImplCopyWith<
-          _$PaymentMethodDataCardFromMethodImpl>
-      get copyWith => __$$PaymentMethodDataCardFromMethodImplCopyWithImpl<
-          _$PaymentMethodDataCardFromMethodImpl>(this, _$identity);
+  _$$_PaymentMethodDataCardFromMethodCopyWith<
+          _$_PaymentMethodDataCardFromMethod>
+      get copyWith => __$$_PaymentMethodDataCardFromMethodCopyWithImpl<
+          _$_PaymentMethodDataCardFromMethod>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataCardFromMethodImplToJson(
+    return _$$_PaymentMethodDataCardFromMethodToJson(
       this,
     );
   }
@@ -10867,10 +10377,10 @@ abstract class _PaymentMethodDataCardFromMethod
       final String? cvc,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataCardFromMethodImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataCardFromMethod;
 
   factory _PaymentMethodDataCardFromMethod.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataCardFromMethodImpl.fromJson;
+      _$_PaymentMethodDataCardFromMethod.fromJson;
 
   @override
 
@@ -10894,8 +10404,8 @@ abstract class _PaymentMethodDataCardFromMethod
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataCardFromMethodImplCopyWith<
-          _$PaymentMethodDataCardFromMethodImpl>
+  _$$_PaymentMethodDataCardFromMethodCopyWith<
+          _$_PaymentMethodDataCardFromMethod>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -10906,9 +10416,6 @@ PaymentMethodDataIdeal _$PaymentMethodDataIdealFromJson(
 
 /// @nodoc
 mixin _$PaymentMethodDataIdeal {
-  /// The bank identifier code of the bank.
-  String? get bankIdentifierCode => throw _privateConstructorUsedError;
-
   /// The name of bank.
   String? get bankName => throw _privateConstructorUsedError;
 
@@ -10934,8 +10441,7 @@ abstract class $PaymentMethodDataIdealCopyWith<$Res> {
       _$PaymentMethodDataIdealCopyWithImpl<$Res, PaymentMethodDataIdeal>;
   @useResult
   $Res call(
-      {String? bankIdentifierCode,
-      String? bankName,
+      {String? bankName,
       BillingDetails? billingDetails,
       ShippingDetails? shippingDetails,
       MandateData? mandateData});
@@ -10959,17 +10465,12 @@ class _$PaymentMethodDataIdealCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bankIdentifierCode = freezed,
     Object? bankName = freezed,
     Object? billingDetails = freezed,
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
     return _then(_value.copyWith(
-      bankIdentifierCode: freezed == bankIdentifierCode
-          ? _value.bankIdentifierCode
-          : bankIdentifierCode // ignore: cast_nullable_to_non_nullable
-              as String?,
       bankName: freezed == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
@@ -11027,17 +10528,15 @@ class _$PaymentMethodDataIdealCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataIdealImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataIdealCopyWith<$Res>
     implements $PaymentMethodDataIdealCopyWith<$Res> {
-  factory _$$PaymentMethodDataIdealImplCopyWith(
-          _$PaymentMethodDataIdealImpl value,
-          $Res Function(_$PaymentMethodDataIdealImpl) then) =
-      __$$PaymentMethodDataIdealImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataIdealCopyWith(_$_PaymentMethodDataIdeal value,
+          $Res Function(_$_PaymentMethodDataIdeal) then) =
+      __$$_PaymentMethodDataIdealCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String? bankIdentifierCode,
-      String? bankName,
+      {String? bankName,
       BillingDetails? billingDetails,
       ShippingDetails? shippingDetails,
       MandateData? mandateData});
@@ -11051,29 +10550,23 @@ abstract class _$$PaymentMethodDataIdealImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataIdealImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataIdealCopyWithImpl<$Res>
     extends _$PaymentMethodDataIdealCopyWithImpl<$Res,
-        _$PaymentMethodDataIdealImpl>
-    implements _$$PaymentMethodDataIdealImplCopyWith<$Res> {
-  __$$PaymentMethodDataIdealImplCopyWithImpl(
-      _$PaymentMethodDataIdealImpl _value,
-      $Res Function(_$PaymentMethodDataIdealImpl) _then)
+        _$_PaymentMethodDataIdeal>
+    implements _$$_PaymentMethodDataIdealCopyWith<$Res> {
+  __$$_PaymentMethodDataIdealCopyWithImpl(_$_PaymentMethodDataIdeal _value,
+      $Res Function(_$_PaymentMethodDataIdeal) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bankIdentifierCode = freezed,
     Object? bankName = freezed,
     Object? billingDetails = freezed,
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataIdealImpl(
-      bankIdentifierCode: freezed == bankIdentifierCode
-          ? _value.bankIdentifierCode
-          : bankIdentifierCode // ignore: cast_nullable_to_non_nullable
-              as String?,
+    return _then(_$_PaymentMethodDataIdeal(
       bankName: freezed == bankName
           ? _value.bankName
           : bankName // ignore: cast_nullable_to_non_nullable
@@ -11097,20 +10590,15 @@ class __$$PaymentMethodDataIdealImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataIdealImpl implements _PaymentMethodDataIdeal {
-  const _$PaymentMethodDataIdealImpl(
-      {this.bankIdentifierCode,
-      this.bankName,
+class _$_PaymentMethodDataIdeal implements _PaymentMethodDataIdeal {
+  const _$_PaymentMethodDataIdeal(
+      {this.bankName,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataIdealImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataIdealImplFromJson(json);
-
-  /// The bank identifier code of the bank.
-  @override
-  final String? bankIdentifierCode;
+  factory _$_PaymentMethodDataIdeal.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataIdealFromJson(json);
 
   /// The name of bank.
   @override
@@ -11130,16 +10618,14 @@ class _$PaymentMethodDataIdealImpl implements _PaymentMethodDataIdeal {
 
   @override
   String toString() {
-    return 'PaymentMethodDataIdeal(bankIdentifierCode: $bankIdentifierCode, bankName: $bankName, billingDetails: $billingDetails, shippingDetails: $shippingDetails, mandateData: $mandateData)';
+    return 'PaymentMethodDataIdeal(bankName: $bankName, billingDetails: $billingDetails, shippingDetails: $shippingDetails, mandateData: $mandateData)';
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataIdealImpl &&
-            (identical(other.bankIdentifierCode, bankIdentifierCode) ||
-                other.bankIdentifierCode == bankIdentifierCode) &&
+            other is _$_PaymentMethodDataIdeal &&
             (identical(other.bankName, bankName) ||
                 other.bankName == bankName) &&
             (identical(other.billingDetails, billingDetails) ||
@@ -11152,19 +10638,19 @@ class _$PaymentMethodDataIdealImpl implements _PaymentMethodDataIdeal {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, bankIdentifierCode, bankName,
-      billingDetails, shippingDetails, mandateData);
+  int get hashCode => Object.hash(
+      runtimeType, bankName, billingDetails, shippingDetails, mandateData);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataIdealImplCopyWith<_$PaymentMethodDataIdealImpl>
-      get copyWith => __$$PaymentMethodDataIdealImplCopyWithImpl<
-          _$PaymentMethodDataIdealImpl>(this, _$identity);
+  _$$_PaymentMethodDataIdealCopyWith<_$_PaymentMethodDataIdeal> get copyWith =>
+      __$$_PaymentMethodDataIdealCopyWithImpl<_$_PaymentMethodDataIdeal>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataIdealImplToJson(
+    return _$$_PaymentMethodDataIdealToJson(
       this,
     );
   }
@@ -11172,19 +10658,14 @@ class _$PaymentMethodDataIdealImpl implements _PaymentMethodDataIdeal {
 
 abstract class _PaymentMethodDataIdeal implements PaymentMethodDataIdeal {
   const factory _PaymentMethodDataIdeal(
-      {final String? bankIdentifierCode,
-      final String? bankName,
+      {final String? bankName,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataIdealImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataIdeal;
 
   factory _PaymentMethodDataIdeal.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataIdealImpl.fromJson;
+      _$_PaymentMethodDataIdeal.fromJson;
 
-  @override
-
-  /// The bank identifier code of the bank.
-  String? get bankIdentifierCode;
   @override
 
   /// The name of bank.
@@ -11203,8 +10684,8 @@ abstract class _PaymentMethodDataIdeal implements PaymentMethodDataIdeal {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataIdealImplCopyWith<_$PaymentMethodDataIdealImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodDataIdealCopyWith<_$_PaymentMethodDataIdeal> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 PaymentMethodDataAubecs _$PaymentMethodDataAubecsFromJson(
@@ -11335,12 +10816,11 @@ class _$PaymentMethodDataAubecsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataAubecsImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataAubecsCopyWith<$Res>
     implements $PaymentMethodDataAubecsCopyWith<$Res> {
-  factory _$$PaymentMethodDataAubecsImplCopyWith(
-          _$PaymentMethodDataAubecsImpl value,
-          $Res Function(_$PaymentMethodDataAubecsImpl) then) =
-      __$$PaymentMethodDataAubecsImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataAubecsCopyWith(_$_PaymentMethodDataAubecs value,
+          $Res Function(_$_PaymentMethodDataAubecs) then) =
+      __$$_PaymentMethodDataAubecsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -11360,13 +10840,12 @@ abstract class _$$PaymentMethodDataAubecsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataAubecsImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataAubecsCopyWithImpl<$Res>
     extends _$PaymentMethodDataAubecsCopyWithImpl<$Res,
-        _$PaymentMethodDataAubecsImpl>
-    implements _$$PaymentMethodDataAubecsImplCopyWith<$Res> {
-  __$$PaymentMethodDataAubecsImplCopyWithImpl(
-      _$PaymentMethodDataAubecsImpl _value,
-      $Res Function(_$PaymentMethodDataAubecsImpl) _then)
+        _$_PaymentMethodDataAubecs>
+    implements _$$_PaymentMethodDataAubecsCopyWith<$Res> {
+  __$$_PaymentMethodDataAubecsCopyWithImpl(_$_PaymentMethodDataAubecs _value,
+      $Res Function(_$_PaymentMethodDataAubecs) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -11377,7 +10856,7 @@ class __$$PaymentMethodDataAubecsImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataAubecsImpl(
+    return _then(_$_PaymentMethodDataAubecs(
       formDetails: null == formDetails
           ? _value.formDetails
           : formDetails // ignore: cast_nullable_to_non_nullable
@@ -11401,15 +10880,15 @@ class __$$PaymentMethodDataAubecsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataAubecsImpl implements _PaymentMethodDataAubecs {
-  const _$PaymentMethodDataAubecsImpl(
+class _$_PaymentMethodDataAubecs implements _PaymentMethodDataAubecs {
+  const _$_PaymentMethodDataAubecs(
       {required this.formDetails,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataAubecsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataAubecsImplFromJson(json);
+  factory _$_PaymentMethodDataAubecs.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataAubecsFromJson(json);
 
   /// form input details
   @override
@@ -11433,10 +10912,10 @@ class _$PaymentMethodDataAubecsImpl implements _PaymentMethodDataAubecs {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataAubecsImpl &&
+            other is _$_PaymentMethodDataAubecs &&
             (identical(other.formDetails, formDetails) ||
                 other.formDetails == formDetails) &&
             (identical(other.billingDetails, billingDetails) ||
@@ -11455,13 +10934,14 @@ class _$PaymentMethodDataAubecsImpl implements _PaymentMethodDataAubecs {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataAubecsImplCopyWith<_$PaymentMethodDataAubecsImpl>
-      get copyWith => __$$PaymentMethodDataAubecsImplCopyWithImpl<
-          _$PaymentMethodDataAubecsImpl>(this, _$identity);
+  _$$_PaymentMethodDataAubecsCopyWith<_$_PaymentMethodDataAubecs>
+      get copyWith =>
+          __$$_PaymentMethodDataAubecsCopyWithImpl<_$_PaymentMethodDataAubecs>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataAubecsImplToJson(
+    return _$$_PaymentMethodDataAubecsToJson(
       this,
     );
   }
@@ -11472,10 +10952,10 @@ abstract class _PaymentMethodDataAubecs implements PaymentMethodDataAubecs {
       {required final AubecsFormInputDetails formDetails,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataAubecsImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataAubecs;
 
   factory _PaymentMethodDataAubecs.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataAubecsImpl.fromJson;
+      _$_PaymentMethodDataAubecs.fromJson;
 
   @override
 
@@ -11495,7 +10975,7 @@ abstract class _PaymentMethodDataAubecs implements PaymentMethodDataAubecs {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataAubecsImplCopyWith<_$PaymentMethodDataAubecsImpl>
+  _$$_PaymentMethodDataAubecsCopyWith<_$_PaymentMethodDataAubecs>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -11617,11 +11097,11 @@ class _$PaymentMethodDataFpxCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataFpxImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataFpxCopyWith<$Res>
     implements $PaymentMethodDataFpxCopyWith<$Res> {
-  factory _$$PaymentMethodDataFpxImplCopyWith(_$PaymentMethodDataFpxImpl value,
-          $Res Function(_$PaymentMethodDataFpxImpl) then) =
-      __$$PaymentMethodDataFpxImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataFpxCopyWith(_$_PaymentMethodDataFpx value,
+          $Res Function(_$_PaymentMethodDataFpx) then) =
+      __$$_PaymentMethodDataFpxCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -11639,11 +11119,11 @@ abstract class _$$PaymentMethodDataFpxImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataFpxImplCopyWithImpl<$Res>
-    extends _$PaymentMethodDataFpxCopyWithImpl<$Res, _$PaymentMethodDataFpxImpl>
-    implements _$$PaymentMethodDataFpxImplCopyWith<$Res> {
-  __$$PaymentMethodDataFpxImplCopyWithImpl(_$PaymentMethodDataFpxImpl _value,
-      $Res Function(_$PaymentMethodDataFpxImpl) _then)
+class __$$_PaymentMethodDataFpxCopyWithImpl<$Res>
+    extends _$PaymentMethodDataFpxCopyWithImpl<$Res, _$_PaymentMethodDataFpx>
+    implements _$$_PaymentMethodDataFpxCopyWith<$Res> {
+  __$$_PaymentMethodDataFpxCopyWithImpl(_$_PaymentMethodDataFpx _value,
+      $Res Function(_$_PaymentMethodDataFpx) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -11654,7 +11134,7 @@ class __$$PaymentMethodDataFpxImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataFpxImpl(
+    return _then(_$_PaymentMethodDataFpx(
       testOfflineBank: null == testOfflineBank
           ? _value.testOfflineBank
           : testOfflineBank // ignore: cast_nullable_to_non_nullable
@@ -11678,15 +11158,15 @@ class __$$PaymentMethodDataFpxImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataFpxImpl implements _PaymentMethodDataFpx {
-  const _$PaymentMethodDataFpxImpl(
+class _$_PaymentMethodDataFpx implements _PaymentMethodDataFpx {
+  const _$_PaymentMethodDataFpx(
       {this.testOfflineBank = false,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataFpxImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataFpxImplFromJson(json);
+  factory _$_PaymentMethodDataFpx.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataFpxFromJson(json);
 
   /// When set to true you can test offline payment.
   @override
@@ -11711,10 +11191,10 @@ class _$PaymentMethodDataFpxImpl implements _PaymentMethodDataFpx {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataFpxImpl &&
+            other is _$_PaymentMethodDataFpx &&
             (identical(other.testOfflineBank, testOfflineBank) ||
                 other.testOfflineBank == testOfflineBank) &&
             (identical(other.billingDetails, billingDetails) ||
@@ -11733,14 +11213,13 @@ class _$PaymentMethodDataFpxImpl implements _PaymentMethodDataFpx {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataFpxImplCopyWith<_$PaymentMethodDataFpxImpl>
-      get copyWith =>
-          __$$PaymentMethodDataFpxImplCopyWithImpl<_$PaymentMethodDataFpxImpl>(
-              this, _$identity);
+  _$$_PaymentMethodDataFpxCopyWith<_$_PaymentMethodDataFpx> get copyWith =>
+      __$$_PaymentMethodDataFpxCopyWithImpl<_$_PaymentMethodDataFpx>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataFpxImplToJson(
+    return _$$_PaymentMethodDataFpxToJson(
       this,
     );
   }
@@ -11751,10 +11230,10 @@ abstract class _PaymentMethodDataFpx implements PaymentMethodDataFpx {
       {final bool testOfflineBank,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataFpxImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataFpx;
 
   factory _PaymentMethodDataFpx.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataFpxImpl.fromJson;
+      _$_PaymentMethodDataFpx.fromJson;
 
   @override
 
@@ -11774,8 +11253,8 @@ abstract class _PaymentMethodDataFpx implements PaymentMethodDataFpx {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataFpxImplCopyWith<_$PaymentMethodDataFpxImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodDataFpxCopyWith<_$_PaymentMethodDataFpx> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 PaymentMethodDataSofort _$PaymentMethodDataSofortFromJson(
@@ -11897,12 +11376,11 @@ class _$PaymentMethodDataSofortCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataSofortImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataSofortCopyWith<$Res>
     implements $PaymentMethodDataSofortCopyWith<$Res> {
-  factory _$$PaymentMethodDataSofortImplCopyWith(
-          _$PaymentMethodDataSofortImpl value,
-          $Res Function(_$PaymentMethodDataSofortImpl) then) =
-      __$$PaymentMethodDataSofortImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataSofortCopyWith(_$_PaymentMethodDataSofort value,
+          $Res Function(_$_PaymentMethodDataSofort) then) =
+      __$$_PaymentMethodDataSofortCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -11920,13 +11398,12 @@ abstract class _$$PaymentMethodDataSofortImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataSofortImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataSofortCopyWithImpl<$Res>
     extends _$PaymentMethodDataSofortCopyWithImpl<$Res,
-        _$PaymentMethodDataSofortImpl>
-    implements _$$PaymentMethodDataSofortImplCopyWith<$Res> {
-  __$$PaymentMethodDataSofortImplCopyWithImpl(
-      _$PaymentMethodDataSofortImpl _value,
-      $Res Function(_$PaymentMethodDataSofortImpl) _then)
+        _$_PaymentMethodDataSofort>
+    implements _$$_PaymentMethodDataSofortCopyWith<$Res> {
+  __$$_PaymentMethodDataSofortCopyWithImpl(_$_PaymentMethodDataSofort _value,
+      $Res Function(_$_PaymentMethodDataSofort) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -11937,7 +11414,7 @@ class __$$PaymentMethodDataSofortImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataSofortImpl(
+    return _then(_$_PaymentMethodDataSofort(
       country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
@@ -11961,15 +11438,15 @@ class __$$PaymentMethodDataSofortImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataSofortImpl implements _PaymentMethodDataSofort {
-  const _$PaymentMethodDataSofortImpl(
+class _$_PaymentMethodDataSofort implements _PaymentMethodDataSofort {
+  const _$_PaymentMethodDataSofort(
       {required this.country,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataSofortImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataSofortImplFromJson(json);
+  factory _$_PaymentMethodDataSofort.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataSofortFromJson(json);
 
   /// Country of the accountholder
   @override
@@ -11993,10 +11470,10 @@ class _$PaymentMethodDataSofortImpl implements _PaymentMethodDataSofort {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataSofortImpl &&
+            other is _$_PaymentMethodDataSofort &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.billingDetails, billingDetails) ||
                 other.billingDetails == billingDetails) &&
@@ -12014,13 +11491,14 @@ class _$PaymentMethodDataSofortImpl implements _PaymentMethodDataSofort {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataSofortImplCopyWith<_$PaymentMethodDataSofortImpl>
-      get copyWith => __$$PaymentMethodDataSofortImplCopyWithImpl<
-          _$PaymentMethodDataSofortImpl>(this, _$identity);
+  _$$_PaymentMethodDataSofortCopyWith<_$_PaymentMethodDataSofort>
+      get copyWith =>
+          __$$_PaymentMethodDataSofortCopyWithImpl<_$_PaymentMethodDataSofort>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataSofortImplToJson(
+    return _$$_PaymentMethodDataSofortToJson(
       this,
     );
   }
@@ -12031,10 +11509,10 @@ abstract class _PaymentMethodDataSofort implements PaymentMethodDataSofort {
       {required final String country,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataSofortImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataSofort;
 
   factory _PaymentMethodDataSofort.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataSofortImpl.fromJson;
+      _$_PaymentMethodDataSofort.fromJson;
 
   @override
 
@@ -12054,7 +11532,7 @@ abstract class _PaymentMethodDataSofort implements PaymentMethodDataSofort {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataSofortImplCopyWith<_$PaymentMethodDataSofortImpl>
+  _$$_PaymentMethodDataSofortCopyWith<_$_PaymentMethodDataSofort>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -12177,12 +11655,11 @@ class _$PaymentMethodDataSepaCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataSepaImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataSepaCopyWith<$Res>
     implements $PaymentMethodDataSepaCopyWith<$Res> {
-  factory _$$PaymentMethodDataSepaImplCopyWith(
-          _$PaymentMethodDataSepaImpl value,
-          $Res Function(_$PaymentMethodDataSepaImpl) then) =
-      __$$PaymentMethodDataSepaImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataSepaCopyWith(_$_PaymentMethodDataSepa value,
+          $Res Function(_$_PaymentMethodDataSepa) then) =
+      __$$_PaymentMethodDataSepaCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -12200,12 +11677,11 @@ abstract class _$$PaymentMethodDataSepaImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataSepaImplCopyWithImpl<$Res>
-    extends _$PaymentMethodDataSepaCopyWithImpl<$Res,
-        _$PaymentMethodDataSepaImpl>
-    implements _$$PaymentMethodDataSepaImplCopyWith<$Res> {
-  __$$PaymentMethodDataSepaImplCopyWithImpl(_$PaymentMethodDataSepaImpl _value,
-      $Res Function(_$PaymentMethodDataSepaImpl) _then)
+class __$$_PaymentMethodDataSepaCopyWithImpl<$Res>
+    extends _$PaymentMethodDataSepaCopyWithImpl<$Res, _$_PaymentMethodDataSepa>
+    implements _$$_PaymentMethodDataSepaCopyWith<$Res> {
+  __$$_PaymentMethodDataSepaCopyWithImpl(_$_PaymentMethodDataSepa _value,
+      $Res Function(_$_PaymentMethodDataSepa) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -12216,7 +11692,7 @@ class __$$PaymentMethodDataSepaImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataSepaImpl(
+    return _then(_$_PaymentMethodDataSepa(
       iban: null == iban
           ? _value.iban
           : iban // ignore: cast_nullable_to_non_nullable
@@ -12240,15 +11716,15 @@ class __$$PaymentMethodDataSepaImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataSepaImpl implements _PaymentMethodDataSepa {
-  const _$PaymentMethodDataSepaImpl(
+class _$_PaymentMethodDataSepa implements _PaymentMethodDataSepa {
+  const _$_PaymentMethodDataSepa(
       {required this.iban,
       this.billingDetails,
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataSepaImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataSepaImplFromJson(json);
+  factory _$_PaymentMethodDataSepa.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataSepaFromJson(json);
 
   /// Iban number of the accountholder
   @override
@@ -12272,10 +11748,10 @@ class _$PaymentMethodDataSepaImpl implements _PaymentMethodDataSepa {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataSepaImpl &&
+            other is _$_PaymentMethodDataSepa &&
             (identical(other.iban, iban) || other.iban == iban) &&
             (identical(other.billingDetails, billingDetails) ||
                 other.billingDetails == billingDetails) &&
@@ -12293,13 +11769,13 @@ class _$PaymentMethodDataSepaImpl implements _PaymentMethodDataSepa {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataSepaImplCopyWith<_$PaymentMethodDataSepaImpl>
-      get copyWith => __$$PaymentMethodDataSepaImplCopyWithImpl<
-          _$PaymentMethodDataSepaImpl>(this, _$identity);
+  _$$_PaymentMethodDataSepaCopyWith<_$_PaymentMethodDataSepa> get copyWith =>
+      __$$_PaymentMethodDataSepaCopyWithImpl<_$_PaymentMethodDataSepa>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataSepaImplToJson(
+    return _$$_PaymentMethodDataSepaToJson(
       this,
     );
   }
@@ -12310,10 +11786,10 @@ abstract class _PaymentMethodDataSepa implements PaymentMethodDataSepa {
       {required final String iban,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataSepaImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataSepa;
 
   factory _PaymentMethodDataSepa.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataSepaImpl.fromJson;
+      _$_PaymentMethodDataSepa.fromJson;
 
   @override
 
@@ -12333,8 +11809,8 @@ abstract class _PaymentMethodDataSepa implements PaymentMethodDataSepa {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataSepaImplCopyWith<_$PaymentMethodDataSepaImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodDataSepaCopyWith<_$_PaymentMethodDataSepa> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 PaymentMethodDataAfterPay _$PaymentMethodDataAfterPayFromJson(
@@ -12443,12 +11919,12 @@ class _$PaymentMethodDataAfterPayCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataAfterPayImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataAfterPayCopyWith<$Res>
     implements $PaymentMethodDataAfterPayCopyWith<$Res> {
-  factory _$$PaymentMethodDataAfterPayImplCopyWith(
-          _$PaymentMethodDataAfterPayImpl value,
-          $Res Function(_$PaymentMethodDataAfterPayImpl) then) =
-      __$$PaymentMethodDataAfterPayImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataAfterPayCopyWith(
+          _$_PaymentMethodDataAfterPay value,
+          $Res Function(_$_PaymentMethodDataAfterPay) then) =
+      __$$_PaymentMethodDataAfterPayCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -12465,13 +11941,13 @@ abstract class _$$PaymentMethodDataAfterPayImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataAfterPayImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataAfterPayCopyWithImpl<$Res>
     extends _$PaymentMethodDataAfterPayCopyWithImpl<$Res,
-        _$PaymentMethodDataAfterPayImpl>
-    implements _$$PaymentMethodDataAfterPayImplCopyWith<$Res> {
-  __$$PaymentMethodDataAfterPayImplCopyWithImpl(
-      _$PaymentMethodDataAfterPayImpl _value,
-      $Res Function(_$PaymentMethodDataAfterPayImpl) _then)
+        _$_PaymentMethodDataAfterPay>
+    implements _$$_PaymentMethodDataAfterPayCopyWith<$Res> {
+  __$$_PaymentMethodDataAfterPayCopyWithImpl(
+      _$_PaymentMethodDataAfterPay _value,
+      $Res Function(_$_PaymentMethodDataAfterPay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -12481,7 +11957,7 @@ class __$$PaymentMethodDataAfterPayImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataAfterPayImpl(
+    return _then(_$_PaymentMethodDataAfterPay(
       billingDetails: null == billingDetails
           ? _value.billingDetails
           : billingDetails // ignore: cast_nullable_to_non_nullable
@@ -12501,12 +11977,12 @@ class __$$PaymentMethodDataAfterPayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataAfterPayImpl implements _PaymentMethodDataAfterPay {
-  const _$PaymentMethodDataAfterPayImpl(
+class _$_PaymentMethodDataAfterPay implements _PaymentMethodDataAfterPay {
+  const _$_PaymentMethodDataAfterPay(
       {required this.billingDetails, this.shippingDetails, this.mandateData});
 
-  factory _$PaymentMethodDataAfterPayImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataAfterPayImplFromJson(json);
+  factory _$_PaymentMethodDataAfterPay.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataAfterPayFromJson(json);
 
   /// Billing information.
   @override
@@ -12526,10 +12002,10 @@ class _$PaymentMethodDataAfterPayImpl implements _PaymentMethodDataAfterPay {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataAfterPayImpl &&
+            other is _$_PaymentMethodDataAfterPay &&
             (identical(other.billingDetails, billingDetails) ||
                 other.billingDetails == billingDetails) &&
             (identical(other.shippingDetails, shippingDetails) ||
@@ -12546,13 +12022,13 @@ class _$PaymentMethodDataAfterPayImpl implements _PaymentMethodDataAfterPay {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataAfterPayImplCopyWith<_$PaymentMethodDataAfterPayImpl>
-      get copyWith => __$$PaymentMethodDataAfterPayImplCopyWithImpl<
-          _$PaymentMethodDataAfterPayImpl>(this, _$identity);
+  _$$_PaymentMethodDataAfterPayCopyWith<_$_PaymentMethodDataAfterPay>
+      get copyWith => __$$_PaymentMethodDataAfterPayCopyWithImpl<
+          _$_PaymentMethodDataAfterPay>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataAfterPayImplToJson(
+    return _$$_PaymentMethodDataAfterPayToJson(
       this,
     );
   }
@@ -12562,10 +12038,10 @@ abstract class _PaymentMethodDataAfterPay implements PaymentMethodDataAfterPay {
   const factory _PaymentMethodDataAfterPay(
       {required final BillingDetails billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataAfterPayImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataAfterPay;
 
   factory _PaymentMethodDataAfterPay.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataAfterPayImpl.fromJson;
+      _$_PaymentMethodDataAfterPay.fromJson;
 
   @override
 
@@ -12581,7 +12057,7 @@ abstract class _PaymentMethodDataAfterPay implements PaymentMethodDataAfterPay {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataAfterPayImplCopyWith<_$PaymentMethodDataAfterPayImpl>
+  _$$_PaymentMethodDataAfterPayCopyWith<_$_PaymentMethodDataAfterPay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -12733,12 +12209,11 @@ class _$PaymentMethodDataUsBankCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodDataUsBankImplCopyWith<$Res>
+abstract class _$$_PaymentMethodDataUsBankCopyWith<$Res>
     implements $PaymentMethodDataUsBankCopyWith<$Res> {
-  factory _$$PaymentMethodDataUsBankImplCopyWith(
-          _$PaymentMethodDataUsBankImpl value,
-          $Res Function(_$PaymentMethodDataUsBankImpl) then) =
-      __$$PaymentMethodDataUsBankImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodDataUsBankCopyWith(_$_PaymentMethodDataUsBank value,
+          $Res Function(_$_PaymentMethodDataUsBank) then) =
+      __$$_PaymentMethodDataUsBankCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -12759,13 +12234,12 @@ abstract class _$$PaymentMethodDataUsBankImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentMethodDataUsBankImplCopyWithImpl<$Res>
+class __$$_PaymentMethodDataUsBankCopyWithImpl<$Res>
     extends _$PaymentMethodDataUsBankCopyWithImpl<$Res,
-        _$PaymentMethodDataUsBankImpl>
-    implements _$$PaymentMethodDataUsBankImplCopyWith<$Res> {
-  __$$PaymentMethodDataUsBankImplCopyWithImpl(
-      _$PaymentMethodDataUsBankImpl _value,
-      $Res Function(_$PaymentMethodDataUsBankImpl) _then)
+        _$_PaymentMethodDataUsBank>
+    implements _$$_PaymentMethodDataUsBankCopyWith<$Res> {
+  __$$_PaymentMethodDataUsBankCopyWithImpl(_$_PaymentMethodDataUsBank _value,
+      $Res Function(_$_PaymentMethodDataUsBank) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -12779,7 +12253,7 @@ class __$$PaymentMethodDataUsBankImplCopyWithImpl<$Res>
     Object? shippingDetails = freezed,
     Object? mandateData = freezed,
   }) {
-    return _then(_$PaymentMethodDataUsBankImpl(
+    return _then(_$_PaymentMethodDataUsBank(
       accountNumber: freezed == accountNumber
           ? _value.accountNumber
           : accountNumber // ignore: cast_nullable_to_non_nullable
@@ -12815,8 +12289,8 @@ class __$$PaymentMethodDataUsBankImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodDataUsBankImpl implements _PaymentMethodDataUsBank {
-  const _$PaymentMethodDataUsBankImpl(
+class _$_PaymentMethodDataUsBank implements _PaymentMethodDataUsBank {
+  const _$_PaymentMethodDataUsBank(
       {this.accountNumber,
       this.routingNumber,
       this.accountHolderType,
@@ -12825,8 +12299,8 @@ class _$PaymentMethodDataUsBankImpl implements _PaymentMethodDataUsBank {
       this.shippingDetails,
       this.mandateData});
 
-  factory _$PaymentMethodDataUsBankImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodDataUsBankImplFromJson(json);
+  factory _$_PaymentMethodDataUsBank.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodDataUsBankFromJson(json);
 
   /// The account number of the bank account.
   @override
@@ -12863,10 +12337,10 @@ class _$PaymentMethodDataUsBankImpl implements _PaymentMethodDataUsBank {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodDataUsBankImpl &&
+            other is _$_PaymentMethodDataUsBank &&
             (identical(other.accountNumber, accountNumber) ||
                 other.accountNumber == accountNumber) &&
             (identical(other.routingNumber, routingNumber) ||
@@ -12898,13 +12372,14 @@ class _$PaymentMethodDataUsBankImpl implements _PaymentMethodDataUsBank {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodDataUsBankImplCopyWith<_$PaymentMethodDataUsBankImpl>
-      get copyWith => __$$PaymentMethodDataUsBankImplCopyWithImpl<
-          _$PaymentMethodDataUsBankImpl>(this, _$identity);
+  _$$_PaymentMethodDataUsBankCopyWith<_$_PaymentMethodDataUsBank>
+      get copyWith =>
+          __$$_PaymentMethodDataUsBankCopyWithImpl<_$_PaymentMethodDataUsBank>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodDataUsBankImplToJson(
+    return _$$_PaymentMethodDataUsBankToJson(
       this,
     );
   }
@@ -12918,10 +12393,10 @@ abstract class _PaymentMethodDataUsBank implements PaymentMethodDataUsBank {
       final UsBankAccountType? accountType,
       final BillingDetails? billingDetails,
       final ShippingDetails? shippingDetails,
-      final MandateData? mandateData}) = _$PaymentMethodDataUsBankImpl;
+      final MandateData? mandateData}) = _$_PaymentMethodDataUsBank;
 
   factory _PaymentMethodDataUsBank.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodDataUsBankImpl.fromJson;
+      _$_PaymentMethodDataUsBank.fromJson;
 
   @override
 
@@ -12954,7 +12429,7 @@ abstract class _PaymentMethodDataUsBank implements PaymentMethodDataUsBank {
   MandateData? get mandateData;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodDataUsBankImplCopyWith<_$PaymentMethodDataUsBankImpl>
+  _$$_PaymentMethodDataUsBankCopyWith<_$_PaymentMethodDataUsBank>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -13009,22 +12484,22 @@ class _$PaymentMethodOptionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentMethodOptionsImplCopyWith<$Res>
+abstract class _$$_PaymentMethodOptionsCopyWith<$Res>
     implements $PaymentMethodOptionsCopyWith<$Res> {
-  factory _$$PaymentMethodOptionsImplCopyWith(_$PaymentMethodOptionsImpl value,
-          $Res Function(_$PaymentMethodOptionsImpl) then) =
-      __$$PaymentMethodOptionsImplCopyWithImpl<$Res>;
+  factory _$$_PaymentMethodOptionsCopyWith(_$_PaymentMethodOptions value,
+          $Res Function(_$_PaymentMethodOptions) then) =
+      __$$_PaymentMethodOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({PaymentIntentsFutureUsage? setupFutureUsage});
 }
 
 /// @nodoc
-class __$$PaymentMethodOptionsImplCopyWithImpl<$Res>
-    extends _$PaymentMethodOptionsCopyWithImpl<$Res, _$PaymentMethodOptionsImpl>
-    implements _$$PaymentMethodOptionsImplCopyWith<$Res> {
-  __$$PaymentMethodOptionsImplCopyWithImpl(_$PaymentMethodOptionsImpl _value,
-      $Res Function(_$PaymentMethodOptionsImpl) _then)
+class __$$_PaymentMethodOptionsCopyWithImpl<$Res>
+    extends _$PaymentMethodOptionsCopyWithImpl<$Res, _$_PaymentMethodOptions>
+    implements _$$_PaymentMethodOptionsCopyWith<$Res> {
+  __$$_PaymentMethodOptionsCopyWithImpl(_$_PaymentMethodOptions _value,
+      $Res Function(_$_PaymentMethodOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13032,7 +12507,7 @@ class __$$PaymentMethodOptionsImplCopyWithImpl<$Res>
   $Res call({
     Object? setupFutureUsage = freezed,
   }) {
-    return _then(_$PaymentMethodOptionsImpl(
+    return _then(_$_PaymentMethodOptions(
       setupFutureUsage: freezed == setupFutureUsage
           ? _value.setupFutureUsage
           : setupFutureUsage // ignore: cast_nullable_to_non_nullable
@@ -13044,11 +12519,11 @@ class __$$PaymentMethodOptionsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentMethodOptionsImpl implements _PaymentMethodOptions {
-  const _$PaymentMethodOptionsImpl({this.setupFutureUsage});
+class _$_PaymentMethodOptions implements _PaymentMethodOptions {
+  const _$_PaymentMethodOptions({this.setupFutureUsage});
 
-  factory _$PaymentMethodOptionsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentMethodOptionsImplFromJson(json);
+  factory _$_PaymentMethodOptions.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentMethodOptionsFromJson(json);
 
   /// Indicates whether or not you want to reuse this method for future payments.
   @override
@@ -13060,10 +12535,10 @@ class _$PaymentMethodOptionsImpl implements _PaymentMethodOptions {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentMethodOptionsImpl &&
+            other is _$_PaymentMethodOptions &&
             (identical(other.setupFutureUsage, setupFutureUsage) ||
                 other.setupFutureUsage == setupFutureUsage));
   }
@@ -13075,14 +12550,13 @@ class _$PaymentMethodOptionsImpl implements _PaymentMethodOptions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentMethodOptionsImplCopyWith<_$PaymentMethodOptionsImpl>
-      get copyWith =>
-          __$$PaymentMethodOptionsImplCopyWithImpl<_$PaymentMethodOptionsImpl>(
-              this, _$identity);
+  _$$_PaymentMethodOptionsCopyWith<_$_PaymentMethodOptions> get copyWith =>
+      __$$_PaymentMethodOptionsCopyWithImpl<_$_PaymentMethodOptions>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentMethodOptionsImplToJson(
+    return _$$_PaymentMethodOptionsToJson(
       this,
     );
   }
@@ -13091,10 +12565,10 @@ class _$PaymentMethodOptionsImpl implements _PaymentMethodOptions {
 abstract class _PaymentMethodOptions implements PaymentMethodOptions {
   const factory _PaymentMethodOptions(
           {final PaymentIntentsFutureUsage? setupFutureUsage}) =
-      _$PaymentMethodOptionsImpl;
+      _$_PaymentMethodOptions;
 
   factory _PaymentMethodOptions.fromJson(Map<String, dynamic> json) =
-      _$PaymentMethodOptionsImpl.fromJson;
+      _$_PaymentMethodOptions.fromJson;
 
   @override
 
@@ -13102,8 +12576,8 @@ abstract class _PaymentMethodOptions implements PaymentMethodOptions {
   PaymentIntentsFutureUsage? get setupFutureUsage;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentMethodOptionsImplCopyWith<_$PaymentMethodOptionsImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_PaymentMethodOptionsCopyWith<_$_PaymentMethodOptions> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 MandateData _$MandateDataFromJson(Map<String, dynamic> json) {
@@ -13171,11 +12645,11 @@ class _$MandateDataCopyWithImpl<$Res, $Val extends MandateData>
 }
 
 /// @nodoc
-abstract class _$$MandateDataImplCopyWith<$Res>
+abstract class _$$_MandateDataCopyWith<$Res>
     implements $MandateDataCopyWith<$Res> {
-  factory _$$MandateDataImplCopyWith(
-          _$MandateDataImpl value, $Res Function(_$MandateDataImpl) then) =
-      __$$MandateDataImplCopyWithImpl<$Res>;
+  factory _$$_MandateDataCopyWith(
+          _$_MandateData value, $Res Function(_$_MandateData) then) =
+      __$$_MandateDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({MandateDataCustomerAcceptance? customerAcceptance});
@@ -13185,11 +12659,11 @@ abstract class _$$MandateDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MandateDataImplCopyWithImpl<$Res>
-    extends _$MandateDataCopyWithImpl<$Res, _$MandateDataImpl>
-    implements _$$MandateDataImplCopyWith<$Res> {
-  __$$MandateDataImplCopyWithImpl(
-      _$MandateDataImpl _value, $Res Function(_$MandateDataImpl) _then)
+class __$$_MandateDataCopyWithImpl<$Res>
+    extends _$MandateDataCopyWithImpl<$Res, _$_MandateData>
+    implements _$$_MandateDataCopyWith<$Res> {
+  __$$_MandateDataCopyWithImpl(
+      _$_MandateData _value, $Res Function(_$_MandateData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13197,7 +12671,7 @@ class __$$MandateDataImplCopyWithImpl<$Res>
   $Res call({
     Object? customerAcceptance = freezed,
   }) {
-    return _then(_$MandateDataImpl(
+    return _then(_$_MandateData(
       customerAcceptance: freezed == customerAcceptance
           ? _value.customerAcceptance
           : customerAcceptance // ignore: cast_nullable_to_non_nullable
@@ -13209,11 +12683,11 @@ class __$$MandateDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$MandateDataImpl implements _MandateData {
-  const _$MandateDataImpl({this.customerAcceptance});
+class _$_MandateData implements _MandateData {
+  const _$_MandateData({this.customerAcceptance});
 
-  factory _$MandateDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MandateDataImplFromJson(json);
+  factory _$_MandateData.fromJson(Map<String, dynamic> json) =>
+      _$$_MandateDataFromJson(json);
 
   /// The type of mandate to create.
   @override
@@ -13225,10 +12699,10 @@ class _$MandateDataImpl implements _MandateData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MandateDataImpl &&
+            other is _$_MandateData &&
             (identical(other.customerAcceptance, customerAcceptance) ||
                 other.customerAcceptance == customerAcceptance));
   }
@@ -13240,12 +12714,12 @@ class _$MandateDataImpl implements _MandateData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MandateDataImplCopyWith<_$MandateDataImpl> get copyWith =>
-      __$$MandateDataImplCopyWithImpl<_$MandateDataImpl>(this, _$identity);
+  _$$_MandateDataCopyWith<_$_MandateData> get copyWith =>
+      __$$_MandateDataCopyWithImpl<_$_MandateData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MandateDataImplToJson(
+    return _$$_MandateDataToJson(
       this,
     );
   }
@@ -13254,10 +12728,10 @@ class _$MandateDataImpl implements _MandateData {
 abstract class _MandateData implements MandateData {
   const factory _MandateData(
           {final MandateDataCustomerAcceptance? customerAcceptance}) =
-      _$MandateDataImpl;
+      _$_MandateData;
 
   factory _MandateData.fromJson(Map<String, dynamic> json) =
-      _$MandateDataImpl.fromJson;
+      _$_MandateData.fromJson;
 
   @override
 
@@ -13265,8 +12739,13 @@ abstract class _MandateData implements MandateData {
   MandateDataCustomerAcceptance? get customerAcceptance;
   @override
   @JsonKey(ignore: true)
-  _$$MandateDataImplCopyWith<_$MandateDataImpl> get copyWith =>
+  _$$_MandateDataCopyWith<_$_MandateData> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+MandateDataCustomerAcceptance _$MandateDataCustomerAcceptanceFromJson(
+    Map<String, dynamic> json) {
+  return _MandateDataCustomerAcceptance.fromJson(json);
 }
 
 /// @nodoc
@@ -13274,6 +12753,7 @@ mixin _$MandateDataCustomerAcceptance {
   /// Online data regarding the mandate.
   MandateDataOnlineData? get ipAddress => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MandateDataCustomerAcceptanceCopyWith<MandateDataCustomerAcceptance>
       get copyWith => throw _privateConstructorUsedError;
@@ -13330,12 +12810,12 @@ class _$MandateDataCustomerAcceptanceCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$MandateDataCustomerAcceptanceImplCopyWith<$Res>
+abstract class _$$_MandateDataCustomerAcceptanceCopyWith<$Res>
     implements $MandateDataCustomerAcceptanceCopyWith<$Res> {
-  factory _$$MandateDataCustomerAcceptanceImplCopyWith(
-          _$MandateDataCustomerAcceptanceImpl value,
-          $Res Function(_$MandateDataCustomerAcceptanceImpl) then) =
-      __$$MandateDataCustomerAcceptanceImplCopyWithImpl<$Res>;
+  factory _$$_MandateDataCustomerAcceptanceCopyWith(
+          _$_MandateDataCustomerAcceptance value,
+          $Res Function(_$_MandateDataCustomerAcceptance) then) =
+      __$$_MandateDataCustomerAcceptanceCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({MandateDataOnlineData? ipAddress});
@@ -13345,13 +12825,13 @@ abstract class _$$MandateDataCustomerAcceptanceImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$MandateDataCustomerAcceptanceImplCopyWithImpl<$Res>
+class __$$_MandateDataCustomerAcceptanceCopyWithImpl<$Res>
     extends _$MandateDataCustomerAcceptanceCopyWithImpl<$Res,
-        _$MandateDataCustomerAcceptanceImpl>
-    implements _$$MandateDataCustomerAcceptanceImplCopyWith<$Res> {
-  __$$MandateDataCustomerAcceptanceImplCopyWithImpl(
-      _$MandateDataCustomerAcceptanceImpl _value,
-      $Res Function(_$MandateDataCustomerAcceptanceImpl) _then)
+        _$_MandateDataCustomerAcceptance>
+    implements _$$_MandateDataCustomerAcceptanceCopyWith<$Res> {
+  __$$_MandateDataCustomerAcceptanceCopyWithImpl(
+      _$_MandateDataCustomerAcceptance _value,
+      $Res Function(_$_MandateDataCustomerAcceptance) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13359,7 +12839,7 @@ class __$$MandateDataCustomerAcceptanceImplCopyWithImpl<$Res>
   $Res call({
     Object? ipAddress = freezed,
   }) {
-    return _then(_$MandateDataCustomerAcceptanceImpl(
+    return _then(_$_MandateDataCustomerAcceptance(
       ipAddress: freezed == ipAddress
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
@@ -13370,9 +12850,14 @@ class __$$MandateDataCustomerAcceptanceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MandateDataCustomerAcceptanceImpl
-    extends _MandateDataCustomerAcceptance {
-  const _$MandateDataCustomerAcceptanceImpl({this.ipAddress}) : super._();
+@JsonSerializable(explicitToJson: true)
+class _$_MandateDataCustomerAcceptance
+    implements _MandateDataCustomerAcceptance {
+  const _$_MandateDataCustomerAcceptance({this.ipAddress});
+
+  factory _$_MandateDataCustomerAcceptance.fromJson(
+          Map<String, dynamic> json) =>
+      _$$_MandateDataCustomerAcceptanceFromJson(json);
 
   /// Online data regarding the mandate.
   @override
@@ -13384,32 +12869,41 @@ class _$MandateDataCustomerAcceptanceImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MandateDataCustomerAcceptanceImpl &&
+            other is _$_MandateDataCustomerAcceptance &&
             (identical(other.ipAddress, ipAddress) ||
                 other.ipAddress == ipAddress));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, ipAddress);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MandateDataCustomerAcceptanceImplCopyWith<
-          _$MandateDataCustomerAcceptanceImpl>
-      get copyWith => __$$MandateDataCustomerAcceptanceImplCopyWithImpl<
-          _$MandateDataCustomerAcceptanceImpl>(this, _$identity);
+  _$$_MandateDataCustomerAcceptanceCopyWith<_$_MandateDataCustomerAcceptance>
+      get copyWith => __$$_MandateDataCustomerAcceptanceCopyWithImpl<
+          _$_MandateDataCustomerAcceptance>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_MandateDataCustomerAcceptanceToJson(
+      this,
+    );
+  }
 }
 
 abstract class _MandateDataCustomerAcceptance
-    extends MandateDataCustomerAcceptance {
+    implements MandateDataCustomerAcceptance {
   const factory _MandateDataCustomerAcceptance(
           {final MandateDataOnlineData? ipAddress}) =
-      _$MandateDataCustomerAcceptanceImpl;
-  const _MandateDataCustomerAcceptance._() : super._();
+      _$_MandateDataCustomerAcceptance;
+
+  factory _MandateDataCustomerAcceptance.fromJson(Map<String, dynamic> json) =
+      _$_MandateDataCustomerAcceptance.fromJson;
 
   @override
 
@@ -13417,8 +12911,7 @@ abstract class _MandateDataCustomerAcceptance
   MandateDataOnlineData? get ipAddress;
   @override
   @JsonKey(ignore: true)
-  _$$MandateDataCustomerAcceptanceImplCopyWith<
-          _$MandateDataCustomerAcceptanceImpl>
+  _$$_MandateDataCustomerAcceptanceCopyWith<_$_MandateDataCustomerAcceptance>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -13481,24 +12974,22 @@ class _$MandateDataOnlineDataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$MandateDataOnlineDataImplCopyWith<$Res>
+abstract class _$$_MandateDataOnlineDataCopyWith<$Res>
     implements $MandateDataOnlineDataCopyWith<$Res> {
-  factory _$$MandateDataOnlineDataImplCopyWith(
-          _$MandateDataOnlineDataImpl value,
-          $Res Function(_$MandateDataOnlineDataImpl) then) =
-      __$$MandateDataOnlineDataImplCopyWithImpl<$Res>;
+  factory _$$_MandateDataOnlineDataCopyWith(_$_MandateDataOnlineData value,
+          $Res Function(_$_MandateDataOnlineData) then) =
+      __$$_MandateDataOnlineDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? ipAddress, String? userAgent});
 }
 
 /// @nodoc
-class __$$MandateDataOnlineDataImplCopyWithImpl<$Res>
-    extends _$MandateDataOnlineDataCopyWithImpl<$Res,
-        _$MandateDataOnlineDataImpl>
-    implements _$$MandateDataOnlineDataImplCopyWith<$Res> {
-  __$$MandateDataOnlineDataImplCopyWithImpl(_$MandateDataOnlineDataImpl _value,
-      $Res Function(_$MandateDataOnlineDataImpl) _then)
+class __$$_MandateDataOnlineDataCopyWithImpl<$Res>
+    extends _$MandateDataOnlineDataCopyWithImpl<$Res, _$_MandateDataOnlineData>
+    implements _$$_MandateDataOnlineDataCopyWith<$Res> {
+  __$$_MandateDataOnlineDataCopyWithImpl(_$_MandateDataOnlineData _value,
+      $Res Function(_$_MandateDataOnlineData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13507,7 +12998,7 @@ class __$$MandateDataOnlineDataImplCopyWithImpl<$Res>
     Object? ipAddress = freezed,
     Object? userAgent = freezed,
   }) {
-    return _then(_$MandateDataOnlineDataImpl(
+    return _then(_$_MandateDataOnlineData(
       ipAddress: freezed == ipAddress
           ? _value.ipAddress
           : ipAddress // ignore: cast_nullable_to_non_nullable
@@ -13523,11 +13014,11 @@ class __$$MandateDataOnlineDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$MandateDataOnlineDataImpl implements _MandateDataOnlineData {
-  const _$MandateDataOnlineDataImpl({this.ipAddress, this.userAgent});
+class _$_MandateDataOnlineData implements _MandateDataOnlineData {
+  const _$_MandateDataOnlineData({this.ipAddress, this.userAgent});
 
-  factory _$MandateDataOnlineDataImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MandateDataOnlineDataImplFromJson(json);
+  factory _$_MandateDataOnlineData.fromJson(Map<String, dynamic> json) =>
+      _$$_MandateDataOnlineDataFromJson(json);
 
   /// The ip address of the user.
   @override
@@ -13543,10 +13034,10 @@ class _$MandateDataOnlineDataImpl implements _MandateDataOnlineData {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MandateDataOnlineDataImpl &&
+            other is _$_MandateDataOnlineData &&
             (identical(other.ipAddress, ipAddress) ||
                 other.ipAddress == ipAddress) &&
             (identical(other.userAgent, userAgent) ||
@@ -13560,13 +13051,13 @@ class _$MandateDataOnlineDataImpl implements _MandateDataOnlineData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MandateDataOnlineDataImplCopyWith<_$MandateDataOnlineDataImpl>
-      get copyWith => __$$MandateDataOnlineDataImplCopyWithImpl<
-          _$MandateDataOnlineDataImpl>(this, _$identity);
+  _$$_MandateDataOnlineDataCopyWith<_$_MandateDataOnlineData> get copyWith =>
+      __$$_MandateDataOnlineDataCopyWithImpl<_$_MandateDataOnlineData>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MandateDataOnlineDataImplToJson(
+    return _$$_MandateDataOnlineDataToJson(
       this,
     );
   }
@@ -13575,10 +13066,10 @@ class _$MandateDataOnlineDataImpl implements _MandateDataOnlineData {
 abstract class _MandateDataOnlineData implements MandateDataOnlineData {
   const factory _MandateDataOnlineData(
       {final String? ipAddress,
-      final String? userAgent}) = _$MandateDataOnlineDataImpl;
+      final String? userAgent}) = _$_MandateDataOnlineData;
 
   factory _MandateDataOnlineData.fromJson(Map<String, dynamic> json) =
-      _$MandateDataOnlineDataImpl.fromJson;
+      _$_MandateDataOnlineData.fromJson;
 
   @override
 
@@ -13590,8 +13081,8 @@ abstract class _MandateDataOnlineData implements MandateDataOnlineData {
   String? get userAgent;
   @override
   @JsonKey(ignore: true)
-  _$$MandateDataOnlineDataImplCopyWith<_$MandateDataOnlineDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_MandateDataOnlineDataCopyWith<_$_MandateDataOnlineData> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 ThreeDSecureUsage _$ThreeDSecureUsageFromJson(Map<String, dynamic> json) {
@@ -13643,22 +13134,22 @@ class _$ThreeDSecureUsageCopyWithImpl<$Res, $Val extends ThreeDSecureUsage>
 }
 
 /// @nodoc
-abstract class _$$ThreeDSecureUsageImplCopyWith<$Res>
+abstract class _$$_ThreeDSecureUsageCopyWith<$Res>
     implements $ThreeDSecureUsageCopyWith<$Res> {
-  factory _$$ThreeDSecureUsageImplCopyWith(_$ThreeDSecureUsageImpl value,
-          $Res Function(_$ThreeDSecureUsageImpl) then) =
-      __$$ThreeDSecureUsageImplCopyWithImpl<$Res>;
+  factory _$$_ThreeDSecureUsageCopyWith(_$_ThreeDSecureUsage value,
+          $Res Function(_$_ThreeDSecureUsage) then) =
+      __$$_ThreeDSecureUsageCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? isSupported});
 }
 
 /// @nodoc
-class __$$ThreeDSecureUsageImplCopyWithImpl<$Res>
-    extends _$ThreeDSecureUsageCopyWithImpl<$Res, _$ThreeDSecureUsageImpl>
-    implements _$$ThreeDSecureUsageImplCopyWith<$Res> {
-  __$$ThreeDSecureUsageImplCopyWithImpl(_$ThreeDSecureUsageImpl _value,
-      $Res Function(_$ThreeDSecureUsageImpl) _then)
+class __$$_ThreeDSecureUsageCopyWithImpl<$Res>
+    extends _$ThreeDSecureUsageCopyWithImpl<$Res, _$_ThreeDSecureUsage>
+    implements _$$_ThreeDSecureUsageCopyWith<$Res> {
+  __$$_ThreeDSecureUsageCopyWithImpl(
+      _$_ThreeDSecureUsage _value, $Res Function(_$_ThreeDSecureUsage) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -13666,7 +13157,7 @@ class __$$ThreeDSecureUsageImplCopyWithImpl<$Res>
   $Res call({
     Object? isSupported = freezed,
   }) {
-    return _then(_$ThreeDSecureUsageImpl(
+    return _then(_$_ThreeDSecureUsage(
       isSupported: freezed == isSupported
           ? _value.isSupported
           : isSupported // ignore: cast_nullable_to_non_nullable
@@ -13678,11 +13169,11 @@ class __$$ThreeDSecureUsageImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$ThreeDSecureUsageImpl implements _ThreeDSecureUsage {
-  const _$ThreeDSecureUsageImpl({this.isSupported});
+class _$_ThreeDSecureUsage implements _ThreeDSecureUsage {
+  const _$_ThreeDSecureUsage({this.isSupported});
 
-  factory _$ThreeDSecureUsageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreeDSecureUsageImplFromJson(json);
+  factory _$_ThreeDSecureUsage.fromJson(Map<String, dynamic> json) =>
+      _$$_ThreeDSecureUsageFromJson(json);
 
   /// Whether 3ds is supported or not.
   @override
@@ -13694,10 +13185,10 @@ class _$ThreeDSecureUsageImpl implements _ThreeDSecureUsage {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreeDSecureUsageImpl &&
+            other is _$_ThreeDSecureUsage &&
             (identical(other.isSupported, isSupported) ||
                 other.isSupported == isSupported));
   }
@@ -13709,13 +13200,13 @@ class _$ThreeDSecureUsageImpl implements _ThreeDSecureUsage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ThreeDSecureUsageImplCopyWith<_$ThreeDSecureUsageImpl> get copyWith =>
-      __$$ThreeDSecureUsageImplCopyWithImpl<_$ThreeDSecureUsageImpl>(
+  _$$_ThreeDSecureUsageCopyWith<_$_ThreeDSecureUsage> get copyWith =>
+      __$$_ThreeDSecureUsageCopyWithImpl<_$_ThreeDSecureUsage>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ThreeDSecureUsageImplToJson(
+    return _$$_ThreeDSecureUsageToJson(
       this,
     );
   }
@@ -13723,10 +13214,10 @@ class _$ThreeDSecureUsageImpl implements _ThreeDSecureUsage {
 
 abstract class _ThreeDSecureUsage implements ThreeDSecureUsage {
   const factory _ThreeDSecureUsage({final bool? isSupported}) =
-      _$ThreeDSecureUsageImpl;
+      _$_ThreeDSecureUsage;
 
   factory _ThreeDSecureUsage.fromJson(Map<String, dynamic> json) =
-      _$ThreeDSecureUsageImpl.fromJson;
+      _$_ThreeDSecureUsage.fromJson;
 
   @override
 
@@ -13734,6 +13225,6 @@ abstract class _ThreeDSecureUsage implements ThreeDSecureUsage {
   bool? get isSupported;
   @override
   @JsonKey(ignore: true)
-  _$$ThreeDSecureUsageImplCopyWith<_$ThreeDSecureUsageImpl> get copyWith =>
+  _$$_ThreeDSecureUsageCopyWith<_$_ThreeDSecureUsage> get copyWith =>
       throw _privateConstructorUsedError;
 }

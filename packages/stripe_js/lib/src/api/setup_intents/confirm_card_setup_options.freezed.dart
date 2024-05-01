@@ -67,25 +67,23 @@ class _$ConfirmCardSetupOptionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConfirmCardSetupOptionsImplCopyWith<$Res>
+abstract class _$$_ConfirmCardSetupOptionsCopyWith<$Res>
     implements $ConfirmCardSetupOptionsCopyWith<$Res> {
-  factory _$$ConfirmCardSetupOptionsImplCopyWith(
-          _$ConfirmCardSetupOptionsImpl value,
-          $Res Function(_$ConfirmCardSetupOptionsImpl) then) =
-      __$$ConfirmCardSetupOptionsImplCopyWithImpl<$Res>;
+  factory _$$_ConfirmCardSetupOptionsCopyWith(_$_ConfirmCardSetupOptions value,
+          $Res Function(_$_ConfirmCardSetupOptions) then) =
+      __$$_ConfirmCardSetupOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool? handleActions});
 }
 
 /// @nodoc
-class __$$ConfirmCardSetupOptionsImplCopyWithImpl<$Res>
+class __$$_ConfirmCardSetupOptionsCopyWithImpl<$Res>
     extends _$ConfirmCardSetupOptionsCopyWithImpl<$Res,
-        _$ConfirmCardSetupOptionsImpl>
-    implements _$$ConfirmCardSetupOptionsImplCopyWith<$Res> {
-  __$$ConfirmCardSetupOptionsImplCopyWithImpl(
-      _$ConfirmCardSetupOptionsImpl _value,
-      $Res Function(_$ConfirmCardSetupOptionsImpl) _then)
+        _$_ConfirmCardSetupOptions>
+    implements _$$_ConfirmCardSetupOptionsCopyWith<$Res> {
+  __$$_ConfirmCardSetupOptionsCopyWithImpl(_$_ConfirmCardSetupOptions _value,
+      $Res Function(_$_ConfirmCardSetupOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +91,7 @@ class __$$ConfirmCardSetupOptionsImplCopyWithImpl<$Res>
   $Res call({
     Object? handleActions = freezed,
   }) {
-    return _then(_$ConfirmCardSetupOptionsImpl(
+    return _then(_$_ConfirmCardSetupOptions(
       handleActions: freezed == handleActions
           ? _value.handleActions
           : handleActions // ignore: cast_nullable_to_non_nullable
@@ -104,11 +102,11 @@ class __$$ConfirmCardSetupOptionsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ConfirmCardSetupOptionsImpl implements _ConfirmCardSetupOptions {
-  const _$ConfirmCardSetupOptionsImpl({this.handleActions = true});
+class _$_ConfirmCardSetupOptions implements _ConfirmCardSetupOptions {
+  const _$_ConfirmCardSetupOptions({this.handleActions = true});
 
-  factory _$ConfirmCardSetupOptionsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConfirmCardSetupOptionsImplFromJson(json);
+  factory _$_ConfirmCardSetupOptions.fromJson(Map<String, dynamic> json) =>
+      _$$_ConfirmCardSetupOptionsFromJson(json);
 
   /// Set this to false if you want to handle next actions yourself,
   /// or if you want to defer next action handling until later
@@ -126,7 +124,7 @@ class _$ConfirmCardSetupOptionsImpl implements _ConfirmCardSetupOptions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConfirmCardSetupOptionsImpl &&
+            other is _$_ConfirmCardSetupOptions &&
             (identical(other.handleActions, handleActions) ||
                 other.handleActions == handleActions));
   }
@@ -138,13 +136,14 @@ class _$ConfirmCardSetupOptionsImpl implements _ConfirmCardSetupOptions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConfirmCardSetupOptionsImplCopyWith<_$ConfirmCardSetupOptionsImpl>
-      get copyWith => __$$ConfirmCardSetupOptionsImplCopyWithImpl<
-          _$ConfirmCardSetupOptionsImpl>(this, _$identity);
+  _$$_ConfirmCardSetupOptionsCopyWith<_$_ConfirmCardSetupOptions>
+      get copyWith =>
+          __$$_ConfirmCardSetupOptionsCopyWithImpl<_$_ConfirmCardSetupOptions>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConfirmCardSetupOptionsImplToJson(
+    return _$$_ConfirmCardSetupOptionsToJson(
       this,
     );
   }
@@ -152,10 +151,10 @@ class _$ConfirmCardSetupOptionsImpl implements _ConfirmCardSetupOptions {
 
 abstract class _ConfirmCardSetupOptions implements ConfirmCardSetupOptions {
   const factory _ConfirmCardSetupOptions({final bool? handleActions}) =
-      _$ConfirmCardSetupOptionsImpl;
+      _$_ConfirmCardSetupOptions;
 
   factory _ConfirmCardSetupOptions.fromJson(Map<String, dynamic> json) =
-      _$ConfirmCardSetupOptionsImpl.fromJson;
+      _$_ConfirmCardSetupOptions.fromJson;
 
   @override
 
@@ -165,6 +164,6 @@ abstract class _ConfirmCardSetupOptions implements ConfirmCardSetupOptions {
   bool? get handleActions;
   @override
   @JsonKey(ignore: true)
-  _$$ConfirmCardSetupOptionsImplCopyWith<_$ConfirmCardSetupOptionsImpl>
+  _$$_ConfirmCardSetupOptionsCopyWith<_$_ConfirmCardSetupOptions>
       get copyWith => throw _privateConstructorUsedError;
 }

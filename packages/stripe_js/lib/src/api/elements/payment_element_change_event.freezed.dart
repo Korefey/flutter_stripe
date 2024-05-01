@@ -109,12 +109,12 @@ class _$PaymentElementChangeEventCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentElementChangeEventImplCopyWith<$Res>
+abstract class _$$_PaymentElementChangeEventCopyWith<$Res>
     implements $PaymentElementChangeEventCopyWith<$Res> {
-  factory _$$PaymentElementChangeEventImplCopyWith(
-          _$PaymentElementChangeEventImpl value,
-          $Res Function(_$PaymentElementChangeEventImpl) then) =
-      __$$PaymentElementChangeEventImplCopyWithImpl<$Res>;
+  factory _$$_PaymentElementChangeEventCopyWith(
+          _$_PaymentElementChangeEvent value,
+          $Res Function(_$_PaymentElementChangeEvent) then) =
+      __$$_PaymentElementChangeEventCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -129,13 +129,13 @@ abstract class _$$PaymentElementChangeEventImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PaymentElementChangeEventImplCopyWithImpl<$Res>
+class __$$_PaymentElementChangeEventCopyWithImpl<$Res>
     extends _$PaymentElementChangeEventCopyWithImpl<$Res,
-        _$PaymentElementChangeEventImpl>
-    implements _$$PaymentElementChangeEventImplCopyWith<$Res> {
-  __$$PaymentElementChangeEventImplCopyWithImpl(
-      _$PaymentElementChangeEventImpl _value,
-      $Res Function(_$PaymentElementChangeEventImpl) _then)
+        _$_PaymentElementChangeEvent>
+    implements _$$_PaymentElementChangeEventCopyWith<$Res> {
+  __$$_PaymentElementChangeEventCopyWithImpl(
+      _$_PaymentElementChangeEvent _value,
+      $Res Function(_$_PaymentElementChangeEvent) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -147,7 +147,7 @@ class __$$PaymentElementChangeEventImplCopyWithImpl<$Res>
     Object? collapsed = null,
     Object? value = freezed,
   }) {
-    return _then(_$PaymentElementChangeEventImpl(
+    return _then(_$_PaymentElementChangeEvent(
       elementType: null == elementType
           ? _value.elementType
           : elementType // ignore: cast_nullable_to_non_nullable
@@ -174,16 +174,16 @@ class __$$PaymentElementChangeEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentElementChangeEventImpl implements _PaymentElementChangeEvent {
-  const _$PaymentElementChangeEventImpl(
+class _$_PaymentElementChangeEvent implements _PaymentElementChangeEvent {
+  const _$_PaymentElementChangeEvent(
       {required this.elementType,
       required this.empty,
       required this.complete,
       required this.collapsed,
       this.value});
 
-  factory _$PaymentElementChangeEventImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentElementChangeEventImplFromJson(json);
+  factory _$_PaymentElementChangeEvent.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentElementChangeEventFromJson(json);
 
   @override
   final String elementType;
@@ -205,7 +205,7 @@ class _$PaymentElementChangeEventImpl implements _PaymentElementChangeEvent {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentElementChangeEventImpl &&
+            other is _$_PaymentElementChangeEvent &&
             (identical(other.elementType, elementType) ||
                 other.elementType == elementType) &&
             (identical(other.empty, empty) || other.empty == empty) &&
@@ -224,13 +224,13 @@ class _$PaymentElementChangeEventImpl implements _PaymentElementChangeEvent {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentElementChangeEventImplCopyWith<_$PaymentElementChangeEventImpl>
-      get copyWith => __$$PaymentElementChangeEventImplCopyWithImpl<
-          _$PaymentElementChangeEventImpl>(this, _$identity);
+  _$$_PaymentElementChangeEventCopyWith<_$_PaymentElementChangeEvent>
+      get copyWith => __$$_PaymentElementChangeEventCopyWithImpl<
+          _$_PaymentElementChangeEvent>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentElementChangeEventImplToJson(
+    return _$$_PaymentElementChangeEventToJson(
       this,
     );
   }
@@ -243,10 +243,10 @@ abstract class _PaymentElementChangeEvent implements PaymentElementChangeEvent {
           required final bool complete,
           required final bool collapsed,
           final PaymentElementChangeEventValue? value}) =
-      _$PaymentElementChangeEventImpl;
+      _$_PaymentElementChangeEvent;
 
   factory _PaymentElementChangeEvent.fromJson(Map<String, dynamic> json) =
-      _$PaymentElementChangeEventImpl.fromJson;
+      _$_PaymentElementChangeEvent.fromJson;
 
   @override
   String get elementType;
@@ -260,7 +260,7 @@ abstract class _PaymentElementChangeEvent implements PaymentElementChangeEvent {
   PaymentElementChangeEventValue? get value;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentElementChangeEventImplCopyWith<_$PaymentElementChangeEventImpl>
+  _$$_PaymentElementChangeEventCopyWith<_$_PaymentElementChangeEvent>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -316,25 +316,25 @@ class _$PaymentElementChangeEventValueCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PaymentElementChangeEventValueImplCopyWith<$Res>
+abstract class _$$_PaymentElementChangeEventValueCopyWith<$Res>
     implements $PaymentElementChangeEventValueCopyWith<$Res> {
-  factory _$$PaymentElementChangeEventValueImplCopyWith(
-          _$PaymentElementChangeEventValueImpl value,
-          $Res Function(_$PaymentElementChangeEventValueImpl) then) =
-      __$$PaymentElementChangeEventValueImplCopyWithImpl<$Res>;
+  factory _$$_PaymentElementChangeEventValueCopyWith(
+          _$_PaymentElementChangeEventValue value,
+          $Res Function(_$_PaymentElementChangeEventValue) then) =
+      __$$_PaymentElementChangeEventValueCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? type});
 }
 
 /// @nodoc
-class __$$PaymentElementChangeEventValueImplCopyWithImpl<$Res>
+class __$$_PaymentElementChangeEventValueCopyWithImpl<$Res>
     extends _$PaymentElementChangeEventValueCopyWithImpl<$Res,
-        _$PaymentElementChangeEventValueImpl>
-    implements _$$PaymentElementChangeEventValueImplCopyWith<$Res> {
-  __$$PaymentElementChangeEventValueImplCopyWithImpl(
-      _$PaymentElementChangeEventValueImpl _value,
-      $Res Function(_$PaymentElementChangeEventValueImpl) _then)
+        _$_PaymentElementChangeEventValue>
+    implements _$$_PaymentElementChangeEventValueCopyWith<$Res> {
+  __$$_PaymentElementChangeEventValueCopyWithImpl(
+      _$_PaymentElementChangeEventValue _value,
+      $Res Function(_$_PaymentElementChangeEventValue) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -342,7 +342,7 @@ class __$$PaymentElementChangeEventValueImplCopyWithImpl<$Res>
   $Res call({
     Object? type = freezed,
   }) {
-    return _then(_$PaymentElementChangeEventValueImpl(
+    return _then(_$_PaymentElementChangeEventValue(
       type: freezed == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -353,13 +353,13 @@ class __$$PaymentElementChangeEventValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentElementChangeEventValueImpl
+class _$_PaymentElementChangeEventValue
     implements _PaymentElementChangeEventValue {
-  const _$PaymentElementChangeEventValueImpl({required this.type});
+  const _$_PaymentElementChangeEventValue({required this.type});
 
-  factory _$PaymentElementChangeEventValueImpl.fromJson(
+  factory _$_PaymentElementChangeEventValue.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentElementChangeEventValueImplFromJson(json);
+      _$$_PaymentElementChangeEventValueFromJson(json);
 
   @override
   final String? type;
@@ -373,7 +373,7 @@ class _$PaymentElementChangeEventValueImpl
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentElementChangeEventValueImpl &&
+            other is _$_PaymentElementChangeEventValue &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -384,14 +384,13 @@ class _$PaymentElementChangeEventValueImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentElementChangeEventValueImplCopyWith<
-          _$PaymentElementChangeEventValueImpl>
-      get copyWith => __$$PaymentElementChangeEventValueImplCopyWithImpl<
-          _$PaymentElementChangeEventValueImpl>(this, _$identity);
+  _$$_PaymentElementChangeEventValueCopyWith<_$_PaymentElementChangeEventValue>
+      get copyWith => __$$_PaymentElementChangeEventValueCopyWithImpl<
+          _$_PaymentElementChangeEventValue>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentElementChangeEventValueImplToJson(
+    return _$$_PaymentElementChangeEventValueToJson(
       this,
     );
   }
@@ -400,16 +399,15 @@ class _$PaymentElementChangeEventValueImpl
 abstract class _PaymentElementChangeEventValue
     implements PaymentElementChangeEventValue {
   const factory _PaymentElementChangeEventValue({required final String? type}) =
-      _$PaymentElementChangeEventValueImpl;
+      _$_PaymentElementChangeEventValue;
 
   factory _PaymentElementChangeEventValue.fromJson(Map<String, dynamic> json) =
-      _$PaymentElementChangeEventValueImpl.fromJson;
+      _$_PaymentElementChangeEventValue.fromJson;
 
   @override
   String? get type;
   @override
   @JsonKey(ignore: true)
-  _$$PaymentElementChangeEventValueImplCopyWith<
-          _$PaymentElementChangeEventValueImpl>
+  _$$_PaymentElementChangeEventValueCopyWith<_$_PaymentElementChangeEventValue>
       get copyWith => throw _privateConstructorUsedError;
 }

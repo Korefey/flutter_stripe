@@ -12,216 +12,7 @@ part of 'platform_pay.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-PlatformPayPaymentMethod _$PlatformPayPaymentMethodFromJson(
-    Map<String, dynamic> json) {
-  return _PlatformPayPaymentMethod.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PlatformPayPaymentMethod {
-  /// The payment method
-  PaymentMethod get paymentMethod => throw _privateConstructorUsedError;
-
-  /// shipping contact of the user
-  PlatformPayShippingContact? get shippingContact =>
-      throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PlatformPayPaymentMethodCopyWith<PlatformPayPaymentMethod> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlatformPayPaymentMethodCopyWith<$Res> {
-  factory $PlatformPayPaymentMethodCopyWith(PlatformPayPaymentMethod value,
-          $Res Function(PlatformPayPaymentMethod) then) =
-      _$PlatformPayPaymentMethodCopyWithImpl<$Res, PlatformPayPaymentMethod>;
-  @useResult
-  $Res call(
-      {PaymentMethod paymentMethod,
-      PlatformPayShippingContact? shippingContact});
-
-  $PaymentMethodCopyWith<$Res> get paymentMethod;
-  $PlatformPayShippingContactCopyWith<$Res>? get shippingContact;
-}
-
-/// @nodoc
-class _$PlatformPayPaymentMethodCopyWithImpl<$Res,
-        $Val extends PlatformPayPaymentMethod>
-    implements $PlatformPayPaymentMethodCopyWith<$Res> {
-  _$PlatformPayPaymentMethodCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? paymentMethod = null,
-    Object? shippingContact = freezed,
-  }) {
-    return _then(_value.copyWith(
-      paymentMethod: null == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as PaymentMethod,
-      shippingContact: freezed == shippingContact
-          ? _value.shippingContact
-          : shippingContact // ignore: cast_nullable_to_non_nullable
-              as PlatformPayShippingContact?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PaymentMethodCopyWith<$Res> get paymentMethod {
-    return $PaymentMethodCopyWith<$Res>(_value.paymentMethod, (value) {
-      return _then(_value.copyWith(paymentMethod: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlatformPayShippingContactCopyWith<$Res>? get shippingContact {
-    if (_value.shippingContact == null) {
-      return null;
-    }
-
-    return $PlatformPayShippingContactCopyWith<$Res>(_value.shippingContact!,
-        (value) {
-      return _then(_value.copyWith(shippingContact: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PlatformPayPaymentMethodImplCopyWith<$Res>
-    implements $PlatformPayPaymentMethodCopyWith<$Res> {
-  factory _$$PlatformPayPaymentMethodImplCopyWith(
-          _$PlatformPayPaymentMethodImpl value,
-          $Res Function(_$PlatformPayPaymentMethodImpl) then) =
-      __$$PlatformPayPaymentMethodImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {PaymentMethod paymentMethod,
-      PlatformPayShippingContact? shippingContact});
-
-  @override
-  $PaymentMethodCopyWith<$Res> get paymentMethod;
-  @override
-  $PlatformPayShippingContactCopyWith<$Res>? get shippingContact;
-}
-
-/// @nodoc
-class __$$PlatformPayPaymentMethodImplCopyWithImpl<$Res>
-    extends _$PlatformPayPaymentMethodCopyWithImpl<$Res,
-        _$PlatformPayPaymentMethodImpl>
-    implements _$$PlatformPayPaymentMethodImplCopyWith<$Res> {
-  __$$PlatformPayPaymentMethodImplCopyWithImpl(
-      _$PlatformPayPaymentMethodImpl _value,
-      $Res Function(_$PlatformPayPaymentMethodImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? paymentMethod = null,
-    Object? shippingContact = freezed,
-  }) {
-    return _then(_$PlatformPayPaymentMethodImpl(
-      paymentMethod: null == paymentMethod
-          ? _value.paymentMethod
-          : paymentMethod // ignore: cast_nullable_to_non_nullable
-              as PaymentMethod,
-      shippingContact: freezed == shippingContact
-          ? _value.shippingContact
-          : shippingContact // ignore: cast_nullable_to_non_nullable
-              as PlatformPayShippingContact?,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$PlatformPayPaymentMethodImpl implements _PlatformPayPaymentMethod {
-  const _$PlatformPayPaymentMethodImpl(
-      {required this.paymentMethod, this.shippingContact});
-
-  factory _$PlatformPayPaymentMethodImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PlatformPayPaymentMethodImplFromJson(json);
-
-  /// The payment method
-  @override
-  final PaymentMethod paymentMethod;
-
-  /// shipping contact of the user
-  @override
-  final PlatformPayShippingContact? shippingContact;
-
-  @override
-  String toString() {
-    return 'PlatformPayPaymentMethod(paymentMethod: $paymentMethod, shippingContact: $shippingContact)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PlatformPayPaymentMethodImpl &&
-            (identical(other.paymentMethod, paymentMethod) ||
-                other.paymentMethod == paymentMethod) &&
-            (identical(other.shippingContact, shippingContact) ||
-                other.shippingContact == shippingContact));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, paymentMethod, shippingContact);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PlatformPayPaymentMethodImplCopyWith<_$PlatformPayPaymentMethodImpl>
-      get copyWith => __$$PlatformPayPaymentMethodImplCopyWithImpl<
-          _$PlatformPayPaymentMethodImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PlatformPayPaymentMethodImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PlatformPayPaymentMethod implements PlatformPayPaymentMethod {
-  const factory _PlatformPayPaymentMethod(
-          {required final PaymentMethod paymentMethod,
-          final PlatformPayShippingContact? shippingContact}) =
-      _$PlatformPayPaymentMethodImpl;
-
-  factory _PlatformPayPaymentMethod.fromJson(Map<String, dynamic> json) =
-      _$PlatformPayPaymentMethodImpl.fromJson;
-
-  @override
-
-  /// The payment method
-  PaymentMethod get paymentMethod;
-  @override
-
-  /// shipping contact of the user
-  PlatformPayShippingContact? get shippingContact;
-  @override
-  @JsonKey(ignore: true)
-  _$$PlatformPayPaymentMethodImplCopyWith<_$PlatformPayPaymentMethodImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 PlatformPaySheetUpdateParams _$PlatformPaySheetUpdateParamsFromJson(
     Map<String, dynamic> json) {
@@ -340,12 +131,12 @@ class _$PlatformPaySheetUpdateParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PlatformPaySheetUpdateParamsImplCopyWith<$Res>
+abstract class _$$_PlatformPaySheetUpdateParamsCopyWith<$Res>
     implements $PlatformPaySheetUpdateParamsCopyWith<$Res> {
-  factory _$$PlatformPaySheetUpdateParamsImplCopyWith(
-          _$PlatformPaySheetUpdateParamsImpl value,
-          $Res Function(_$PlatformPaySheetUpdateParamsImpl) then) =
-      __$$PlatformPaySheetUpdateParamsImplCopyWithImpl<$Res>;
+  factory _$$_PlatformPaySheetUpdateParamsCopyWith(
+          _$_PlatformPaySheetUpdateParams value,
+          $Res Function(_$_PlatformPaySheetUpdateParams) then) =
+      __$$_PlatformPaySheetUpdateParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -355,13 +146,13 @@ abstract class _$$PlatformPaySheetUpdateParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlatformPaySheetUpdateParamsImplCopyWithImpl<$Res>
+class __$$_PlatformPaySheetUpdateParamsCopyWithImpl<$Res>
     extends _$PlatformPaySheetUpdateParamsCopyWithImpl<$Res,
-        _$PlatformPaySheetUpdateParamsImpl>
-    implements _$$PlatformPaySheetUpdateParamsImplCopyWith<$Res> {
-  __$$PlatformPaySheetUpdateParamsImplCopyWithImpl(
-      _$PlatformPaySheetUpdateParamsImpl _value,
-      $Res Function(_$PlatformPaySheetUpdateParamsImpl) _then)
+        _$_PlatformPaySheetUpdateParams>
+    implements _$$_PlatformPaySheetUpdateParamsCopyWith<$Res> {
+  __$$_PlatformPaySheetUpdateParamsCopyWithImpl(
+      _$_PlatformPaySheetUpdateParams _value,
+      $Res Function(_$_PlatformPaySheetUpdateParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -371,7 +162,7 @@ class __$$PlatformPaySheetUpdateParamsImplCopyWithImpl<$Res>
     Object? shippingMethods = null,
     Object? errors = freezed,
   }) {
-    return _then(_$PlatformPaySheetUpdateParamsImpl(
+    return _then(_$_PlatformPaySheetUpdateParams(
       summaryItems: null == summaryItems
           ? _value._summaryItems
           : summaryItems // ignore: cast_nullable_to_non_nullable
@@ -391,9 +182,8 @@ class __$$PlatformPaySheetUpdateParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PlatformPaySheetUpdateParamsImpl
-    implements _PlatformPaySheetUpdateParams {
-  const _$PlatformPaySheetUpdateParamsImpl(
+class _$_PlatformPaySheetUpdateParams implements _PlatformPaySheetUpdateParams {
+  const _$_PlatformPaySheetUpdateParams(
       {required final List<ApplePayCartSummaryItem> summaryItems,
       required final List<ApplePayShippingMethod> shippingMethods,
       final List<ApplePaySheetError>? errors})
@@ -401,9 +191,8 @@ class _$PlatformPaySheetUpdateParamsImpl
         _shippingMethods = shippingMethods,
         _errors = errors;
 
-  factory _$PlatformPaySheetUpdateParamsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PlatformPaySheetUpdateParamsImplFromJson(json);
+  factory _$_PlatformPaySheetUpdateParams.fromJson(Map<String, dynamic> json) =>
+      _$$_PlatformPaySheetUpdateParamsFromJson(json);
 
   /// list of updated summary items
   final List<ApplePayCartSummaryItem> _summaryItems;
@@ -446,10 +235,10 @@ class _$PlatformPaySheetUpdateParamsImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformPaySheetUpdateParamsImpl &&
+            other is _$_PlatformPaySheetUpdateParams &&
             const DeepCollectionEquality()
                 .equals(other._summaryItems, _summaryItems) &&
             const DeepCollectionEquality()
@@ -468,10 +257,9 @@ class _$PlatformPaySheetUpdateParamsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformPaySheetUpdateParamsImplCopyWith<
-          _$PlatformPaySheetUpdateParamsImpl>
-      get copyWith => __$$PlatformPaySheetUpdateParamsImplCopyWithImpl<
-          _$PlatformPaySheetUpdateParamsImpl>(this, _$identity);
+  _$$_PlatformPaySheetUpdateParamsCopyWith<_$_PlatformPaySheetUpdateParams>
+      get copyWith => __$$_PlatformPaySheetUpdateParamsCopyWithImpl<
+          _$_PlatformPaySheetUpdateParams>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -543,7 +331,7 @@ class _$PlatformPaySheetUpdateParamsImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlatformPaySheetUpdateParamsImplToJson(
+    return _$$_PlatformPaySheetUpdateParamsToJson(
       this,
     );
   }
@@ -555,10 +343,10 @@ abstract class _PlatformPaySheetUpdateParams
           {required final List<ApplePayCartSummaryItem> summaryItems,
           required final List<ApplePayShippingMethod> shippingMethods,
           final List<ApplePaySheetError>? errors}) =
-      _$PlatformPaySheetUpdateParamsImpl;
+      _$_PlatformPaySheetUpdateParams;
 
   factory _PlatformPaySheetUpdateParams.fromJson(Map<String, dynamic> json) =
-      _$PlatformPaySheetUpdateParamsImpl.fromJson;
+      _$_PlatformPaySheetUpdateParams.fromJson;
 
   @override
 
@@ -574,8 +362,7 @@ abstract class _PlatformPaySheetUpdateParams
   List<ApplePaySheetError>? get errors;
   @override
   @JsonKey(ignore: true)
-  _$$PlatformPaySheetUpdateParamsImplCopyWith<
-          _$PlatformPaySheetUpdateParamsImpl>
+  _$$_PlatformPaySheetUpdateParamsCopyWith<_$_PlatformPaySheetUpdateParams>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -705,25 +492,25 @@ class _$ApplePaySheetErrorCopyWithImpl<$Res, $Val extends ApplePaySheetError>
 }
 
 /// @nodoc
-abstract class _$$ApplePaySheetErrorInvalidShippingImplCopyWith<$Res>
+abstract class _$$_ApplePaySheetErrorInvalidShippingCopyWith<$Res>
     implements $ApplePaySheetErrorCopyWith<$Res> {
-  factory _$$ApplePaySheetErrorInvalidShippingImplCopyWith(
-          _$ApplePaySheetErrorInvalidShippingImpl value,
-          $Res Function(_$ApplePaySheetErrorInvalidShippingImpl) then) =
-      __$$ApplePaySheetErrorInvalidShippingImplCopyWithImpl<$Res>;
+  factory _$$_ApplePaySheetErrorInvalidShippingCopyWith(
+          _$_ApplePaySheetErrorInvalidShipping value,
+          $Res Function(_$_ApplePaySheetErrorInvalidShipping) then) =
+      __$$_ApplePaySheetErrorInvalidShippingCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({InvalidShippingField field, String? message});
 }
 
 /// @nodoc
-class __$$ApplePaySheetErrorInvalidShippingImplCopyWithImpl<$Res>
+class __$$_ApplePaySheetErrorInvalidShippingCopyWithImpl<$Res>
     extends _$ApplePaySheetErrorCopyWithImpl<$Res,
-        _$ApplePaySheetErrorInvalidShippingImpl>
-    implements _$$ApplePaySheetErrorInvalidShippingImplCopyWith<$Res> {
-  __$$ApplePaySheetErrorInvalidShippingImplCopyWithImpl(
-      _$ApplePaySheetErrorInvalidShippingImpl _value,
-      $Res Function(_$ApplePaySheetErrorInvalidShippingImpl) _then)
+        _$_ApplePaySheetErrorInvalidShipping>
+    implements _$$_ApplePaySheetErrorInvalidShippingCopyWith<$Res> {
+  __$$_ApplePaySheetErrorInvalidShippingCopyWithImpl(
+      _$_ApplePaySheetErrorInvalidShipping _value,
+      $Res Function(_$_ApplePaySheetErrorInvalidShipping) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -732,7 +519,7 @@ class __$$ApplePaySheetErrorInvalidShippingImplCopyWithImpl<$Res>
     Object? field = null,
     Object? message = freezed,
   }) {
-    return _then(_$ApplePaySheetErrorInvalidShippingImpl(
+    return _then(_$_ApplePaySheetErrorInvalidShipping(
       field: null == field
           ? _value.field
           : field // ignore: cast_nullable_to_non_nullable
@@ -748,15 +535,15 @@ class __$$ApplePaySheetErrorInvalidShippingImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$ApplePaySheetErrorInvalidShippingImpl
+class _$_ApplePaySheetErrorInvalidShipping
     implements _ApplePaySheetErrorInvalidShipping {
-  const _$ApplePaySheetErrorInvalidShippingImpl(
+  const _$_ApplePaySheetErrorInvalidShipping(
       {required this.field, this.message, final String? $type})
       : $type = $type ?? 'InvalidShippingAddress';
 
-  factory _$ApplePaySheetErrorInvalidShippingImpl.fromJson(
+  factory _$_ApplePaySheetErrorInvalidShipping.fromJson(
           Map<String, dynamic> json) =>
-      _$$ApplePaySheetErrorInvalidShippingImplFromJson(json);
+      _$$_ApplePaySheetErrorInvalidShippingFromJson(json);
 
 // Field that will be marked as invalid
   @override
@@ -774,10 +561,10 @@ class _$ApplePaySheetErrorInvalidShippingImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ApplePaySheetErrorInvalidShippingImpl &&
+            other is _$_ApplePaySheetErrorInvalidShipping &&
             (identical(other.field, field) || other.field == field) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -789,10 +576,10 @@ class _$ApplePaySheetErrorInvalidShippingImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ApplePaySheetErrorInvalidShippingImplCopyWith<
-          _$ApplePaySheetErrorInvalidShippingImpl>
-      get copyWith => __$$ApplePaySheetErrorInvalidShippingImplCopyWithImpl<
-          _$ApplePaySheetErrorInvalidShippingImpl>(this, _$identity);
+  _$$_ApplePaySheetErrorInvalidShippingCopyWith<
+          _$_ApplePaySheetErrorInvalidShipping>
+      get copyWith => __$$_ApplePaySheetErrorInvalidShippingCopyWithImpl<
+          _$_ApplePaySheetErrorInvalidShipping>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -885,7 +672,7 @@ class _$ApplePaySheetErrorInvalidShippingImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApplePaySheetErrorInvalidShippingImplToJson(
+    return _$$_ApplePaySheetErrorInvalidShippingToJson(
       this,
     );
   }
@@ -895,11 +682,11 @@ abstract class _ApplePaySheetErrorInvalidShipping
     implements ApplePaySheetError {
   const factory _ApplePaySheetErrorInvalidShipping(
       {required final InvalidShippingField field,
-      final String? message}) = _$ApplePaySheetErrorInvalidShippingImpl;
+      final String? message}) = _$_ApplePaySheetErrorInvalidShipping;
 
   factory _ApplePaySheetErrorInvalidShipping.fromJson(
           Map<String, dynamic> json) =
-      _$ApplePaySheetErrorInvalidShippingImpl.fromJson;
+      _$_ApplePaySheetErrorInvalidShipping.fromJson;
 
 // Field that will be marked as invalid
   InvalidShippingField get field;
@@ -907,31 +694,31 @@ abstract class _ApplePaySheetErrorInvalidShipping
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$ApplePaySheetErrorInvalidShippingImplCopyWith<
-          _$ApplePaySheetErrorInvalidShippingImpl>
+  _$$_ApplePaySheetErrorInvalidShippingCopyWith<
+          _$_ApplePaySheetErrorInvalidShipping>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ApplePaySheetErrorUnserviceableShippingImplCopyWith<$Res>
+abstract class _$$_ApplePaySheetErrorUnserviceableShippingCopyWith<$Res>
     implements $ApplePaySheetErrorCopyWith<$Res> {
-  factory _$$ApplePaySheetErrorUnserviceableShippingImplCopyWith(
-          _$ApplePaySheetErrorUnserviceableShippingImpl value,
-          $Res Function(_$ApplePaySheetErrorUnserviceableShippingImpl) then) =
-      __$$ApplePaySheetErrorUnserviceableShippingImplCopyWithImpl<$Res>;
+  factory _$$_ApplePaySheetErrorUnserviceableShippingCopyWith(
+          _$_ApplePaySheetErrorUnserviceableShipping value,
+          $Res Function(_$_ApplePaySheetErrorUnserviceableShipping) then) =
+      __$$_ApplePaySheetErrorUnserviceableShippingCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ApplePaySheetErrorUnserviceableShippingImplCopyWithImpl<$Res>
+class __$$_ApplePaySheetErrorUnserviceableShippingCopyWithImpl<$Res>
     extends _$ApplePaySheetErrorCopyWithImpl<$Res,
-        _$ApplePaySheetErrorUnserviceableShippingImpl>
-    implements _$$ApplePaySheetErrorUnserviceableShippingImplCopyWith<$Res> {
-  __$$ApplePaySheetErrorUnserviceableShippingImplCopyWithImpl(
-      _$ApplePaySheetErrorUnserviceableShippingImpl _value,
-      $Res Function(_$ApplePaySheetErrorUnserviceableShippingImpl) _then)
+        _$_ApplePaySheetErrorUnserviceableShipping>
+    implements _$$_ApplePaySheetErrorUnserviceableShippingCopyWith<$Res> {
+  __$$_ApplePaySheetErrorUnserviceableShippingCopyWithImpl(
+      _$_ApplePaySheetErrorUnserviceableShipping _value,
+      $Res Function(_$_ApplePaySheetErrorUnserviceableShipping) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -939,7 +726,7 @@ class __$$ApplePaySheetErrorUnserviceableShippingImplCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$ApplePaySheetErrorUnserviceableShippingImpl(
+    return _then(_$_ApplePaySheetErrorUnserviceableShipping(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -951,15 +738,15 @@ class __$$ApplePaySheetErrorUnserviceableShippingImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$ApplePaySheetErrorUnserviceableShippingImpl
+class _$_ApplePaySheetErrorUnserviceableShipping
     implements _ApplePaySheetErrorUnserviceableShipping {
-  const _$ApplePaySheetErrorUnserviceableShippingImpl(
+  const _$_ApplePaySheetErrorUnserviceableShipping(
       {this.message, final String? $type})
       : $type = $type ?? 'UnserviceableShippingAddress';
 
-  factory _$ApplePaySheetErrorUnserviceableShippingImpl.fromJson(
+  factory _$_ApplePaySheetErrorUnserviceableShipping.fromJson(
           Map<String, dynamic> json) =>
-      _$$ApplePaySheetErrorUnserviceableShippingImplFromJson(json);
+      _$$_ApplePaySheetErrorUnserviceableShippingFromJson(json);
 
 // message that needs to be displayed on the sheet
   @override
@@ -974,10 +761,10 @@ class _$ApplePaySheetErrorUnserviceableShippingImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ApplePaySheetErrorUnserviceableShippingImpl &&
+            other is _$_ApplePaySheetErrorUnserviceableShipping &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -988,11 +775,10 @@ class _$ApplePaySheetErrorUnserviceableShippingImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ApplePaySheetErrorUnserviceableShippingImplCopyWith<
-          _$ApplePaySheetErrorUnserviceableShippingImpl>
-      get copyWith =>
-          __$$ApplePaySheetErrorUnserviceableShippingImplCopyWithImpl<
-              _$ApplePaySheetErrorUnserviceableShippingImpl>(this, _$identity);
+  _$$_ApplePaySheetErrorUnserviceableShippingCopyWith<
+          _$_ApplePaySheetErrorUnserviceableShipping>
+      get copyWith => __$$_ApplePaySheetErrorUnserviceableShippingCopyWithImpl<
+          _$_ApplePaySheetErrorUnserviceableShipping>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1085,7 +871,7 @@ class _$ApplePaySheetErrorUnserviceableShippingImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApplePaySheetErrorUnserviceableShippingImplToJson(
+    return _$$_ApplePaySheetErrorUnserviceableShippingToJson(
       this,
     );
   }
@@ -1094,41 +880,41 @@ class _$ApplePaySheetErrorUnserviceableShippingImpl
 abstract class _ApplePaySheetErrorUnserviceableShipping
     implements ApplePaySheetError {
   const factory _ApplePaySheetErrorUnserviceableShipping(
-      {final String? message}) = _$ApplePaySheetErrorUnserviceableShippingImpl;
+      {final String? message}) = _$_ApplePaySheetErrorUnserviceableShipping;
 
   factory _ApplePaySheetErrorUnserviceableShipping.fromJson(
           Map<String, dynamic> json) =
-      _$ApplePaySheetErrorUnserviceableShippingImpl.fromJson;
+      _$_ApplePaySheetErrorUnserviceableShipping.fromJson;
 
   @override // message that needs to be displayed on the sheet
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$ApplePaySheetErrorUnserviceableShippingImplCopyWith<
-          _$ApplePaySheetErrorUnserviceableShippingImpl>
+  _$$_ApplePaySheetErrorUnserviceableShippingCopyWith<
+          _$_ApplePaySheetErrorUnserviceableShipping>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ApplePaySheetErrorInvalidCouponCodeImplCopyWith<$Res>
+abstract class _$$_ApplePaySheetErrorInvalidCouponCodeCopyWith<$Res>
     implements $ApplePaySheetErrorCopyWith<$Res> {
-  factory _$$ApplePaySheetErrorInvalidCouponCodeImplCopyWith(
-          _$ApplePaySheetErrorInvalidCouponCodeImpl value,
-          $Res Function(_$ApplePaySheetErrorInvalidCouponCodeImpl) then) =
-      __$$ApplePaySheetErrorInvalidCouponCodeImplCopyWithImpl<$Res>;
+  factory _$$_ApplePaySheetErrorInvalidCouponCodeCopyWith(
+          _$_ApplePaySheetErrorInvalidCouponCode value,
+          $Res Function(_$_ApplePaySheetErrorInvalidCouponCode) then) =
+      __$$_ApplePaySheetErrorInvalidCouponCodeCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ApplePaySheetErrorInvalidCouponCodeImplCopyWithImpl<$Res>
+class __$$_ApplePaySheetErrorInvalidCouponCodeCopyWithImpl<$Res>
     extends _$ApplePaySheetErrorCopyWithImpl<$Res,
-        _$ApplePaySheetErrorInvalidCouponCodeImpl>
-    implements _$$ApplePaySheetErrorInvalidCouponCodeImplCopyWith<$Res> {
-  __$$ApplePaySheetErrorInvalidCouponCodeImplCopyWithImpl(
-      _$ApplePaySheetErrorInvalidCouponCodeImpl _value,
-      $Res Function(_$ApplePaySheetErrorInvalidCouponCodeImpl) _then)
+        _$_ApplePaySheetErrorInvalidCouponCode>
+    implements _$$_ApplePaySheetErrorInvalidCouponCodeCopyWith<$Res> {
+  __$$_ApplePaySheetErrorInvalidCouponCodeCopyWithImpl(
+      _$_ApplePaySheetErrorInvalidCouponCode _value,
+      $Res Function(_$_ApplePaySheetErrorInvalidCouponCode) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1136,7 +922,7 @@ class __$$ApplePaySheetErrorInvalidCouponCodeImplCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$ApplePaySheetErrorInvalidCouponCodeImpl(
+    return _then(_$_ApplePaySheetErrorInvalidCouponCode(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1147,15 +933,15 @@ class __$$ApplePaySheetErrorInvalidCouponCodeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ApplePaySheetErrorInvalidCouponCodeImpl
+class _$_ApplePaySheetErrorInvalidCouponCode
     implements _ApplePaySheetErrorInvalidCouponCode {
-  const _$ApplePaySheetErrorInvalidCouponCodeImpl(
+  const _$_ApplePaySheetErrorInvalidCouponCode(
       {this.message, final String? $type})
       : $type = $type ?? 'InvalidCouponCode';
 
-  factory _$ApplePaySheetErrorInvalidCouponCodeImpl.fromJson(
+  factory _$_ApplePaySheetErrorInvalidCouponCode.fromJson(
           Map<String, dynamic> json) =>
-      _$$ApplePaySheetErrorInvalidCouponCodeImplFromJson(json);
+      _$$_ApplePaySheetErrorInvalidCouponCodeFromJson(json);
 
 // message that needs to be displayed on the sheet
   @override
@@ -1170,10 +956,10 @@ class _$ApplePaySheetErrorInvalidCouponCodeImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ApplePaySheetErrorInvalidCouponCodeImpl &&
+            other is _$_ApplePaySheetErrorInvalidCouponCode &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1184,10 +970,10 @@ class _$ApplePaySheetErrorInvalidCouponCodeImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ApplePaySheetErrorInvalidCouponCodeImplCopyWith<
-          _$ApplePaySheetErrorInvalidCouponCodeImpl>
-      get copyWith => __$$ApplePaySheetErrorInvalidCouponCodeImplCopyWithImpl<
-          _$ApplePaySheetErrorInvalidCouponCodeImpl>(this, _$identity);
+  _$$_ApplePaySheetErrorInvalidCouponCodeCopyWith<
+          _$_ApplePaySheetErrorInvalidCouponCode>
+      get copyWith => __$$_ApplePaySheetErrorInvalidCouponCodeCopyWithImpl<
+          _$_ApplePaySheetErrorInvalidCouponCode>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1280,7 +1066,7 @@ class _$ApplePaySheetErrorInvalidCouponCodeImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApplePaySheetErrorInvalidCouponCodeImplToJson(
+    return _$$_ApplePaySheetErrorInvalidCouponCodeToJson(
       this,
     );
   }
@@ -1289,41 +1075,41 @@ class _$ApplePaySheetErrorInvalidCouponCodeImpl
 abstract class _ApplePaySheetErrorInvalidCouponCode
     implements ApplePaySheetError {
   const factory _ApplePaySheetErrorInvalidCouponCode({final String? message}) =
-      _$ApplePaySheetErrorInvalidCouponCodeImpl;
+      _$_ApplePaySheetErrorInvalidCouponCode;
 
   factory _ApplePaySheetErrorInvalidCouponCode.fromJson(
           Map<String, dynamic> json) =
-      _$ApplePaySheetErrorInvalidCouponCodeImpl.fromJson;
+      _$_ApplePaySheetErrorInvalidCouponCode.fromJson;
 
   @override // message that needs to be displayed on the sheet
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$ApplePaySheetErrorInvalidCouponCodeImplCopyWith<
-          _$ApplePaySheetErrorInvalidCouponCodeImpl>
+  _$$_ApplePaySheetErrorInvalidCouponCodeCopyWith<
+          _$_ApplePaySheetErrorInvalidCouponCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ApplePaySheetErrorExpiredCouponCodeImplCopyWith<$Res>
+abstract class _$$_ApplePaySheetErrorExpiredCouponCodeCopyWith<$Res>
     implements $ApplePaySheetErrorCopyWith<$Res> {
-  factory _$$ApplePaySheetErrorExpiredCouponCodeImplCopyWith(
-          _$ApplePaySheetErrorExpiredCouponCodeImpl value,
-          $Res Function(_$ApplePaySheetErrorExpiredCouponCodeImpl) then) =
-      __$$ApplePaySheetErrorExpiredCouponCodeImplCopyWithImpl<$Res>;
+  factory _$$_ApplePaySheetErrorExpiredCouponCodeCopyWith(
+          _$_ApplePaySheetErrorExpiredCouponCode value,
+          $Res Function(_$_ApplePaySheetErrorExpiredCouponCode) then) =
+      __$$_ApplePaySheetErrorExpiredCouponCodeCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? message});
 }
 
 /// @nodoc
-class __$$ApplePaySheetErrorExpiredCouponCodeImplCopyWithImpl<$Res>
+class __$$_ApplePaySheetErrorExpiredCouponCodeCopyWithImpl<$Res>
     extends _$ApplePaySheetErrorCopyWithImpl<$Res,
-        _$ApplePaySheetErrorExpiredCouponCodeImpl>
-    implements _$$ApplePaySheetErrorExpiredCouponCodeImplCopyWith<$Res> {
-  __$$ApplePaySheetErrorExpiredCouponCodeImplCopyWithImpl(
-      _$ApplePaySheetErrorExpiredCouponCodeImpl _value,
-      $Res Function(_$ApplePaySheetErrorExpiredCouponCodeImpl) _then)
+        _$_ApplePaySheetErrorExpiredCouponCode>
+    implements _$$_ApplePaySheetErrorExpiredCouponCodeCopyWith<$Res> {
+  __$$_ApplePaySheetErrorExpiredCouponCodeCopyWithImpl(
+      _$_ApplePaySheetErrorExpiredCouponCode _value,
+      $Res Function(_$_ApplePaySheetErrorExpiredCouponCode) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1331,7 +1117,7 @@ class __$$ApplePaySheetErrorExpiredCouponCodeImplCopyWithImpl<$Res>
   $Res call({
     Object? message = freezed,
   }) {
-    return _then(_$ApplePaySheetErrorExpiredCouponCodeImpl(
+    return _then(_$_ApplePaySheetErrorExpiredCouponCode(
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -1343,15 +1129,15 @@ class __$$ApplePaySheetErrorExpiredCouponCodeImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$ApplePaySheetErrorExpiredCouponCodeImpl
+class _$_ApplePaySheetErrorExpiredCouponCode
     implements _ApplePaySheetErrorExpiredCouponCode {
-  const _$ApplePaySheetErrorExpiredCouponCodeImpl(
+  const _$_ApplePaySheetErrorExpiredCouponCode(
       {this.message, final String? $type})
       : $type = $type ?? 'ExpiredCouponCode';
 
-  factory _$ApplePaySheetErrorExpiredCouponCodeImpl.fromJson(
+  factory _$_ApplePaySheetErrorExpiredCouponCode.fromJson(
           Map<String, dynamic> json) =>
-      _$$ApplePaySheetErrorExpiredCouponCodeImplFromJson(json);
+      _$$_ApplePaySheetErrorExpiredCouponCodeFromJson(json);
 
 // message that needs to be displayed on the sheet
   @override
@@ -1366,10 +1152,10 @@ class _$ApplePaySheetErrorExpiredCouponCodeImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ApplePaySheetErrorExpiredCouponCodeImpl &&
+            other is _$_ApplePaySheetErrorExpiredCouponCode &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -1380,10 +1166,10 @@ class _$ApplePaySheetErrorExpiredCouponCodeImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ApplePaySheetErrorExpiredCouponCodeImplCopyWith<
-          _$ApplePaySheetErrorExpiredCouponCodeImpl>
-      get copyWith => __$$ApplePaySheetErrorExpiredCouponCodeImplCopyWithImpl<
-          _$ApplePaySheetErrorExpiredCouponCodeImpl>(this, _$identity);
+  _$$_ApplePaySheetErrorExpiredCouponCodeCopyWith<
+          _$_ApplePaySheetErrorExpiredCouponCode>
+      get copyWith => __$$_ApplePaySheetErrorExpiredCouponCodeCopyWithImpl<
+          _$_ApplePaySheetErrorExpiredCouponCode>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1476,7 +1262,7 @@ class _$ApplePaySheetErrorExpiredCouponCodeImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApplePaySheetErrorExpiredCouponCodeImplToJson(
+    return _$$_ApplePaySheetErrorExpiredCouponCodeToJson(
       this,
     );
   }
@@ -1485,18 +1271,18 @@ class _$ApplePaySheetErrorExpiredCouponCodeImpl
 abstract class _ApplePaySheetErrorExpiredCouponCode
     implements ApplePaySheetError {
   const factory _ApplePaySheetErrorExpiredCouponCode({final String? message}) =
-      _$ApplePaySheetErrorExpiredCouponCodeImpl;
+      _$_ApplePaySheetErrorExpiredCouponCode;
 
   factory _ApplePaySheetErrorExpiredCouponCode.fromJson(
           Map<String, dynamic> json) =
-      _$ApplePaySheetErrorExpiredCouponCodeImpl.fromJson;
+      _$_ApplePaySheetErrorExpiredCouponCode.fromJson;
 
   @override // message that needs to be displayed on the sheet
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$ApplePaySheetErrorExpiredCouponCodeImplCopyWith<
-          _$ApplePaySheetErrorExpiredCouponCodeImpl>
+  _$$_ApplePaySheetErrorExpiredCouponCodeCopyWith<
+          _$_ApplePaySheetErrorExpiredCouponCode>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1508,8 +1294,6 @@ mixin _$PlatformPayPaymentMethodParams {
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)
         googlePay,
     required TResult Function(ApplePayParams applePayParams) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1518,7 +1302,6 @@ mixin _$PlatformPayPaymentMethodParams {
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
         googlePay,
     TResult? Function(ApplePayParams applePayParams)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1527,7 +1310,6 @@ mixin _$PlatformPayPaymentMethodParams {
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
         googlePay,
     TResult Function(ApplePayParams applePayParams)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1537,21 +1319,18 @@ mixin _$PlatformPayPaymentMethodParams {
         googlePay,
     required TResult Function(PlatformPayPaymentMethodParamsApplePay value)
         applePay,
-    required TResult Function(PlatformPayPaymentMethodParamsWeb value) web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
     TResult? Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayPaymentMethodParamsWeb value)? web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
     TResult Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult Function(PlatformPayPaymentMethodParamsWeb value)? web,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1579,11 +1358,11 @@ class _$PlatformPayPaymentMethodParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PlatformPayPaymentMethodParamsGooglePayImplCopyWith<$Res> {
-  factory _$$PlatformPayPaymentMethodParamsGooglePayImplCopyWith(
-          _$PlatformPayPaymentMethodParamsGooglePayImpl value,
-          $Res Function(_$PlatformPayPaymentMethodParamsGooglePayImpl) then) =
-      __$$PlatformPayPaymentMethodParamsGooglePayImplCopyWithImpl<$Res>;
+abstract class _$$PlatformPayPaymentMethodParamsGooglePayCopyWith<$Res> {
+  factory _$$PlatformPayPaymentMethodParamsGooglePayCopyWith(
+          _$PlatformPayPaymentMethodParamsGooglePay value,
+          $Res Function(_$PlatformPayPaymentMethodParamsGooglePay) then) =
+      __$$PlatformPayPaymentMethodParamsGooglePayCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {GooglePayParams googlePayParams,
@@ -1594,13 +1373,13 @@ abstract class _$$PlatformPayPaymentMethodParamsGooglePayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PlatformPayPaymentMethodParamsGooglePayImplCopyWithImpl<$Res>
+class __$$PlatformPayPaymentMethodParamsGooglePayCopyWithImpl<$Res>
     extends _$PlatformPayPaymentMethodParamsCopyWithImpl<$Res,
-        _$PlatformPayPaymentMethodParamsGooglePayImpl>
-    implements _$$PlatformPayPaymentMethodParamsGooglePayImplCopyWith<$Res> {
-  __$$PlatformPayPaymentMethodParamsGooglePayImplCopyWithImpl(
-      _$PlatformPayPaymentMethodParamsGooglePayImpl _value,
-      $Res Function(_$PlatformPayPaymentMethodParamsGooglePayImpl) _then)
+        _$PlatformPayPaymentMethodParamsGooglePay>
+    implements _$$PlatformPayPaymentMethodParamsGooglePayCopyWith<$Res> {
+  __$$PlatformPayPaymentMethodParamsGooglePayCopyWithImpl(
+      _$PlatformPayPaymentMethodParamsGooglePay _value,
+      $Res Function(_$PlatformPayPaymentMethodParamsGooglePay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1609,7 +1388,7 @@ class __$$PlatformPayPaymentMethodParamsGooglePayImplCopyWithImpl<$Res>
     Object? googlePayParams = null,
     Object? googlePayPaymentMethodParams = null,
   }) {
-    return _then(_$PlatformPayPaymentMethodParamsGooglePayImpl(
+    return _then(_$PlatformPayPaymentMethodParamsGooglePay(
       googlePayParams: null == googlePayParams
           ? _value.googlePayParams
           : googlePayParams // ignore: cast_nullable_to_non_nullable
@@ -1642,9 +1421,9 @@ class __$$PlatformPayPaymentMethodParamsGooglePayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PlatformPayPaymentMethodParamsGooglePayImpl
+class _$PlatformPayPaymentMethodParamsGooglePay
     implements PlatformPayPaymentMethodParamsGooglePay {
-  const _$PlatformPayPaymentMethodParamsGooglePayImpl(
+  const _$PlatformPayPaymentMethodParamsGooglePay(
       {required this.googlePayParams,
       required this.googlePayPaymentMethodParams});
 
@@ -1659,10 +1438,10 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformPayPaymentMethodParamsGooglePayImpl &&
+            other is _$PlatformPayPaymentMethodParamsGooglePay &&
             (identical(other.googlePayParams, googlePayParams) ||
                 other.googlePayParams == googlePayParams) &&
             (identical(other.googlePayPaymentMethodParams,
@@ -1678,11 +1457,10 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformPayPaymentMethodParamsGooglePayImplCopyWith<
-          _$PlatformPayPaymentMethodParamsGooglePayImpl>
-      get copyWith =>
-          __$$PlatformPayPaymentMethodParamsGooglePayImplCopyWithImpl<
-              _$PlatformPayPaymentMethodParamsGooglePayImpl>(this, _$identity);
+  _$$PlatformPayPaymentMethodParamsGooglePayCopyWith<
+          _$PlatformPayPaymentMethodParamsGooglePay>
+      get copyWith => __$$PlatformPayPaymentMethodParamsGooglePayCopyWithImpl<
+          _$PlatformPayPaymentMethodParamsGooglePay>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1691,8 +1469,6 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)
         googlePay,
     required TResult Function(ApplePayParams applePayParams) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
   }) {
     return googlePay(googlePayParams, googlePayPaymentMethodParams);
   }
@@ -1704,7 +1480,6 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
         googlePay,
     TResult? Function(ApplePayParams applePayParams)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
   }) {
     return googlePay?.call(googlePayParams, googlePayPaymentMethodParams);
   }
@@ -1716,7 +1491,6 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
         googlePay,
     TResult Function(ApplePayParams applePayParams)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
     required TResult orElse(),
   }) {
     if (googlePay != null) {
@@ -1732,7 +1506,6 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
         googlePay,
     required TResult Function(PlatformPayPaymentMethodParamsApplePay value)
         applePay,
-    required TResult Function(PlatformPayPaymentMethodParamsWeb value) web,
   }) {
     return googlePay(this);
   }
@@ -1742,7 +1515,6 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
     TResult? Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayPaymentMethodParamsWeb value)? web,
   }) {
     return googlePay?.call(this);
   }
@@ -1752,7 +1524,6 @@ class _$PlatformPayPaymentMethodParamsGooglePayImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
     TResult Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult Function(PlatformPayPaymentMethodParamsWeb value)? web,
     required TResult orElse(),
   }) {
     if (googlePay != null) {
@@ -1768,22 +1539,22 @@ abstract class PlatformPayPaymentMethodParamsGooglePay
           {required final GooglePayParams googlePayParams,
           required final GooglePayPaymentMethodParams
               googlePayPaymentMethodParams}) =
-      _$PlatformPayPaymentMethodParamsGooglePayImpl;
+      _$PlatformPayPaymentMethodParamsGooglePay;
 
   GooglePayParams get googlePayParams;
   GooglePayPaymentMethodParams get googlePayPaymentMethodParams;
   @JsonKey(ignore: true)
-  _$$PlatformPayPaymentMethodParamsGooglePayImplCopyWith<
-          _$PlatformPayPaymentMethodParamsGooglePayImpl>
+  _$$PlatformPayPaymentMethodParamsGooglePayCopyWith<
+          _$PlatformPayPaymentMethodParamsGooglePay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PlatformPayPaymentMethodParamsApplePayImplCopyWith<$Res> {
-  factory _$$PlatformPayPaymentMethodParamsApplePayImplCopyWith(
-          _$PlatformPayPaymentMethodParamsApplePayImpl value,
-          $Res Function(_$PlatformPayPaymentMethodParamsApplePayImpl) then) =
-      __$$PlatformPayPaymentMethodParamsApplePayImplCopyWithImpl<$Res>;
+abstract class _$$PlatformPayPaymentMethodParamsApplePayCopyWith<$Res> {
+  factory _$$PlatformPayPaymentMethodParamsApplePayCopyWith(
+          _$PlatformPayPaymentMethodParamsApplePay value,
+          $Res Function(_$PlatformPayPaymentMethodParamsApplePay) then) =
+      __$$PlatformPayPaymentMethodParamsApplePayCopyWithImpl<$Res>;
   @useResult
   $Res call({ApplePayParams applePayParams});
 
@@ -1791,13 +1562,13 @@ abstract class _$$PlatformPayPaymentMethodParamsApplePayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PlatformPayPaymentMethodParamsApplePayImplCopyWithImpl<$Res>
+class __$$PlatformPayPaymentMethodParamsApplePayCopyWithImpl<$Res>
     extends _$PlatformPayPaymentMethodParamsCopyWithImpl<$Res,
-        _$PlatformPayPaymentMethodParamsApplePayImpl>
-    implements _$$PlatformPayPaymentMethodParamsApplePayImplCopyWith<$Res> {
-  __$$PlatformPayPaymentMethodParamsApplePayImplCopyWithImpl(
-      _$PlatformPayPaymentMethodParamsApplePayImpl _value,
-      $Res Function(_$PlatformPayPaymentMethodParamsApplePayImpl) _then)
+        _$PlatformPayPaymentMethodParamsApplePay>
+    implements _$$PlatformPayPaymentMethodParamsApplePayCopyWith<$Res> {
+  __$$PlatformPayPaymentMethodParamsApplePayCopyWithImpl(
+      _$PlatformPayPaymentMethodParamsApplePay _value,
+      $Res Function(_$PlatformPayPaymentMethodParamsApplePay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1805,7 +1576,7 @@ class __$$PlatformPayPaymentMethodParamsApplePayImplCopyWithImpl<$Res>
   $Res call({
     Object? applePayParams = null,
   }) {
-    return _then(_$PlatformPayPaymentMethodParamsApplePayImpl(
+    return _then(_$PlatformPayPaymentMethodParamsApplePay(
       applePayParams: null == applePayParams
           ? _value.applePayParams
           : applePayParams // ignore: cast_nullable_to_non_nullable
@@ -1825,9 +1596,9 @@ class __$$PlatformPayPaymentMethodParamsApplePayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PlatformPayPaymentMethodParamsApplePayImpl
+class _$PlatformPayPaymentMethodParamsApplePay
     implements PlatformPayPaymentMethodParamsApplePay {
-  const _$PlatformPayPaymentMethodParamsApplePayImpl(
+  const _$PlatformPayPaymentMethodParamsApplePay(
       {required this.applePayParams});
 
   @override
@@ -1839,10 +1610,10 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformPayPaymentMethodParamsApplePayImpl &&
+            other is _$PlatformPayPaymentMethodParamsApplePay &&
             (identical(other.applePayParams, applePayParams) ||
                 other.applePayParams == applePayParams));
   }
@@ -1853,11 +1624,10 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformPayPaymentMethodParamsApplePayImplCopyWith<
-          _$PlatformPayPaymentMethodParamsApplePayImpl>
-      get copyWith =>
-          __$$PlatformPayPaymentMethodParamsApplePayImplCopyWithImpl<
-              _$PlatformPayPaymentMethodParamsApplePayImpl>(this, _$identity);
+  _$$PlatformPayPaymentMethodParamsApplePayCopyWith<
+          _$PlatformPayPaymentMethodParamsApplePay>
+      get copyWith => __$$PlatformPayPaymentMethodParamsApplePayCopyWithImpl<
+          _$PlatformPayPaymentMethodParamsApplePay>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -1866,8 +1636,6 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)
         googlePay,
     required TResult Function(ApplePayParams applePayParams) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
   }) {
     return applePay(applePayParams);
   }
@@ -1879,7 +1647,6 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
         googlePay,
     TResult? Function(ApplePayParams applePayParams)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
   }) {
     return applePay?.call(applePayParams);
   }
@@ -1891,7 +1658,6 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
             GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
         googlePay,
     TResult Function(ApplePayParams applePayParams)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
     required TResult orElse(),
   }) {
     if (applePay != null) {
@@ -1907,7 +1673,6 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
         googlePay,
     required TResult Function(PlatformPayPaymentMethodParamsApplePay value)
         applePay,
-    required TResult Function(PlatformPayPaymentMethodParamsWeb value) web,
   }) {
     return applePay(this);
   }
@@ -1917,7 +1682,6 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
     TResult? Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayPaymentMethodParamsWeb value)? web,
   }) {
     return applePay?.call(this);
   }
@@ -1927,7 +1691,6 @@ class _$PlatformPayPaymentMethodParamsApplePayImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
     TResult Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult Function(PlatformPayPaymentMethodParamsWeb value)? web,
     required TResult orElse(),
   }) {
     if (applePay != null) {
@@ -1941,182 +1704,12 @@ abstract class PlatformPayPaymentMethodParamsApplePay
     implements PlatformPayPaymentMethodParams {
   const factory PlatformPayPaymentMethodParamsApplePay(
           {required final ApplePayParams applePayParams}) =
-      _$PlatformPayPaymentMethodParamsApplePayImpl;
+      _$PlatformPayPaymentMethodParamsApplePay;
 
   ApplePayParams get applePayParams;
   @JsonKey(ignore: true)
-  _$$PlatformPayPaymentMethodParamsApplePayImplCopyWith<
-          _$PlatformPayPaymentMethodParamsApplePayImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PlatformPayPaymentMethodParamsWebImplCopyWith<$Res> {
-  factory _$$PlatformPayPaymentMethodParamsWebImplCopyWith(
-          _$PlatformPayPaymentMethodParamsWebImpl value,
-          $Res Function(_$PlatformPayPaymentMethodParamsWebImpl) then) =
-      __$$PlatformPayPaymentMethodParamsWebImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PlatformPayWebPaymentRequestCreateOptions options});
-
-  $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> get options;
-}
-
-/// @nodoc
-class __$$PlatformPayPaymentMethodParamsWebImplCopyWithImpl<$Res>
-    extends _$PlatformPayPaymentMethodParamsCopyWithImpl<$Res,
-        _$PlatformPayPaymentMethodParamsWebImpl>
-    implements _$$PlatformPayPaymentMethodParamsWebImplCopyWith<$Res> {
-  __$$PlatformPayPaymentMethodParamsWebImplCopyWithImpl(
-      _$PlatformPayPaymentMethodParamsWebImpl _value,
-      $Res Function(_$PlatformPayPaymentMethodParamsWebImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? options = null,
-  }) {
-    return _then(_$PlatformPayPaymentMethodParamsWebImpl(
-      options: null == options
-          ? _value.options
-          : options // ignore: cast_nullable_to_non_nullable
-              as PlatformPayWebPaymentRequestCreateOptions,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> get options {
-    return $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res>(
-        _value.options, (value) {
-      return _then(_value.copyWith(options: value));
-    });
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$PlatformPayPaymentMethodParamsWebImpl
-    implements PlatformPayPaymentMethodParamsWeb {
-  const _$PlatformPayPaymentMethodParamsWebImpl({required this.options});
-
-  @override
-  final PlatformPayWebPaymentRequestCreateOptions options;
-
-  @override
-  String toString() {
-    return 'PlatformPayPaymentMethodParams.web(options: $options)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PlatformPayPaymentMethodParamsWebImpl &&
-            (identical(other.options, options) || other.options == options));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, options);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PlatformPayPaymentMethodParamsWebImplCopyWith<
-          _$PlatformPayPaymentMethodParamsWebImpl>
-      get copyWith => __$$PlatformPayPaymentMethodParamsWebImplCopyWithImpl<
-          _$PlatformPayPaymentMethodParamsWebImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(GooglePayParams googlePayParams,
-            GooglePayPaymentMethodParams googlePayPaymentMethodParams)
-        googlePay,
-    required TResult Function(ApplePayParams applePayParams) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
-  }) {
-    return web(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GooglePayParams googlePayParams,
-            GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
-        googlePay,
-    TResult? Function(ApplePayParams applePayParams)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
-  }) {
-    return web?.call(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GooglePayParams googlePayParams,
-            GooglePayPaymentMethodParams googlePayPaymentMethodParams)?
-        googlePay,
-    TResult Function(ApplePayParams applePayParams)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
-    required TResult orElse(),
-  }) {
-    if (web != null) {
-      return web(options);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PlatformPayPaymentMethodParamsGooglePay value)
-        googlePay,
-    required TResult Function(PlatformPayPaymentMethodParamsApplePay value)
-        applePay,
-    required TResult Function(PlatformPayPaymentMethodParamsWeb value) web,
-  }) {
-    return web(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
-    TResult? Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayPaymentMethodParamsWeb value)? web,
-  }) {
-    return web?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PlatformPayPaymentMethodParamsGooglePay value)? googlePay,
-    TResult Function(PlatformPayPaymentMethodParamsApplePay value)? applePay,
-    TResult Function(PlatformPayPaymentMethodParamsWeb value)? web,
-    required TResult orElse(),
-  }) {
-    if (web != null) {
-      return web(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class PlatformPayPaymentMethodParamsWeb
-    implements PlatformPayPaymentMethodParams {
-  const factory PlatformPayPaymentMethodParamsWeb(
-          {required final PlatformPayWebPaymentRequestCreateOptions options}) =
-      _$PlatformPayPaymentMethodParamsWebImpl;
-
-  PlatformPayWebPaymentRequestCreateOptions get options;
-  @JsonKey(ignore: true)
-  _$$PlatformPayPaymentMethodParamsWebImplCopyWith<
-          _$PlatformPayPaymentMethodParamsWebImpl>
+  _$$PlatformPayPaymentMethodParamsApplePayCopyWith<
+          _$PlatformPayPaymentMethodParamsApplePay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -2127,8 +1720,6 @@ PlatformPayConfirmParams _$PlatformPayConfirmParamsFromJson(
       return PlatformPayConfirmParamsGooglePay.fromJson(json);
     case 'applePay':
       return PlatformPayConfirmParamsApplePay.fromJson(json);
-    case 'web':
-      return PlatformPayConfirmParamsWeb.fromJson(json);
 
     default:
       throw CheckedFromJsonException(
@@ -2145,22 +1736,18 @@ mixin _$PlatformPayConfirmParams {
   TResult when<TResult extends Object?>({
     required TResult Function(GooglePayParams googlePay) googlePay,
     required TResult Function(ApplePayParams applePay) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(GooglePayParams googlePay)? googlePay,
     TResult? Function(ApplePayParams applePay)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(GooglePayParams googlePay)? googlePay,
     TResult Function(ApplePayParams applePay)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2169,21 +1756,18 @@ mixin _$PlatformPayConfirmParams {
     required TResult Function(PlatformPayConfirmParamsGooglePay value)
         googlePay,
     required TResult Function(PlatformPayConfirmParamsApplePay value) applePay,
-    required TResult Function(PlatformPayConfirmParamsWeb value) web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
     TResult? Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayConfirmParamsWeb value)? web,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
     TResult Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult Function(PlatformPayConfirmParamsWeb value)? web,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -2210,11 +1794,11 @@ class _$PlatformPayConfirmParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PlatformPayConfirmParamsGooglePayImplCopyWith<$Res> {
-  factory _$$PlatformPayConfirmParamsGooglePayImplCopyWith(
-          _$PlatformPayConfirmParamsGooglePayImpl value,
-          $Res Function(_$PlatformPayConfirmParamsGooglePayImpl) then) =
-      __$$PlatformPayConfirmParamsGooglePayImplCopyWithImpl<$Res>;
+abstract class _$$PlatformPayConfirmParamsGooglePayCopyWith<$Res> {
+  factory _$$PlatformPayConfirmParamsGooglePayCopyWith(
+          _$PlatformPayConfirmParamsGooglePay value,
+          $Res Function(_$PlatformPayConfirmParamsGooglePay) then) =
+      __$$PlatformPayConfirmParamsGooglePayCopyWithImpl<$Res>;
   @useResult
   $Res call({GooglePayParams googlePay});
 
@@ -2222,13 +1806,13 @@ abstract class _$$PlatformPayConfirmParamsGooglePayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PlatformPayConfirmParamsGooglePayImplCopyWithImpl<$Res>
+class __$$PlatformPayConfirmParamsGooglePayCopyWithImpl<$Res>
     extends _$PlatformPayConfirmParamsCopyWithImpl<$Res,
-        _$PlatformPayConfirmParamsGooglePayImpl>
-    implements _$$PlatformPayConfirmParamsGooglePayImplCopyWith<$Res> {
-  __$$PlatformPayConfirmParamsGooglePayImplCopyWithImpl(
-      _$PlatformPayConfirmParamsGooglePayImpl _value,
-      $Res Function(_$PlatformPayConfirmParamsGooglePayImpl) _then)
+        _$PlatformPayConfirmParamsGooglePay>
+    implements _$$PlatformPayConfirmParamsGooglePayCopyWith<$Res> {
+  __$$PlatformPayConfirmParamsGooglePayCopyWithImpl(
+      _$PlatformPayConfirmParamsGooglePay _value,
+      $Res Function(_$PlatformPayConfirmParamsGooglePay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2236,7 +1820,7 @@ class __$$PlatformPayConfirmParamsGooglePayImplCopyWithImpl<$Res>
   $Res call({
     Object? googlePay = null,
   }) {
-    return _then(_$PlatformPayConfirmParamsGooglePayImpl(
+    return _then(_$PlatformPayConfirmParamsGooglePay(
       googlePay: null == googlePay
           ? _value.googlePay
           : googlePay // ignore: cast_nullable_to_non_nullable
@@ -2256,15 +1840,15 @@ class __$$PlatformPayConfirmParamsGooglePayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PlatformPayConfirmParamsGooglePayImpl
+class _$PlatformPayConfirmParamsGooglePay
     implements PlatformPayConfirmParamsGooglePay {
-  const _$PlatformPayConfirmParamsGooglePayImpl(
+  const _$PlatformPayConfirmParamsGooglePay(
       {required this.googlePay, final String? $type})
       : $type = $type ?? 'googlePay';
 
-  factory _$PlatformPayConfirmParamsGooglePayImpl.fromJson(
+  factory _$PlatformPayConfirmParamsGooglePay.fromJson(
           Map<String, dynamic> json) =>
-      _$$PlatformPayConfirmParamsGooglePayImplFromJson(json);
+      _$$PlatformPayConfirmParamsGooglePayFromJson(json);
 
   @override
   final GooglePayParams googlePay;
@@ -2278,10 +1862,10 @@ class _$PlatformPayConfirmParamsGooglePayImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformPayConfirmParamsGooglePayImpl &&
+            other is _$PlatformPayConfirmParamsGooglePay &&
             (identical(other.googlePay, googlePay) ||
                 other.googlePay == googlePay));
   }
@@ -2293,18 +1877,16 @@ class _$PlatformPayConfirmParamsGooglePayImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformPayConfirmParamsGooglePayImplCopyWith<
-          _$PlatformPayConfirmParamsGooglePayImpl>
-      get copyWith => __$$PlatformPayConfirmParamsGooglePayImplCopyWithImpl<
-          _$PlatformPayConfirmParamsGooglePayImpl>(this, _$identity);
+  _$$PlatformPayConfirmParamsGooglePayCopyWith<
+          _$PlatformPayConfirmParamsGooglePay>
+      get copyWith => __$$PlatformPayConfirmParamsGooglePayCopyWithImpl<
+          _$PlatformPayConfirmParamsGooglePay>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(GooglePayParams googlePay) googlePay,
     required TResult Function(ApplePayParams applePay) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
   }) {
     return googlePay(this.googlePay);
   }
@@ -2314,7 +1896,6 @@ class _$PlatformPayConfirmParamsGooglePayImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(GooglePayParams googlePay)? googlePay,
     TResult? Function(ApplePayParams applePay)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
   }) {
     return googlePay?.call(this.googlePay);
   }
@@ -2324,7 +1905,6 @@ class _$PlatformPayConfirmParamsGooglePayImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(GooglePayParams googlePay)? googlePay,
     TResult Function(ApplePayParams applePay)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
     required TResult orElse(),
   }) {
     if (googlePay != null) {
@@ -2339,7 +1919,6 @@ class _$PlatformPayConfirmParamsGooglePayImpl
     required TResult Function(PlatformPayConfirmParamsGooglePay value)
         googlePay,
     required TResult Function(PlatformPayConfirmParamsApplePay value) applePay,
-    required TResult Function(PlatformPayConfirmParamsWeb value) web,
   }) {
     return googlePay(this);
   }
@@ -2349,7 +1928,6 @@ class _$PlatformPayConfirmParamsGooglePayImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
     TResult? Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayConfirmParamsWeb value)? web,
   }) {
     return googlePay?.call(this);
   }
@@ -2359,7 +1937,6 @@ class _$PlatformPayConfirmParamsGooglePayImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
     TResult Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult Function(PlatformPayConfirmParamsWeb value)? web,
     required TResult orElse(),
   }) {
     if (googlePay != null) {
@@ -2370,7 +1947,7 @@ class _$PlatformPayConfirmParamsGooglePayImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlatformPayConfirmParamsGooglePayImplToJson(
+    return _$$PlatformPayConfirmParamsGooglePayToJson(
       this,
     );
   }
@@ -2380,25 +1957,24 @@ abstract class PlatformPayConfirmParamsGooglePay
     implements PlatformPayConfirmParams {
   const factory PlatformPayConfirmParamsGooglePay(
           {required final GooglePayParams googlePay}) =
-      _$PlatformPayConfirmParamsGooglePayImpl;
+      _$PlatformPayConfirmParamsGooglePay;
 
   factory PlatformPayConfirmParamsGooglePay.fromJson(
-          Map<String, dynamic> json) =
-      _$PlatformPayConfirmParamsGooglePayImpl.fromJson;
+      Map<String, dynamic> json) = _$PlatformPayConfirmParamsGooglePay.fromJson;
 
   GooglePayParams get googlePay;
   @JsonKey(ignore: true)
-  _$$PlatformPayConfirmParamsGooglePayImplCopyWith<
-          _$PlatformPayConfirmParamsGooglePayImpl>
+  _$$PlatformPayConfirmParamsGooglePayCopyWith<
+          _$PlatformPayConfirmParamsGooglePay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PlatformPayConfirmParamsApplePayImplCopyWith<$Res> {
-  factory _$$PlatformPayConfirmParamsApplePayImplCopyWith(
-          _$PlatformPayConfirmParamsApplePayImpl value,
-          $Res Function(_$PlatformPayConfirmParamsApplePayImpl) then) =
-      __$$PlatformPayConfirmParamsApplePayImplCopyWithImpl<$Res>;
+abstract class _$$PlatformPayConfirmParamsApplePayCopyWith<$Res> {
+  factory _$$PlatformPayConfirmParamsApplePayCopyWith(
+          _$PlatformPayConfirmParamsApplePay value,
+          $Res Function(_$PlatformPayConfirmParamsApplePay) then) =
+      __$$PlatformPayConfirmParamsApplePayCopyWithImpl<$Res>;
   @useResult
   $Res call({ApplePayParams applePay});
 
@@ -2406,13 +1982,13 @@ abstract class _$$PlatformPayConfirmParamsApplePayImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PlatformPayConfirmParamsApplePayImplCopyWithImpl<$Res>
+class __$$PlatformPayConfirmParamsApplePayCopyWithImpl<$Res>
     extends _$PlatformPayConfirmParamsCopyWithImpl<$Res,
-        _$PlatformPayConfirmParamsApplePayImpl>
-    implements _$$PlatformPayConfirmParamsApplePayImplCopyWith<$Res> {
-  __$$PlatformPayConfirmParamsApplePayImplCopyWithImpl(
-      _$PlatformPayConfirmParamsApplePayImpl _value,
-      $Res Function(_$PlatformPayConfirmParamsApplePayImpl) _then)
+        _$PlatformPayConfirmParamsApplePay>
+    implements _$$PlatformPayConfirmParamsApplePayCopyWith<$Res> {
+  __$$PlatformPayConfirmParamsApplePayCopyWithImpl(
+      _$PlatformPayConfirmParamsApplePay _value,
+      $Res Function(_$PlatformPayConfirmParamsApplePay) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2420,7 +1996,7 @@ class __$$PlatformPayConfirmParamsApplePayImplCopyWithImpl<$Res>
   $Res call({
     Object? applePay = null,
   }) {
-    return _then(_$PlatformPayConfirmParamsApplePayImpl(
+    return _then(_$PlatformPayConfirmParamsApplePay(
       applePay: null == applePay
           ? _value.applePay
           : applePay // ignore: cast_nullable_to_non_nullable
@@ -2440,15 +2016,15 @@ class __$$PlatformPayConfirmParamsApplePayImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PlatformPayConfirmParamsApplePayImpl
+class _$PlatformPayConfirmParamsApplePay
     implements PlatformPayConfirmParamsApplePay {
-  const _$PlatformPayConfirmParamsApplePayImpl(
+  const _$PlatformPayConfirmParamsApplePay(
       {required this.applePay, final String? $type})
       : $type = $type ?? 'applePay';
 
-  factory _$PlatformPayConfirmParamsApplePayImpl.fromJson(
+  factory _$PlatformPayConfirmParamsApplePay.fromJson(
           Map<String, dynamic> json) =>
-      _$$PlatformPayConfirmParamsApplePayImplFromJson(json);
+      _$$PlatformPayConfirmParamsApplePayFromJson(json);
 
   @override
   final ApplePayParams applePay;
@@ -2462,10 +2038,10 @@ class _$PlatformPayConfirmParamsApplePayImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformPayConfirmParamsApplePayImpl &&
+            other is _$PlatformPayConfirmParamsApplePay &&
             (identical(other.applePay, applePay) ||
                 other.applePay == applePay));
   }
@@ -2477,18 +2053,16 @@ class _$PlatformPayConfirmParamsApplePayImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformPayConfirmParamsApplePayImplCopyWith<
-          _$PlatformPayConfirmParamsApplePayImpl>
-      get copyWith => __$$PlatformPayConfirmParamsApplePayImplCopyWithImpl<
-          _$PlatformPayConfirmParamsApplePayImpl>(this, _$identity);
+  _$$PlatformPayConfirmParamsApplePayCopyWith<
+          _$PlatformPayConfirmParamsApplePay>
+      get copyWith => __$$PlatformPayConfirmParamsApplePayCopyWithImpl<
+          _$PlatformPayConfirmParamsApplePay>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(GooglePayParams googlePay) googlePay,
     required TResult Function(ApplePayParams applePay) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
   }) {
     return applePay(this.applePay);
   }
@@ -2498,7 +2072,6 @@ class _$PlatformPayConfirmParamsApplePayImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(GooglePayParams googlePay)? googlePay,
     TResult? Function(ApplePayParams applePay)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
   }) {
     return applePay?.call(this.applePay);
   }
@@ -2508,7 +2081,6 @@ class _$PlatformPayConfirmParamsApplePayImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(GooglePayParams googlePay)? googlePay,
     TResult Function(ApplePayParams applePay)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
     required TResult orElse(),
   }) {
     if (applePay != null) {
@@ -2523,7 +2095,6 @@ class _$PlatformPayConfirmParamsApplePayImpl
     required TResult Function(PlatformPayConfirmParamsGooglePay value)
         googlePay,
     required TResult Function(PlatformPayConfirmParamsApplePay value) applePay,
-    required TResult Function(PlatformPayConfirmParamsWeb value) web,
   }) {
     return applePay(this);
   }
@@ -2533,7 +2104,6 @@ class _$PlatformPayConfirmParamsApplePayImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
     TResult? Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayConfirmParamsWeb value)? web,
   }) {
     return applePay?.call(this);
   }
@@ -2543,7 +2113,6 @@ class _$PlatformPayConfirmParamsApplePayImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
     TResult Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult Function(PlatformPayConfirmParamsWeb value)? web,
     required TResult orElse(),
   }) {
     if (applePay != null) {
@@ -2554,7 +2123,7 @@ class _$PlatformPayConfirmParamsApplePayImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlatformPayConfirmParamsApplePayImplToJson(
+    return _$$PlatformPayConfirmParamsApplePayToJson(
       this,
     );
   }
@@ -2564,454 +2133,15 @@ abstract class PlatformPayConfirmParamsApplePay
     implements PlatformPayConfirmParams {
   const factory PlatformPayConfirmParamsApplePay(
           {required final ApplePayParams applePay}) =
-      _$PlatformPayConfirmParamsApplePayImpl;
+      _$PlatformPayConfirmParamsApplePay;
 
   factory PlatformPayConfirmParamsApplePay.fromJson(Map<String, dynamic> json) =
-      _$PlatformPayConfirmParamsApplePayImpl.fromJson;
+      _$PlatformPayConfirmParamsApplePay.fromJson;
 
   ApplePayParams get applePay;
   @JsonKey(ignore: true)
-  _$$PlatformPayConfirmParamsApplePayImplCopyWith<
-          _$PlatformPayConfirmParamsApplePayImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PlatformPayConfirmParamsWebImplCopyWith<$Res> {
-  factory _$$PlatformPayConfirmParamsWebImplCopyWith(
-          _$PlatformPayConfirmParamsWebImpl value,
-          $Res Function(_$PlatformPayConfirmParamsWebImpl) then) =
-      __$$PlatformPayConfirmParamsWebImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({PlatformPayWebPaymentRequestCreateOptions options});
-
-  $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> get options;
-}
-
-/// @nodoc
-class __$$PlatformPayConfirmParamsWebImplCopyWithImpl<$Res>
-    extends _$PlatformPayConfirmParamsCopyWithImpl<$Res,
-        _$PlatformPayConfirmParamsWebImpl>
-    implements _$$PlatformPayConfirmParamsWebImplCopyWith<$Res> {
-  __$$PlatformPayConfirmParamsWebImplCopyWithImpl(
-      _$PlatformPayConfirmParamsWebImpl _value,
-      $Res Function(_$PlatformPayConfirmParamsWebImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? options = null,
-  }) {
-    return _then(_$PlatformPayConfirmParamsWebImpl(
-      options: null == options
-          ? _value.options
-          : options // ignore: cast_nullable_to_non_nullable
-              as PlatformPayWebPaymentRequestCreateOptions,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> get options {
-    return $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res>(
-        _value.options, (value) {
-      return _then(_value.copyWith(options: value));
-    });
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$PlatformPayConfirmParamsWebImpl implements PlatformPayConfirmParamsWeb {
-  const _$PlatformPayConfirmParamsWebImpl(
-      {required this.options, final String? $type})
-      : $type = $type ?? 'web';
-
-  factory _$PlatformPayConfirmParamsWebImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PlatformPayConfirmParamsWebImplFromJson(json);
-
-  @override
-  final PlatformPayWebPaymentRequestCreateOptions options;
-
-  @JsonKey(name: 'runtimeType')
-  final String $type;
-
-  @override
-  String toString() {
-    return 'PlatformPayConfirmParams.web(options: $options)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PlatformPayConfirmParamsWebImpl &&
-            (identical(other.options, options) || other.options == options));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, options);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PlatformPayConfirmParamsWebImplCopyWith<_$PlatformPayConfirmParamsWebImpl>
-      get copyWith => __$$PlatformPayConfirmParamsWebImplCopyWithImpl<
-          _$PlatformPayConfirmParamsWebImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(GooglePayParams googlePay) googlePay,
-    required TResult Function(ApplePayParams applePay) applePay,
-    required TResult Function(PlatformPayWebPaymentRequestCreateOptions options)
-        web,
-  }) {
-    return web(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(GooglePayParams googlePay)? googlePay,
-    TResult? Function(ApplePayParams applePay)? applePay,
-    TResult? Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
-  }) {
-    return web?.call(options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(GooglePayParams googlePay)? googlePay,
-    TResult Function(ApplePayParams applePay)? applePay,
-    TResult Function(PlatformPayWebPaymentRequestCreateOptions options)? web,
-    required TResult orElse(),
-  }) {
-    if (web != null) {
-      return web(options);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(PlatformPayConfirmParamsGooglePay value)
-        googlePay,
-    required TResult Function(PlatformPayConfirmParamsApplePay value) applePay,
-    required TResult Function(PlatformPayConfirmParamsWeb value) web,
-  }) {
-    return web(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
-    TResult? Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult? Function(PlatformPayConfirmParamsWeb value)? web,
-  }) {
-    return web?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(PlatformPayConfirmParamsGooglePay value)? googlePay,
-    TResult Function(PlatformPayConfirmParamsApplePay value)? applePay,
-    TResult Function(PlatformPayConfirmParamsWeb value)? web,
-    required TResult orElse(),
-  }) {
-    if (web != null) {
-      return web(this);
-    }
-    return orElse();
-  }
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PlatformPayConfirmParamsWebImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class PlatformPayConfirmParamsWeb implements PlatformPayConfirmParams {
-  const factory PlatformPayConfirmParamsWeb(
-          {required final PlatformPayWebPaymentRequestCreateOptions options}) =
-      _$PlatformPayConfirmParamsWebImpl;
-
-  factory PlatformPayConfirmParamsWeb.fromJson(Map<String, dynamic> json) =
-      _$PlatformPayConfirmParamsWebImpl.fromJson;
-
-  PlatformPayWebPaymentRequestCreateOptions get options;
-  @JsonKey(ignore: true)
-  _$$PlatformPayConfirmParamsWebImplCopyWith<_$PlatformPayConfirmParamsWebImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-PlatformPayShippingContact _$PlatformPayShippingContactFromJson(
-    Map<String, dynamic> json) {
-  return _PlatformPayShippingContact.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PlatformPayShippingContact {
-  /// Email address of the shipping contact
-  String? get emailAddress => throw _privateConstructorUsedError;
-
-  /// Name of shipping contact
-  ApplePayContactName get name => throw _privateConstructorUsedError;
-
-  /// Postal address of shipping contact
-  ApplePayPostalAddress get postalAddress => throw _privateConstructorUsedError;
-
-  ///Phone Number of the shipping contact
-  String? get phoneNumber => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PlatformPayShippingContactCopyWith<PlatformPayShippingContact>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlatformPayShippingContactCopyWith<$Res> {
-  factory $PlatformPayShippingContactCopyWith(PlatformPayShippingContact value,
-          $Res Function(PlatformPayShippingContact) then) =
-      _$PlatformPayShippingContactCopyWithImpl<$Res,
-          PlatformPayShippingContact>;
-  @useResult
-  $Res call(
-      {String? emailAddress,
-      ApplePayContactName name,
-      ApplePayPostalAddress postalAddress,
-      String? phoneNumber});
-
-  $ApplePayContactNameCopyWith<$Res> get name;
-  $ApplePayPostalAddressCopyWith<$Res> get postalAddress;
-}
-
-/// @nodoc
-class _$PlatformPayShippingContactCopyWithImpl<$Res,
-        $Val extends PlatformPayShippingContact>
-    implements $PlatformPayShippingContactCopyWith<$Res> {
-  _$PlatformPayShippingContactCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? emailAddress = freezed,
-    Object? name = null,
-    Object? postalAddress = null,
-    Object? phoneNumber = freezed,
-  }) {
-    return _then(_value.copyWith(
-      emailAddress: freezed == emailAddress
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as ApplePayContactName,
-      postalAddress: null == postalAddress
-          ? _value.postalAddress
-          : postalAddress // ignore: cast_nullable_to_non_nullable
-              as ApplePayPostalAddress,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ApplePayContactNameCopyWith<$Res> get name {
-    return $ApplePayContactNameCopyWith<$Res>(_value.name, (value) {
-      return _then(_value.copyWith(name: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ApplePayPostalAddressCopyWith<$Res> get postalAddress {
-    return $ApplePayPostalAddressCopyWith<$Res>(_value.postalAddress, (value) {
-      return _then(_value.copyWith(postalAddress: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PlatformPayShippingContactImplCopyWith<$Res>
-    implements $PlatformPayShippingContactCopyWith<$Res> {
-  factory _$$PlatformPayShippingContactImplCopyWith(
-          _$PlatformPayShippingContactImpl value,
-          $Res Function(_$PlatformPayShippingContactImpl) then) =
-      __$$PlatformPayShippingContactImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String? emailAddress,
-      ApplePayContactName name,
-      ApplePayPostalAddress postalAddress,
-      String? phoneNumber});
-
-  @override
-  $ApplePayContactNameCopyWith<$Res> get name;
-  @override
-  $ApplePayPostalAddressCopyWith<$Res> get postalAddress;
-}
-
-/// @nodoc
-class __$$PlatformPayShippingContactImplCopyWithImpl<$Res>
-    extends _$PlatformPayShippingContactCopyWithImpl<$Res,
-        _$PlatformPayShippingContactImpl>
-    implements _$$PlatformPayShippingContactImplCopyWith<$Res> {
-  __$$PlatformPayShippingContactImplCopyWithImpl(
-      _$PlatformPayShippingContactImpl _value,
-      $Res Function(_$PlatformPayShippingContactImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? emailAddress = freezed,
-    Object? name = null,
-    Object? postalAddress = null,
-    Object? phoneNumber = freezed,
-  }) {
-    return _then(_$PlatformPayShippingContactImpl(
-      emailAddress: freezed == emailAddress
-          ? _value.emailAddress
-          : emailAddress // ignore: cast_nullable_to_non_nullable
-              as String?,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as ApplePayContactName,
-      postalAddress: null == postalAddress
-          ? _value.postalAddress
-          : postalAddress // ignore: cast_nullable_to_non_nullable
-              as ApplePayPostalAddress,
-      phoneNumber: freezed == phoneNumber
-          ? _value.phoneNumber
-          : phoneNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$PlatformPayShippingContactImpl implements _PlatformPayShippingContact {
-  const _$PlatformPayShippingContactImpl(
-      {this.emailAddress,
-      required this.name,
-      required this.postalAddress,
-      this.phoneNumber});
-
-  factory _$PlatformPayShippingContactImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PlatformPayShippingContactImplFromJson(json);
-
-  /// Email address of the shipping contact
-  @override
-  final String? emailAddress;
-
-  /// Name of shipping contact
-  @override
-  final ApplePayContactName name;
-
-  /// Postal address of shipping contact
-  @override
-  final ApplePayPostalAddress postalAddress;
-
-  ///Phone Number of the shipping contact
-  @override
-  final String? phoneNumber;
-
-  @override
-  String toString() {
-    return 'PlatformPayShippingContact(emailAddress: $emailAddress, name: $name, postalAddress: $postalAddress, phoneNumber: $phoneNumber)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PlatformPayShippingContactImpl &&
-            (identical(other.emailAddress, emailAddress) ||
-                other.emailAddress == emailAddress) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.postalAddress, postalAddress) ||
-                other.postalAddress == postalAddress) &&
-            (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, emailAddress, name, postalAddress, phoneNumber);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PlatformPayShippingContactImplCopyWith<_$PlatformPayShippingContactImpl>
-      get copyWith => __$$PlatformPayShippingContactImplCopyWithImpl<
-          _$PlatformPayShippingContactImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PlatformPayShippingContactImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PlatformPayShippingContact
-    implements PlatformPayShippingContact {
-  const factory _PlatformPayShippingContact(
-      {final String? emailAddress,
-      required final ApplePayContactName name,
-      required final ApplePayPostalAddress postalAddress,
-      final String? phoneNumber}) = _$PlatformPayShippingContactImpl;
-
-  factory _PlatformPayShippingContact.fromJson(Map<String, dynamic> json) =
-      _$PlatformPayShippingContactImpl.fromJson;
-
-  @override
-
-  /// Email address of the shipping contact
-  String? get emailAddress;
-  @override
-
-  /// Name of shipping contact
-  ApplePayContactName get name;
-  @override
-
-  /// Postal address of shipping contact
-  ApplePayPostalAddress get postalAddress;
-  @override
-
-  ///Phone Number of the shipping contact
-  String? get phoneNumber;
-  @override
-  @JsonKey(ignore: true)
-  _$$PlatformPayShippingContactImplCopyWith<_$PlatformPayShippingContactImpl>
+  _$$PlatformPayConfirmParamsApplePayCopyWith<
+          _$PlatformPayConfirmParamsApplePay>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -3199,11 +2329,11 @@ class _$ApplePayParamsCopyWithImpl<$Res, $Val extends ApplePayParams>
 }
 
 /// @nodoc
-abstract class _$$ApplePayParamsImplCopyWith<$Res>
+abstract class _$$_ApplePayParamsCopyWith<$Res>
     implements $ApplePayParamsCopyWith<$Res> {
-  factory _$$ApplePayParamsImplCopyWith(_$ApplePayParamsImpl value,
-          $Res Function(_$ApplePayParamsImpl) then) =
-      __$$ApplePayParamsImplCopyWithImpl<$Res>;
+  factory _$$_ApplePayParamsCopyWith(
+          _$_ApplePayParams value, $Res Function(_$_ApplePayParams) then) =
+      __$$_ApplePayParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3226,11 +2356,11 @@ abstract class _$$ApplePayParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ApplePayParamsImplCopyWithImpl<$Res>
-    extends _$ApplePayParamsCopyWithImpl<$Res, _$ApplePayParamsImpl>
-    implements _$$ApplePayParamsImplCopyWith<$Res> {
-  __$$ApplePayParamsImplCopyWithImpl(
-      _$ApplePayParamsImpl _value, $Res Function(_$ApplePayParamsImpl) _then)
+class __$$_ApplePayParamsCopyWithImpl<$Res>
+    extends _$ApplePayParamsCopyWithImpl<$Res, _$_ApplePayParams>
+    implements _$$_ApplePayParamsCopyWith<$Res> {
+  __$$_ApplePayParamsCopyWithImpl(
+      _$_ApplePayParams _value, $Res Function(_$_ApplePayParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3250,7 +2380,7 @@ class __$$ApplePayParamsImplCopyWithImpl<$Res>
     Object? couponCode = freezed,
     Object? request = freezed,
   }) {
-    return _then(_$ApplePayParamsImpl(
+    return _then(_$_ApplePayParams(
       merchantCountryCode: null == merchantCountryCode
           ? _value.merchantCountryCode
           : merchantCountryCode // ignore: cast_nullable_to_non_nullable
@@ -3310,8 +2440,8 @@ class __$$ApplePayParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$ApplePayParamsImpl implements _ApplePayParams {
-  const _$ApplePayParamsImpl(
+class _$_ApplePayParams implements _ApplePayParams {
+  const _$_ApplePayParams(
       {required this.merchantCountryCode,
       required this.currencyCode,
       final List<String>? additionalEnabledNetworks,
@@ -3333,8 +2463,8 @@ class _$ApplePayParamsImpl implements _ApplePayParams {
         _merchantCapabilities = merchantCapabilities,
         _supportedCountries = supportedCountries;
 
-  factory _$ApplePayParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApplePayParamsImplFromJson(json);
+  factory _$_ApplePayParams.fromJson(Map<String, dynamic> json) =>
+      _$$_ApplePayParamsFromJson(json);
 
   /// ISO 3166-1 alpha-2 country code where the transaction is processed.
   @override
@@ -3466,10 +2596,10 @@ class _$ApplePayParamsImpl implements _ApplePayParams {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ApplePayParamsImpl &&
+            other is _$_ApplePayParams &&
             (identical(other.merchantCountryCode, merchantCountryCode) ||
                 other.merchantCountryCode == merchantCountryCode) &&
             (identical(other.currencyCode, currencyCode) ||
@@ -3520,13 +2650,12 @@ class _$ApplePayParamsImpl implements _ApplePayParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ApplePayParamsImplCopyWith<_$ApplePayParamsImpl> get copyWith =>
-      __$$ApplePayParamsImplCopyWithImpl<_$ApplePayParamsImpl>(
-          this, _$identity);
+  _$$_ApplePayParamsCopyWith<_$_ApplePayParams> get copyWith =>
+      __$$_ApplePayParamsCopyWithImpl<_$_ApplePayParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApplePayParamsImplToJson(
+    return _$$_ApplePayParamsToJson(
       this,
     );
   }
@@ -3546,10 +2675,10 @@ abstract class _ApplePayParams implements ApplePayParams {
       final List<String>? supportedCountries,
       final bool? supportsCouponCode,
       final String? couponCode,
-      final PaymentRequestType? request}) = _$ApplePayParamsImpl;
+      final PaymentRequestType? request}) = _$_ApplePayParams;
 
   factory _ApplePayParams.fromJson(Map<String, dynamic> json) =
-      _$ApplePayParamsImpl.fromJson;
+      _$_ApplePayParams.fromJson;
 
   @override
 
@@ -3611,7 +2740,7 @@ abstract class _ApplePayParams implements ApplePayParams {
   PaymentRequestType? get request;
   @override
   @JsonKey(ignore: true)
-  _$$ApplePayParamsImplCopyWith<_$ApplePayParamsImpl> get copyWith =>
+  _$$_ApplePayParamsCopyWith<_$_ApplePayParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3720,11 +2849,11 @@ class _$GooglePayParamsCopyWithImpl<$Res, $Val extends GooglePayParams>
 }
 
 /// @nodoc
-abstract class _$$GooglePayParamsImplCopyWith<$Res>
+abstract class _$$_GooglePayParamsCopyWith<$Res>
     implements $GooglePayParamsCopyWith<$Res> {
-  factory _$$GooglePayParamsImplCopyWith(_$GooglePayParamsImpl value,
-          $Res Function(_$GooglePayParamsImpl) then) =
-      __$$GooglePayParamsImplCopyWithImpl<$Res>;
+  factory _$$_GooglePayParamsCopyWith(
+          _$_GooglePayParams value, $Res Function(_$_GooglePayParams) then) =
+      __$$_GooglePayParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -3737,11 +2866,11 @@ abstract class _$$GooglePayParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GooglePayParamsImplCopyWithImpl<$Res>
-    extends _$GooglePayParamsCopyWithImpl<$Res, _$GooglePayParamsImpl>
-    implements _$$GooglePayParamsImplCopyWith<$Res> {
-  __$$GooglePayParamsImplCopyWithImpl(
-      _$GooglePayParamsImpl _value, $Res Function(_$GooglePayParamsImpl) _then)
+class __$$_GooglePayParamsCopyWithImpl<$Res>
+    extends _$GooglePayParamsCopyWithImpl<$Res, _$_GooglePayParams>
+    implements _$$_GooglePayParamsCopyWith<$Res> {
+  __$$_GooglePayParamsCopyWithImpl(
+      _$_GooglePayParams _value, $Res Function(_$_GooglePayParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -3754,7 +2883,7 @@ class __$$GooglePayParamsImplCopyWithImpl<$Res>
     Object? isEmailRequired = freezed,
     Object? allowCreditCards = freezed,
   }) {
-    return _then(_$GooglePayParamsImpl(
+    return _then(_$_GooglePayParams(
       testEnv: null == testEnv
           ? _value.testEnv
           : testEnv // ignore: cast_nullable_to_non_nullable
@@ -3786,8 +2915,8 @@ class __$$GooglePayParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$GooglePayParamsImpl implements _GooglePayParams {
-  const _$GooglePayParamsImpl(
+class _$_GooglePayParams implements _GooglePayParams {
+  const _$_GooglePayParams(
       {this.testEnv = false,
       required this.merchantCountryCode,
       required this.currencyCode,
@@ -3795,8 +2924,8 @@ class _$GooglePayParamsImpl implements _GooglePayParams {
       this.isEmailRequired,
       this.allowCreditCards});
 
-  factory _$GooglePayParamsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GooglePayParamsImplFromJson(json);
+  factory _$_GooglePayParams.fromJson(Map<String, dynamic> json) =>
+      _$$_GooglePayParamsFromJson(json);
 
 /**
    * Set to true to run in a test environment with relaxed application / merchant requirements. This environment is suggested for early development and for easily testing SDK.
@@ -3839,10 +2968,10 @@ class _$GooglePayParamsImpl implements _GooglePayParams {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GooglePayParamsImpl &&
+            other is _$_GooglePayParams &&
             (identical(other.testEnv, testEnv) || other.testEnv == testEnv) &&
             (identical(other.merchantCountryCode, merchantCountryCode) ||
                 other.merchantCountryCode == merchantCountryCode) &&
@@ -3864,13 +2993,12 @@ class _$GooglePayParamsImpl implements _GooglePayParams {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GooglePayParamsImplCopyWith<_$GooglePayParamsImpl> get copyWith =>
-      __$$GooglePayParamsImplCopyWithImpl<_$GooglePayParamsImpl>(
-          this, _$identity);
+  _$$_GooglePayParamsCopyWith<_$_GooglePayParams> get copyWith =>
+      __$$_GooglePayParamsCopyWithImpl<_$_GooglePayParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GooglePayParamsImplToJson(
+    return _$$_GooglePayParamsToJson(
       this,
     );
   }
@@ -3883,10 +3011,10 @@ abstract class _GooglePayParams implements GooglePayParams {
       required final String currencyCode,
       final String? merchantName,
       final bool? isEmailRequired,
-      final bool? allowCreditCards}) = _$GooglePayParamsImpl;
+      final bool? allowCreditCards}) = _$_GooglePayParams;
 
   factory _GooglePayParams.fromJson(Map<String, dynamic> json) =
-      _$GooglePayParamsImpl.fromJson;
+      _$_GooglePayParams.fromJson;
 
   @override
   /**
@@ -3923,7 +3051,7 @@ abstract class _GooglePayParams implements GooglePayParams {
   bool? get allowCreditCards;
   @override
   @JsonKey(ignore: true)
-  _$$GooglePayParamsImplCopyWith<_$GooglePayParamsImpl> get copyWith =>
+  _$$_GooglePayParamsCopyWith<_$_GooglePayParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3940,7 +3068,6 @@ mixin _$GooglePayPaymentMethodParams {
   bool? get existingPaymentMethodRequired => throw _privateConstructorUsedError;
 
   /// Total monetary value of the transaction.
-  /// Provide this value in the currency’s smallest unit.
   int get amount => throw _privateConstructorUsedError;
 
   /// Describes the configuration for billing address collection in the Google Pay sheet.
@@ -4042,12 +3169,12 @@ class _$GooglePayPaymentMethodParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GooglePayPaymentMethodParamsImplCopyWith<$Res>
+abstract class _$$_GooglePayPaymentMethodParamsCopyWith<$Res>
     implements $GooglePayPaymentMethodParamsCopyWith<$Res> {
-  factory _$$GooglePayPaymentMethodParamsImplCopyWith(
-          _$GooglePayPaymentMethodParamsImpl value,
-          $Res Function(_$GooglePayPaymentMethodParamsImpl) then) =
-      __$$GooglePayPaymentMethodParamsImplCopyWithImpl<$Res>;
+  factory _$$_GooglePayPaymentMethodParamsCopyWith(
+          _$_GooglePayPaymentMethodParams value,
+          $Res Function(_$_GooglePayPaymentMethodParams) then) =
+      __$$_GooglePayPaymentMethodParamsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -4063,13 +3190,13 @@ abstract class _$$GooglePayPaymentMethodParamsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GooglePayPaymentMethodParamsImplCopyWithImpl<$Res>
+class __$$_GooglePayPaymentMethodParamsCopyWithImpl<$Res>
     extends _$GooglePayPaymentMethodParamsCopyWithImpl<$Res,
-        _$GooglePayPaymentMethodParamsImpl>
-    implements _$$GooglePayPaymentMethodParamsImplCopyWith<$Res> {
-  __$$GooglePayPaymentMethodParamsImplCopyWithImpl(
-      _$GooglePayPaymentMethodParamsImpl _value,
-      $Res Function(_$GooglePayPaymentMethodParamsImpl) _then)
+        _$_GooglePayPaymentMethodParams>
+    implements _$$_GooglePayPaymentMethodParamsCopyWith<$Res> {
+  __$$_GooglePayPaymentMethodParamsCopyWithImpl(
+      _$_GooglePayPaymentMethodParams _value,
+      $Res Function(_$_GooglePayPaymentMethodParams) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4080,7 +3207,7 @@ class __$$GooglePayPaymentMethodParamsImplCopyWithImpl<$Res>
     Object? billingAddressConfig = freezed,
     Object? shippingAddressConfig = freezed,
   }) {
-    return _then(_$GooglePayPaymentMethodParamsImpl(
+    return _then(_$_GooglePayPaymentMethodParams(
       existingPaymentMethodRequired: freezed == existingPaymentMethodRequired
           ? _value.existingPaymentMethodRequired
           : existingPaymentMethodRequired // ignore: cast_nullable_to_non_nullable
@@ -4104,17 +3231,15 @@ class __$$GooglePayPaymentMethodParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$GooglePayPaymentMethodParamsImpl
-    implements _GooglePayPaymentMethodParams {
-  const _$GooglePayPaymentMethodParamsImpl(
+class _$_GooglePayPaymentMethodParams implements _GooglePayPaymentMethodParams {
+  const _$_GooglePayPaymentMethodParams(
       {this.existingPaymentMethodRequired,
       required this.amount,
       this.billingAddressConfig,
       this.shippingAddressConfig});
 
-  factory _$GooglePayPaymentMethodParamsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$GooglePayPaymentMethodParamsImplFromJson(json);
+  factory _$_GooglePayPaymentMethodParams.fromJson(Map<String, dynamic> json) =>
+      _$$_GooglePayPaymentMethodParamsFromJson(json);
 
   /// If true, Google Pay is considered "available" if the customer's Google Pay wallet has an existing payment method.
   ///
@@ -4123,7 +3248,6 @@ class _$GooglePayPaymentMethodParamsImpl
   final bool? existingPaymentMethodRequired;
 
   /// Total monetary value of the transaction.
-  /// Provide this value in the currency’s smallest unit.
   @override
   final int amount;
 
@@ -4141,10 +3265,10 @@ class _$GooglePayPaymentMethodParamsImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GooglePayPaymentMethodParamsImpl &&
+            other is _$_GooglePayPaymentMethodParams &&
             (identical(other.existingPaymentMethodRequired,
                     existingPaymentMethodRequired) ||
                 other.existingPaymentMethodRequired ==
@@ -4164,14 +3288,13 @@ class _$GooglePayPaymentMethodParamsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GooglePayPaymentMethodParamsImplCopyWith<
-          _$GooglePayPaymentMethodParamsImpl>
-      get copyWith => __$$GooglePayPaymentMethodParamsImplCopyWithImpl<
-          _$GooglePayPaymentMethodParamsImpl>(this, _$identity);
+  _$$_GooglePayPaymentMethodParamsCopyWith<_$_GooglePayPaymentMethodParams>
+      get copyWith => __$$_GooglePayPaymentMethodParamsCopyWithImpl<
+          _$_GooglePayPaymentMethodParams>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GooglePayPaymentMethodParamsImplToJson(
+    return _$$_GooglePayPaymentMethodParamsToJson(
       this,
     );
   }
@@ -4184,10 +3307,10 @@ abstract class _GooglePayPaymentMethodParams
           required final int amount,
           final GooglePayBillingAddressConfig? billingAddressConfig,
           final GooglePayShippingAddressConfig? shippingAddressConfig}) =
-      _$GooglePayPaymentMethodParamsImpl;
+      _$_GooglePayPaymentMethodParams;
 
   factory _GooglePayPaymentMethodParams.fromJson(Map<String, dynamic> json) =
-      _$GooglePayPaymentMethodParamsImpl.fromJson;
+      _$_GooglePayPaymentMethodParams.fromJson;
 
   @override
 
@@ -4198,7 +3321,6 @@ abstract class _GooglePayPaymentMethodParams
   @override
 
   /// Total monetary value of the transaction.
-  /// Provide this value in the currency’s smallest unit.
   int get amount;
   @override
 
@@ -4210,8 +3332,7 @@ abstract class _GooglePayPaymentMethodParams
   GooglePayShippingAddressConfig? get shippingAddressConfig;
   @override
   @JsonKey(ignore: true)
-  _$$GooglePayPaymentMethodParamsImplCopyWith<
-          _$GooglePayPaymentMethodParamsImpl>
+  _$$_GooglePayPaymentMethodParamsCopyWith<_$_GooglePayPaymentMethodParams>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -4293,12 +3414,12 @@ class _$GooglePayBillingAddressConfigCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GooglePayBillingAddressConfigImplCopyWith<$Res>
+abstract class _$$_GooglePayBillingAddressConfigCopyWith<$Res>
     implements $GooglePayBillingAddressConfigCopyWith<$Res> {
-  factory _$$GooglePayBillingAddressConfigImplCopyWith(
-          _$GooglePayBillingAddressConfigImpl value,
-          $Res Function(_$GooglePayBillingAddressConfigImpl) then) =
-      __$$GooglePayBillingAddressConfigImplCopyWithImpl<$Res>;
+  factory _$$_GooglePayBillingAddressConfigCopyWith(
+          _$_GooglePayBillingAddressConfig value,
+          $Res Function(_$_GooglePayBillingAddressConfig) then) =
+      __$$_GooglePayBillingAddressConfigCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -4308,13 +3429,13 @@ abstract class _$$GooglePayBillingAddressConfigImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GooglePayBillingAddressConfigImplCopyWithImpl<$Res>
+class __$$_GooglePayBillingAddressConfigCopyWithImpl<$Res>
     extends _$GooglePayBillingAddressConfigCopyWithImpl<$Res,
-        _$GooglePayBillingAddressConfigImpl>
-    implements _$$GooglePayBillingAddressConfigImplCopyWith<$Res> {
-  __$$GooglePayBillingAddressConfigImplCopyWithImpl(
-      _$GooglePayBillingAddressConfigImpl _value,
-      $Res Function(_$GooglePayBillingAddressConfigImpl) _then)
+        _$_GooglePayBillingAddressConfig>
+    implements _$$_GooglePayBillingAddressConfigCopyWith<$Res> {
+  __$$_GooglePayBillingAddressConfigCopyWithImpl(
+      _$_GooglePayBillingAddressConfig _value,
+      $Res Function(_$_GooglePayBillingAddressConfig) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4324,7 +3445,7 @@ class __$$GooglePayBillingAddressConfigImplCopyWithImpl<$Res>
     Object? isPhoneNumberRequired = freezed,
     Object? format = freezed,
   }) {
-    return _then(_$GooglePayBillingAddressConfigImpl(
+    return _then(_$_GooglePayBillingAddressConfig(
       isRequired: freezed == isRequired
           ? _value.isRequired
           : isRequired // ignore: cast_nullable_to_non_nullable
@@ -4344,14 +3465,14 @@ class __$$GooglePayBillingAddressConfigImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$GooglePayBillingAddressConfigImpl
+class _$_GooglePayBillingAddressConfig
     implements _GooglePayBillingAddressConfig {
-  const _$GooglePayBillingAddressConfigImpl(
+  const _$_GooglePayBillingAddressConfig(
       {this.isRequired, this.isPhoneNumberRequired, this.format});
 
-  factory _$GooglePayBillingAddressConfigImpl.fromJson(
+  factory _$_GooglePayBillingAddressConfig.fromJson(
           Map<String, dynamic> json) =>
-      _$$GooglePayBillingAddressConfigImplFromJson(json);
+      _$$_GooglePayBillingAddressConfigFromJson(json);
 
   /// Set to true if billing address is required for payment.
   ///
@@ -4377,10 +3498,10 @@ class _$GooglePayBillingAddressConfigImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GooglePayBillingAddressConfigImpl &&
+            other is _$_GooglePayBillingAddressConfig &&
             (identical(other.isRequired, isRequired) ||
                 other.isRequired == isRequired) &&
             (identical(other.isPhoneNumberRequired, isPhoneNumberRequired) ||
@@ -4396,14 +3517,13 @@ class _$GooglePayBillingAddressConfigImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GooglePayBillingAddressConfigImplCopyWith<
-          _$GooglePayBillingAddressConfigImpl>
-      get copyWith => __$$GooglePayBillingAddressConfigImplCopyWithImpl<
-          _$GooglePayBillingAddressConfigImpl>(this, _$identity);
+  _$$_GooglePayBillingAddressConfigCopyWith<_$_GooglePayBillingAddressConfig>
+      get copyWith => __$$_GooglePayBillingAddressConfigCopyWithImpl<
+          _$_GooglePayBillingAddressConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GooglePayBillingAddressConfigImplToJson(
+    return _$$_GooglePayBillingAddressConfigToJson(
       this,
     );
   }
@@ -4412,13 +3532,12 @@ class _$GooglePayBillingAddressConfigImpl
 abstract class _GooglePayBillingAddressConfig
     implements GooglePayBillingAddressConfig {
   const factory _GooglePayBillingAddressConfig(
-          {final bool? isRequired,
-          final bool? isPhoneNumberRequired,
-          final BillingAddressFormat? format}) =
-      _$GooglePayBillingAddressConfigImpl;
+      {final bool? isRequired,
+      final bool? isPhoneNumberRequired,
+      final BillingAddressFormat? format}) = _$_GooglePayBillingAddressConfig;
 
   factory _GooglePayBillingAddressConfig.fromJson(Map<String, dynamic> json) =
-      _$GooglePayBillingAddressConfigImpl.fromJson;
+      _$_GooglePayBillingAddressConfig.fromJson;
 
   @override
 
@@ -4440,8 +3559,7 @@ abstract class _GooglePayBillingAddressConfig
   BillingAddressFormat? get format;
   @override
   @JsonKey(ignore: true)
-  _$$GooglePayBillingAddressConfigImplCopyWith<
-          _$GooglePayBillingAddressConfigImpl>
+  _$$_GooglePayBillingAddressConfigCopyWith<_$_GooglePayBillingAddressConfig>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -4523,12 +3641,12 @@ class _$GooglePayShippingAddressConfigCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GooglePayShippingAddressConfigImplCopyWith<$Res>
+abstract class _$$_GooglePayShippingAddressConfigCopyWith<$Res>
     implements $GooglePayShippingAddressConfigCopyWith<$Res> {
-  factory _$$GooglePayShippingAddressConfigImplCopyWith(
-          _$GooglePayShippingAddressConfigImpl value,
-          $Res Function(_$GooglePayShippingAddressConfigImpl) then) =
-      __$$GooglePayShippingAddressConfigImplCopyWithImpl<$Res>;
+  factory _$$_GooglePayShippingAddressConfigCopyWith(
+          _$_GooglePayShippingAddressConfig value,
+          $Res Function(_$_GooglePayShippingAddressConfig) then) =
+      __$$_GooglePayShippingAddressConfigCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -4538,13 +3656,13 @@ abstract class _$$GooglePayShippingAddressConfigImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GooglePayShippingAddressConfigImplCopyWithImpl<$Res>
+class __$$_GooglePayShippingAddressConfigCopyWithImpl<$Res>
     extends _$GooglePayShippingAddressConfigCopyWithImpl<$Res,
-        _$GooglePayShippingAddressConfigImpl>
-    implements _$$GooglePayShippingAddressConfigImplCopyWith<$Res> {
-  __$$GooglePayShippingAddressConfigImplCopyWithImpl(
-      _$GooglePayShippingAddressConfigImpl _value,
-      $Res Function(_$GooglePayShippingAddressConfigImpl) _then)
+        _$_GooglePayShippingAddressConfig>
+    implements _$$_GooglePayShippingAddressConfigCopyWith<$Res> {
+  __$$_GooglePayShippingAddressConfigCopyWithImpl(
+      _$_GooglePayShippingAddressConfig _value,
+      $Res Function(_$_GooglePayShippingAddressConfig) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4554,7 +3672,7 @@ class __$$GooglePayShippingAddressConfigImplCopyWithImpl<$Res>
     Object? isPhoneNumberRequired = freezed,
     Object? allowedCountryCodes = freezed,
   }) {
-    return _then(_$GooglePayShippingAddressConfigImpl(
+    return _then(_$_GooglePayShippingAddressConfig(
       isRequired: freezed == isRequired
           ? _value.isRequired
           : isRequired // ignore: cast_nullable_to_non_nullable
@@ -4574,17 +3692,17 @@ class __$$GooglePayShippingAddressConfigImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$GooglePayShippingAddressConfigImpl
+class _$_GooglePayShippingAddressConfig
     implements _GooglePayShippingAddressConfig {
-  const _$GooglePayShippingAddressConfigImpl(
+  const _$_GooglePayShippingAddressConfig(
       {this.isRequired,
       this.isPhoneNumberRequired,
       final List<String>? allowedCountryCodes})
       : _allowedCountryCodes = allowedCountryCodes;
 
-  factory _$GooglePayShippingAddressConfigImpl.fromJson(
+  factory _$_GooglePayShippingAddressConfig.fromJson(
           Map<String, dynamic> json) =>
-      _$$GooglePayShippingAddressConfigImplFromJson(json);
+      _$$_GooglePayShippingAddressConfigFromJson(json);
 
   /// Set to true if shipping address is required for payment.
   ///
@@ -4622,10 +3740,10 @@ class _$GooglePayShippingAddressConfigImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GooglePayShippingAddressConfigImpl &&
+            other is _$_GooglePayShippingAddressConfig &&
             (identical(other.isRequired, isRequired) ||
                 other.isRequired == isRequired) &&
             (identical(other.isPhoneNumberRequired, isPhoneNumberRequired) ||
@@ -4645,14 +3763,13 @@ class _$GooglePayShippingAddressConfigImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GooglePayShippingAddressConfigImplCopyWith<
-          _$GooglePayShippingAddressConfigImpl>
-      get copyWith => __$$GooglePayShippingAddressConfigImplCopyWithImpl<
-          _$GooglePayShippingAddressConfigImpl>(this, _$identity);
+  _$$_GooglePayShippingAddressConfigCopyWith<_$_GooglePayShippingAddressConfig>
+      get copyWith => __$$_GooglePayShippingAddressConfigCopyWithImpl<
+          _$_GooglePayShippingAddressConfig>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GooglePayShippingAddressConfigImplToJson(
+    return _$$_GooglePayShippingAddressConfigToJson(
       this,
     );
   }
@@ -4664,10 +3781,10 @@ abstract class _GooglePayShippingAddressConfig
           {final bool? isRequired,
           final bool? isPhoneNumberRequired,
           final List<String>? allowedCountryCodes}) =
-      _$GooglePayShippingAddressConfigImpl;
+      _$_GooglePayShippingAddressConfig;
 
   factory _GooglePayShippingAddressConfig.fromJson(Map<String, dynamic> json) =
-      _$GooglePayShippingAddressConfigImpl.fromJson;
+      _$_GooglePayShippingAddressConfig.fromJson;
 
   @override
 
@@ -4689,8 +3806,7 @@ abstract class _GooglePayShippingAddressConfig
   List<String>? get allowedCountryCodes;
   @override
   @JsonKey(ignore: true)
-  _$$GooglePayShippingAddressConfigImplCopyWith<
-          _$GooglePayShippingAddressConfigImpl>
+  _$$_GooglePayShippingAddressConfigCopyWith<_$_GooglePayShippingAddressConfig>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -4824,11 +3940,11 @@ class _$PaymentRequestTypeCopyWithImpl<$Res, $Val extends PaymentRequestType>
 }
 
 /// @nodoc
-abstract class _$$PaymentRequestTypeRecurringImplCopyWith<$Res> {
-  factory _$$PaymentRequestTypeRecurringImplCopyWith(
-          _$PaymentRequestTypeRecurringImpl value,
-          $Res Function(_$PaymentRequestTypeRecurringImpl) then) =
-      __$$PaymentRequestTypeRecurringImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentRequestTypeRecurringCopyWith<$Res> {
+  factory _$$_PaymentRequestTypeRecurringCopyWith(
+          _$_PaymentRequestTypeRecurring value,
+          $Res Function(_$_PaymentRequestTypeRecurring) then) =
+      __$$_PaymentRequestTypeRecurringCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String description,
@@ -4840,13 +3956,13 @@ abstract class _$$PaymentRequestTypeRecurringImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentRequestTypeRecurringImplCopyWithImpl<$Res>
+class __$$_PaymentRequestTypeRecurringCopyWithImpl<$Res>
     extends _$PaymentRequestTypeCopyWithImpl<$Res,
-        _$PaymentRequestTypeRecurringImpl>
-    implements _$$PaymentRequestTypeRecurringImplCopyWith<$Res> {
-  __$$PaymentRequestTypeRecurringImplCopyWithImpl(
-      _$PaymentRequestTypeRecurringImpl _value,
-      $Res Function(_$PaymentRequestTypeRecurringImpl) _then)
+        _$_PaymentRequestTypeRecurring>
+    implements _$$_PaymentRequestTypeRecurringCopyWith<$Res> {
+  __$$_PaymentRequestTypeRecurringCopyWithImpl(
+      _$_PaymentRequestTypeRecurring _value,
+      $Res Function(_$_PaymentRequestTypeRecurring) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -4859,7 +3975,7 @@ class __$$PaymentRequestTypeRecurringImplCopyWithImpl<$Res>
     Object? billingAgreement = freezed,
     Object? tokenNotificationURL = freezed,
   }) {
-    return _then(_$PaymentRequestTypeRecurringImpl(
+    return _then(_$_PaymentRequestTypeRecurring(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -4891,9 +4007,8 @@ class __$$PaymentRequestTypeRecurringImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PaymentRequestTypeRecurringImpl
-    implements _PaymentRequestTypeRecurring {
-  const _$PaymentRequestTypeRecurringImpl(
+class _$_PaymentRequestTypeRecurring implements _PaymentRequestTypeRecurring {
+  const _$_PaymentRequestTypeRecurring(
       {required this.description,
       required this.managementUrl,
       required this.billing,
@@ -4903,11 +4018,10 @@ class _$PaymentRequestTypeRecurringImpl
       final String? $type})
       : $type = $type ?? 'Recurring';
 
-  factory _$PaymentRequestTypeRecurringImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PaymentRequestTypeRecurringImplFromJson(json);
+  factory _$_PaymentRequestTypeRecurring.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentRequestTypeRecurringFromJson(json);
 
-  /// Description that you provide to the recurring payment.
+  /// Descirption that you provide to the recurring payment.
   ///
   /// Apple will display this in the sheet
   @override
@@ -4944,10 +4058,10 @@ class _$PaymentRequestTypeRecurringImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentRequestTypeRecurringImpl &&
+            other is _$_PaymentRequestTypeRecurring &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.managementUrl, managementUrl) ||
@@ -4975,9 +4089,9 @@ class _$PaymentRequestTypeRecurringImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentRequestTypeRecurringImplCopyWith<_$PaymentRequestTypeRecurringImpl>
-      get copyWith => __$$PaymentRequestTypeRecurringImplCopyWithImpl<
-          _$PaymentRequestTypeRecurringImpl>(this, _$identity);
+  _$$_PaymentRequestTypeRecurringCopyWith<_$_PaymentRequestTypeRecurring>
+      get copyWith => __$$_PaymentRequestTypeRecurringCopyWithImpl<
+          _$_PaymentRequestTypeRecurring>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5099,7 +4213,7 @@ class _$PaymentRequestTypeRecurringImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentRequestTypeRecurringImplToJson(
+    return _$$_PaymentRequestTypeRecurringToJson(
       this,
     );
   }
@@ -5112,12 +4226,12 @@ abstract class _PaymentRequestTypeRecurring implements PaymentRequestType {
       required final ImmediateCartSummaryItem billing,
       final ImmediateCartSummaryItem? trialBilling,
       final String? billingAgreement,
-      final String? tokenNotificationURL}) = _$PaymentRequestTypeRecurringImpl;
+      final String? tokenNotificationURL}) = _$_PaymentRequestTypeRecurring;
 
   factory _PaymentRequestTypeRecurring.fromJson(Map<String, dynamic> json) =
-      _$PaymentRequestTypeRecurringImpl.fromJson;
+      _$_PaymentRequestTypeRecurring.fromJson;
 
-  /// Description that you provide to the recurring payment.
+  /// Descirption that you provide to the recurring payment.
   ///
   /// Apple will display this in the sheet
   String get description;
@@ -5139,16 +4253,16 @@ abstract class _PaymentRequestTypeRecurring implements PaymentRequestType {
   /// For more info see receiving and handling merchant token notifications
   String? get tokenNotificationURL;
   @JsonKey(ignore: true)
-  _$$PaymentRequestTypeRecurringImplCopyWith<_$PaymentRequestTypeRecurringImpl>
+  _$$_PaymentRequestTypeRecurringCopyWith<_$_PaymentRequestTypeRecurring>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentRequestTypeReloadImplCopyWith<$Res> {
-  factory _$$PaymentRequestTypeReloadImplCopyWith(
-          _$PaymentRequestTypeReloadImpl value,
-          $Res Function(_$PaymentRequestTypeReloadImpl) then) =
-      __$$PaymentRequestTypeReloadImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentRequestTypeReloadCopyWith<$Res> {
+  factory _$$_PaymentRequestTypeReloadCopyWith(
+          _$_PaymentRequestTypeReload value,
+          $Res Function(_$_PaymentRequestTypeReload) then) =
+      __$$_PaymentRequestTypeReloadCopyWithImpl<$Res>;
   @useResult
   $Res call(
       {String description,
@@ -5161,13 +4275,11 @@ abstract class _$$PaymentRequestTypeReloadImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$PaymentRequestTypeReloadImplCopyWithImpl<$Res>
-    extends _$PaymentRequestTypeCopyWithImpl<$Res,
-        _$PaymentRequestTypeReloadImpl>
-    implements _$$PaymentRequestTypeReloadImplCopyWith<$Res> {
-  __$$PaymentRequestTypeReloadImplCopyWithImpl(
-      _$PaymentRequestTypeReloadImpl _value,
-      $Res Function(_$PaymentRequestTypeReloadImpl) _then)
+class __$$_PaymentRequestTypeReloadCopyWithImpl<$Res>
+    extends _$PaymentRequestTypeCopyWithImpl<$Res, _$_PaymentRequestTypeReload>
+    implements _$$_PaymentRequestTypeReloadCopyWith<$Res> {
+  __$$_PaymentRequestTypeReloadCopyWithImpl(_$_PaymentRequestTypeReload _value,
+      $Res Function(_$_PaymentRequestTypeReload) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5181,7 +4293,7 @@ class __$$PaymentRequestTypeReloadImplCopyWithImpl<$Res>
     Object? billingAgreement = freezed,
     Object? tokenNotificationURL = freezed,
   }) {
-    return _then(_$PaymentRequestTypeReloadImpl(
+    return _then(_$_PaymentRequestTypeReload(
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -5216,8 +4328,8 @@ class __$$PaymentRequestTypeReloadImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentRequestTypeReloadImpl implements _PaymentRequestTypeReload {
-  const _$PaymentRequestTypeReloadImpl(
+class _$_PaymentRequestTypeReload implements _PaymentRequestTypeReload {
+  const _$_PaymentRequestTypeReload(
       {required this.description,
       required this.managementUrl,
       required this.label,
@@ -5228,8 +4340,8 @@ class _$PaymentRequestTypeReloadImpl implements _PaymentRequestTypeReload {
       final String? $type})
       : $type = $type ?? 'AutomaticReload';
 
-  factory _$PaymentRequestTypeReloadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PaymentRequestTypeReloadImplFromJson(json);
+  factory _$_PaymentRequestTypeReload.fromJson(Map<String, dynamic> json) =>
+      _$$_PaymentRequestTypeReloadFromJson(json);
 
   /// Descirption that you provide to the recurring payment.
   ///
@@ -5272,10 +4384,10 @@ class _$PaymentRequestTypeReloadImpl implements _PaymentRequestTypeReload {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentRequestTypeReloadImpl &&
+            other is _$_PaymentRequestTypeReload &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.managementUrl, managementUrl) ||
@@ -5306,9 +4418,9 @@ class _$PaymentRequestTypeReloadImpl implements _PaymentRequestTypeReload {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentRequestTypeReloadImplCopyWith<_$PaymentRequestTypeReloadImpl>
-      get copyWith => __$$PaymentRequestTypeReloadImplCopyWithImpl<
-          _$PaymentRequestTypeReloadImpl>(this, _$identity);
+  _$$_PaymentRequestTypeReloadCopyWith<_$_PaymentRequestTypeReload>
+      get copyWith => __$$_PaymentRequestTypeReloadCopyWithImpl<
+          _$_PaymentRequestTypeReload>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5430,7 +4542,7 @@ class _$PaymentRequestTypeReloadImpl implements _PaymentRequestTypeReload {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentRequestTypeReloadImplToJson(
+    return _$$_PaymentRequestTypeReloadToJson(
       this,
     );
   }
@@ -5444,10 +4556,10 @@ abstract class _PaymentRequestTypeReload implements PaymentRequestType {
       required final String reloadAmount,
       required final String thresholdAmount,
       final String? billingAgreement,
-      final String? tokenNotificationURL}) = _$PaymentRequestTypeReloadImpl;
+      final String? tokenNotificationURL}) = _$_PaymentRequestTypeReload;
 
   factory _PaymentRequestTypeReload.fromJson(Map<String, dynamic> json) =
-      _$PaymentRequestTypeReloadImpl.fromJson;
+      _$_PaymentRequestTypeReload.fromJson;
 
   /// Descirption that you provide to the recurring payment.
   ///
@@ -5474,28 +4586,28 @@ abstract class _PaymentRequestTypeReload implements PaymentRequestType {
   /// For more info see receiving and handling merchant token notifications
   String? get tokenNotificationURL;
   @JsonKey(ignore: true)
-  _$$PaymentRequestTypeReloadImplCopyWith<_$PaymentRequestTypeReloadImpl>
+  _$$_PaymentRequestTypeReloadCopyWith<_$_PaymentRequestTypeReload>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PaymentRequestTypeMultiMerchantImplCopyWith<$Res> {
-  factory _$$PaymentRequestTypeMultiMerchantImplCopyWith(
-          _$PaymentRequestTypeMultiMerchantImpl value,
-          $Res Function(_$PaymentRequestTypeMultiMerchantImpl) then) =
-      __$$PaymentRequestTypeMultiMerchantImplCopyWithImpl<$Res>;
+abstract class _$$_PaymentRequestTypeMultiMerchantCopyWith<$Res> {
+  factory _$$_PaymentRequestTypeMultiMerchantCopyWith(
+          _$_PaymentRequestTypeMultiMerchant value,
+          $Res Function(_$_PaymentRequestTypeMultiMerchant) then) =
+      __$$_PaymentRequestTypeMultiMerchantCopyWithImpl<$Res>;
   @useResult
   $Res call({List<ApplePayMultiMerchant> merchants});
 }
 
 /// @nodoc
-class __$$PaymentRequestTypeMultiMerchantImplCopyWithImpl<$Res>
+class __$$_PaymentRequestTypeMultiMerchantCopyWithImpl<$Res>
     extends _$PaymentRequestTypeCopyWithImpl<$Res,
-        _$PaymentRequestTypeMultiMerchantImpl>
-    implements _$$PaymentRequestTypeMultiMerchantImplCopyWith<$Res> {
-  __$$PaymentRequestTypeMultiMerchantImplCopyWithImpl(
-      _$PaymentRequestTypeMultiMerchantImpl _value,
-      $Res Function(_$PaymentRequestTypeMultiMerchantImpl) _then)
+        _$_PaymentRequestTypeMultiMerchant>
+    implements _$$_PaymentRequestTypeMultiMerchantCopyWith<$Res> {
+  __$$_PaymentRequestTypeMultiMerchantCopyWithImpl(
+      _$_PaymentRequestTypeMultiMerchant _value,
+      $Res Function(_$_PaymentRequestTypeMultiMerchant) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5503,7 +4615,7 @@ class __$$PaymentRequestTypeMultiMerchantImplCopyWithImpl<$Res>
   $Res call({
     Object? merchants = null,
   }) {
-    return _then(_$PaymentRequestTypeMultiMerchantImpl(
+    return _then(_$_PaymentRequestTypeMultiMerchant(
       merchants: null == merchants
           ? _value._merchants
           : merchants // ignore: cast_nullable_to_non_nullable
@@ -5514,17 +4626,17 @@ class __$$PaymentRequestTypeMultiMerchantImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PaymentRequestTypeMultiMerchantImpl
+class _$_PaymentRequestTypeMultiMerchant
     implements _PaymentRequestTypeMultiMerchant {
-  const _$PaymentRequestTypeMultiMerchantImpl(
+  const _$_PaymentRequestTypeMultiMerchant(
       {required final List<ApplePayMultiMerchant> merchants,
       final String? $type})
       : _merchants = merchants,
         $type = $type ?? 'MultiMerchant';
 
-  factory _$PaymentRequestTypeMultiMerchantImpl.fromJson(
+  factory _$_PaymentRequestTypeMultiMerchant.fromJson(
           Map<String, dynamic> json) =>
-      _$$PaymentRequestTypeMultiMerchantImplFromJson(json);
+      _$$_PaymentRequestTypeMultiMerchantFromJson(json);
 
   final List<ApplePayMultiMerchant> _merchants;
   @override
@@ -5543,10 +4655,10 @@ class _$PaymentRequestTypeMultiMerchantImpl
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PaymentRequestTypeMultiMerchantImpl &&
+            other is _$_PaymentRequestTypeMultiMerchant &&
             const DeepCollectionEquality()
                 .equals(other._merchants, _merchants));
   }
@@ -5559,10 +4671,10 @@ class _$PaymentRequestTypeMultiMerchantImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PaymentRequestTypeMultiMerchantImplCopyWith<
-          _$PaymentRequestTypeMultiMerchantImpl>
-      get copyWith => __$$PaymentRequestTypeMultiMerchantImplCopyWithImpl<
-          _$PaymentRequestTypeMultiMerchantImpl>(this, _$identity);
+  _$$_PaymentRequestTypeMultiMerchantCopyWith<
+          _$_PaymentRequestTypeMultiMerchant>
+      get copyWith => __$$_PaymentRequestTypeMultiMerchantCopyWithImpl<
+          _$_PaymentRequestTypeMultiMerchant>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -5681,7 +4793,7 @@ class _$PaymentRequestTypeMultiMerchantImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PaymentRequestTypeMultiMerchantImplToJson(
+    return _$$_PaymentRequestTypeMultiMerchantToJson(
       this,
     );
   }
@@ -5690,15 +4802,15 @@ class _$PaymentRequestTypeMultiMerchantImpl
 abstract class _PaymentRequestTypeMultiMerchant implements PaymentRequestType {
   const factory _PaymentRequestTypeMultiMerchant(
           {required final List<ApplePayMultiMerchant> merchants}) =
-      _$PaymentRequestTypeMultiMerchantImpl;
+      _$_PaymentRequestTypeMultiMerchant;
 
   factory _PaymentRequestTypeMultiMerchant.fromJson(Map<String, dynamic> json) =
-      _$PaymentRequestTypeMultiMerchantImpl.fromJson;
+      _$_PaymentRequestTypeMultiMerchant.fromJson;
 
   List<ApplePayMultiMerchant> get merchants;
   @JsonKey(ignore: true)
-  _$$PaymentRequestTypeMultiMerchantImplCopyWith<
-          _$PaymentRequestTypeMultiMerchantImpl>
+  _$$_PaymentRequestTypeMultiMerchantCopyWith<
+          _$_PaymentRequestTypeMultiMerchant>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -5790,12 +4902,11 @@ class _$ApplePayMultiMerchantCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ApplePayMultiMerchantImplCopyWith<$Res>
+abstract class _$$_ApplePayMultiMerchantCopyWith<$Res>
     implements $ApplePayMultiMerchantCopyWith<$Res> {
-  factory _$$ApplePayMultiMerchantImplCopyWith(
-          _$ApplePayMultiMerchantImpl value,
-          $Res Function(_$ApplePayMultiMerchantImpl) then) =
-      __$$ApplePayMultiMerchantImplCopyWithImpl<$Res>;
+  factory _$$_ApplePayMultiMerchantCopyWith(_$_ApplePayMultiMerchant value,
+          $Res Function(_$_ApplePayMultiMerchant) then) =
+      __$$_ApplePayMultiMerchantCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -5807,12 +4918,11 @@ abstract class _$$ApplePayMultiMerchantImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ApplePayMultiMerchantImplCopyWithImpl<$Res>
-    extends _$ApplePayMultiMerchantCopyWithImpl<$Res,
-        _$ApplePayMultiMerchantImpl>
-    implements _$$ApplePayMultiMerchantImplCopyWith<$Res> {
-  __$$ApplePayMultiMerchantImplCopyWithImpl(_$ApplePayMultiMerchantImpl _value,
-      $Res Function(_$ApplePayMultiMerchantImpl) _then)
+class __$$_ApplePayMultiMerchantCopyWithImpl<$Res>
+    extends _$ApplePayMultiMerchantCopyWithImpl<$Res, _$_ApplePayMultiMerchant>
+    implements _$$_ApplePayMultiMerchantCopyWith<$Res> {
+  __$$_ApplePayMultiMerchantCopyWithImpl(_$_ApplePayMultiMerchant _value,
+      $Res Function(_$_ApplePayMultiMerchant) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -5824,7 +4934,7 @@ class __$$ApplePayMultiMerchantImplCopyWithImpl<$Res>
     Object? merchantDomain = freezed,
     Object? amount = null,
   }) {
-    return _then(_$ApplePayMultiMerchantImpl(
+    return _then(_$_ApplePayMultiMerchant(
       merchantIdentifier: null == merchantIdentifier
           ? _value.merchantIdentifier
           : merchantIdentifier // ignore: cast_nullable_to_non_nullable
@@ -5852,16 +4962,16 @@ class __$$ApplePayMultiMerchantImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$ApplePayMultiMerchantImpl implements _ApplePayMultiMerchant {
-  const _$ApplePayMultiMerchantImpl(
+class _$_ApplePayMultiMerchant implements _ApplePayMultiMerchant {
+  const _$_ApplePayMultiMerchant(
       {required this.merchantIdentifier,
       required this.externalIdentifier,
       required this.merchantName,
       this.merchantDomain,
       required this.amount});
 
-  factory _$ApplePayMultiMerchantImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ApplePayMultiMerchantImplFromJson(json);
+  factory _$_ApplePayMultiMerchant.fromJson(Map<String, dynamic> json) =>
+      _$$_ApplePayMultiMerchantFromJson(json);
 
   /// The apple pay merchant identifier
   @override
@@ -5889,10 +4999,10 @@ class _$ApplePayMultiMerchantImpl implements _ApplePayMultiMerchant {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ApplePayMultiMerchantImpl &&
+            other is _$_ApplePayMultiMerchant &&
             (identical(other.merchantIdentifier, merchantIdentifier) ||
                 other.merchantIdentifier == merchantIdentifier) &&
             (identical(other.externalIdentifier, externalIdentifier) ||
@@ -5912,13 +5022,13 @@ class _$ApplePayMultiMerchantImpl implements _ApplePayMultiMerchant {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ApplePayMultiMerchantImplCopyWith<_$ApplePayMultiMerchantImpl>
-      get copyWith => __$$ApplePayMultiMerchantImplCopyWithImpl<
-          _$ApplePayMultiMerchantImpl>(this, _$identity);
+  _$$_ApplePayMultiMerchantCopyWith<_$_ApplePayMultiMerchant> get copyWith =>
+      __$$_ApplePayMultiMerchantCopyWithImpl<_$_ApplePayMultiMerchant>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ApplePayMultiMerchantImplToJson(
+    return _$$_ApplePayMultiMerchantToJson(
       this,
     );
   }
@@ -5930,10 +5040,10 @@ abstract class _ApplePayMultiMerchant implements ApplePayMultiMerchant {
       required final String externalIdentifier,
       required final String merchantName,
       final String? merchantDomain,
-      required final String amount}) = _$ApplePayMultiMerchantImpl;
+      required final String amount}) = _$_ApplePayMultiMerchant;
 
   factory _ApplePayMultiMerchant.fromJson(Map<String, dynamic> json) =
-      _$ApplePayMultiMerchantImpl.fromJson;
+      _$_ApplePayMultiMerchant.fromJson;
 
   @override
 
@@ -5957,8 +5067,8 @@ abstract class _ApplePayMultiMerchant implements ApplePayMultiMerchant {
   String get amount;
   @override
   @JsonKey(ignore: true)
-  _$$ApplePayMultiMerchantImplCopyWith<_$ApplePayMultiMerchantImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$_ApplePayMultiMerchantCopyWith<_$_ApplePayMultiMerchant> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 PlatformPayOrderDetails _$PlatformPayOrderDetailsFromJson(
@@ -6080,12 +5190,11 @@ class _$PlatformPayOrderDetailsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PlatformPayOrderDetailsImplCopyWith<$Res>
+abstract class _$$_PlatformPayOrderDetailsCopyWith<$Res>
     implements $PlatformPayOrderDetailsCopyWith<$Res> {
-  factory _$$PlatformPayOrderDetailsImplCopyWith(
-          _$PlatformPayOrderDetailsImpl value,
-          $Res Function(_$PlatformPayOrderDetailsImpl) then) =
-      __$$PlatformPayOrderDetailsImplCopyWithImpl<$Res>;
+  factory _$$_PlatformPayOrderDetailsCopyWith(_$_PlatformPayOrderDetails value,
+          $Res Function(_$_PlatformPayOrderDetails) then) =
+      __$$_PlatformPayOrderDetailsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -6096,13 +5205,12 @@ abstract class _$$PlatformPayOrderDetailsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlatformPayOrderDetailsImplCopyWithImpl<$Res>
+class __$$_PlatformPayOrderDetailsCopyWithImpl<$Res>
     extends _$PlatformPayOrderDetailsCopyWithImpl<$Res,
-        _$PlatformPayOrderDetailsImpl>
-    implements _$$PlatformPayOrderDetailsImplCopyWith<$Res> {
-  __$$PlatformPayOrderDetailsImplCopyWithImpl(
-      _$PlatformPayOrderDetailsImpl _value,
-      $Res Function(_$PlatformPayOrderDetailsImpl) _then)
+        _$_PlatformPayOrderDetails>
+    implements _$$_PlatformPayOrderDetailsCopyWith<$Res> {
+  __$$_PlatformPayOrderDetailsCopyWithImpl(_$_PlatformPayOrderDetails _value,
+      $Res Function(_$_PlatformPayOrderDetails) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -6113,7 +5221,7 @@ class __$$PlatformPayOrderDetailsImplCopyWithImpl<$Res>
     Object? webServiceUrl = null,
     Object? authenticationToken = null,
   }) {
-    return _then(_$PlatformPayOrderDetailsImpl(
+    return _then(_$_PlatformPayOrderDetails(
       orderTypeIdentifier: null == orderTypeIdentifier
           ? _value.orderTypeIdentifier
           : orderTypeIdentifier // ignore: cast_nullable_to_non_nullable
@@ -6137,15 +5245,15 @@ class __$$PlatformPayOrderDetailsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(explicitToJson: true)
-class _$PlatformPayOrderDetailsImpl implements _PlatformPayOrderDetails {
-  const _$PlatformPayOrderDetailsImpl(
+class _$_PlatformPayOrderDetails implements _PlatformPayOrderDetails {
+  const _$_PlatformPayOrderDetails(
       {required this.orderTypeIdentifier,
       required this.orderIdentifier,
       required this.webServiceUrl,
       required this.authenticationToken});
 
-  factory _$PlatformPayOrderDetailsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PlatformPayOrderDetailsImplFromJson(json);
+  factory _$_PlatformPayOrderDetails.fromJson(Map<String, dynamic> json) =>
+      _$$_PlatformPayOrderDetailsFromJson(json);
 
   /// eg: "com.myapp.order"
   @override
@@ -6169,10 +5277,10 @@ class _$PlatformPayOrderDetailsImpl implements _PlatformPayOrderDetails {
   }
 
   @override
-  bool operator ==(Object other) {
+  bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlatformPayOrderDetailsImpl &&
+            other is _$_PlatformPayOrderDetails &&
             (identical(other.orderTypeIdentifier, orderTypeIdentifier) ||
                 other.orderTypeIdentifier == orderTypeIdentifier) &&
             (identical(other.orderIdentifier, orderIdentifier) ||
@@ -6191,9 +5299,10 @@ class _$PlatformPayOrderDetailsImpl implements _PlatformPayOrderDetails {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlatformPayOrderDetailsImplCopyWith<_$PlatformPayOrderDetailsImpl>
-      get copyWith => __$$PlatformPayOrderDetailsImplCopyWithImpl<
-          _$PlatformPayOrderDetailsImpl>(this, _$identity);
+  _$$_PlatformPayOrderDetailsCopyWith<_$_PlatformPayOrderDetails>
+      get copyWith =>
+          __$$_PlatformPayOrderDetailsCopyWithImpl<_$_PlatformPayOrderDetails>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -6265,7 +5374,7 @@ class _$PlatformPayOrderDetailsImpl implements _PlatformPayOrderDetails {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PlatformPayOrderDetailsImplToJson(
+    return _$$_PlatformPayOrderDetailsToJson(
       this,
     );
   }
@@ -6273,14 +5382,13 @@ class _$PlatformPayOrderDetailsImpl implements _PlatformPayOrderDetails {
 
 abstract class _PlatformPayOrderDetails implements PlatformPayOrderDetails {
   const factory _PlatformPayOrderDetails(
-          {required final String orderTypeIdentifier,
-          required final String orderIdentifier,
-          required final String webServiceUrl,
-          required final String authenticationToken}) =
-      _$PlatformPayOrderDetailsImpl;
+      {required final String orderTypeIdentifier,
+      required final String orderIdentifier,
+      required final String webServiceUrl,
+      required final String authenticationToken}) = _$_PlatformPayOrderDetails;
 
   factory _PlatformPayOrderDetails.fromJson(Map<String, dynamic> json) =
-      _$PlatformPayOrderDetailsImpl.fromJson;
+      _$_PlatformPayOrderDetails.fromJson;
 
   @override
 
@@ -6300,922 +5408,6 @@ abstract class _PlatformPayOrderDetails implements PlatformPayOrderDetails {
   String get authenticationToken;
   @override
   @JsonKey(ignore: true)
-  _$$PlatformPayOrderDetailsImplCopyWith<_$PlatformPayOrderDetailsImpl>
+  _$$_PlatformPayOrderDetailsCopyWith<_$_PlatformPayOrderDetails>
       get copyWith => throw _privateConstructorUsedError;
-}
-
-PlatformPayWebPaymentRequestCreateOptions
-    _$PlatformPayWebPaymentRequestCreateOptionsFromJson(
-        Map<String, dynamic> json) {
-  return _PaymentRequestCreateOptions.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PlatformPayWebPaymentRequestCreateOptions {
-  /// The two-letter country code of your Stripe account (e.g., US).
-  String get country => throw _privateConstructorUsedError;
-
-  /// Three character currency code (e.g., usd).
-  String get currency => throw _privateConstructorUsedError;
-
-  /// A PaymentItem object. This PaymentItem is shown to the customer in the browser’s payment interface.
-  PlatformPayWebPaymentItem get total => throw _privateConstructorUsedError;
-
-  /// An array of PaymentItem objects. These objects are shown as line items in the browser’s payment interface.
-  /// Note that the sum of the line item amounts does not need to add up to the total amount above.
-  List<PlatformPayWebPaymentItem> get displayItems =>
-      throw _privateConstructorUsedError;
-
-  /// By default, the browser‘s payment interface only asks the customer for actual payment information. A customer
-  /// name can be collected by setting this option to true. This collected name will appears in the PaymentResponse object.
-  ///
-  ///  We highly recommend you collect name as this also results in collection of billing address for Apple Pay.
-  ///  The billing address can be used to perform address verification and block fraudulent payments.
-  ///  For all other payment methods, the billing address is automatically collected when available.
-  bool get requestPayerName => throw _privateConstructorUsedError;
-
-  /// See the requestPayerName option.
-  bool get requestPayerEmail => throw _privateConstructorUsedError;
-
-  /// See the requestPayerName option.
-  bool get requestPayerPhone => throw _privateConstructorUsedError;
-
-  /// Collect shipping address by setting this option to true. The address appears in the PaymentResponse.
-  ///
-  ///  You must also supply a valid [ShippingOptions] to the shippingOptions property. This can be up front at the
-  ///  time stripe.paymentRequest is called, or in response to a shippingaddresschange event using the updateWith callback.
-  bool get requestShipping => throw _privateConstructorUsedError;
-
-  /// An array of ShippingOption objects. The first shipping option listed appears in the browser payment interface as the default option.
-  List<PlatformPayWebShippingOption> get shippingOptions =>
-      throw _privateConstructorUsedError;
-
-  /// An array of wallet strings. Can be one or more of applePay, googlePay, link, and browserCard. Use this option
-  /// to disable Apple Pay, Google Pay, Link, and/or browser-saved cards.
-  List<PlatformPayWebWalletType> get disableWallets =>
-      throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PlatformPayWebPaymentRequestCreateOptionsCopyWith<
-          PlatformPayWebPaymentRequestCreateOptions>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> {
-  factory $PlatformPayWebPaymentRequestCreateOptionsCopyWith(
-          PlatformPayWebPaymentRequestCreateOptions value,
-          $Res Function(PlatformPayWebPaymentRequestCreateOptions) then) =
-      _$PlatformPayWebPaymentRequestCreateOptionsCopyWithImpl<$Res,
-          PlatformPayWebPaymentRequestCreateOptions>;
-  @useResult
-  $Res call(
-      {String country,
-      String currency,
-      PlatformPayWebPaymentItem total,
-      List<PlatformPayWebPaymentItem> displayItems,
-      bool requestPayerName,
-      bool requestPayerEmail,
-      bool requestPayerPhone,
-      bool requestShipping,
-      List<PlatformPayWebShippingOption> shippingOptions,
-      List<PlatformPayWebWalletType> disableWallets});
-
-  $PlatformPayWebPaymentItemCopyWith<$Res> get total;
-}
-
-/// @nodoc
-class _$PlatformPayWebPaymentRequestCreateOptionsCopyWithImpl<$Res,
-        $Val extends PlatformPayWebPaymentRequestCreateOptions>
-    implements $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> {
-  _$PlatformPayWebPaymentRequestCreateOptionsCopyWithImpl(
-      this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? country = null,
-    Object? currency = null,
-    Object? total = null,
-    Object? displayItems = null,
-    Object? requestPayerName = null,
-    Object? requestPayerEmail = null,
-    Object? requestPayerPhone = null,
-    Object? requestShipping = null,
-    Object? shippingOptions = null,
-    Object? disableWallets = null,
-  }) {
-    return _then(_value.copyWith(
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as PlatformPayWebPaymentItem,
-      displayItems: null == displayItems
-          ? _value.displayItems
-          : displayItems // ignore: cast_nullable_to_non_nullable
-              as List<PlatformPayWebPaymentItem>,
-      requestPayerName: null == requestPayerName
-          ? _value.requestPayerName
-          : requestPayerName // ignore: cast_nullable_to_non_nullable
-              as bool,
-      requestPayerEmail: null == requestPayerEmail
-          ? _value.requestPayerEmail
-          : requestPayerEmail // ignore: cast_nullable_to_non_nullable
-              as bool,
-      requestPayerPhone: null == requestPayerPhone
-          ? _value.requestPayerPhone
-          : requestPayerPhone // ignore: cast_nullable_to_non_nullable
-              as bool,
-      requestShipping: null == requestShipping
-          ? _value.requestShipping
-          : requestShipping // ignore: cast_nullable_to_non_nullable
-              as bool,
-      shippingOptions: null == shippingOptions
-          ? _value.shippingOptions
-          : shippingOptions // ignore: cast_nullable_to_non_nullable
-              as List<PlatformPayWebShippingOption>,
-      disableWallets: null == disableWallets
-          ? _value.disableWallets
-          : disableWallets // ignore: cast_nullable_to_non_nullable
-              as List<PlatformPayWebWalletType>,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PlatformPayWebPaymentItemCopyWith<$Res> get total {
-    return $PlatformPayWebPaymentItemCopyWith<$Res>(_value.total, (value) {
-      return _then(_value.copyWith(total: value) as $Val);
-    });
-  }
-}
-
-/// @nodoc
-abstract class _$$PaymentRequestCreateOptionsImplCopyWith<$Res>
-    implements $PlatformPayWebPaymentRequestCreateOptionsCopyWith<$Res> {
-  factory _$$PaymentRequestCreateOptionsImplCopyWith(
-          _$PaymentRequestCreateOptionsImpl value,
-          $Res Function(_$PaymentRequestCreateOptionsImpl) then) =
-      __$$PaymentRequestCreateOptionsImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String country,
-      String currency,
-      PlatformPayWebPaymentItem total,
-      List<PlatformPayWebPaymentItem> displayItems,
-      bool requestPayerName,
-      bool requestPayerEmail,
-      bool requestPayerPhone,
-      bool requestShipping,
-      List<PlatformPayWebShippingOption> shippingOptions,
-      List<PlatformPayWebWalletType> disableWallets});
-
-  @override
-  $PlatformPayWebPaymentItemCopyWith<$Res> get total;
-}
-
-/// @nodoc
-class __$$PaymentRequestCreateOptionsImplCopyWithImpl<$Res>
-    extends _$PlatformPayWebPaymentRequestCreateOptionsCopyWithImpl<$Res,
-        _$PaymentRequestCreateOptionsImpl>
-    implements _$$PaymentRequestCreateOptionsImplCopyWith<$Res> {
-  __$$PaymentRequestCreateOptionsImplCopyWithImpl(
-      _$PaymentRequestCreateOptionsImpl _value,
-      $Res Function(_$PaymentRequestCreateOptionsImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? country = null,
-    Object? currency = null,
-    Object? total = null,
-    Object? displayItems = null,
-    Object? requestPayerName = null,
-    Object? requestPayerEmail = null,
-    Object? requestPayerPhone = null,
-    Object? requestShipping = null,
-    Object? shippingOptions = null,
-    Object? disableWallets = null,
-  }) {
-    return _then(_$PaymentRequestCreateOptionsImpl(
-      country: null == country
-          ? _value.country
-          : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      currency: null == currency
-          ? _value.currency
-          : currency // ignore: cast_nullable_to_non_nullable
-              as String,
-      total: null == total
-          ? _value.total
-          : total // ignore: cast_nullable_to_non_nullable
-              as PlatformPayWebPaymentItem,
-      displayItems: null == displayItems
-          ? _value._displayItems
-          : displayItems // ignore: cast_nullable_to_non_nullable
-              as List<PlatformPayWebPaymentItem>,
-      requestPayerName: null == requestPayerName
-          ? _value.requestPayerName
-          : requestPayerName // ignore: cast_nullable_to_non_nullable
-              as bool,
-      requestPayerEmail: null == requestPayerEmail
-          ? _value.requestPayerEmail
-          : requestPayerEmail // ignore: cast_nullable_to_non_nullable
-              as bool,
-      requestPayerPhone: null == requestPayerPhone
-          ? _value.requestPayerPhone
-          : requestPayerPhone // ignore: cast_nullable_to_non_nullable
-              as bool,
-      requestShipping: null == requestShipping
-          ? _value.requestShipping
-          : requestShipping // ignore: cast_nullable_to_non_nullable
-              as bool,
-      shippingOptions: null == shippingOptions
-          ? _value._shippingOptions
-          : shippingOptions // ignore: cast_nullable_to_non_nullable
-              as List<PlatformPayWebShippingOption>,
-      disableWallets: null == disableWallets
-          ? _value._disableWallets
-          : disableWallets // ignore: cast_nullable_to_non_nullable
-              as List<PlatformPayWebWalletType>,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$PaymentRequestCreateOptionsImpl
-    implements _PaymentRequestCreateOptions {
-  const _$PaymentRequestCreateOptionsImpl(
-      {required this.country,
-      required this.currency,
-      required this.total,
-      final List<PlatformPayWebPaymentItem> displayItems = const [],
-      this.requestPayerName = false,
-      this.requestPayerEmail = false,
-      this.requestPayerPhone = false,
-      this.requestShipping = false,
-      final List<PlatformPayWebShippingOption> shippingOptions = const [],
-      final List<PlatformPayWebWalletType> disableWallets = const []})
-      : _displayItems = displayItems,
-        _shippingOptions = shippingOptions,
-        _disableWallets = disableWallets;
-
-  factory _$PaymentRequestCreateOptionsImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$PaymentRequestCreateOptionsImplFromJson(json);
-
-  /// The two-letter country code of your Stripe account (e.g., US).
-  @override
-  final String country;
-
-  /// Three character currency code (e.g., usd).
-  @override
-  final String currency;
-
-  /// A PaymentItem object. This PaymentItem is shown to the customer in the browser’s payment interface.
-  @override
-  final PlatformPayWebPaymentItem total;
-
-  /// An array of PaymentItem objects. These objects are shown as line items in the browser’s payment interface.
-  /// Note that the sum of the line item amounts does not need to add up to the total amount above.
-  final List<PlatformPayWebPaymentItem> _displayItems;
-
-  /// An array of PaymentItem objects. These objects are shown as line items in the browser’s payment interface.
-  /// Note that the sum of the line item amounts does not need to add up to the total amount above.
-  @override
-  @JsonKey()
-  List<PlatformPayWebPaymentItem> get displayItems {
-    if (_displayItems is EqualUnmodifiableListView) return _displayItems;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_displayItems);
-  }
-
-  /// By default, the browser‘s payment interface only asks the customer for actual payment information. A customer
-  /// name can be collected by setting this option to true. This collected name will appears in the PaymentResponse object.
-  ///
-  ///  We highly recommend you collect name as this also results in collection of billing address for Apple Pay.
-  ///  The billing address can be used to perform address verification and block fraudulent payments.
-  ///  For all other payment methods, the billing address is automatically collected when available.
-  @override
-  @JsonKey()
-  final bool requestPayerName;
-
-  /// See the requestPayerName option.
-  @override
-  @JsonKey()
-  final bool requestPayerEmail;
-
-  /// See the requestPayerName option.
-  @override
-  @JsonKey()
-  final bool requestPayerPhone;
-
-  /// Collect shipping address by setting this option to true. The address appears in the PaymentResponse.
-  ///
-  ///  You must also supply a valid [ShippingOptions] to the shippingOptions property. This can be up front at the
-  ///  time stripe.paymentRequest is called, or in response to a shippingaddresschange event using the updateWith callback.
-  @override
-  @JsonKey()
-  final bool requestShipping;
-
-  /// An array of ShippingOption objects. The first shipping option listed appears in the browser payment interface as the default option.
-  final List<PlatformPayWebShippingOption> _shippingOptions;
-
-  /// An array of ShippingOption objects. The first shipping option listed appears in the browser payment interface as the default option.
-  @override
-  @JsonKey()
-  List<PlatformPayWebShippingOption> get shippingOptions {
-    if (_shippingOptions is EqualUnmodifiableListView) return _shippingOptions;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_shippingOptions);
-  }
-
-  /// An array of wallet strings. Can be one or more of applePay, googlePay, link, and browserCard. Use this option
-  /// to disable Apple Pay, Google Pay, Link, and/or browser-saved cards.
-  final List<PlatformPayWebWalletType> _disableWallets;
-
-  /// An array of wallet strings. Can be one or more of applePay, googlePay, link, and browserCard. Use this option
-  /// to disable Apple Pay, Google Pay, Link, and/or browser-saved cards.
-  @override
-  @JsonKey()
-  List<PlatformPayWebWalletType> get disableWallets {
-    if (_disableWallets is EqualUnmodifiableListView) return _disableWallets;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_disableWallets);
-  }
-
-  @override
-  String toString() {
-    return 'PlatformPayWebPaymentRequestCreateOptions(country: $country, currency: $currency, total: $total, displayItems: $displayItems, requestPayerName: $requestPayerName, requestPayerEmail: $requestPayerEmail, requestPayerPhone: $requestPayerPhone, requestShipping: $requestShipping, shippingOptions: $shippingOptions, disableWallets: $disableWallets)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PaymentRequestCreateOptionsImpl &&
-            (identical(other.country, country) || other.country == country) &&
-            (identical(other.currency, currency) ||
-                other.currency == currency) &&
-            (identical(other.total, total) || other.total == total) &&
-            const DeepCollectionEquality()
-                .equals(other._displayItems, _displayItems) &&
-            (identical(other.requestPayerName, requestPayerName) ||
-                other.requestPayerName == requestPayerName) &&
-            (identical(other.requestPayerEmail, requestPayerEmail) ||
-                other.requestPayerEmail == requestPayerEmail) &&
-            (identical(other.requestPayerPhone, requestPayerPhone) ||
-                other.requestPayerPhone == requestPayerPhone) &&
-            (identical(other.requestShipping, requestShipping) ||
-                other.requestShipping == requestShipping) &&
-            const DeepCollectionEquality()
-                .equals(other._shippingOptions, _shippingOptions) &&
-            const DeepCollectionEquality()
-                .equals(other._disableWallets, _disableWallets));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      country,
-      currency,
-      total,
-      const DeepCollectionEquality().hash(_displayItems),
-      requestPayerName,
-      requestPayerEmail,
-      requestPayerPhone,
-      requestShipping,
-      const DeepCollectionEquality().hash(_shippingOptions),
-      const DeepCollectionEquality().hash(_disableWallets));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PaymentRequestCreateOptionsImplCopyWith<_$PaymentRequestCreateOptionsImpl>
-      get copyWith => __$$PaymentRequestCreateOptionsImplCopyWithImpl<
-          _$PaymentRequestCreateOptionsImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PaymentRequestCreateOptionsImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _PaymentRequestCreateOptions
-    implements PlatformPayWebPaymentRequestCreateOptions {
-  const factory _PaymentRequestCreateOptions(
-          {required final String country,
-          required final String currency,
-          required final PlatformPayWebPaymentItem total,
-          final List<PlatformPayWebPaymentItem> displayItems,
-          final bool requestPayerName,
-          final bool requestPayerEmail,
-          final bool requestPayerPhone,
-          final bool requestShipping,
-          final List<PlatformPayWebShippingOption> shippingOptions,
-          final List<PlatformPayWebWalletType> disableWallets}) =
-      _$PaymentRequestCreateOptionsImpl;
-
-  factory _PaymentRequestCreateOptions.fromJson(Map<String, dynamic> json) =
-      _$PaymentRequestCreateOptionsImpl.fromJson;
-
-  @override
-
-  /// The two-letter country code of your Stripe account (e.g., US).
-  String get country;
-  @override
-
-  /// Three character currency code (e.g., usd).
-  String get currency;
-  @override
-
-  /// A PaymentItem object. This PaymentItem is shown to the customer in the browser’s payment interface.
-  PlatformPayWebPaymentItem get total;
-  @override
-
-  /// An array of PaymentItem objects. These objects are shown as line items in the browser’s payment interface.
-  /// Note that the sum of the line item amounts does not need to add up to the total amount above.
-  List<PlatformPayWebPaymentItem> get displayItems;
-  @override
-
-  /// By default, the browser‘s payment interface only asks the customer for actual payment information. A customer
-  /// name can be collected by setting this option to true. This collected name will appears in the PaymentResponse object.
-  ///
-  ///  We highly recommend you collect name as this also results in collection of billing address for Apple Pay.
-  ///  The billing address can be used to perform address verification and block fraudulent payments.
-  ///  For all other payment methods, the billing address is automatically collected when available.
-  bool get requestPayerName;
-  @override
-
-  /// See the requestPayerName option.
-  bool get requestPayerEmail;
-  @override
-
-  /// See the requestPayerName option.
-  bool get requestPayerPhone;
-  @override
-
-  /// Collect shipping address by setting this option to true. The address appears in the PaymentResponse.
-  ///
-  ///  You must also supply a valid [ShippingOptions] to the shippingOptions property. This can be up front at the
-  ///  time stripe.paymentRequest is called, or in response to a shippingaddresschange event using the updateWith callback.
-  bool get requestShipping;
-  @override
-
-  /// An array of ShippingOption objects. The first shipping option listed appears in the browser payment interface as the default option.
-  List<PlatformPayWebShippingOption> get shippingOptions;
-  @override
-
-  /// An array of wallet strings. Can be one or more of applePay, googlePay, link, and browserCard. Use this option
-  /// to disable Apple Pay, Google Pay, Link, and/or browser-saved cards.
-  List<PlatformPayWebWalletType> get disableWallets;
-  @override
-  @JsonKey(ignore: true)
-  _$$PaymentRequestCreateOptionsImplCopyWith<_$PaymentRequestCreateOptionsImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-PlatformPayWebShippingOption _$PlatformPayWebShippingOptionFromJson(
-    Map<String, dynamic> json) {
-  return _$ShippingOption.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PlatformPayWebShippingOption {
-  /// A unique ID you create to keep track of this shipping option. You’ll be told the ID of the selected option
-  /// on changes and on completion.
-  String get id => throw _privateConstructorUsedError;
-
-  /// A short label for this shipping option.
-  String get label => throw _privateConstructorUsedError;
-
-  /// A longer description of this shipping option.
-  String get detail => throw _privateConstructorUsedError;
-
-  /// The amount to show for this shipping option. If the cost of this shipping option depends on the shipping address
-  /// the customer enters, listen for the shippingaddresschange event.
-  num get amount => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PlatformPayWebShippingOptionCopyWith<PlatformPayWebShippingOption>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlatformPayWebShippingOptionCopyWith<$Res> {
-  factory $PlatformPayWebShippingOptionCopyWith(
-          PlatformPayWebShippingOption value,
-          $Res Function(PlatformPayWebShippingOption) then) =
-      _$PlatformPayWebShippingOptionCopyWithImpl<$Res,
-          PlatformPayWebShippingOption>;
-  @useResult
-  $Res call({String id, String label, String detail, num amount});
-}
-
-/// @nodoc
-class _$PlatformPayWebShippingOptionCopyWithImpl<$Res,
-        $Val extends PlatformPayWebShippingOption>
-    implements $PlatformPayWebShippingOptionCopyWith<$Res> {
-  _$PlatformPayWebShippingOptionCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? label = null,
-    Object? detail = null,
-    Object? amount = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as num,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$$ShippingOptionImplCopyWith<$Res>
-    implements $PlatformPayWebShippingOptionCopyWith<$Res> {
-  factory _$$$ShippingOptionImplCopyWith(_$$ShippingOptionImpl value,
-          $Res Function(_$$ShippingOptionImpl) then) =
-      __$$$ShippingOptionImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String id, String label, String detail, num amount});
-}
-
-/// @nodoc
-class __$$$ShippingOptionImplCopyWithImpl<$Res>
-    extends _$PlatformPayWebShippingOptionCopyWithImpl<$Res,
-        _$$ShippingOptionImpl> implements _$$$ShippingOptionImplCopyWith<$Res> {
-  __$$$ShippingOptionImplCopyWithImpl(
-      _$$ShippingOptionImpl _value, $Res Function(_$$ShippingOptionImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? label = null,
-    Object? detail = null,
-    Object? amount = null,
-  }) {
-    return _then(_$$ShippingOptionImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      detail: null == detail
-          ? _value.detail
-          : detail // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as num,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$$ShippingOptionImpl implements _$ShippingOption {
-  const _$$ShippingOptionImpl(
-      {required this.id,
-      required this.label,
-      required this.detail,
-      required this.amount});
-
-  factory _$$ShippingOptionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$$ShippingOptionImplFromJson(json);
-
-  /// A unique ID you create to keep track of this shipping option. You’ll be told the ID of the selected option
-  /// on changes and on completion.
-  @override
-  final String id;
-
-  /// A short label for this shipping option.
-  @override
-  final String label;
-
-  /// A longer description of this shipping option.
-  @override
-  final String detail;
-
-  /// The amount to show for this shipping option. If the cost of this shipping option depends on the shipping address
-  /// the customer enters, listen for the shippingaddresschange event.
-  @override
-  final num amount;
-
-  @override
-  String toString() {
-    return 'PlatformPayWebShippingOption(id: $id, label: $label, detail: $detail, amount: $amount)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$$ShippingOptionImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.label, label) || other.label == label) &&
-            (identical(other.detail, detail) || other.detail == detail) &&
-            (identical(other.amount, amount) || other.amount == amount));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, id, label, detail, amount);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$$ShippingOptionImplCopyWith<_$$ShippingOptionImpl> get copyWith =>
-      __$$$ShippingOptionImplCopyWithImpl<_$$ShippingOptionImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$$ShippingOptionImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _$ShippingOption implements PlatformPayWebShippingOption {
-  const factory _$ShippingOption(
-      {required final String id,
-      required final String label,
-      required final String detail,
-      required final num amount}) = _$$ShippingOptionImpl;
-
-  factory _$ShippingOption.fromJson(Map<String, dynamic> json) =
-      _$$ShippingOptionImpl.fromJson;
-
-  @override
-
-  /// A unique ID you create to keep track of this shipping option. You’ll be told the ID of the selected option
-  /// on changes and on completion.
-  String get id;
-  @override
-
-  /// A short label for this shipping option.
-  String get label;
-  @override
-
-  /// A longer description of this shipping option.
-  String get detail;
-  @override
-
-  /// The amount to show for this shipping option. If the cost of this shipping option depends on the shipping address
-  /// the customer enters, listen for the shippingaddresschange event.
-  num get amount;
-  @override
-  @JsonKey(ignore: true)
-  _$$$ShippingOptionImplCopyWith<_$$ShippingOptionImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-PlatformPayWebPaymentItem _$PlatformPayWebPaymentItemFromJson(
-    Map<String, dynamic> json) {
-  return _$PaymentItem.fromJson(json);
-}
-
-/// @nodoc
-mixin _$PlatformPayWebPaymentItem {
-  /// The amount in the currency's subunit (e.g. cents, yen, etc.)
-  num get amount => throw _privateConstructorUsedError;
-
-  /// A name that the browser shows the customer in the payment interface.
-  String get label => throw _privateConstructorUsedError;
-
-  /// If you might change this amount later (for example, after you have calculated shipping costs), set this to true.
-  /// Note that browsers treat this as a hint for how to display things, and not necessarily as something that will
-  /// prevent submission.
-  bool get pending => throw _privateConstructorUsedError;
-
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PlatformPayWebPaymentItemCopyWith<PlatformPayWebPaymentItem> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $PlatformPayWebPaymentItemCopyWith<$Res> {
-  factory $PlatformPayWebPaymentItemCopyWith(PlatformPayWebPaymentItem value,
-          $Res Function(PlatformPayWebPaymentItem) then) =
-      _$PlatformPayWebPaymentItemCopyWithImpl<$Res, PlatformPayWebPaymentItem>;
-  @useResult
-  $Res call({num amount, String label, bool pending});
-}
-
-/// @nodoc
-class _$PlatformPayWebPaymentItemCopyWithImpl<$Res,
-        $Val extends PlatformPayWebPaymentItem>
-    implements $PlatformPayWebPaymentItemCopyWith<$Res> {
-  _$PlatformPayWebPaymentItemCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? amount = null,
-    Object? label = null,
-    Object? pending = null,
-  }) {
-    return _then(_value.copyWith(
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as num,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      pending: null == pending
-          ? _value.pending
-          : pending // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
-  }
-}
-
-/// @nodoc
-abstract class _$$$PaymentItemImplCopyWith<$Res>
-    implements $PlatformPayWebPaymentItemCopyWith<$Res> {
-  factory _$$$PaymentItemImplCopyWith(
-          _$$PaymentItemImpl value, $Res Function(_$$PaymentItemImpl) then) =
-      __$$$PaymentItemImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({num amount, String label, bool pending});
-}
-
-/// @nodoc
-class __$$$PaymentItemImplCopyWithImpl<$Res>
-    extends _$PlatformPayWebPaymentItemCopyWithImpl<$Res, _$$PaymentItemImpl>
-    implements _$$$PaymentItemImplCopyWith<$Res> {
-  __$$$PaymentItemImplCopyWithImpl(
-      _$$PaymentItemImpl _value, $Res Function(_$$PaymentItemImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? amount = null,
-    Object? label = null,
-    Object? pending = null,
-  }) {
-    return _then(_$$PaymentItemImpl(
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as num,
-      label: null == label
-          ? _value.label
-          : label // ignore: cast_nullable_to_non_nullable
-              as String,
-      pending: null == pending
-          ? _value.pending
-          : pending // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
-}
-
-/// @nodoc
-
-@JsonSerializable(explicitToJson: true)
-class _$$PaymentItemImpl implements _$PaymentItem {
-  const _$$PaymentItemImpl(
-      {required this.amount, required this.label, this.pending = false});
-
-  factory _$$PaymentItemImpl.fromJson(Map<String, dynamic> json) =>
-      _$$$PaymentItemImplFromJson(json);
-
-  /// The amount in the currency's subunit (e.g. cents, yen, etc.)
-  @override
-  final num amount;
-
-  /// A name that the browser shows the customer in the payment interface.
-  @override
-  final String label;
-
-  /// If you might change this amount later (for example, after you have calculated shipping costs), set this to true.
-  /// Note that browsers treat this as a hint for how to display things, and not necessarily as something that will
-  /// prevent submission.
-  @override
-  @JsonKey()
-  final bool pending;
-
-  @override
-  String toString() {
-    return 'PlatformPayWebPaymentItem(amount: $amount, label: $label, pending: $pending)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$$PaymentItemImpl &&
-            (identical(other.amount, amount) || other.amount == amount) &&
-            (identical(other.label, label) || other.label == label) &&
-            (identical(other.pending, pending) || other.pending == pending));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, amount, label, pending);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$$PaymentItemImplCopyWith<_$$PaymentItemImpl> get copyWith =>
-      __$$$PaymentItemImplCopyWithImpl<_$$PaymentItemImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$$PaymentItemImplToJson(
-      this,
-    );
-  }
-}
-
-abstract class _$PaymentItem implements PlatformPayWebPaymentItem {
-  const factory _$PaymentItem(
-      {required final num amount,
-      required final String label,
-      final bool pending}) = _$$PaymentItemImpl;
-
-  factory _$PaymentItem.fromJson(Map<String, dynamic> json) =
-      _$$PaymentItemImpl.fromJson;
-
-  @override
-
-  /// The amount in the currency's subunit (e.g. cents, yen, etc.)
-  num get amount;
-  @override
-
-  /// A name that the browser shows the customer in the payment interface.
-  String get label;
-  @override
-
-  /// If you might change this amount later (for example, after you have calculated shipping costs), set this to true.
-  /// Note that browsers treat this as a hint for how to display things, and not necessarily as something that will
-  /// prevent submission.
-  bool get pending;
-  @override
-  @JsonKey(ignore: true)
-  _$$$PaymentItemImplCopyWith<_$$PaymentItemImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }

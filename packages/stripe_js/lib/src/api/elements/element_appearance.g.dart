@@ -6,8 +6,8 @@ part of 'element_appearance.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ElementAppearanceImpl _$$ElementAppearanceImplFromJson(Map json) =>
-    _$ElementAppearanceImpl(
+_$_ElementAppearance _$$_ElementAppearanceFromJson(Map json) =>
+    _$_ElementAppearance(
       theme: $enumDecodeNullable(_$ElementThemeEnumMap, json['theme']) ??
           ElementTheme.stripe,
       variables: (json['variables'] as Map?)?.map(
@@ -21,8 +21,8 @@ _$ElementAppearanceImpl _$$ElementAppearanceImplFromJson(Map json) =>
           ElementAppearanceLabels.above,
     );
 
-Map<String, dynamic> _$$ElementAppearanceImplToJson(
-    _$ElementAppearanceImpl instance) {
+Map<String, dynamic> _$$_ElementAppearanceToJson(
+    _$_ElementAppearance instance) {
   final val = <String, dynamic>{
     'theme': _$ElementThemeEnumMap[instance.theme]!,
   };

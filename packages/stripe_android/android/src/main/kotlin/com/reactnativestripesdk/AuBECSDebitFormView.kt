@@ -3,7 +3,7 @@ package com.reactnativestripesdk
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.widget.FrameLayout
-import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableMapStripe
 import com.facebook.react.uimanager.ThemedReactContextStripe
 import com.facebook.react.uimanager.UIManagerModuleStripe
 import com.facebook.react.uimanager.events.EventDispatcherStripe
@@ -20,7 +20,7 @@ import com.stripe.android.view.StripeEditText
 class AuBECSDebitFormView(private val context: ThemedReactContextStripe) : FrameLayout(context) {
   private lateinit var becsDebitWidget: BecsDebitWidget
   private var mEventDispatcher: EventDispatcherStripe? = context.getNativeModule(UIManagerModuleStripe::class.java)?.eventDispatcher
-  private var formStyle: ReadableMap? = null
+  private var formStyle: ReadableMapStripe? = null
 
   fun setCompanyName(name: String?) {
     becsDebitWidget = BecsDebitWidget(context = context, companyName = name as String)
@@ -30,7 +30,7 @@ class AuBECSDebitFormView(private val context: ThemedReactContextStripe) : Frame
     setListeners()
   }
 
-  fun setFormStyle(value: ReadableMap?) {
+  fun setFormStyle(value: ReadableMapStripe?) {
     this.formStyle = value
     if (!this::becsDebitWidget.isInitialized || value == null) {
       return

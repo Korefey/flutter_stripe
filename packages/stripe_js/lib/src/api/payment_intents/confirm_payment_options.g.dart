@@ -6,8 +6,8 @@ part of 'confirm_payment_options.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConfirmPaymentOptionsImpl _$$ConfirmPaymentOptionsImplFromJson(Map json) =>
-    _$ConfirmPaymentOptionsImpl(
+_$_ConfirmPaymentOptions _$$_ConfirmPaymentOptionsFromJson(Map json) =>
+    _$_ConfirmPaymentOptions(
       elements: const ElementsConverter().fromJson(json['elements']),
       confirmParams: ConfirmPaymentParams.fromJson(
           Map<String, dynamic>.from(json['confirmParams'] as Map)),
@@ -15,8 +15,8 @@ _$ConfirmPaymentOptionsImpl _$$ConfirmPaymentOptionsImplFromJson(Map json) =>
           _$PaymentConfirmationRedirectEnumMap, json['redirect']),
     );
 
-Map<String, dynamic> _$$ConfirmPaymentOptionsImplToJson(
-    _$ConfirmPaymentOptionsImpl instance) {
+Map<String, dynamic> _$$_ConfirmPaymentOptionsToJson(
+    _$_ConfirmPaymentOptions instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
@@ -37,13 +37,13 @@ const _$PaymentConfirmationRedirectEnumMap = {
   PaymentConfirmationRedirect.ifRequired: 'if_required',
 };
 
-_$ConfirmPaymentParamsImpl _$$ConfirmPaymentParamsImplFromJson(Map json) =>
-    _$ConfirmPaymentParamsImpl(
+_$_ConfirmPaymentParams _$$_ConfirmPaymentParamsFromJson(Map json) =>
+    _$_ConfirmPaymentParams(
       return_url: json['return_url'] as String,
     );
 
-Map<String, dynamic> _$$ConfirmPaymentParamsImplToJson(
-        _$ConfirmPaymentParamsImpl instance) =>
+Map<String, dynamic> _$$_ConfirmPaymentParamsToJson(
+        _$_ConfirmPaymentParams instance) =>
     <String, dynamic>{
       'return_url': instance.return_url,
     };

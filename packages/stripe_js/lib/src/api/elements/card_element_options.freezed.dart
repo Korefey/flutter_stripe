@@ -121,11 +121,11 @@ class _$CardElementOptionsCopyWithImpl<$Res, $Val extends CardElementOptions>
 }
 
 /// @nodoc
-abstract class _$$CardElementOptionsImplCopyWith<$Res>
+abstract class _$$_CardElementOptionsCopyWith<$Res>
     implements $CardElementOptionsCopyWith<$Res> {
-  factory _$$CardElementOptionsImplCopyWith(_$CardElementOptionsImpl value,
-          $Res Function(_$CardElementOptionsImpl) then) =
-      __$$CardElementOptionsImplCopyWithImpl<$Res>;
+  factory _$$_CardElementOptionsCopyWith(_$_CardElementOptions value,
+          $Res Function(_$_CardElementOptions) then) =
+      __$$_CardElementOptionsCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -142,11 +142,11 @@ abstract class _$$CardElementOptionsImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CardElementOptionsImplCopyWithImpl<$Res>
-    extends _$CardElementOptionsCopyWithImpl<$Res, _$CardElementOptionsImpl>
-    implements _$$CardElementOptionsImplCopyWith<$Res> {
-  __$$CardElementOptionsImplCopyWithImpl(_$CardElementOptionsImpl _value,
-      $Res Function(_$CardElementOptionsImpl) _then)
+class __$$_CardElementOptionsCopyWithImpl<$Res>
+    extends _$CardElementOptionsCopyWithImpl<$Res, _$_CardElementOptions>
+    implements _$$_CardElementOptionsCopyWith<$Res> {
+  __$$_CardElementOptionsCopyWithImpl(
+      _$_CardElementOptions _value, $Res Function(_$_CardElementOptions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -160,7 +160,7 @@ class __$$CardElementOptionsImplCopyWithImpl<$Res>
     Object? hideIcon = freezed,
     Object? disabled = freezed,
   }) {
-    return _then(_$CardElementOptionsImpl(
+    return _then(_$_CardElementOptions(
       classes: freezed == classes
           ? _value.classes
           : classes // ignore: cast_nullable_to_non_nullable
@@ -195,8 +195,8 @@ class __$$CardElementOptionsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CardElementOptionsImpl implements _CardElementOptions {
-  const _$CardElementOptionsImpl(
+class _$_CardElementOptions implements _CardElementOptions {
+  const _$_CardElementOptions(
       {this.classes,
       this.style,
       this.value,
@@ -205,8 +205,8 @@ class _$CardElementOptionsImpl implements _CardElementOptions {
       this.hideIcon,
       this.disabled});
 
-  factory _$CardElementOptionsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CardElementOptionsImplFromJson(json);
+  factory _$_CardElementOptions.fromJson(Map<String, dynamic> json) =>
+      _$$_CardElementOptionsFromJson(json);
 
   /// Set custom class names on the container DOM element when the
   /// Stripe element is in a particular state.
@@ -234,7 +234,7 @@ class _$CardElementOptionsImpl implements _CardElementOptions {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CardElementOptionsImpl &&
+            other is _$_CardElementOptions &&
             (identical(other.classes, classes) || other.classes == classes) &&
             const DeepCollectionEquality().equals(other.style, style) &&
             (identical(other.value, value) || other.value == value) &&
@@ -263,13 +263,13 @@ class _$CardElementOptionsImpl implements _CardElementOptions {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardElementOptionsImplCopyWith<_$CardElementOptionsImpl> get copyWith =>
-      __$$CardElementOptionsImplCopyWithImpl<_$CardElementOptionsImpl>(
+  _$$_CardElementOptionsCopyWith<_$_CardElementOptions> get copyWith =>
+      __$$_CardElementOptionsCopyWithImpl<_$_CardElementOptions>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CardElementOptionsImplToJson(
+    return _$$_CardElementOptionsToJson(
       this,
     );
   }
@@ -283,10 +283,10 @@ abstract class _CardElementOptions implements CardElementOptions {
       final bool? hidePostalCode,
       final CardElementIconStyle? iconStyle,
       final bool? hideIcon,
-      final bool? disabled}) = _$CardElementOptionsImpl;
+      final bool? disabled}) = _$_CardElementOptions;
 
   factory _CardElementOptions.fromJson(Map<String, dynamic> json) =
-      _$CardElementOptionsImpl.fromJson;
+      _$_CardElementOptions.fromJson;
 
   @override
 
@@ -307,7 +307,7 @@ abstract class _CardElementOptions implements CardElementOptions {
   bool? get disabled;
   @override
   @JsonKey(ignore: true)
-  _$$CardElementOptionsImplCopyWith<_$CardElementOptionsImpl> get copyWith =>
+  _$$_CardElementOptionsCopyWith<_$_CardElementOptions> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -412,11 +412,11 @@ class _$CardElementClassesCopyWithImpl<$Res, $Val extends CardElementClasses>
 }
 
 /// @nodoc
-abstract class _$$CardElementClassesImplCopyWith<$Res>
+abstract class _$$_CardElementClassesCopyWith<$Res>
     implements $CardElementClassesCopyWith<$Res> {
-  factory _$$CardElementClassesImplCopyWith(_$CardElementClassesImpl value,
-          $Res Function(_$CardElementClassesImpl) then) =
-      __$$CardElementClassesImplCopyWithImpl<$Res>;
+  factory _$$_CardElementClassesCopyWith(_$_CardElementClasses value,
+          $Res Function(_$_CardElementClasses) then) =
+      __$$_CardElementClassesCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -429,11 +429,11 @@ abstract class _$$CardElementClassesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$CardElementClassesImplCopyWithImpl<$Res>
-    extends _$CardElementClassesCopyWithImpl<$Res, _$CardElementClassesImpl>
-    implements _$$CardElementClassesImplCopyWith<$Res> {
-  __$$CardElementClassesImplCopyWithImpl(_$CardElementClassesImpl _value,
-      $Res Function(_$CardElementClassesImpl) _then)
+class __$$_CardElementClassesCopyWithImpl<$Res>
+    extends _$CardElementClassesCopyWithImpl<$Res, _$_CardElementClasses>
+    implements _$$_CardElementClassesCopyWith<$Res> {
+  __$$_CardElementClassesCopyWithImpl(
+      _$_CardElementClasses _value, $Res Function(_$_CardElementClasses) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -446,7 +446,7 @@ class __$$CardElementClassesImplCopyWithImpl<$Res>
     Object? invalid = freezed,
     Object? webkitAutofill = freezed,
   }) {
-    return _then(_$CardElementClassesImpl(
+    return _then(_$_CardElementClasses(
       base: freezed == base
           ? _value.base
           : base // ignore: cast_nullable_to_non_nullable
@@ -477,8 +477,8 @@ class __$$CardElementClassesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CardElementClassesImpl implements _CardElementClasses {
-  const _$CardElementClassesImpl(
+class _$_CardElementClasses implements _CardElementClasses {
+  const _$_CardElementClasses(
       {this.base,
       this.complete,
       this.empty,
@@ -486,8 +486,8 @@ class _$CardElementClassesImpl implements _CardElementClasses {
       this.invalid,
       this.webkitAutofill});
 
-  factory _$CardElementClassesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$CardElementClassesImplFromJson(json);
+  factory _$_CardElementClasses.fromJson(Map<String, dynamic> json) =>
+      _$$_CardElementClassesFromJson(json);
 
   /// The base class applied to the container. Defaults to StripeElement.
   @override
@@ -528,7 +528,7 @@ class _$CardElementClassesImpl implements _CardElementClasses {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CardElementClassesImpl &&
+            other is _$_CardElementClasses &&
             (identical(other.base, base) || other.base == base) &&
             (identical(other.complete, complete) ||
                 other.complete == complete) &&
@@ -547,13 +547,13 @@ class _$CardElementClassesImpl implements _CardElementClasses {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CardElementClassesImplCopyWith<_$CardElementClassesImpl> get copyWith =>
-      __$$CardElementClassesImplCopyWithImpl<_$CardElementClassesImpl>(
+  _$$_CardElementClassesCopyWith<_$_CardElementClasses> get copyWith =>
+      __$$_CardElementClassesCopyWithImpl<_$_CardElementClasses>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CardElementClassesImplToJson(
+    return _$$_CardElementClassesToJson(
       this,
     );
   }
@@ -566,10 +566,10 @@ abstract class _CardElementClasses implements CardElementClasses {
       final String? empty,
       final String? focus,
       final String? invalid,
-      final bool? webkitAutofill}) = _$CardElementClassesImpl;
+      final bool? webkitAutofill}) = _$_CardElementClasses;
 
   factory _CardElementClasses.fromJson(Map<String, dynamic> json) =
-      _$CardElementClassesImpl.fromJson;
+      _$_CardElementClasses.fromJson;
 
   @override
 
@@ -603,6 +603,6 @@ abstract class _CardElementClasses implements CardElementClasses {
   bool? get webkitAutofill;
   @override
   @JsonKey(ignore: true)
-  _$$CardElementClassesImplCopyWith<_$CardElementClassesImpl> get copyWith =>
+  _$$_CardElementClassesCopyWith<_$_CardElementClasses> get copyWith =>
       throw _privateConstructorUsedError;
 }

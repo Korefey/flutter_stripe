@@ -1,5 +1,5 @@
-import 'dart:developer' as dev;
 import 'dart:developer';
+import 'dart:developer' as dev;
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
@@ -30,13 +30,12 @@ class CardFormField extends StatefulWidget {
     this.dangerouslyUpdateFullCardDetails = false,
     this.disabled = false,
     this.controller,
-    this.preferredNetworks,
   }) : super(key: key);
 
-  /// Callback that will be executed when a specific field gets focus.
+  /// CallbackStripe that will be executed when a specific field gets focus.
   final CardFocusCallback? onFocus;
 
-  /// Callback that will be executed when the card information changes.
+  /// CallbackStripe that will be executed when the card information changes.
   final CardChangedCallback? onCardChanged;
 
   /// Styling parameters of the card form field
@@ -86,10 +85,6 @@ class CardFormField extends StatefulWidget {
   /// the card form field.
   /// Default is `false`.
   final bool disabled;
-
-  /// The list of preferred networks that should be used to process payments made with a co-branded card.
-  /// This value will only be used if your user hasn't selected a network themselves.
-  final List<CardBrand>? preferredNetworks;
 
   @override
   // ignore: library_private_types_in_public_api
@@ -201,7 +196,6 @@ class _CardFormFieldState extends State<CardFormField> {
       disabled: widget.disabled,
       onFocus: widget.onFocus,
       countryCode: widget.countryCode,
-      preferredNetworks: widget.preferredNetworks,
     );
   }
 
@@ -226,7 +220,6 @@ class _MethodChannelCardFormField extends StatefulWidget {
     this.dangerouslyUpdateFullCardDetails = false,
     this.autofocus = false,
     this.disabled = false,
-    this.preferredNetworks,
     this.countryCode,
   })  : assert(constraints == null || constraints.debugAssertIsValid()),
         constraints = (width != null || height != null)
@@ -247,7 +240,6 @@ class _MethodChannelCardFormField extends StatefulWidget {
   final bool dangerouslyGetFullCardDetails;
   final bool dangerouslyUpdateFullCardDetails;
   final String? countryCode;
-  final List<CardBrand>? preferredNetworks;
 
   // This is used in the platform side to register the view.
   static const _viewType = 'flutter.stripe/card_form_field';
@@ -316,9 +308,6 @@ class _MethodChannelCardFormFieldState
           controller._initalDetails != null)
         'cardDetails': controller._initalDetails?.toJson(),
       'autofocus': widget.autofocus,
-      if (widget.preferredNetworks != null)
-        'preferredNetworks':
-            widget.preferredNetworks?.map((e) => e.brandValue).toList(),
       'disabled': widget.disabled,
       'defaultValues': {
         'countryCode': widget.countryCode,

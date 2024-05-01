@@ -6,8 +6,8 @@ part of 'create_token_card_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$CreateTokenCardDataImpl _$$CreateTokenCardDataImplFromJson(Map json) =>
-    _$CreateTokenCardDataImpl(
+_$_CreateTokenCardData _$$_CreateTokenCardDataFromJson(Map json) =>
+    _$_CreateTokenCardData(
       name: json['name'] as String?,
       addressLine1: json['address_line1'] as String?,
       addressLine2: json['address_line2'] as String?,
@@ -18,8 +18,8 @@ _$CreateTokenCardDataImpl _$$CreateTokenCardDataImplFromJson(Map json) =>
       currency: json['currency'] as String?,
     );
 
-Map<String, dynamic> _$$CreateTokenCardDataImplToJson(
-    _$CreateTokenCardDataImpl instance) {
+Map<String, dynamic> _$$_CreateTokenCardDataToJson(
+    _$_CreateTokenCardData instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

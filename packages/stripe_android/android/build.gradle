@@ -33,14 +33,13 @@ android {
 
     compileOptions {
         coreLibraryDesugaringEnabled true
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     kotlinOptions {
-        jvmTarget = '1.7'
+        jvmTarget = '1.8'
     }
-    print('****** '+compileOptions + '   ' + kotlinOptions)
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
@@ -64,7 +63,7 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0'
 
     // play-services-wallet is already included in stripe-android
-    compileOnly "com.google.android.gms:play-services-wallet:19.3.0"
+    compileOnly "com.google.android.gms:play-services-wallet:19.2.0"
 
     // Users need to declare this dependency on their own, otherwise all methods are a no-op
     compileOnly 'com.stripe:stripe-android-issuing-push-provisioning:1.2.2'

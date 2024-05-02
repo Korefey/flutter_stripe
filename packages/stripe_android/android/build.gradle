@@ -52,7 +52,7 @@ android {
 }
 
 dependencies {
-    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.1'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.3'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.7.0"
     implementation "com.stripe:stripe-android:20.41.1"
